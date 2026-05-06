@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="orders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="order">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="collectionId" />
+              <xs:element name="orderNumber" />
+              <xs:element name="trackingNumber" />
+              <xs:element name="canceledOrderNumber" />
+              <xs:element name="customerOrderReference" />
+              <xs:element name="orderTypeCode" />
+              <xs:element name="signed" />
+              <xs:element name="timestamp" />
+              <xs:element name="salesPerson" />
+              <xs:element name="customerNo" />
+              <xs:element name="customerPriceGroup" />
+              <xs:element name="comment" />
+              <xs:element name="contact">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="code" />
+                    <xs:element name="firstName" />
+                    <xs:element name="lastName" />
+                    <xs:element name="role" />
+                    <xs:element name="phone" />
+                    <xs:element name="email" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="earliestDeliveryDate" />
+              <xs:element name="latestDeliveryDate" />
+              <xs:element name="numberOfBoxes" />
+              <xs:element name="shipToCode" />
+              <xs:element name="shipToDetails">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" />
+                    <xs:element name="address" />
+                    <xs:element name="street" />
+                    <xs:element name="houseNumber" />
+                    <xs:element name="houseNumberSuffix" />
+                    <xs:element name="postalCode" />
+                    <xs:element name="city" />
+                    <xs:element name="country" />
+                    <xs:element name="contactLastName" />
+                    <xs:element name="contactFirstName" />
+                    <xs:element name="email" />
+                    <xs:element name="telephone" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="altShippingLocation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" />
+                    <xs:element name="address" />
+                    <xs:element name="street" />
+                    <xs:element name="houseNumber" />
+                    <xs:element name="houseNumberSuffix" />
+                    <xs:element name="postalCode" />
+                    <xs:element name="city" />
+                    <xs:element name="country" />
+                    <xs:element name="contact" />
+                    <xs:element name="email" />
+                    <xs:element name="telephone" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="consumerLocation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="lastName" />
+                    <xs:element name="firstName" />
+                    <xs:element name="street" />
+                    <xs:element name="houseNumber" />
+                    <xs:element name="houseNumberSuffix" />
+                    <xs:element name="postalCode" />
+                    <xs:element name="city" />
+                    <xs:element name="country" />
+                    <xs:element name="telephone" />
+                    <xs:element name="email" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="customChoices">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="customChoice">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="group" />
+                          <xs:element name="code" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="orderLines">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="orderLine">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="type" />
+                          <xs:element name="productUniqueId" />
+                          <xs:element name="productColorCode" />
+                          <xs:element name="productSize" />
+                          <xs:element name="productSubSize" />
+                          <xs:element name="sizeCustomField" />
+                          <xs:element name="productSeason" />
+                          <xs:element name="productUserDefinedField1" />
+                          <xs:element name="productUserDefinedField2" />
+                          <xs:element name="deliverySubBlock" />
+                          <xs:element name="eanCode" />
+                          <xs:element name="quantity" />
+                          <xs:element name="price" />
+                          <xs:element name="margin" />
+                          <xs:element name="marginGroupCode" />
+                          <xs:element name="marginFromMarginGroup" />
+                          <xs:element name="discountPercentage" />
+                          <xs:element name="discountGroupCode" />
+                          <xs:element name="discountFromDiscountGroup" />
+                          <xs:element name="discountGroupIdentifier" />
+                          <xs:element name="netWholesalePrice" />
+                          <xs:element name="grossWholesalePrice" />
+                          <xs:element name="totalAmount" />
+                          <xs:element name="shipmentDate" type="xs:string" />
+                          <xs:element name="remark" />
+                          <xs:element name="deliveryDate" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

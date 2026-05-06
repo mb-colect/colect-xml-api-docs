@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="orders">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="order">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="orderNumber" />
+              <xs:element name="erpOrderReference" />
+              <xs:element name="customerOrderReference" />
+              <xs:element name="internalOrderType" />
+              <xs:element name="collection" />
+              <xs:element name="season" />
+              <xs:element name="timestamp" />
+              <xs:element name="salesPerson" />
+              <xs:element name="customerNo" />
+              <xs:element name="customerPriceGroup" />
+              <xs:element name="comment" />
+              <xs:element name="shippingLocation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" />
+                    <xs:element name="address" />
+                    <xs:element name="postalCode" />
+                    <xs:element name="city" />
+                    <xs:element name="country" />
+                    <xs:element name="contact" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="orderLines">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="orderLine">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="status" />
+                          <xs:element name="type" />
+                          <xs:element name="productDescription" />
+                          <xs:element name="productUniqueId" />
+                          <xs:element name="productColorCode" />
+                          <xs:element name="productCatergory" />
+                          <xs:element name="productGroup" />
+                          <xs:element name="productGender" />
+                          <xs:element name="productCustomField1" />
+                          <xs:element name="productCustomField2" />
+                          <xs:element name="productCustomField3" />
+                          <xs:element name="productSize" />
+                          <xs:element name="productSizeSortCode" />
+                          <xs:element name="productSubSize" />
+                          <xs:element name="productSubSizeSortCode" />
+                          <xs:element name="deliverySubblock" />
+                          <xs:element name="eanCode" />
+                          <xs:element name="quantity" />
+                          <xs:element name="currency" />
+                          <xs:element name="netWholesalePrice" />
+                          <xs:element name="grossWholesalePrice" />
+                          <xs:element name="netLineAmount" />
+                          <xs:element name="grossLineAmount" />
+                          <xs:element name="remark" />
+                          <xs:element name="shipmentDate" />
+                          <xs:element name="packingSlipNumber" />
+                          <xs:element name="quantityDelivered" />
+                          <xs:element name="trackTraceUrl" />
+                          <xs:element name="returnReason" />
+                          <xs:element name="returnAllowed" />
+                          <xs:element name="files">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="remoteFile">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="name" />
+                                      <xs:element name="size" />
+                                      <xs:element name="type" />
+                                      <xs:element name="url" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="customers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="customerNo" />
+              <xs:element name="name" />
+              <xs:element name="email" />
+              <xs:element name="password" />
+              <xs:element name="searchName" />
+              <xs:element name="address" />
+              <xs:element name="street" />
+              <xs:element name="houseNumber" />
+              <xs:element name="houseNumberSuffix" />
+              <xs:element name="postalCode" />
+              <xs:element name="primaryUserEmailAddresses" />
+              <xs:element name="city" />
+              <xs:element name="country" />
+              <xs:element name="phone" />
+              <xs:element name="language" />
+              <xs:element name="channel" />
+              <xs:element name="userDefinedField" />
+              <xs:element name="activePriceGroup" />
+              <xs:element name="nextPriceGroup" />
+              <xs:element name="nextPriceGroupDate" />
+              <xs:element name="currencyCode" />
+              <xs:element name="contacts">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="contact">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="code" />
+                          <xs:element name="firstName" />
+                          <xs:element name="lastName" />
+                          <xs:element name="role" />
+                          <xs:element name="phone" />
+                          <xs:element name="email" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="marginGroups">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="marginGroup">
+                      <xs:complexType>
+                        <xs:attribute name="amount" type="xs:decimal" use="required" />
+                        <xs:attribute name="code" type="xs:string" use="required" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="discountGroups">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="discountGroup">
+                      <xs:complexType>
+                        <xs:attribute name="amount" type="xs:decimal" use="required" />
+                        <xs:attribute name="code" type="xs:string" use="required" />
+                        <xs:attribute name="identifier" type="xs:string" use="required" />
+                        <xs:attribute name="minQuantity" type="xs:unsignedByte" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="status" />
+              <xs:element name="statusMessage" />
+              <xs:element name="minOrderValue" />
+              <xs:element name="maxOrderValue" />
+              <xs:element name="orderFooter" />
+              <xs:element name="shippingTime" />
+              <xs:element name="shippingLocations">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="shippingLocation">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="code" />
+                          <xs:element name="name" />
+                          <xs:element name="address" />
+                          <xs:element name="street" />
+                          <xs:element name="houseNumber" />
+                          <xs:element name="houseNumberSuffix" />
+                          <xs:element name="postalCode" />
+                          <xs:element name="city" />
+                          <xs:element name="country" />
+                          <xs:element name="email" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="budgetComponents">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="budgetComponent">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="key" />
+                          <xs:element name="amount" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="customChoices">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="customChoice">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="group" />
+                          <xs:element name="code" />
+                          <xs:element name="value" />
+                          <xs:element name="sortCode" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="approvalGroups">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="approvalGroup">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="approvalGroupCode" />
+                          <xs:element name="approverTeamCode" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="agreements">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="agreement">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="code" />
+                          <xs:element name="description" />
+                          <xs:element name="channel" />
+                          <xs:element name="activePriceGroup" />
+                          <xs:element name="nextPriceGroup" />
+                          <xs:element name="nextPriceGroupDate" />
+                          <xs:element name="currencyCode" />
+                          <xs:element name="marginGroups">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="marginGroup">
+                                  <xs:complexType>
+                                    <xs:attribute name="amount" type="xs:decimal" use="required" />
+                                    <xs:attribute name="code" type="xs:string" use="required" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="discountGroups">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="discountGroup">
+                                  <xs:complexType>
+                                    <xs:attribute name="amount" type="xs:decimal" use="required" />
+                                    <xs:attribute name="code" type="xs:string" use="required" />
+                                    <xs:attribute name="identifier" type="xs:string" use="required" />
+                                    <xs:attribute name="minQuantity" type="xs:unsignedByte" use="optional" />
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="orderFooter" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="orderDiscountRules">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="orderDiscountRule">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="identification" />
+                          <xs:element name="description" />
+                          <xs:element name="warning" />
+                          <xs:element name="group" />
+                          <xs:element name="exclusive" />
+                          <xs:element name="minimumQuantity" />
+                          <xs:element name="minimumOrderAmount" />
+                          <xs:element name="startDate" type="xs:string" />
+                          <xs:element name="endDate" type="xs:string" />
+                          <xs:element name="evaluationMethod" />
+                          <xs:element name="amount" />
+                          <xs:element name="discountPercentage" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="orderDeliveryCostRules">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="orderDeliveryCostRule">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="identification" />
+                          <xs:element name="description" />
+                          <xs:element name="warning" />
+                          <xs:element name="group" />
+                          <xs:element name="exclusive" />
+                          <xs:element name="minimumQuantity" />
+                          <xs:element name="minimumOrderAmount" />
+                          <xs:element name="startDate" type="xs:string" />
+                          <xs:element name="endDate" type="xs:string" />
+                          <xs:element name="evaluationMethod" />
+                          <xs:element name="amount" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sizeNamingCode" />
+              <xs:element name="sizeAccessCodes" />
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="sizeAccessCode" type="xs:string" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

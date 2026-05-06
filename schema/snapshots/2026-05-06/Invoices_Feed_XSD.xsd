@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="invoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="invoice">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="invoiceNumber" />
+              <xs:element name="status" />
+              <xs:element name="customerNo" />
+              <xs:element name="date" />
+              <xs:element name="dueDate" />
+              <xs:element name="currency" />
+              <xs:element name="amountExcludingTax" />
+              <xs:element name="taxAmount" />
+              <xs:element name="outstandingAmount" />
+              <xs:element name="externalUrl" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,414 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+    <xs:element name="products">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="uniqueId" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="64" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="colorCode" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="64" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="colorDesc" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="128" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="simpleColor" minOccurs="0">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="BLACK" />
+                                        <xs:enumeration value="BLUE" />
+                                        <xs:enumeration value="BROWN" />
+                                        <xs:enumeration value="GRAY" />
+                                        <xs:enumeration value="GREEN" />
+                                        <xs:enumeration value="ORANGE" />
+                                        <xs:enumeration value="PINK" />
+                                        <xs:enumeration value="PURPLE" />
+                                        <xs:enumeration value="RED" />
+                                        <xs:enumeration value="UNKOWN" />
+                                        <xs:enumeration value="WHITE" />
+                                        <xs:enumeration value="BEIGE" />
+                                        <xs:enumeration value="SILVER" />
+                                        <xs:enumeration value="GOLD" />
+                                        <xs:enumeration value="MULTICOLOR" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="styleAttributes" minOccurs="0" />
+                            <xs:element name="approvalGroupDesc" minOccurs="0" />
+                            <xs:element name="approvalGroupCode" minOccurs="0" />
+                            <xs:element name="status" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="ACTIVE" />
+                                        <xs:enumeration value="CANCELED" />
+                                        <xs:enumeration value="SOLDOUT" />
+                                        <xs:enumeration value="INVISIBLE" />
+                                        <xs:enumeration value="BLOCKED" />
+                                        <xs:enumeration value="BLOCKED_1" />
+                                        <xs:enumeration value="BLOCKED_2" />
+                                        <xs:enumeration value="BLOCKED_3" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="name" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="128" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="description" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="512" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="summary" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="2048" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="sortCode" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="128" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="brandName" />
+                            <xs:element name="brandId" />
+                            <xs:element name="material" />
+                            <xs:element name="seasonCode" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="64" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="seasonDesc" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="128" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="categoryCode" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="64" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="categoryDesc" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="128" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="collectionCode" />
+                            <xs:element name="collectionDesc" />
+                            <xs:element name="minimalOrderQuantity" />
+                            <xs:element name="deliveryStartDate" />
+                            <xs:element name="deliveryEndDate" />
+                            <xs:element name="earliestDeliveryDateForStarters" />
+                            <xs:element name="firstReceiptDate" />
+                            <xs:element name="productGroupCode" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="2048" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="productGroupDesc" minOccurs="1">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:minLength value="1" />
+                                        <xs:maxLength value="128" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="marginGroupCode" />
+                            <xs:element name="discountGroupCode" />
+                            <xs:element name="sale" />
+                            <xs:element name="saleBackgroundColor" />
+                            <xs:element name="labels" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="label" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="text" />
+                                                    <xs:element name="backgroundColor" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="noos" />
+                            <xs:element name="crossReference" />
+                            <xs:element name="fit" />
+                            <xs:element name="gender" />
+                            <xs:element name="userDefinedField1" />
+                            <xs:element name="userDefinedField2" />
+                            <xs:element name="startDate" />
+                            <xs:element name="endDate" />
+                            <xs:element name="prices">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="price" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="currencyCode" minOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1" />
+                                                                <xs:maxLength value="16" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="customerNo" minOccurs="0" />
+                                                    <xs:element name="priceGroup" minOccurs="0" />
+                                                    <xs:element name="retailPrice" minOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1" />
+                                                                <xs:maxLength value="16" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="wholesalePrice" minOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:double" />
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="purchasePrice" minOccurs="0" />
+                                                    <xs:element name="originalWholesalePrice" minOccurs="0" />
+                                                    <xs:element name="net" minOccurs="0" />
+                                                    <xs:element name="startDate" minOccurs="0" />
+                                                    <xs:element name="endDate" minOccurs="0" />
+                                                    <xs:element name="sizeName" minOccurs="0" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="sizes">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="size" minOccurs="1" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="name" />
+                                                    <xs:element name="sortCode" />
+                                                    <xs:element name="subSizeName" minOccurs="0" />
+                                                    <xs:element name="subSizeSortCode" minOccurs="0" />
+                                                    <xs:element name="accessCode" minOccurs="0" />
+                                                    <xs:element name="prePackUnitCount" minOccurs="0" />
+                                                    <xs:element name="stockLevels">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="stockLevel" minOccurs="1" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="startDate" />
+                                                                            <xs:element name="quantity" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="customerSizeNamings">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="customerSizeNaming">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="code" />
+                                                                            <xs:element name="sizeName" />
+                                                                            <xs:element name="subSizeName" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="eanCode" />
+                                                    <xs:element name="replenishmentDate" minOccurs="0" />
+                                                    <xs:element name="prepackDefinition" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="prepackContentElement" minOccurs="0" maxOccurs="unbounded">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="count" />
+                                                                            <xs:element name="sizeName" />
+                                                                            <xs:element name="sizeSortCode" />
+                                                                            <xs:element name="subSizeName" />
+                                                                            <xs:element name="subSizeSortCode" />
+                                                                            <xs:element name="eanCode" />
+                                                                            <xs:element name="customField" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="media" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="medium">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="type" />
+                                                    <xs:element name="url" />
+                                                    <xs:element name="thumbUrl" />
+                                                    <xs:element name="sortCode" />
+                                                </xs:sequence>
+                                                <xs:attribute name="format" type="xs:string" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="deliveryWindow" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="code" type="xs:string"/>
+                                        <xs:element name="description" type="xs:string"/>
+                                        <xs:element name="startDate" type="xs:date" minOccurs="0"/>
+                                        <xs:element name="endDate" type="xs:date" minOccurs="0"/>
+                                        <xs:element name="sortCode" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="translation" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="language" type="xs:string" minOccurs="0"/>
+                                                    <xs:element name="fields" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="description" type="xs:string" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="extraField" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="name" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="description" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="group" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="value" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="imageUrl" type="xs:string" minOccurs="0"/>
+                                        <xs:element name="important" type="xs:boolean"/>
+                                        <xs:element name="visible" type="xs:boolean" minOccurs="0"/>
+                                        <xs:element name="translation" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="language" type="xs:string" minOccurs="0"/>
+                                                    <xs:element name="fields" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="description" type="xs:string" minOccurs="0"/>
+                                                                <xs:element name="value" type="xs:string" minOccurs="0"/>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <!-- Add the translation element structure here -->
+                <xs:element name="translation" minOccurs="0" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="language" type="xs:string" minOccurs="0" />
+                            <xs:element name="fields" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="translation" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="language" type="xs:string" minOccurs="0" />
+                                                    <xs:element name="fields" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="brandName" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="categoryDesc" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="collectionDesc" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="colorDesc" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="description" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="fit" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="gender" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="material" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="name" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="productGroupDesc" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="sale" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="searchText" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="seasonDesc" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="summary" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="userDefinedField1" type="xs:string" minOccurs="0" />
+                                                                <xs:element name="userDefinedField2" type="xs:string" minOccurs="0" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

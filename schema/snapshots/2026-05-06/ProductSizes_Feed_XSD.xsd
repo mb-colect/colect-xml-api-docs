@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="products">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="product">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="uniqueId" />
+              <xs:element name="colorCode" />
+              <xs:element name="sizes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="size">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="name" />
+                          <xs:element name="sortCode" />
+                          <xs:element name="subSizeName" />
+                          <xs:element name="subSizeSortCode" />
+                          <xs:element name="prePackUnitCount" />
+                          <xs:element name="customField" />
+                          <xs:element name="stockLevels">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="stockLevel">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="startDate" />
+                                      <xs:element name="quantity" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                          <xs:element name="customerSizeNamings">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="customerSizeNaming">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="code" />
+                                      <xs:element name="sizeName" />
+                                      <xs:element name="subSizeName" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element name="eanCode" />
+                          <xs:element name="replenishmentDate" />
+                          <xs:element name="prepackDefinition">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element name="prepackContentElement">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="count" />
+                                      <xs:element name="sizeName" />
+                                      <xs:element name="sizeSortCode" />
+                                      <xs:element name="subSizeName" />
+                                      <xs:element name="subSizeSortCode" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
