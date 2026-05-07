@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Product Relations input document — Matching Set example.
+  One outfit grouping (GROUP-002) with one source product and three matching items.
+  All in matching color STB.
+
+  Source: 0102810/STB (e.g. blazer)
+  Targets: 0521510/STB (trousers), 0521513/STB (skirt), 0621630/STB (top)
+
+  Validates against schema/snapshots/2026-05-06/ProductRelations_Feed_XSD.xsd
+-->
+<productRelations>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0102810</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0521510</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0102810</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0521513</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0102810</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0621630</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <!-- Bidirectional: also surface the set when looking at any of the targets -->
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0521510</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0102810</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0521513</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0102810</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0621630</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0102810</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+</productRelations>

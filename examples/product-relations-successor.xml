@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Product Relations input document — Successor example.
+  Three FW24 styles being replaced by their SS25 equivalents.
+
+  Validates against schema/snapshots/2026-05-06/ProductRelations_Feed_XSD.xsd
+-->
+<productRelations>
+
+  <productRelation>
+    <type>SUCCESSOR</type>
+    <sourceProductUniqueId>STYLE-FW24-001</sourceProductUniqueId>
+    <sourceProductColorCode>BLK</sourceProductColorCode>
+    <targetProductUniqueId>STYLE-SS25-001</targetProductUniqueId>
+    <targetProductColorCode>BLK</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>SUCCESSOR</type>
+    <sourceProductUniqueId>STYLE-FW24-001</sourceProductUniqueId>
+    <sourceProductColorCode>WHT</sourceProductColorCode>
+    <targetProductUniqueId>STYLE-SS25-001</targetProductUniqueId>
+    <targetProductColorCode>WHT</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>SUCCESSOR</type>
+    <sourceProductUniqueId>STYLE-FW24-002</sourceProductUniqueId>
+    <sourceProductColorCode>NVY</sourceProductColorCode>
+    <targetProductUniqueId>STYLE-SS25-002</targetProductUniqueId>
+    <targetProductColorCode>NVY</targetProductColorCode>
+  </productRelation>
+
+</productRelations>

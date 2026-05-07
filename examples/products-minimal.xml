@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Products input document — minimal example.
+  Shows only the mandatory fields needed for ingestion.
+  Useful as a smoke test to validate SFTP connectivity and parsing.
+-->
+<products>
+  <product>
+    <uniqueId>SMOKETEST-001</uniqueId>
+    <colorCode>BLK</colorCode>
+
+    <prices>
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <wholesalePrice>1.00</wholesalePrice>
+      </price>
+    </prices>
+
+    <sizes>
+      <size>
+        <name>ONE</name>
+        <sortCode>1</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>1</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+    </sizes>
+  </product>
+</products>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Customers input document — comprehensive example.
+  Shows two B2B customers with contacts, discount/margin groups, shipping locations,
+  budgets, custom choices, agreements, order rules, and size access codes.
+  Validates against schema/snapshots/2026-05-06/Customer_Feed_XSD.xsd
+-->
+<customers>
+
+  <!-- ============================================================
+       Customer 1: Acme Wholesale (NL) — full feature set
+       ============================================================ -->
+  <customer>
+    <customerNo>C-00001</customerNo>
+    <name>Acme Wholesale BV</name>
+    <searchName>Acme</searchName>
+    <email>orders@acme.example</email>
+    <street>Voorstraat</street>
+    <houseNumber>12</houseNumber>
+    <postalCode>1011AA</postalCode>
+    <city>Amsterdam</city>
+    <country>NL</country>
+    <gln>8712345000018</gln>
+    <phone>+31 20 123 4567</phone>
+    <language>NL</language>
+    <channel>Wholesale</channel>
+    <currencyCode>EUR</currencyCode>
+    <activePriceGroup>WHOLESALE_EU</activePriceGroup>
+    <status>ACTIVE</status>
+    <orderFooter>Thank you for your order. Payment terms: 30 days net.</orderFooter>
+    <shippingTime>3-5 business days</shippingTime>
+
+    <contacts>
+      <contact>
+        <code>JD-001</code>
+        <firstName>Jane</firstName>
+        <lastName>Doe</lastName>
+        <role>Buyer</role>
+        <phone>+31 20 123 4568</phone>
+        <accessType>FULL</accessType>
+        <email>jane@acme.example</email>
+      </contact>
+      <contact>
+        <code>RB-001</code>
+        <firstName>Robin</firstName>
+        <lastName>Bakker</lastName>
+        <role>Manager</role>
+        <accessType>FULL</accessType>
+        <email>robin@acme.example</email>
+      </contact>
+    </contacts>
+
+    <discountGroups>
+      <discountGroup amount="5"    code="*"    identifier="all"/>
+      <discountGroup amount="10"   code="VOL"  minQuantity="10" identifier="vol.10"/>
+      <discountGroup amount="12.5" code="VOL"  minQuantity="25" identifier="vol.25"/>
+      <discountGroup amount="15"   code="VOL"  minQuantity="50" identifier="vol.50"/>
+      <discountGroup amount="8"    code="LOY"  identifier="loyalty"/>
+    </discountGroups>
+
+    <marginGroups>
+      <marginGroup amount="2.1" code="*"/>
+      <marginGroup amount="2.3" code="MG1"/>
+      <marginGroup amount="2.5" code="MG2"/>
+    </marginGroups>
+
+    <shippingLocations>
+      <shippingLocation>
+        <code>WAREHOUSE</code>
+        <name>Acme Distribution Centre</name>
+        <street>Industrieweg</street>
+        <houseNumber>40</houseNumber>
+        <postalCode>1043BB</postalCode>
+        <city>Amsterdam</city>
+        <country>NL</country>
+        <gln>8712345000025</gln>
+        <email>warehouse@acme.example</email>
+      </shippingLocation>
+      <shippingLocation>
+        <code>FLAGSHIP</code>
+        <name>Acme Flagship Store</name>
+        <street>Kalverstraat</street>
+        <houseNumber>100</houseNumber>
+        <postalCode>1012PE</postalCode>
+        <city>Amsterdam</city>
+        <country>NL</country>
+        <gln>8712345000032</gln>
+      </shippingLocation>
+    </shippingLocations>
+
+    <budgetComponents>
+      <budgetComponent>
+        <key>SS25_TOPS</key>
+        <amount>15000</amount>
+      </budgetComponent>
+      <budgetComponent>
+        <key>SS25_BOTTOMS</key>
+        <amount>10000</amount>
+      </budgetComponent>
+    </budgetComponents>
+
+    <customChoices>
+      <customChoice>
+        <group>delivery</group>
+        <code>EXPRESS</code>
+        <value>Express delivery (24h)</value>
+        <sortCode>1</sortCode>
+      </customChoice>
+      <customChoice>
+        <group>delivery</group>
+        <code>STANDARD</code>
+        <value>Standard delivery (3-5 days)</value>
+        <sortCode>2</sortCode>
+      </customChoice>
+    </customChoices>
+
+    <agreements>
+      <agreement>
+        <code>WHOLESALE_2026</code>
+        <description>Wholesale 2026 agreement</description>
+        <channel>Wholesale</channel>
+        <activePriceGroup>WHOLESALE_EU</activePriceGroup>
+        <currencyCode>EUR</currencyCode>
+        <discountGroups>
+          <discountGroup amount="5"  code="*"   identifier="all"/>
+          <discountGroup amount="12" code="VOL" minQuantity="25" identifier="vol.25"/>
+        </discountGroups>
+      </agreement>
+      <agreement>
+        <code>SHOPINSHOP_2026</code>
+        <description>Shop-in-shop 2026 agreement</description>
+        <channel>shop in shop</channel>
+        <activePriceGroup>SIS_EU</activePriceGroup>
+        <currencyCode>EUR</currencyCode>
+      </agreement>
+    </agreements>
+
+    <orderDiscountRules>
+      <orderDiscountRule>
+        <identification>min500eur</identification>
+        <description>5% off orders over EUR 500</description>
+        <minimumOrderAmount>500</minimumOrderAmount>
+        <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+        <discountPercentage>5</discountPercentage>
+      </orderDiscountRule>
+      <orderDiscountRule>
+        <identification>min1000eur</identification>
+        <description>10% off orders over EUR 1000 (exclusive)</description>
+        <minimumOrderAmount>1000</minimumOrderAmount>
+        <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+        <discountPercentage>10</discountPercentage>
+        <exclusive>true</exclusive>
+      </orderDiscountRule>
+    </orderDiscountRules>
+
+    <orderDeliveryCostRules>
+      <orderDeliveryCostRule>
+        <identification>freeshipping1000</identification>
+        <description>Free shipping on orders over EUR 1000</description>
+        <minimumOrderAmount>1000</minimumOrderAmount>
+        <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+        <amount>0</amount>
+      </orderDeliveryCostRule>
+    </orderDeliveryCostRules>
+
+    <sizeAccessCodes>
+      <sizeAccessCode>PRO</sizeAccessCode>
+      <sizeAccessCode>EXTENDED</sizeAccessCode>
+    </sizeAccessCodes>
+  </customer>
+
+  <!-- ============================================================
+       Customer 2: Beachside Boutique (US) — simpler setup
+       ============================================================ -->
+  <customer>
+    <customerNo>C-00042</customerNo>
+    <name>Beachside Boutique LLC</name>
+    <email>orders@beachside.example</email>
+    <street>Ocean Avenue</street>
+    <houseNumber>500</houseNumber>
+    <state>CA</state>
+    <postalCode>90405</postalCode>
+    <city>Santa Monica</city>
+    <country>US</country>
+    <gln>0876543200012</gln>
+    <phone>+1 310 555 0142</phone>
+    <language>EN</language>
+    <channel>Wholesale</channel>
+    <currencyCode>USD</currencyCode>
+    <activePriceGroup>WHOLESALE_US</activePriceGroup>
+    <status>ACTIVE</status>
+
+    <contacts>
+      <contact>
+        <code>SK-001</code>
+        <firstName>Sam</firstName>
+        <lastName>Kim</lastName>
+        <role>Owner</role>
+        <accessType>FULL</accessType>
+        <email>sam@beachside.example</email>
+      </contact>
+    </contacts>
+
+    <discountGroups>
+      <discountGroup amount="5" code="*" identifier="all"/>
+    </discountGroups>
+
+    <shippingLocations>
+      <shippingLocation>
+        <code>STORE</code>
+        <name>Beachside Boutique — Santa Monica</name>
+        <street>Ocean Avenue</street>
+        <houseNumber>500</houseNumber>
+        <state>CA</state>
+        <postalCode>90405</postalCode>
+        <city>Santa Monica</city>
+        <country>US</country>
+      </shippingLocation>
+    </shippingLocations>
+  </customer>
+
+</customers>

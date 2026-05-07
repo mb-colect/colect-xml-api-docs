@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Products input document — comprehensive example.
+  Shows two products, each with multiple sizes, prices (default + price-group + customer-specific),
+  stock levels (current + future), media, delivery windows, and extra fields.
+  Validates against schema/snapshots/2026-05-06/Product_Feed_XSD.xsd
+-->
+<products>
+
+  <!-- ============================================================
+       Product 1: Classic T-Shirt in Black
+       ============================================================ -->
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>BLK</colorCode>
+    <colorDesc>Black</colorDesc>
+    <styleAttributes>SS25</styleAttributes>
+    <status>ACTIVE</status>
+    <searchText>tee shirt cotton organic</searchText>
+    <name>Classic T-Shirt</name>
+    <summary>Premium cotton tee, made in Portugal</summary>
+    <description>A wardrobe essential — soft, durable, and ethically made.</description>
+    <sortCode>10</sortCode>
+    <brandName>Example Brand</brandName>
+    <brandId>EB</brandId>
+    <material>100% organic cotton</material>
+    <seasonCode>SS25</seasonCode>
+    <seasonDesc>Spring/Summer 2025</seasonDesc>
+    <categoryCode>TSHIRTS</categoryCode>
+    <categoryDesc>T-Shirts</categoryDesc>
+    <collectionCode>MAINLINE</collectionCode>
+    <collectionDesc>Mainline</collectionDesc>
+    <minimalOrderQuantity>0</minimalOrderQuantity>
+    <deliveryStartDate>20250115</deliveryStartDate>
+    <deliveryEndDate>20250215</deliveryEndDate>
+    <firstReceiptDate>20250115</firstReceiptDate>
+    <productGroupCode>TOPS</productGroupCode>
+    <productGroupDesc>Tops</productGroupDesc>
+    <marginGroupCode>MG1</marginGroupCode>
+    <discountGroupCode>VOL</discountGroupCode>
+    <noos>0</noos>
+    <gender>UNISEX</gender>
+
+    <prices>
+      <!-- Default price -->
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <retailPrice>49.95</retailPrice>
+        <wholesalePrice>25.00</wholesalePrice>
+        <originalWholesalePrice>25.00</originalWholesalePrice>
+        <net>false</net>
+      </price>
+      <!-- Price-group price for European wholesale partners -->
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <priceGroup>WHOLESALE_EU</priceGroup>
+        <retailPrice>49.95</retailPrice>
+        <wholesalePrice>22.50</wholesalePrice>
+      </price>
+      <!-- Customer-specific price for VIP partner -->
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <customerNo>C-00042</customerNo>
+        <wholesalePrice>20.00</wholesalePrice>
+      </price>
+      <!-- US wholesale price -->
+      <price>
+        <currencyCode>USD</currencyCode>
+        <priceGroup>WHOLESALE_US</priceGroup>
+        <retailPrice>54.95</retailPrice>
+        <wholesalePrice>27.50</wholesalePrice>
+      </price>
+    </prices>
+
+    <sizes>
+      <size>
+        <name>S</name>
+        <sortCode>1</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678901</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>120</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>M</name>
+        <sortCode>2</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678902</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>180</quantity>
+          </stockLevel>
+          <stockLevel>
+            <!-- Future restock -->
+            <startDate>20260601</startDate>
+            <quantity>500</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>L</name>
+        <sortCode>3</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678903</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>140</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>XL</name>
+        <sortCode>4</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678904</eanCode>
+        <accessCode>PRO</accessCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>60</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+    </sizes>
+
+    <media>
+      <medium format="image">
+        <type>primary</type>
+        <url>https://images.example.com/style-001-blk.jpg</url>
+        <thumbUrl>https://images.example.com/style-001-blk_thumb.jpg</thumbUrl>
+      </medium>
+      <medium format="image">
+        <type>back</type>
+        <url>https://images.example.com/style-001-blk-back.jpg</url>
+        <thumbUrl>https://images.example.com/style-001-blk-back_thumb.jpg</thumbUrl>
+        <sortCode>1</sortCode>
+      </medium>
+      <medium format="image">
+        <type>swatch</type>
+        <url>https://images.example.com/swatch-blk.jpg</url>
+      </medium>
+      <medium format="image">
+        <type>model</type>
+        <url>https://images.example.com/style-001-blk-model.jpg</url>
+        <thumbUrl>https://images.example.com/style-001-blk-model_thumb.jpg</thumbUrl>
+        <sortCode>2</sortCode>
+      </medium>
+    </media>
+
+    <deliveryWindows>
+      <deliveryWindow>
+        <code>SS25_DROP1</code>
+        <description>Spring 2025 — Drop 1</description>
+        <startDate>20250115</startDate>
+        <endDate>20250215</endDate>
+        <sortCode>1</sortCode>
+      </deliveryWindow>
+      <deliveryWindow>
+        <code>SS25_DROP2</code>
+        <description>Spring 2025 — Drop 2</description>
+        <startDate>20250301</startDate>
+        <endDate>20250401</endDate>
+        <sortCode>2</sortCode>
+      </deliveryWindow>
+    </deliveryWindows>
+
+    <extraFields>
+      <extraField>
+        <name>fabric</name>
+        <description>Fabric composition</description>
+        <value>100% organic cotton</value>
+        <group>materials</group>
+      </extraField>
+      <extraField>
+        <name>care</name>
+        <description>Care instructions</description>
+        <value>Machine wash 30°C, do not tumble dry, iron on low</value>
+        <group>materials</group>
+      </extraField>
+      <extraField>
+        <name>made-in</name>
+        <description>Made in</description>
+        <value>Portugal</value>
+        <group>provenance</group>
+      </extraField>
+      <extraField>
+        <name>gots</name>
+        <description>GOTS certified</description>
+        <value>Certified organic by GOTS</value>
+        <group>certifications</group>
+        <important>true</important>
+        <imageUrl>https://images.example.com/icons/gots.svg</imageUrl>
+        <linkUrl>https://global-standard.org/</linkUrl>
+      </extraField>
+    </extraFields>
+  </product>
+
+  <!-- ============================================================
+       Product 2: Same style in White
+       ============================================================ -->
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>WHT</colorCode>
+    <colorDesc>White</colorDesc>
+    <styleAttributes>SS25</styleAttributes>
+    <status>ACTIVE</status>
+    <name>Classic T-Shirt</name>
+    <description>A wardrobe essential — soft, durable, and ethically made.</description>
+    <sortCode>11</sortCode>
+    <brandName>Example Brand</brandName>
+    <brandId>EB</brandId>
+    <material>100% organic cotton</material>
+    <seasonCode>SS25</seasonCode>
+    <seasonDesc>Spring/Summer 2025</seasonDesc>
+    <categoryCode>TSHIRTS</categoryCode>
+    <productGroupCode>TOPS</productGroupCode>
+    <discountGroupCode>VOL</discountGroupCode>
+    <gender>UNISEX</gender>
+
+    <prices>
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <retailPrice>49.95</retailPrice>
+        <wholesalePrice>25.00</wholesalePrice>
+        <net>false</net>
+      </price>
+    </prices>
+
+    <sizes>
+      <size>
+        <name>M</name>
+        <sortCode>2</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678912</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>200</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>L</name>
+        <sortCode>3</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678913</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>160</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+    </sizes>
+
+    <media>
+      <medium format="image">
+        <type>primary</type>
+        <url>https://images.example.com/style-001-wht.jpg</url>
+        <thumbUrl>https://images.example.com/style-001-wht_thumb.jpg</thumbUrl>
+      </medium>
+      <medium format="image">
+        <type>swatch</type>
+        <url>https://images.example.com/swatch-wht.jpg</url>
+      </medium>
+    </media>
+  </product>
+
+  <!-- ============================================================
+       Product 3: Prepack box example (mixed sizes)
+       ============================================================ -->
+  <product>
+    <uniqueId>STYLE-002-PREPACK</uniqueId>
+    <colorCode>BLK</colorCode>
+    <colorDesc>Black</colorDesc>
+    <status>ACTIVE</status>
+    <name>Tee Prepack — Sizes M-L-XL</name>
+    <brandName>Example Brand</brandName>
+    <brandId>EB</brandId>
+    <seasonCode>SS25</seasonCode>
+    <categoryCode>TSHIRTS</categoryCode>
+    <productGroupCode>PREPACK</productGroupCode>
+
+    <prices>
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <wholesalePrice>72.00</wholesalePrice>
+      </price>
+    </prices>
+
+    <sizes>
+      <size>
+        <name>BOX-1</name>
+        <sortCode>1</sortCode>
+        <prePackUnitCount>3</prePackUnitCount>
+        <eanCode>8712345678999</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>40</quantity>
+          </stockLevel>
+        </stockLevels>
+        <prepackDefinition>
+          <prepackContentElement>
+            <count>1</count>
+            <sizeName>M</sizeName>
+            <sortCode>2</sortCode>
+            <eanCode>8712345678902</eanCode>
+            <prePackUnitCount>3</prePackUnitCount>
+          </prepackContentElement>
+          <prepackContentElement>
+            <count>1</count>
+            <sizeName>L</sizeName>
+            <sortCode>3</sortCode>
+            <eanCode>8712345678903</eanCode>
+            <prePackUnitCount>3</prePackUnitCount>
+          </prepackContentElement>
+          <prepackContentElement>
+            <count>1</count>
+            <sizeName>XL</sizeName>
+            <sortCode>4</sortCode>
+            <eanCode>8712345678904</eanCode>
+            <prePackUnitCount>3</prePackUnitCount>
+          </prepackContentElement>
+        </prepackDefinition>
+      </size>
+    </sizes>
+  </product>
+
+</products>

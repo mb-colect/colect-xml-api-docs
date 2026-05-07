@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Prices sub-feed input document — example.
+  Refreshes prices for two products without re-sending the full catalog.
+  This document REPLACES all prices for each included product.
+
+  Validates against schema/snapshots/2026-05-06/ProductPrices_Feed_XSD.xsd
+-->
+<products>
+
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>BLK</colorCode>
+    <prices>
+      <!-- Default price — across the board increase from 25.00 to 27.50 -->
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <retailPrice>54.95</retailPrice>
+        <wholesalePrice>27.50</wholesalePrice>
+        <originalWholesalePrice>25.00</originalWholesalePrice>
+        <net>false</net>
+      </price>
+      <!-- EU wholesale price-group -->
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <priceGroup>WHOLESALE_EU</priceGroup>
+        <retailPrice>54.95</retailPrice>
+        <wholesalePrice>24.95</wholesalePrice>
+      </price>
+      <!-- US wholesale price-group -->
+      <price>
+        <currencyCode>USD</currencyCode>
+        <priceGroup>WHOLESALE_US</priceGroup>
+        <retailPrice>59.95</retailPrice>
+        <wholesalePrice>30.00</wholesalePrice>
+      </price>
+      <!-- Time-bound promotional price -->
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <priceGroup>WHOLESALE_EU</priceGroup>
+        <wholesalePrice>22.50</wholesalePrice>
+        <startDate>20260601</startDate>
+        <endDate>20260630</endDate>
+      </price>
+    </prices>
+  </product>
+
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>WHT</colorCode>
+    <prices>
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <retailPrice>54.95</retailPrice>
+        <wholesalePrice>27.50</wholesalePrice>
+        <net>false</net>
+      </price>
+    </prices>
+  </product>
+
+</products>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Historical Orders input document — example.
+  One past order with multiple lines, including a shipped line with track-and-trace,
+  and one returned line.
+  Validates against schema/snapshots/2026-05-06/HistoricalOrders_Feed_XSD.xsd
+-->
+<orders>
+
+  <order>
+    <orderNumber>ORD-2026-00342</orderNumber>
+    <erpOrderReference>SAP-7821</erpOrderReference>
+    <customerOrderReference>PO-12345</customerOrderReference>
+    <internalOrderType>STANDARD</internalOrderType>
+    <collection>SS25</collection>
+    <season>SS25</season>
+    <timestamp>20260415 14:32</timestamp>
+    <salesPerson>jane.rep@example.com</salesPerson>
+    <customerNo>C-00001</customerNo>
+    <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
+    <comment>Rush delivery for store opening</comment>
+
+    <shippingLocation>
+      <name>Acme Distribution Centre</name>
+      <street>Industrieweg</street>
+      <houseNumber>40</houseNumber>
+      <postalCode>1043BB</postalCode>
+      <city>Amsterdam</city>
+      <country>NL</country>
+      <gln>8712345000025</gln>
+      <contact>Jane Doe</contact>
+      <email>warehouse@acme.example</email>
+    </shippingLocation>
+
+    <orderLines>
+      <orderLine>
+        <status>SHIPPED</status>
+        <type>STANDARD</type>
+        <productDescription>Classic T-Shirt</productDescription>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>BLK</productColorCode>
+        <productCategory>TSHIRTS</productCategory>
+        <productGroup>TOPS</productGroup>
+        <productGender>UNISEX</productGender>
+        <productSize>M</productSize>
+        <productSizeSortCode>2</productSizeSortCode>
+        <eanCode>8712345678902</eanCode>
+        <quantity>50</quantity>
+        <currency>EUR</currency>
+        <netWholesalePrice>22.50</netWholesalePrice>
+        <grossWholesalePrice>27.23</grossWholesalePrice>
+        <netLineAmount>1125.00</netLineAmount>
+        <grossLineAmount>1361.25</grossLineAmount>
+        <shipmentDate>20260420</shipmentDate>
+        <packingSlipNumber>PS-77123</packingSlipNumber>
+        <quantityDelivered>50</quantityDelivered>
+        <trackTraceUrl>https://tracking.example.com/77123</trackTraceUrl>
+        <returnAllowed>true</returnAllowed>
+        <files>
+          <remoteFile>
+            <name>shipping_label.pdf</name>
+            <size>5000</size>
+            <type>application/pdf</type>
+            <url>https://files.example.com/labels/PS-77123.pdf</url>
+          </remoteFile>
+        </files>
+      </orderLine>
+
+      <orderLine>
+        <status>SHIPPED</status>
+        <type>STANDARD</type>
+        <productDescription>Classic T-Shirt</productDescription>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>WHT</productColorCode>
+        <productCategory>TSHIRTS</productCategory>
+        <productSize>L</productSize>
+        <productSizeSortCode>3</productSizeSortCode>
+        <eanCode>8712345678913</eanCode>
+        <quantity>30</quantity>
+        <currency>EUR</currency>
+        <netWholesalePrice>22.50</netWholesalePrice>
+        <netLineAmount>675.00</netLineAmount>
+        <shipmentDate>20260420</shipmentDate>
+        <packingSlipNumber>PS-77123</packingSlipNumber>
+        <quantityDelivered>30</quantityDelivered>
+        <returnAllowed>true</returnAllowed>
+      </orderLine>
+
+      <orderLine>
+        <status>RETURNED</status>
+        <type>RETURN</type>
+        <productDescription>Classic T-Shirt</productDescription>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>BLK</productColorCode>
+        <productSize>M</productSize>
+        <eanCode>8712345678902</eanCode>
+        <quantity>5</quantity>
+        <currency>EUR</currency>
+        <netWholesalePrice>22.50</netWholesalePrice>
+        <netLineAmount>112.50</netLineAmount>
+        <returnReason>damaged-on-arrival</returnReason>
+        <remark>5 pieces returned — moisture damage</remark>
+      </orderLine>
+    </orderLines>
+  </order>
+
+</orders>

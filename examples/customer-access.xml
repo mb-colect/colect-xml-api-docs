@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Customer Access input document — example.
+  Maps three app users to the customers they can sell to.
+  Validates against schema/snapshots/2026-05-06/Customer_Access_XSD.xsd
+-->
+<customerAccess>
+
+  <!-- Sales rep with access to all locations on two customers -->
+  <access>
+    <email>jane.rep@example.com</email>
+    <defaultPriceGroup>WHOLESALE_EU</defaultPriceGroup>
+    <defaultCurrency>EUR</defaultCurrency>
+    <customers>
+      <customer>
+        <customerNo>C-00001</customerNo>
+      </customer>
+      <customer>
+        <customerNo>C-00100</customerNo>
+      </customer>
+    </customers>
+  </access>
+
+  <!-- Sales rep restricted to specific shipping locations on one customer -->
+  <access>
+    <email>tom.rep@example.com</email>
+    <defaultPriceGroup>WHOLESALE_EU</defaultPriceGroup>
+    <defaultCurrency>EUR</defaultCurrency>
+    <customers>
+      <customer>
+        <customerNo>C-00001</customerNo>
+        <shippingLocationCode>WAREHOUSE</shippingLocationCode>
+        <shippingLocationCode>FLAGSHIP</shippingLocationCode>
+      </customer>
+    </customers>
+  </access>
+
+  <!-- Account manager with access to all customers in this document -->
+  <access>
+    <email>amy.manager@example.com</email>
+    <defaultPriceGroup>WHOLESALE_GLOBAL</defaultPriceGroup>
+    <defaultCurrency>USD</defaultCurrency>
+    <customers>
+      <customer>
+        <customerNo>C-00001</customerNo>
+      </customer>
+      <customer>
+        <customerNo>C-00042</customerNo>
+      </customer>
+      <customer>
+        <customerNo>C-00100</customerNo>
+      </customer>
+    </customers>
+  </access>
+
+</customerAccess>
