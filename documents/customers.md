@@ -3,7 +3,7 @@
 The **Customers** input document carries the master record of every B2B customer that can place orders in Colect — including pricing groups, discount and margin groups, shipping locations, budgets, agreements, and order-level rules.
 
 {% hint style="success" %}
-**Full example:** [Download a complete `customers.xml`](https://assets.apptitude.nl/Documentation/sample-xml/customers.xml) showing every available field.
+**Example:** [`examples/customers.xml`](../examples/customers.xml) — two B2B customers with the full feature surface: contacts, discount/margin groups, shipping locations, budgets, custom choices, agreements, order rules, and size access codes.
 {% endhint %}
 
 ***

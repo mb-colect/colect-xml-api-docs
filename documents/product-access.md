@@ -2,6 +2,10 @@
 
 The **Product Access** input document declares which products each customer can see. It's the inverse of [Customer Access](customer-access.md): where Customer Access controls which customers a sales rep can sell to, Product Access controls which products a given customer is allowed to view and order.
 
+{% hint style="success" %}
+**Example:** [`examples/product-access.xml`](../examples/product-access.xml) — three patterns: restrict-then-add, exclude one season, and a single-brand boutique.
+{% endhint %}
+
 ***
 
 ## Document at a glance

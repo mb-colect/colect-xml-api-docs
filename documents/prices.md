@@ -2,6 +2,10 @@
 
 The **Prices** input document is a sub-feed of [Products](products.md) that contains only `uniqueId`, `colorCode`, and `<prices>`. Use it to refresh prices for products already in Colect — typically much faster than re-sending the full catalog.
 
+{% hint style="success" %}
+**Example:** [`examples/prices.xml`](../examples/prices.xml) — multi-currency prices with default, price-group, customer-specific, and time-bound promotional entries.
+{% endhint %}
+
 {% hint style="warning" %}
 **This document REPLACES all prices** for each included product. Sending a Prices document with two `<price>` elements for product `STYLE-001/BLK` removes any other price entries that product previously had.
 {% endhint %}

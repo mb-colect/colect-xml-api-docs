@@ -2,6 +2,10 @@
 
 The **Customer Access** input document maps app users (sales reps, agents) to the customers they're allowed to sell to. It's the access-control layer for the Sales App and B2B Webstore — without an entry here, a user can't see or transact on a given customer.
 
+{% hint style="success" %}
+**Example:** [`examples/customer-access.xml`](../examples/customer-access.xml) — three users with different access patterns: full access on multiple customers, restricted to specific shipping locations, and account-manager spanning all customers.
+{% endhint %}
+
 ***
 
 ## Document at a glance

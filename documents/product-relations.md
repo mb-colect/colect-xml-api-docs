@@ -3,6 +3,10 @@
 The **Product Relations** input document declares relationships between products — used by the app to surface successor styles and matching sets. New in **XML API v1.5**.
 
 {% hint style="success" %}
+**Examples:** [`examples/product-relations-matching-set.xml`](../examples/product-relations-matching-set.xml) — outfit grouping with bidirectional relations. [`examples/product-relations-successor.xml`](../examples/product-relations-successor.xml) — FW24 styles being replaced by SS25 equivalents.
+{% endhint %}
+
+{% hint style="info" %}
 **New in v1.5:** Product Relations is the first new input document since v1.4. It supports two relation types: `SUCCESSOR` and `MATCHING_SET`. See [Use cases](#use-cases) below for what each one drives in the user interface.
 {% endhint %}
 

@@ -2,6 +2,10 @@
 
 The **Sizes & Stock** input document is a sub-feed of [Products](products.md) that contains only `uniqueId`, `colorCode`, and `<sizes>` (with stock levels and prepack definitions). Use it to refresh sizes and stock for products already in Colect — typically faster than re-sending the full catalog.
 
+{% hint style="success" %}
+**Example:** [`examples/sizes-stock.xml`](../examples/sizes-stock.xml) — current and future stock levels, an access-restricted size, and the v1.5 `customerSizeNaming` pattern.
+{% endhint %}
+
 {% hint style="warning" %}
 **This document REPLACES the entire `<sizes>` block** for each included product. If a product previously had sizes S/M/L and your Sizes & Stock document only declares M/L, S is removed.
 {% endhint %}
