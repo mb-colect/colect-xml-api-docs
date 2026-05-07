@@ -2,6 +2,10 @@
 
 The **Historical Orders** input document pushes past orders from your ERP into Colect for display in the Sales App and B2B Webstore. Customers and sales reps can view their order history, reorder previous lines, and see ship/delivery status — but the ledger of record stays in your ERP.
 
+{% hint style="success" %}
+**Example:** [`examples/historical-orders.xml`](../examples/historical-orders.xml) — a past order with shipped lines, track-and-trace URL, an attached shipping label, and a returned line with `returnReason`.
+{% endhint %}
+
 {% hint style="info" %}
 Historical Orders is **read-only inside Colect**. Customers can view and use these records as templates for new orders, but they can't edit them. Lifecycle changes (status updates, shipment tracking) are reflected by re-sending the order with updated fields.
 {% endhint %}

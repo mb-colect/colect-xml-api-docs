@@ -2,6 +2,10 @@
 
 The **Invoices** input document pushes invoice data from your ERP into Colect for customer visibility. Customers can see their invoices and outstanding balances inside the Colect Sales App and B2B Webstore — but the ledger of record stays in your ERP.
 
+{% hint style="success" %}
+**Example:** [`examples/invoices.xml`](../examples/invoices.xml) — open, paid, and overdue invoices in EUR plus a USD invoice for a different customer.
+{% endhint %}
+
 {% hint style="info" %}
 Colect does not generate invoices. It only displays the invoice data your ERP pushes here. Lifecycle changes (paid, voided, credited) are reflected by re-sending the relevant invoice with an updated `status` and `outstandingAmount`.
 {% endhint %}

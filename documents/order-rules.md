@@ -2,6 +2,10 @@
 
 The **Order Rules** documents push order-level discount and delivery cost rules — modifications applied to an order *as a whole* based on its total amount, total quantity, or other criteria. They live alongside line-level discount groups (see [Multi Promotions](../business-logic/multi-promotions.md)) and apply on top of them.
 
+{% hint style="success" %}
+**Example:** [`examples/order-rules.xml`](../examples/order-rules.xml) — a standalone collection-wide order-rules document covering time-bound, exclusive, and delivery-date-based rules. For per-customer rules, see the same blocks inside [`examples/customers.xml`](../examples/customers.xml).
+{% endhint %}
+
 {% hint style="info" %}
 Order rules can be carried two ways:
 
