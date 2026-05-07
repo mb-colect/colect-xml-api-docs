@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- Root element -->
+    <xs:element name="productRelations">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productRelation" type="productRelationType" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- productRelation complex type -->
+    <xs:complexType name="productRelationType">
+        <xs:all>
+            <xs:element name="groupCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="sourceProductUniqueId" type="xs:string" minOccurs="0"/>
+            <xs:element name="sourceProductColorCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="targetProductUniqueId" type="xs:string" minOccurs="0"/>
+            <xs:element name="targetProductColorCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="type" type="relationTypeEnum" minOccurs="0"/>
+            <xs:element name="groupDescription" type="xs:string" minOccurs="0"/>
+        </xs:all>
+    </xs:complexType>
+
+    <!-- Enumeration of relation types -->
+    <xs:simpleType name="relationTypeEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="SUCCESSOR"/>
+            <xs:enumeration value="MATCHING_SET"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
