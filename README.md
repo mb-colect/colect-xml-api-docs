@@ -5,7 +5,7 @@
 Welcome to the Colect XML API documentation. This document describes the structure of the XML-based interface offered by Colect — a document-exchange integration that lets your ERP system synchronize products, customers, orders, and related data with the Colect platform.
 
 {% hint style="info" %}
-**Choosing an integration:** Colect offers two integrations for ERP systems — the **XML API** (this documentation) and the [**SOAP API**](https://docs.colect.io/soap-api/). The XML API is asynchronous and file-based, ideal for ERP systems that batch data exports. The SOAP API is synchronous and call-based, ideal for systems that integrate via live web service calls. The two interfaces share the same underlying schema lineage and either can drive the same Colect collection.
+**Choosing an integration:** Colect offers two integrations for ERP systems — the **XML API** (this documentation) and the [**SOAP API**](https://docs.colect.io/admin/soap-api). The XML API is asynchronous and file-based, ideal for ERP systems that batch data exports. The SOAP API is synchronous and call-based, ideal for systems that integrate via live web service calls. The two interfaces share the same underlying schema lineage and either can drive the same Colect collection.
 {% endhint %}
 
 ***
