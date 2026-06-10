@@ -43,10 +43,14 @@ Each input document type maps to a distinct file pattern. The Cloud Connector pi
 | Extra Fields (sub-feed)                   | `extraFields*.xml`                 | ERP → Colect     |
 | Invoices                                  | `invoices*.xml`                    | ERP → Colect     |
 | Historical Orders                         | `historicalOrders*.xml`            | ERP → Colect     |
-| Orders                                    | `orders*.xml`                      | Colect → ERP     |
+| Orders                                    | `[orderNumber]-[random].xml`       | Colect → ERP     |
 
 {% hint style="info" %}
-The `*` in the pattern can include a timestamp, batch ID, or any string that helps you keep files distinct (e.g. `products_2026-05-06T0900.xml`). Colect uses the document's root element to determine its type — the file name is for your own bookkeeping and de-duplication.
+**ERP → Colect files:** The `*` in the pattern can include a timestamp, batch ID, or any string that helps you keep files distinct (e.g. `products_2026-05-06T0900.xml`). Colect identifies the document type from the root element — the filename is for your own bookkeeping.
+{% endhint %}
+
+{% hint style="info" %}
+**Colect → ERP files (Orders):** Each order is written as a separate file. The filename is `[orderNumber]-[random].xml` — for example `12345678-999.xml`. Your ERP should process any `.xml` file it finds in `orderfiles/` rather than matching a fixed pattern.
 {% endhint %}
 
 ***
@@ -88,9 +92,9 @@ Subfolders may be added during implementation for specific integration needs (e.
 
 ## Output documents (Orders)
 
-Orders flow the other direction — Colect drops `orders*.xml` into `orderfiles/`. Your ERP polls that folder on a schedule and processes the files.
+Orders flow the other direction — Colect writes one file per order into `orderfiles/`, named `[orderNumber]-[random].xml`. Your ERP polls that folder on a schedule and processes any `.xml` files it finds.
 
-A common cadence is every 5–15 minutes. Faster polling is supported but rarely necessary; orders placed in the Sales App or B2B Webstore appear in the outbox within seconds of being signed.
+A common cadence is every 5–15 minutes. Faster polling is supported but rarely necessary; orders placed in the Sales App or B2B Webstore appear in `orderfiles/` within seconds of being signed.
 
 ***
 
