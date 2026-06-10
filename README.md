@@ -27,7 +27,7 @@ The XML API is a **document-exchange interface**. Your ERP produces or consumes 
 
 ## Document transfer
 
-Documents move between your ERP and Colect over a file-transfer channel. The most common option is **Colect Secure FTP (SFTP)**; HTTP POST and other file-transfer mechanisms are also supported. The XML document structure is identical regardless of transport.
+Documents move between your ERP and Colect over a file-transfer channel. The default and most common option is **Colect Secure FTP (SFTP)**. The XML document structure is identical regardless of transport.
 
 ```
                     ┌─────────────────────────────────┐
@@ -147,7 +147,7 @@ After:  Product A has prices [P4, P5]
 
 ## Changelog
 
-See the [full changelog](changelog.md) for the schema and feature history shared with the SOAP API. Highlights since v1.4:
+See the [full changelog](changelog.md) for the complete schema and feature history. Highlights since v1.4:
 
 * **Product Relations input document** — new in v1.5, supports Successor and Matching Set relation types
 * **Customer Size Naming** — added per-customer size labels on the Sizes sub-feed
