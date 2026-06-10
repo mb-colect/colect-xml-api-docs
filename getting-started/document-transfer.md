@@ -53,18 +53,18 @@ The `*` in the pattern can include a timestamp, batch ID, or any string that hel
 
 ## Directory layout
 
-A typical SFTP layout looks like this:
+The default SFTP layout looks like this:
 
 ```
 /                  ← root (your SFTP user lands here)
-├── inbox/         ← drop files here for Colect to ingest
-│   └── archive/   ← Colect moves successfully ingested files here
-│   └── error/     ← Colect moves rejected files here with a .err sidecar
-└── outbox/        ← Colect drops files here for your ERP to pick up
-    └── archive/   ← move processed files here from your ERP
+├── datafiles/     ← drop XML files here for Colect to ingest
+├── images/        ← product image assets
+└── orderfiles/    ← Colect drops order files here for your ERP to pick up
 ```
 
-Your integration's specific paths may differ — confirm with your Colect Support contact during onboarding.
+{% hint style="info" %}
+Subfolders may be added during implementation for specific integration needs (e.g. staging vs. production paths). Confirm the exact layout with your Colect Support contact during onboarding.
+{% endhint %}
 
 ***
 
@@ -72,7 +72,7 @@ Your integration's specific paths may differ — confirm with your Colect Suppor
 
 ```
    ┌──────────────────┐         ┌──────────────────┐         ┌──────────────────┐
-   │ ERP writes file  │  ────▶  │  inbox/ on SFTP  │  ────▶  │ Cloud Connector  │
+   │ ERP writes file  │  ────▶  │  datafiles/      │  ────▶  │ Cloud Connector  │
    └──────────────────┘         └──────────────────┘         └────────┬─────────┘
                                                                        │
                                             ┌──────────────────────────┴─────────────────────────┐
@@ -80,9 +80,7 @@ Your integration's specific paths may differ — confirm with your Colect Suppor
                                             ▼                                                    ▼
                                   ┌──────────────────┐                                ┌──────────────────┐
                                   │  Validation OK   │                                │ Validation FAIL  │
-                                  │ → ingest data    │                                │ → write .err log │
-                                  │ → move to        │                                │ → move to        │
-                                  │   inbox/archive/ │                                │   inbox/error/   │
+                                  │ → ingest data    │                                │ → error reported │
                                   └──────────────────┘                                └──────────────────┘
 ```
 
@@ -90,7 +88,7 @@ Your integration's specific paths may differ — confirm with your Colect Suppor
 
 ## Output documents (Orders)
 
-Orders flow the other direction — Colect drops `orders*.xml` into your `outbox/`. Your ERP polls the outbox on a schedule and processes the files.
+Orders flow the other direction — Colect drops `orders*.xml` into `orderfiles/`. Your ERP polls that folder on a schedule and processes the files.
 
 A common cadence is every 5–15 minutes. Faster polling is supported but rarely necessary; orders placed in the Sales App or B2B Webstore appear in the outbox within seconds of being signed.
 
@@ -102,9 +100,9 @@ The fastest way to confirm your SFTP credentials work is to upload a minimal Pro
 
 ```bash
 sftp colect-user@sftp.colect.services
-sftp> cd inbox
+sftp> cd datafiles
 sftp> put products_smoketest.xml
 sftp> bye
 ```
 
-After a few seconds, check `inbox/archive/` (success) or `inbox/error/` (failure with a `.err` sidecar describing the validation issue). See [Error Handling](error-handling.md) for how to interpret rejection messages.
+After a few seconds the file should be picked up by the Connector. See [Error Handling](error-handling.md) for what to do if the document is rejected.
