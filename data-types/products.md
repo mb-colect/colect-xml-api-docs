@@ -76,13 +76,13 @@ Products are uniquely identified by `uniqueId` + `colorCode`. Each color variant
 Products can be assigned to one or more discount groups using the `<discountGroupCode>` element. These codes link products to customer-level discount configurations.
 
 ```xml
-<api:product>
-    <api:uniqueId>STYLE-001</api:uniqueId>
-    <api:colorCode>BLK</api:colorCode>
+<product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>BLK</colorCode>
     <!-- ... other fields ... -->
-    <api:discountGroupCode>BASIC</api:discountGroupCode>
-    <api:discountGroupCode>SEASONAL</api:discountGroupCode>
-</api:product>
+    <discountGroupCode>BASIC</discountGroupCode>
+    <discountGroupCode>SEASONAL</discountGroupCode>
+</product>
 ```
 
 **How it works:**
@@ -121,7 +121,7 @@ Products can be assigned to one or more discount groups using the `<discountGrou
 ### Nested Collections (XML Element Names)
 
 {% hint style="info" %}
-**WS: Naming Convention:** The field names in this documentation differ from XML element names. Use the XML Element name in your SOAP requests.
+**Naming convention:** The field names in this table differ from the XML element names. Use the XML element name (right column) when writing XML documents.
 {% endhint %}
 
 | Field Name                   | XML Element                   | Type                                                         | Description                                                               |
@@ -132,14 +132,8 @@ Products can be assigned to one or more discount groups using the `<discountGrou
 | `labels`                     | `<label>`                     | List<[XLabel](products.md#xlabel)>                           | Product labels/badges. Relates to `sale` and `saleBackgroundColor`.       |
 | `extraFields`                | `<extraField>`                | List<[XExtraField](products.md#xextrafield)>                 | Custom display fields                                                     |
 | `deliveryWindows`            | `<deliveryWindow>`            | List<[XDeliveryWindow](products.md#xdeliverywindow)>         | Delivery windows/drops                                                    |
-| `minimumQuantities`          | `<minimumQuantity>`           | List<[XMinimumQuantity](products.md#xminimumquantity)>       | Minimum order quantities per customer key                                 |
 | `discountGroupCodes`         | `<discountGroupCode>`         | List\<String>                                                | Discount group codes. See [Discount Groups](products.md#discount-groups). |
-| `sizeIndependentStockLevels` | `<sizeIndependentStockLevel>` | List<[XStockLevel](products.md#xstocklevel)>                 | Overall product stock levels                                              |
 | `translations`               | `<translation>`               | List<[XProductTranslation](products.md#xproducttranslation)> | Translations                                                              |
-
-{% hint style="warning" %}
-**Size-Independent Stock:** If a size is out of stock, ordering is still possible until the size-independent stock level reaches 0.
-{% endhint %}
 
 ### Deprecated Fields
 
@@ -270,21 +264,21 @@ Stock quantity with optional date-based availability.
 
 ```xml
 <!-- Current stock (no date = immediate availability) -->
-<api:stockLevel>
-    <api:quantity>50</api:quantity>
-</api:stockLevel>
+<stockLevel>
+    <quantity>50</quantity>
+</stockLevel>
 
 <!-- Expected stock from Feb 15 -->
-<api:stockLevel>
-    <api:startDate>2025-02-15T00:00:00</api:startDate>
-    <api:quantity>200</api:quantity>
-</api:stockLevel>
+<stockLevel>
+    <startDate>2025-02-15T00:00:00</startDate>
+    <quantity>200</quantity>
+</stockLevel>
 
 <!-- Expected stock from Mar 1 -->
-<api:stockLevel>
-    <api:startDate>2025-03-01T00:00:00</api:startDate>
-    <api:quantity>350</api:quantity>
-</api:stockLevel>
+<stockLevel>
+    <startDate>2025-03-01T00:00:00</startDate>
+    <quantity>350</quantity>
+</stockLevel>
 ```
 
 ***
@@ -297,13 +291,13 @@ Product images and videos.
 
 | Field      | Type        | Required | Description                                                                                  |
 | ---------- | ----------- | -------- | -------------------------------------------------------------------------------------------- |
-| `type`     | XMediumType | **Yes**  | Media type. See [Enumerations](enums.md#xmediumtype)                                         |
+| `type`     | String      | **Yes**  | Media type. See validated values in the table below.                                         |
 | `url`      | String      | **Yes**  | High-resolution image/video URL                                                              |
 | `thumbUrl` | String      | No       | Thumbnail URL. Auto-generated if omitted, but this slows down image processing considerably. |
 | `sortCode` | Integer     | No       | Display order for sortable media types                                                       |
 
 {% hint style="warning" %}
-**IMAGE\_PRIMARY Required:** Each product must have a medium of type `IMAGE_PRIMARY` to display images in the app. Without it, the product will show without any image.
+**Primary image required:** Each product must have a medium with `type` set to `primary` to display images in the app. Without it, the product shows without any image.
 {% endhint %}
 
 {% hint style="info" %}
@@ -311,36 +305,26 @@ Product images and videos.
 {% endhint %}
 
 {% hint style="warning" %}
-**sortCode Behavior:** The `sortCode` field has no effect on these media types: `IMAGE_PRIMARY`, `IMAGE_SWATCH`, `IMAGE_STAMP_LEFT`, `IMAGE_STAMP_RIGHT`. These have fixed positions in the UI.
+**sortCode Behavior:** The `sortCode` field has no effect on these media types: `primary`, `swatch`, `stamp_left`, `stamp_right`. These have fixed positions in the UI.
 {% endhint %}
 
 ### Media Types
 
-| Type                   | Description            | Required    |
-| ---------------------- | ---------------------- | ----------- |
-| `IMAGE_PRIMARY`        | Main product image     | **Yes**     |
-| `IMAGE_SWATCH`         | Color swatch thumbnail | Recommended |
-| `IMAGE_BACK`           | Back view              | Optional    |
-| `IMAGE_MODEL`          | Model wearing product  | Optional    |
-| `IMAGE_MODEL_BACK`     | Model back view        | Optional    |
-| `IMAGE_LEFT`           | Left side view         | Optional    |
-| `IMAGE_RIGHT`          | Right side view        | Optional    |
-| `IMAGE_TOP`            | Top view               | Optional    |
-| `IMAGE_BOTTOM`         | Bottom view            | Optional    |
-| `IMAGE_PACK`           | Packaging view         | Optional    |
-| `IMAGE_FIT`            | Fit guide image        | Optional    |
-| `IMAGE_STAMP_LEFT`     | Left corner overlay    | Optional    |
-| `IMAGE_STAMP_RIGHT`    | Right corner overlay   | Optional    |
-| `IMAGE_ADDITIONAL_1`   | Additional image 1     | Optional    |
-| `IMAGE_ADDITIONAL_2`   | Additional image 2     | Optional    |
-| `IMAGE_ADDITIONAL_3`   | Additional image 3     | Optional    |
-| `IMAGE_ADDITIONAL_4`   | Additional image 4     | Optional    |
-| `IMAGE_ADDITIONAL_5`   | Additional image 5     | Optional    |
-| `VIDEO`                | Product video          | Optional    |
-| `VIDEO_MODEL`          | Model video            | Optional    |
-| `VIDEO_MODEL_LEAD_IN`  | Model video intro      | Optional    |
-| `VIDEO_MODEL_LEAD_OUT` | Model video outro      | Optional    |
-| `HTML`                 | HTML content           | Optional    |
+| Value | Description | Required |
+| ----- | ----------- | -------- |
+| `primary` | Main product image | **Yes** |
+| `swatch` | Color swatch thumbnail | Recommended |
+| `back` | Back view | Optional |
+| `model` | Model wearing product | Optional |
+| `model_back` | Model back view | Optional |
+| `left` | Left side view | Optional |
+| `right` | Right side view | Optional |
+| `stamp_left` | Left corner overlay | Optional |
+| `stamp_right` | Right corner overlay | Optional |
+
+{% hint style="info" %}
+The `type` field is an open string in the XSD — custom values are accepted and stored, but only the 9 values listed above have confirmed rendering support in the Colect Sales App and B2B Webstore.
+{% endhint %}
 
 ***
 
@@ -431,19 +415,6 @@ Custom display fields for additional product information.
 
 ***
 
-## XMinimumQuantity
-
-Minimum order quantities per customer key.
-
-### Fields
-
-| Field      | Type    | Required | Description                                    |
-| ---------- | ------- | -------- | ---------------------------------------------- |
-| `key`      | String  | **Yes**  | Key matching customer's `minimumQuantitiesKey` |
-| `quantity` | Integer | **Yes**  | Minimum quantity                               |
-
-***
-
 ## XProductRelation
 
 Relationship between products.
@@ -500,26 +471,26 @@ Defines the contents of a prepack/box containing multiple sizes.
 
 ```xml
 <!-- Prepack containing 1 S, 2 M, 2 L, 1 XL -->
-<api:size>
-    <api:name>PACK-A</api:name>
-    <api:prePackUnitCount>6</api:prePackUnitCount>
-    <api:prepackContentElement>
-        <api:sizeName>S</api:sizeName>
-        <api:count>1</api:count>
-    </api:prepackContentElement>
-    <api:prepackContentElement>
-        <api:sizeName>M</api:sizeName>
-        <api:count>2</api:count>
-    </api:prepackContentElement>
-    <api:prepackContentElement>
-        <api:sizeName>L</api:sizeName>
-        <api:count>2</api:count>
-    </api:prepackContentElement>
-    <api:prepackContentElement>
-        <api:sizeName>XL</api:sizeName>
-        <api:count>1</api:count>
-    </api:prepackContentElement>
-</api:size>
+<size>
+    <name>PACK-A</name>
+    <prePackUnitCount>6</prePackUnitCount>
+    <prepackContentElement>
+        <sizeName>S</sizeName>
+        <count>1</count>
+    </prepackContentElement>
+    <prepackContentElement>
+        <sizeName>M</sizeName>
+        <count>2</count>
+    </prepackContentElement>
+    <prepackContentElement>
+        <sizeName>L</sizeName>
+        <count>2</count>
+    </prepackContentElement>
+    <prepackContentElement>
+        <sizeName>XL</sizeName>
+        <count>1</count>
+    </prepackContentElement>
+</size>
 ```
 
 ***
@@ -543,70 +514,18 @@ Customer-specific size name override.
 ### Example
 
 ```xml
-<api:size>
-    <api:name>M</api:name>
-    <api:customerSizeNaming>
-        <api:code>US</api:code>
-        <api:sizeName>Medium (US 8-10)</api:sizeName>
-    </api:customerSizeNaming>
-    <api:customerSizeNaming>
-        <api:code>UK</api:code>
-        <api:sizeName>Medium (UK 12-14)</api:sizeName>
-    </api:customerSizeNaming>
-</api:size>
+<size>
+    <name>M</name>
+    <customerSizeNaming>
+        <code>US</code>
+        <sizeName>Medium (US 8-10)</sizeName>
+    </customerSizeNaming>
+    <customerSizeNaming>
+        <code>UK</code>
+        <sizeName>Medium (UK 12-14)</sizeName>
+    </customerSizeNaming>
+</size>
 ```
-
-***
-
-## XPriceInfoElement
-
-Used for bulk price updates via the `updatePrices` operation.
-
-### Fields
-
-| Field              | Type                              | Required | Description                                       |
-| ------------------ | --------------------------------- | -------- | ------------------------------------------------- |
-| `productUniqueId`  | String                            | **Yes**  | Product style identifier                          |
-| `productColorCode` | String                            | **Yes**  | Product color code                                |
-| `currencyCode`     | String                            | **Yes**  | Currency code (EUR, USD, etc.)                    |
-| `sizeName`         | String                            | No       | Size name for size-specific pricing               |
-| `subSizeName`      | String                            | No       | Sub-size name (requires `sizeName`)               |
-| `eanCode`          | String                            | No       | EAN code for SKU-specific pricing                 |
-| `customerNo`       | String                            | No       | Customer number for customer-specific pricing     |
-| `priceGroup`       | String                            | No       | Price group for tier pricing                      |
-| `priceType`        | [XPriceType](enums.md#xpricetype) | No       | Type of price to update (RETAIL, WHOLESALE, etc.) |
-| `price`            | Float                             | No       | Price value                                       |
-| `startDate`        | DateTime                          | No       | Price validity start date                         |
-| `endDate`          | DateTime                          | No       | Price validity end date                           |
-
-{% hint style="info" %}
-**Usage:** This type is used specifically with the `updatePrices` operation for efficient bulk price updates without sending full product data.
-{% endhint %}
-
-***
-
-## XStockInfoElement
-
-Used for bulk stock updates via the `updateStock` operation.
-
-### Fields
-
-| Field              | Type                                         | Required | Description                     |
-| ------------------ | -------------------------------------------- | -------- | ------------------------------- |
-| `productUniqueId`  | String                                       | No\*     | Product style identifier        |
-| `productColorCode` | String                                       | No\*     | Product color code              |
-| `eanCode`          | String                                       | No\*     | EAN code for SKU identification |
-| `sizeName`         | String                                       | No       | Size name                       |
-| `subSizeName`      | String                                       | No       | Sub-size name                   |
-| `stockLevels`      | List<[XStockLevel](products.md#xstocklevel)> | No       | Stock quantities per date       |
-
-{% hint style="warning" %}
-**Identification:** Provide either `productUniqueId` + `productColorCode` + `sizeName`, or `eanCode` to identify the size to update.
-{% endhint %}
-
-{% hint style="info" %}
-**Usage:** This type is used specifically with the `updateStock` operation for efficient bulk stock updates without sending full product data.
-{% endhint %}
 
 ***
 
@@ -655,24 +574,24 @@ Contains the translated values for an extra field.
 ### Example
 
 ```xml
-<api:extraField>
-    <api:name>care_instructions</api:name>
-    <api:description>Care Instructions</api:description>
-    <api:value>Machine wash cold</api:value>
-    <api:important>true</api:important>
-    <api:translation>
-        <api:language>nl</api:language>
-        <api:fields>
-            <api:description>Wasinstructies</api:description>
-            <api:value>Machine wassen koud</api:value>
-        </api:fields>
-    </api:translation>
-    <api:translation>
-        <api:language>de</api:language>
-        <api:fields>
-            <api:description>Pflegehinweise</api:description>
-            <api:value>Kalt waschen</api:value>
-        </api:fields>
-    </api:translation>
-</api:extraField>
+<extraField>
+    <name>care_instructions</name>
+    <description>Care Instructions</description>
+    <value>Machine wash cold</value>
+    <important>true</important>
+    <translation>
+        <language>nl</language>
+        <fields>
+            <description>Wasinstructies</description>
+            <value>Machine wassen koud</value>
+        </fields>
+    </translation>
+    <translation>
+        <language>de</language>
+        <fields>
+            <description>Pflegehinweise</description>
+            <value>Kalt waschen</value>
+        </fields>
+    </translation>
+</extraField>
 ```

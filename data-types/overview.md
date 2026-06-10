@@ -1,6 +1,6 @@
 # Data Types Overview
 
-This reference documents all data types used in the Colect SOAP API v3.0.
+This reference documents all data types used in the Colect XML API.
 
 ---
 
@@ -98,48 +98,6 @@ Use period as decimal separator:
 
 ---
 
-## Type Hierarchy
-
-```
-XObject30 (base)
-├── XProduct30
-├── XCustomer30
-├── XOrder30
-├── XOrderLine30
-├── XSize30
-├── XPrice30
-├── XMedium30
-├── XLocation30
-├── XContact30
-├── XAgreement30
-├── XDeliveryWindow30
-├── XExtraField30
-├── XLabel30
-├── XTag30
-├── XStockLevel30
-├── XDiscountGroup30
-├── XMarginGroup30
-├── XProductAccessRule30
-├── XCustomerAccessRecord30
-├── XAgentCustomerAccess30
-├── XHistoricalOrder30
-├── XHistoricalOrderLine30
-├── XInvoice30
-├── XProductRelation30
-├── XBudgetComponent30
-├── XCustomChoice30
-├── XOrderAmountModificationRule30
-├── XMinimumQuantity30
-├── XPrepackContentElement30
-├── XCustomerSizeNaming30
-├── XCustomerApprovalGroup30
-├── XPriceInfoElement30
-├── XStockInfoElement30
-└── ... (translation types)
-```
-
----
-
 ## Quick Reference
 
 ### Primary Identifiers
@@ -169,28 +127,6 @@ XObject30 (base)
 | `XInvoice30` | Customer invoice |
 | `XPriceInfoElement30` | Bulk price update element |
 | `XStockInfoElement30` | Bulk stock update element |
-
----
-
-## Namespace Reference
-
-```xml
-xmlns:api="http://api.cc.salesapp.apptitude.nl/"
-xmlns:ws="http://ws.cc.salesapp.apptitude.nl/"
-```
-
-The `ws` namespace is specifically used for:
-- `productRelation` element in product relation operations
-
----
-
-## Schema Locations
-
-| Schema | URL |
-|--------|-----|
-| WSDL | `https://connector.colect.services:443/services/api/3.0?wsdl` |
-| XSD 1 | `https://connector.colect.services:443/services/api/3.0?xsd=1` |
-| XSD 2 | `https://connector.colect.services:443/services/api/3.0?xsd=2` |
 
 ---
 

@@ -6,14 +6,13 @@ The Colect XML API moves data between your ERP and the Colect platform as **XML 
 
 ## Supported transports
 
-| Transport                       | When to use                                                                                  | Notes                                                              |
-| ------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| **Colect Secure FTP (SFTP)**    | Default for most ERP integrations. Good fit for batch exports, scheduled imports.            | Credentials issued by Colect Support. Encrypted in transit.        |
-| **HTTP POST**                   | When your ERP can deliver files over HTTPS, or for triggered/event-based deliveries.         | Endpoint and credentials configured per integration.               |
-| **Other file-transfer**         | Custom integrations (S3 drop, internal file share, etc.) handled per project.                | Discussed during integration kick-off.                             |
+| Transport                       | When to use                                                                       | Notes                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Colect Secure FTP (SFTP)**    | Default for most ERP integrations. Good fit for batch exports, scheduled imports. | Credentials issued by Colect Support. Encrypted in transit. |
+| **Other file-transfer**         | Custom integrations (S3 drop, internal file share, etc.) handled per project.     | Discussed during integration kick-off.                      |
 
 {% hint style="info" %}
-The XML document structure is **identical** across transports. You write the document once and ship it however your environment supports. This page covers the SFTP path because it is the most common; HTTP POST and other channels are documented in your integration's setup notes.
+The XML document structure is **identical** regardless of transport channel. You write the document once and ship it however your environment supports.
 {% endhint %}
 
 ***
@@ -86,47 +85,6 @@ Your integration's specific paths may differ — confirm with your Colect Suppor
                                   │   inbox/archive/ │                                │   inbox/error/   │
                                   └──────────────────┘                                └──────────────────┘
 ```
-
-***
-
-## HTTP POST option
-
-For integrations that prefer HTTPS, documents can be POSTed to a per-integration endpoint:
-
-{% tabs %}
-{% tab title="POST request" %}
-```http
-POST /xml/inbox/products HTTP/1.1
-Host: connector.colect.services
-Content-Type: application/xml
-Authorization: Basic <base64-credentials>
-
-<?xml version="1.0" encoding="UTF-8"?>
-<products>
-  <product>
-    <uniqueId>STYLE-001</uniqueId>
-    <colorCode>BLK</colorCode>
-    ...
-  </product>
-</products>
-```
-{% endtab %}
-
-{% tab title="Response" %}
-```http
-HTTP/1.1 202 Accepted
-Content-Type: application/json
-
-{
-  "accepted": true,
-  "fileId": "products_2026-05-06_b8c2a1.xml",
-  "validationStatus": "queued"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-A `202 Accepted` confirms the document was received and queued for validation. Validation results appear in the response of a subsequent status check, or in the SFTP `inbox/error/` folder if you have a hybrid setup.
 
 ***
 
