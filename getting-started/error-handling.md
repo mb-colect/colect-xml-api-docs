@@ -1,48 +1,27 @@
 # Error Handling
 
-When the Cloud Connector processes a file from your SFTP inbox, it either ingests the data successfully or rejects it. Rejected files are never silently dropped — every failure produces a `.err` sidecar that tells you exactly what went wrong.
-
-***
-
-## The inbox/error/ folder
-
-After picking up a file from `inbox/`, the Connector does one of two things:
-
-| Outcome | Where the file goes |
-| ------- | ------------------- |
-| Validation passes, data ingested | `inbox/archive/` |
-| Validation fails | `inbox/error/` |
-
-For every file that lands in `inbox/error/`, the Connector also writes a sidecar with the same filename and an added `.err` extension:
-
-```
-inbox/error/
-├── products_2026-05-06T0900.xml
-└── products_2026-05-06T0900.xml.err
-```
+When the Cloud Connector processes a file from `datafiles/`, it validates the XML against the schema before ingesting it. If validation fails, the data is not imported. How that failure is reported back to you depends on your integration setup — confirm the error notification mechanism with your Colect Support contact during onboarding.
 
 {% hint style="info" %}
-Your SFTP user has read access to `inbox/error/`. Poll this folder on the same schedule as your upload cycle to catch failures automatically.
+Regardless of how errors are surfaced, the XSD validation messages follow a standard format. The sections below document the most common errors and how to fix them.
 {% endhint %}
 
 ***
 
-## The .err sidecar
+## Validation error format
 
-The `.err` file is plain text — one XSD validation message per line. Open it in any text editor or read it programmatically.
+XSD validation errors follow this pattern:
 
-**Example:**
+```
+Validation error at line <L>, column <C>: <XSD error code>: <human-readable detail>
+```
+
+**Example messages:**
 
 ```
 Validation error at line 8, column 14: cvc-minLength-valid: Value '' with length = '0' is not facet-valid with respect to minLength '1' for type 'nonEmptyString'.
 Validation error at line 42, column 8: cvc-complex-type.2.4.a: Invalid content was found starting with element 'colorCode'. One of '{uniqueId}' is expected.
 Validation error at line 104, column 22: cvc-datatype-valid.1.2.1: '2025-13-45' is not a valid value for 'dateTime'.
-```
-
-Each line follows the pattern:
-
-```
-Validation error at line <L>, column <C>: <XSD error code>: <human-readable detail>
 ```
 
 The line and column numbers point to the offending element in the rejected XML.
@@ -105,23 +84,12 @@ cvc-complex-type.2.4.a: Invalid content was found starting with element 'colorCo
 
 ## Verifying connectivity
 
-The fastest way to confirm your credentials and pipeline are working end to end is to upload a minimal products document and observe where it lands.
-
-**Upload:**
+Upload a minimal products document to confirm your credentials and pipeline are working:
 
 ```bash
 sftp colect-user@sftp.colect.services
-sftp> cd inbox
+sftp> cd datafiles
 sftp> put products_smoketest.xml
-sftp> bye
-```
-
-**Check after a few seconds:**
-
-```bash
-sftp colect-user@sftp.colect.services
-sftp> ls inbox/archive/   # present here = success
-sftp> ls inbox/error/     # present here = failure, read the .err sidecar
 sftp> bye
 ```
 
@@ -137,16 +105,14 @@ sftp> bye
 </products>
 ```
 
-{% hint style="success" %}
-If the file lands in `inbox/archive/` and the product appears in your Colect collection, your pipeline is working end to end.
-{% endhint %}
+If the product appears in your Colect collection shortly after upload, the pipeline is working end to end.
 
 ***
 
 ## Getting help
 
-If you cannot resolve an error from the `.err` message alone:
+If you cannot resolve a validation error:
 
-1. Note the rejected filename and upload timestamp.
-2. Copy the full content of the `.err` sidecar.
-3. Contact Colect Support with both — and include the offending lines from the source XML if the error message references specific line numbers.
+1. Note the filename and upload timestamp.
+2. Copy the full validation error message.
+3. Contact Colect Support with both — and include the offending lines from the source XML if the error references specific line numbers.
