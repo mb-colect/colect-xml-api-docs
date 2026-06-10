@@ -1,6 +1,6 @@
 # Overview
 
-## Document revision 1.5
+## Colect XML v1.5
 
 Welcome to the Colect XML API documentation. This document describes the structure of the XML-based interface offered by Colect — a document-exchange integration that lets your ERP system synchronize products, customers, orders, and related data with the Colect platform.
 
