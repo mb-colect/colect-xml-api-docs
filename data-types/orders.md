@@ -90,7 +90,6 @@ Order placed through Colect app or B2B webstore.
 | `customChoices` | List&lt;[XCustomChoice](customers.md#xcustomchoice)&gt; | `<customChoice>` | Selected custom options |
 | `discountRules` | List&lt;[XOrderAmountModificationRule](customers.md#xorderamountmodificationrule)&gt; | `<discountRule>` | Applied discount rules |
 | `deliveryCostRules` | List&lt;[XOrderAmountModificationRule](customers.md#xorderamountmodificationrule)&gt; | `<deliveryCostRule>` | Applied shipping rules |
-| `orderConfirmation` | [XOrderConfirmation](#xorderconfirmation) | N/A | PDF confirmation (getUnprocessedOrders only) |
 
 ---
 
@@ -158,17 +157,6 @@ Line item in an order.
 | `customerSizeName` | String | Customer-specific size |
 | `customerSubSizeName` | String | Customer-specific sub-size |
 | `files` | List&lt;[XRemoteFile](#xremotefile)&gt; | Attached files (XML: `<remoteFile>`) |
-
----
-
-## XOrderConfirmation
-
-PDF confirmation document.
-
-| Field | Type | Description |
-|-------|------|-------------|
-| `orderNumber` | String | Order number |
-| `pdfData` | byte[] | Base64-encoded PDF |
 
 ---
 

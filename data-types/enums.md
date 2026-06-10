@@ -1,6 +1,6 @@
 # Enumerations
 
-Complete reference for all enum types in the Colect SOAP API.
+Complete reference for all enumeration types used in the Colect XML API.
 
 ***
 
@@ -44,35 +44,9 @@ Basic color categories for filtering.
 | `SILVER`     |
 | `UNKNOWN`    |
 
-### XMediumType
+### Media types
 
-Media/image types for products.
-
-| Value                  | Description                   |
-| ---------------------- | ----------------------------- |
-| `IMAGE_PRIMARY`        | Main product image (required) |
-| `IMAGE_SWATCH`         | Color swatch thumbnail        |
-| `IMAGE_BACK`           | Back view                     |
-| `IMAGE_MODEL`          | Model wearing product         |
-| `IMAGE_MODEL_BACK`     | Model back view               |
-| `IMAGE_LEFT`           | Left side view                |
-| `IMAGE_RIGHT`          | Right side view               |
-| `IMAGE_TOP`            | Top view                      |
-| `IMAGE_BOTTOM`         | Bottom view                   |
-| `IMAGE_PACK`           | Packaging view                |
-| `IMAGE_FIT`            | Fit guide                     |
-| `IMAGE_STAMP_LEFT`     | Left corner overlay           |
-| `IMAGE_STAMP_RIGHT`    | Right corner overlay          |
-| `IMAGE_ADDITIONAL_1`   | Additional image 1            |
-| `IMAGE_ADDITIONAL_2`   | Additional image 2            |
-| `IMAGE_ADDITIONAL_3`   | Additional image 3            |
-| `IMAGE_ADDITIONAL_4`   | Additional image 4            |
-| `IMAGE_ADDITIONAL_5`   | Additional image 5            |
-| `VIDEO`                | Product video                 |
-| `VIDEO_MODEL`          | Model video                   |
-| `VIDEO_MODEL_LEAD_IN`  | Model video intro             |
-| `VIDEO_MODEL_LEAD_OUT` | Model video outro             |
-| `HTML`                 | HTML content                  |
+The `type` field on `<medium>` is an open string — not a fixed enum. See [Media Types](products.md#media-types) in the Product Types reference for the 9 values with confirmed rendering support.
 
 ### ProductRelationType
 
@@ -234,7 +208,7 @@ Omit `environment` to apply rule to both APP and B2B.
 
 ### XPriceType
 
-Price type for updatePrices operation.
+Price type identifier for price records.
 
 | Value                | Description                          |
 | -------------------- | ------------------------------------ |
@@ -259,52 +233,52 @@ When to evaluate order rules.
 ### Product Status
 
 ```xml
-<api:product>
-    <api:uniqueId>STYLE-001</api:uniqueId>
-    <api:colorCode>BLK</api:colorCode>
-    <api:status>ACTIVE</api:status>
+<product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>BLK</colorCode>
+    <status>ACTIVE</status>
     <!-- or -->
-    <api:status>SOLDOUT</api:status>
-</api:product>
+    <status>SOLDOUT</status>
+</product>
 ```
 
 ### Customer Status with Message
 
 ```xml
-<api:customer>
-    <api:customerNo>CUST-001</api:customerNo>
-    <api:status>WARNING</api:status>
-    <api:statusMessage>Payment overdue - please contact accounting before placing orders.</api:statusMessage>
-</api:customer>
+<customer>
+    <customerNo>CUST-001</customerNo>
+    <status>WARNING</status>
+    <statusMessage>Payment overdue - please contact accounting before placing orders.</statusMessage>
+</customer>
 ```
 
 ### Order Line Types
 
 ```xml
-<api:orderLine>
-    <api:type>STOCK_ORDER</api:type>
+<orderLine>
+    <type>STOCK_ORDER</type>
     <!-- Regular in-stock order -->
-</api:orderLine>
+</orderLine>
 
-<api:orderLine>
-    <api:type>PRE_ORDER</api:type>
+<orderLine>
+    <type>PRE_ORDER</type>
     <!-- Future availability -->
-</api:orderLine>
+</orderLine>
 
-<api:orderLine>
-    <api:type>RETURN_ORDER</api:type>
+<orderLine>
+    <type>RETURN_ORDER</type>
     <!-- Return/credit -->
-</api:orderLine>
+</orderLine>
 ```
 
 ### Access Rules
 
 ```xml
-<api:productAccessRule>
-    <api:customerNo>CUST-001</api:customerNo>
-    <api:type>REMOVE</api:type>
-    <api:operation>EQUALS</api:operation>
-    <api:environment>B2B</api:environment>
-    <api:categoryCode>PREMIUM</api:categoryCode>
-</api:productAccessRule>
+<productAccessRule>
+    <customerNo>CUST-001</customerNo>
+    <type>REMOVE</type>
+    <operation>EQUALS</operation>
+    <environment>B2B</environment>
+    <categoryCode>PREMIUM</categoryCode>
+</productAccessRule>
 ```
