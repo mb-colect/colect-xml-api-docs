@@ -29,28 +29,26 @@ The XML document structure is **identical** regardless of transport channel. You
 
 ## File naming and routing
 
-Each input document type maps to a distinct file pattern. The Cloud Connector picks up files based on these patterns and routes them to the correct ingestion pipeline.
+The Cloud Connector identifies document type from the **root XML element** of each file — not from the filename. A file named `Product_sale.xml` is processed identically to `products_2026-06-01.xml` if both have `<products>` as the root element.
 
-| Document                                  | File name pattern                  | Direction        |
-| ----------------------------------------- | ---------------------------------- | ---------------- |
-| Products                                  | `products*.xml`                    | ERP → Colect     |
-| Customers                                 | `customers*.xml`                   | ERP → Colect     |
-| Customer Access                           | `customerAccess*.xml`              | ERP → Colect     |
-| Product Access                            | `productAccess*.xml`               | ERP → Colect     |
-| Product Relations _(new in v1.5)_         | `productRelations*.xml`            | ERP → Colect     |
-| Prices (sub-feed)                         | `prices*.xml`                      | ERP → Colect     |
-| Sizes & Stock (sub-feed)                  | `sizes*.xml`                       | ERP → Colect     |
-| Extra Fields (sub-feed)                   | `extraFields*.xml`                 | ERP → Colect     |
-| Invoices                                  | `invoices*.xml`                    | ERP → Colect     |
-| Historical Orders                         | `historicalOrders*.xml`            | ERP → Colect     |
-| Orders                                    | `[orderNumber]-[random].xml`       | Colect → ERP     |
+The patterns below are recommended conventions to keep `datafiles/` readable. You are free to extend them with timestamps, batch IDs, or collection codes to suit your ERP's export naming.
 
-{% hint style="info" %}
-**ERP → Colect files:** The `*` in the pattern can include a timestamp, batch ID, or any string that helps you keep files distinct (e.g. `products_2026-05-06T0900.xml`). Colect identifies the document type from the root element — the filename is for your own bookkeeping.
-{% endhint %}
+| Document                                  | Recommended pattern                | Root element          | Direction        |
+| ----------------------------------------- | ---------------------------------- | --------------------- | ---------------- |
+| Products                                  | `products*.xml`                    | `<products>`          | ERP → Colect     |
+| Customers                                 | `customers*.xml`                   | `<customers>`         | ERP → Colect     |
+| Customer Access                           | `customerAccess*.xml`              | `<customerAccesses>`  | ERP → Colect     |
+| Product Access                            | `productAccess*.xml`               | `<productAccesses>`   | ERP → Colect     |
+| Product Relations _(new in v1.5)_         | `productRelations*.xml`            | `<productRelations>`  | ERP → Colect     |
+| Prices (sub-feed)                         | `prices*.xml`                      | `<prices>`            | ERP → Colect     |
+| Sizes & Stock (sub-feed)                  | `sizes*.xml`                       | `<sizes>`             | ERP → Colect     |
+| Extra Fields (sub-feed)                   | `extraFields*.xml`                 | `<extraFields>`       | ERP → Colect     |
+| Invoices                                  | `invoices*.xml`                    | `<invoices>`          | ERP → Colect     |
+| Historical Orders                         | `historicalOrders*.xml`            | `<historicalOrders>`  | ERP → Colect     |
+| Orders                                    | `[orderNumber]-[random].xml`       | —                     | Colect → ERP     |
 
 {% hint style="info" %}
-**Colect → ERP files (Orders):** Each order is written as a separate file. The filename is `[orderNumber]-[random].xml` — for example `12345678-999.xml`. Your ERP should process any `.xml` file it finds in `orderfiles/` rather than matching a fixed pattern.
+**Colect → ERP files (Orders):** Each order is written as a separate file named `[orderNumber]-[random].xml` — for example `12345678-999.xml`. Your ERP should process any `.xml` file it finds in `orderfiles/` rather than matching a fixed pattern.
 {% endhint %}
 
 ***
