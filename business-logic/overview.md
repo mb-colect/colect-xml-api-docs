@@ -24,7 +24,7 @@ A few patterns recur across business-logic features:
 
 * **Data-driven gating.** Most features turn on automatically when you supply the right data. There's rarely a separate "enable Multi Promotions" flag — the feature appears when a customer has two or more eligible discount groups.
 * **Identifiers echo back.** Whenever a feature lets the user make a choice (which discount, which delivery window, which custom choice), the chosen identifier is written back on the [Orders output document](../documents/orders.md) so your ERP can audit what happened.
-* **Collection-level configuration.** A handful of features have collection-level toggles your Colect Support contact configures (e.g. `discountGroupFilter` for Multi Promotions). These are noted on each feature's page.
+* **Collection-level configuration.** A handful of features have collection-level toggles your Colect contact configures (e.g. `discountGroupFilter` for Multi Promotions). These are noted on each feature's page.
 
 ***
 
