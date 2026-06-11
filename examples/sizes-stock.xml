@@ -19,7 +19,7 @@
         <eanCode>8712345678901</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>110</quantity>
           </stockLevel>
         </stockLevels>
@@ -31,12 +31,12 @@
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>165</quantity>
           </stockLevel>
           <!-- Future restock arriving June 1 -->
           <stockLevel>
-            <startDate>20260601</startDate>
+            <startDate>2026-06-01</startDate>
             <quantity>500</quantity>
           </stockLevel>
         </stockLevels>
@@ -48,7 +48,7 @@
         <eanCode>8712345678903</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>132</quantity>
           </stockLevel>
         </stockLevels>
@@ -61,11 +61,11 @@
         <accessCode>PRO</accessCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>0</quantity>
           </stockLevel>
         </stockLevels>
-        <replenishmentDate>20260615</replenishmentDate>
+        <replenishmentDate>2026-06-15</replenishmentDate>
       </size>
     </sizes>
   </product>
@@ -90,7 +90,7 @@
         </customerSizeNaming>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>200</quantity>
           </stockLevel>
         </stockLevels>

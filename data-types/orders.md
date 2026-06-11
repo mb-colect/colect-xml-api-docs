@@ -105,8 +105,8 @@ Line item in an order.
 | `productColorCode` | String | Color code |
 | `productStyleCode` | String | Style code |
 | `productCollectionId` | String | Product's collection |
-| `sizeName` | String | Size |
-| `subSize` | String | Sub-size (width/length) |
+| `productSize` | String | Size name |
+| `productSubSize` | String | Sub-size (width/length) |
 | `eanCode` | String | EAN/barcode |
 | `prepackName` | String | Prepack name |
 | `sizeCustomField` | String | Size custom field |
@@ -116,13 +116,13 @@ Line item in an order.
 | Field | Type | Description |
 |-------|------|-------------|
 | `type` | [XOrderLineType](enums.md#xorderlinetype) | STOCK_ORDER, PRE_ORDER, RETURN_ORDER |
-| `numberOfPieces` | Integer | Quantity ordered |
+| `quantity` | Integer | Quantity ordered |
 | `prePackUnitCount` | Integer | Units per prepack |
 | `retailPrice` | Float | Retail price |
-| `wholesalePrice` | Float | Wholesale with customer discount |
+| `price` | Float | Wholesale price applied (after customer discount) |
 | `grossWholesalePrice` | Float | Before all discounts |
 | `netWholesalePrice` | Float | After all discounts |
-| `lineAmount` | Float | Total line value |
+| `totalAmount` | Float | Total line value |
 
 ### Discounts and Margins
 
