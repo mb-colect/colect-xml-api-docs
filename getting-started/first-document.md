@@ -60,6 +60,7 @@ Create a file called `products_first.xml`. Replace the placeholder values with r
         <sortCode>1</sortCode>
         <stockLevels>
           <stockLevel>
+            <startDate>1980-01-01</startDate>
             <quantity>100</quantity>
           </stockLevel>
         </stockLevels>

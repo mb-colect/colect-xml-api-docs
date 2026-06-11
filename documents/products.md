@@ -65,9 +65,9 @@ The standalone documents are useful when you only want to refresh a single dimen
 | `collectionId`           | `string`   | NO        | Collection identifier.                                                                                                                                                                                               |
 | `collectionDesc`         | `string`   | NO        | Collection description, paired with `collectionId`.                                                                                                                                                                  |
 | `minimalOrderQuantity`   | `int`      | NO        | Minimum quantity required for this item or item/color combination. Default `0`.                                                                                                                                      |
-| `deliveryStartDate`      | `dateTime` | NO        | First date of the delivery block. Use `stock` to flag stock-only delivery; otherwise format `yyyyMMdd`.                                                                                                              |
-| `deliveryEndDate`        | `dateTime` | NO        | Last date of the delivery block. Format `yyyyMMdd`.                                                                                                                                                                  |
-| `firstReceiptDate`       | `dateTime` | NO        | First date this product becomes available. May differ from `deliveryStartDate`. Format `yyyyMMdd`.                                                                                                                   |
+| `deliveryStartDate`      | `dateTime` | NO        | First date of the delivery block. Use `stock` to flag stock-only delivery; otherwise `YYYY-MM-DD`.                                                                                                                   |
+| `deliveryEndDate`        | `dateTime` | NO        | Last date of the delivery block. Format `YYYY-MM-DD`.                                                                                                                                                                |
+| `firstReceiptDate`       | `dateTime` | NO        | First date this product becomes available. May differ from `deliveryStartDate`. Format `YYYY-MM-DD`.                                                                                                                 |
 | `productGroupCode`       | `string`   | NO        | Product group code.                                                                                                                                                                                                  |
 | `productGroupDesc`       | `string`   | NO        | Product group description, paired with `productGroupCode`.                                                                                                                                                           |
 | `marginGroupCode`        | `string`   | NO        | Margin group identifier — links to margin groups defined per customer.                                                                                                                                               |
@@ -80,8 +80,8 @@ The standalone documents are useful when you only want to refresh a single dimen
 | `gender`                 | `string`   | NO        | Gender for categorizing and filtering.                                                                                                                                                                               |
 | `userDefinedField1`      | `string`   | NO        | Free-form text field 1 for filtering.                                                                                                                                                                                |
 | `userDefinedField2`      | `string`   | NO        | Free-form text field 2 for filtering.                                                                                                                                                                                |
-| `startDate`              | `dateTime` | NO        | First date the product is visible. Empty = no lower bound. Format `yyyyMMdd`.                                                                                                                                        |
-| `endDate`                | `dateTime` | NO        | Last date the product is visible. Empty = no upper bound. Format `yyyyMMdd`.                                                                                                                                         |
+| `startDate`              | `dateTime` | NO        | First date the product is visible. Empty = no lower bound. Format `YYYY-MM-DD`.                                                                                                                                      |
+| `endDate`                | `dateTime` | NO        | Last date the product is visible. Empty = no upper bound. Format `YYYY-MM-DD`.                                                                                                                                       |
 
 ***
 
@@ -108,8 +108,8 @@ A `<price>` element may have **either** `priceGroup` **or** `customerNo`, never 
 | `originalWholesalePrice` | `float`    | NO        | Original wholesale price (when this is a discounted item).                                                                                                                                                        |
 | `purchasePrice`          | `float`    | NO        | Purchase price (used when the app supports buying).                                                                                                                                                               |
 | `net`                    | `boolean`  | NO        | `true` if this is a net price (customer discount is leading, not the discount group).                                                                                                                             |
-| `startDate`              | `dateTime` | NO        | Price start date. Empty = immediately active. Format `yyyyMMdd`.                                                                                                                                                  |
-| `endDate`                | `dateTime` | NO        | Price end date. Empty = no expiry. Format `yyyyMMdd`.                                                                                                                                                             |
+| `startDate`              | `dateTime` | NO        | Price start date. Empty = immediately active. Format `YYYY-MM-DD`.                                                                                                                                                |
+| `endDate`                | `dateTime` | NO        | Price end date. Empty = no expiry. Format `YYYY-MM-DD`.                                                                                                                                                           |
 
 ***
 
@@ -130,7 +130,7 @@ The `<sizes>` block contains one `<size>` per available size. Each size carries 
 | `subSizeSortCode`        | `int`      | NO        | Secondary sort code for sub-sizes.                                                                                       |
 | `prePackUnitCount`       | `int`      | **YES**   | Total pieces in this SKU. `1` for a single item; higher when the SKU is a prepack.                                       |
 | `eanCode`                | `string`   | NO        | EAN or SKU-level barcode for this item/size.                                                                             |
-| `replenishmentDate`      | `dateTime` | NO        | Date the size is expected back in stock. Format `yyyyMMdd`.                                                              |
+| `replenishmentDate`      | `dateTime` | NO        | Date the size is expected back in stock. Format `YYYY-MM-DD`.                                                            |
 
 ### Stock levels
 
@@ -138,7 +138,7 @@ Each `<size>` may carry one or more `<stockLevel>` entries inside `<stockLevels>
 
 | Element       | Type       | Mandatory | Description                                                                                                                                                  |
 | ------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `startDate`   | `dateTime` | **YES**   | Date from which this stock level applies. If not using future stock, set a fixed past date like `19800101`. Format `yyyyMMdd`.                              |
+| `startDate`   | `dateTime` | **YES**   | Date from which this stock level applies. If not using future stock, set a fixed past date like `1980-01-01`. Format `YYYY-MM-DD`.                          |
 | `quantity`    | `int`      | **YES**   | Number of pieces available for this SKU at the given date.                                                                                                   |
 
 ### Prepack definition
@@ -177,7 +177,7 @@ The `<media>` block contains one or more `<medium>` entries. Each item requires 
 | Attribute / Element | Type     | Mandatory | Description                                                                                                                  |
 | ------------------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `format` (attr)     | `string` | **YES**   | Set to `image` (other formats reserved).                                                                                     |
-| `type`              | enum     | **YES**   | `primary`, `swatch`, `back`, `model`, `model_back`, `left`, `right`, `stamp_left`, `stamp_right`.                            |
+| `type`              | enum     | **YES**   | `IMAGE_PRIMARY`, `IMAGE_BACK`, `IMAGE_SWATCH`, `IMAGE_MODEL`, `IMAGE_MODEL_BACK`, `IMAGE_LEFT`, `IMAGE_RIGHT`, `IMAGE_PACK`, `IMAGE_TOP`, `IMAGE_BOTTOM`, `IMAGE_FIT`, `IMAGE_STAMP_LEFT`, `IMAGE_STAMP_RIGHT`, `IMAGE_ADDITIONAL_1`–`IMAGE_ADDITIONAL_5`, `VIDEO`, `VIDEO_MODEL`, `VIDEO_MODEL_LEAD_IN`, `VIDEO_MODEL_LEAD_OUT`, `HTML`. Full descriptions in [enums](../data-types/enums.md). |
 | `url`               | `string` | **YES**   | URL to the high-resolution image.                                                                                            |
 | `thumbUrl`          | `string` | NO        | URL to a thumbnail (no effect for `swatch`). If omitted, the device generates one — slower.                                  |
 | `sortCode`          | `int`    | NO        | Sort order. No effect for `primary`, `swatch`, `stamp_left`, `stamp_right`.                                                  |
@@ -258,7 +258,7 @@ Free-form, optionally grouped attributes that surface in the app for things the 
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>150</quantity>
           </stockLevel>
         </stockLevels>
@@ -267,7 +267,7 @@ Free-form, optionally grouped attributes that surface in the app for things the 
 
     <media>
       <medium format="image">
-        <type>primary</type>
+        <type>IMAGE_PRIMARY</type>
         <url>https://images.example.com/style-001-blk.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk_thumb.jpg</thumbUrl>
       </medium>
@@ -277,8 +277,8 @@ Free-form, optionally grouped attributes that surface in the app for things the 
       <deliveryWindow>
         <code>SS25_DROP1</code>
         <description>Spring 2025 — Drop 1</description>
-        <startDate>20250115</startDate>
-        <endDate>20250215</endDate>
+        <startDate>2025-01-15</startDate>
+        <endDate>2025-02-15</endDate>
       </deliveryWindow>
     </deliveryWindows>
 
@@ -305,9 +305,15 @@ Free-form, optionally grouped attributes that surface in the app for things the 
 xmllint --noout --schema schema/snapshots/2026-05-06/Product_Feed_XSD.xsd products.xml
 ```
 
-Catching schema errors locally is far faster than parsing rejection messages from the SFTP `error/` folder.
+Catching schema errors locally is far faster than reading them from the Connector status page in the Colect backend.
 {% endhint %}
 
 {% hint style="warning" %}
 **Empty elements are not the same as missing elements.** `<price/>` declares an empty price object — which is invalid because `currencyCode` is mandatory. Omit the element entirely if you have no value for it.
+{% endhint %}
+
+{% hint style="info" %}
+**Connector status page:** Validation errors for processed files are visible in the Connector status page in the Colect backend.
+
+_[Screenshot placeholder — connector status page]_
 {% endhint %}
