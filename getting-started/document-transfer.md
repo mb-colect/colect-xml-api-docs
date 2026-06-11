@@ -43,6 +43,32 @@ The patterns below are common conventions to keep `datafiles/` readable. You are
 
 ***
 
+## Connector settings
+
+The file paths above are configured per collection in the Colect backend under **Connector settings**. Each document type has a dedicated `*Location` field — set this to the full file path (including filename pattern) that your ERP will use.
+
+![](<../.gitbook/assets/connector-settings.png>)
+
+| Backend setting              | Document                   |
+| ---------------------------- | -------------------------- |
+| `articleLocation`            | Products                   |
+| `customerLocation`           | Customers                  |
+| `customerAccessLocation`     | Customer Access            |
+| `productAccessLocation`      | Product Access             |
+| `productRelationsLocation`   | Product Relations          |
+| `pricesLocation`             | Prices (sub-feed)          |
+| `sizesLocation`              | Sizes & Stock (sub-feed)   |
+| `extraFieldsLocation`        | Extra Fields (sub-feed)    |
+| `invoicesLocation`           | Invoices                   |
+| `historicalOrdersLocation`   | Historical Orders          |
+| `orderLocation`              | Orders (output)            |
+
+{% hint style="info" %}
+Your Colect contact configures these paths during onboarding. If a location field is left blank, that document type is disabled for the collection.
+{% endhint %}
+
+***
+
 ## Directory layout
 
 The default SFTP layout looks like this:
