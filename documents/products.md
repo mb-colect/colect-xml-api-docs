@@ -175,15 +175,15 @@ The combination of `code` + `sizeName` + `subSizeName` must be unique inside a s
 
 ## Media objects
 
-The `<media>` block contains one or more `<medium>` entries. Each item requires a `primary` image; other types add complementary visuals.
+The `<media>` block contains one or more `<medium>` entries. Each item requires an `IMAGE_PRIMARY` medium; other types add complementary visuals.
 
 | Attribute / Element | Type     | Mandatory | Description                                                                                                                  |
 | ------------------- | -------- | --------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `format` (attr)     | `string` | **YES**   | Set to `image` (other formats reserved).                                                                                     |
 | `type`              | enum     | **YES**   | `IMAGE_PRIMARY`, `IMAGE_BACK`, `IMAGE_SWATCH`, `IMAGE_MODEL`, `IMAGE_MODEL_BACK`, `IMAGE_LEFT`, `IMAGE_RIGHT`, `IMAGE_PACK`, `IMAGE_TOP`, `IMAGE_BOTTOM`, `IMAGE_FIT`, `IMAGE_STAMP_LEFT`, `IMAGE_STAMP_RIGHT`, `IMAGE_ADDITIONAL_1`–`IMAGE_ADDITIONAL_5`, `VIDEO`, `VIDEO_MODEL`, `VIDEO_MODEL_LEAD_IN`, `VIDEO_MODEL_LEAD_OUT`, `HTML`. Full descriptions in [enums](../data-types/enums.md). |
 | `url`               | `string` | **YES**   | URL to the high-resolution image.                                                                                            |
-| `thumbUrl`          | `string` | NO        | URL to a thumbnail (no effect for `swatch`). If omitted, the device generates one — slower.                                  |
-| `sortCode`          | `int`    | NO        | Sort order. No effect for `primary`, `swatch`, `stamp_left`, `stamp_right`.                                                  |
+| `thumbUrl`          | `string` | NO        | URL to a thumbnail (no effect for `IMAGE_SWATCH`). If omitted, the device generates one — slower.                            |
+| `sortCode`          | `int`    | NO        | Sort order. No effect for `IMAGE_PRIMARY`, `IMAGE_SWATCH`, `IMAGE_STAMP_LEFT`, `IMAGE_STAMP_RIGHT`.                          |
 
 ***
 

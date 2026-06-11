@@ -31,9 +31,9 @@
     <collectionId>MAINLINE</collectionId>
     <collectionDesc>Mainline</collectionDesc>
     <minimalOrderQuantity>0</minimalOrderQuantity>
-    <deliveryStartDate>20250115</deliveryStartDate>
-    <deliveryEndDate>20250215</deliveryEndDate>
-    <firstReceiptDate>20250115</firstReceiptDate>
+    <deliveryStartDate>2025-01-15</deliveryStartDate>
+    <deliveryEndDate>2025-02-15</deliveryEndDate>
+    <firstReceiptDate>2025-01-15</firstReceiptDate>
     <productGroupCode>TOPS</productGroupCode>
     <productGroupDesc>Tops</productGroupDesc>
     <marginGroupCode>MG1</marginGroupCode>
@@ -80,7 +80,7 @@
         <eanCode>8712345678901</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>120</quantity>
           </stockLevel>
         </stockLevels>
@@ -92,12 +92,12 @@
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>180</quantity>
           </stockLevel>
           <stockLevel>
             <!-- Future restock -->
-            <startDate>20260601</startDate>
+            <startDate>2026-06-01</startDate>
             <quantity>500</quantity>
           </stockLevel>
         </stockLevels>
@@ -109,7 +109,7 @@
         <eanCode>8712345678903</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>140</quantity>
           </stockLevel>
         </stockLevels>
@@ -122,7 +122,7 @@
         <accessCode>PRO</accessCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>60</quantity>
           </stockLevel>
         </stockLevels>
@@ -131,22 +131,22 @@
 
     <media>
       <medium format="image">
-        <type>primary</type>
+        <type>IMAGE_PRIMARY</type>
         <url>https://images.example.com/style-001-blk.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk_thumb.jpg</thumbUrl>
       </medium>
       <medium format="image">
-        <type>back</type>
+        <type>IMAGE_BACK</type>
         <url>https://images.example.com/style-001-blk-back.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk-back_thumb.jpg</thumbUrl>
         <sortCode>1</sortCode>
       </medium>
       <medium format="image">
-        <type>swatch</type>
+        <type>IMAGE_SWATCH</type>
         <url>https://images.example.com/swatch-blk.jpg</url>
       </medium>
       <medium format="image">
-        <type>model</type>
+        <type>IMAGE_MODEL</type>
         <url>https://images.example.com/style-001-blk-model.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk-model_thumb.jpg</thumbUrl>
         <sortCode>2</sortCode>
@@ -157,15 +157,15 @@
       <deliveryWindow>
         <code>SS25_DROP1</code>
         <description>Spring 2025 — Drop 1</description>
-        <startDate>20250115</startDate>
-        <endDate>20250215</endDate>
+        <startDate>2025-01-15</startDate>
+        <endDate>2025-02-15</endDate>
         <sortCode>1</sortCode>
       </deliveryWindow>
       <deliveryWindow>
         <code>SS25_DROP2</code>
         <description>Spring 2025 — Drop 2</description>
-        <startDate>20250301</startDate>
-        <endDate>20250401</endDate>
+        <startDate>2025-03-01</startDate>
+        <endDate>2025-04-01</endDate>
         <sortCode>2</sortCode>
       </deliveryWindow>
     </deliveryWindows>
@@ -240,7 +240,7 @@
         <eanCode>8712345678912</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>200</quantity>
           </stockLevel>
         </stockLevels>
@@ -252,7 +252,7 @@
         <eanCode>8712345678913</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>160</quantity>
           </stockLevel>
         </stockLevels>
@@ -261,12 +261,12 @@
 
     <media>
       <medium format="image">
-        <type>primary</type>
+        <type>IMAGE_PRIMARY</type>
         <url>https://images.example.com/style-001-wht.jpg</url>
         <thumbUrl>https://images.example.com/style-001-wht_thumb.jpg</thumbUrl>
       </medium>
       <medium format="image">
-        <type>swatch</type>
+        <type>IMAGE_SWATCH</type>
         <url>https://images.example.com/swatch-wht.jpg</url>
       </medium>
     </media>
@@ -302,7 +302,7 @@
         <eanCode>8712345678999</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>40</quantity>
           </stockLevel>
         </stockLevels>
