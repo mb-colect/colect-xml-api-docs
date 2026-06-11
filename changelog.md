@@ -38,4 +38,4 @@ Schema and feature history for the Colect XML API.
 
 ## v1.3 and earlier
 
-Contact Colect Support for change history prior to v1.4.
+Contact your Colect contact for change history prior to v1.4.
