@@ -50,9 +50,9 @@ cvc-minLength-valid: Value '' with length = '0' is not facet-valid with respect 
 cvc-datatype-valid.1.2.1: '06-05-2025' is not a valid value for 'dateTime'.
 ```
 
-**Cause:** Dates must be ISO 8601 (`YYYY-MM-DDTHH:MM:SS`). Day/month-first formats, slash-separated dates, and date-only strings are all rejected.
+**Cause:** Dates must be `YYYY-MM-DD` format (e.g. `2025-05-06`). Day/month-first formats and slash-separated dates are rejected.
 
-**Fix:** Use the format `2025-05-06T00:00:00`. The time component is required — use `T00:00:00` when you only have a calendar date.
+**Fix:** Use `2025-05-06`. A time component is accepted but optional — `2025-05-06T00:00:00` is also valid.
 
 ***
 
