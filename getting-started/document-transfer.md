@@ -47,6 +47,8 @@ The patterns below are common conventions to keep `datafiles/` readable. You are
 
 The file paths above are configured per collection in the Colect backend under **Connector settings**. Each document type has a dedicated `*Location` field — set this to the full file path (including filename pattern) that your ERP will use.
 
+See the [Collection Settings Reference](https://docs.colect.io/admin/collections/collection-settings-reference?q=articleLocation#xml) in the admin docs for the full field descriptions.
+
 ![](<../.gitbook/assets/connector-settings.png>)
 
 | Backend setting              | Document                   |
