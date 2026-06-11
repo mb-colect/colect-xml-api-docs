@@ -28,7 +28,7 @@
     <seasonDesc>Spring/Summer 2025</seasonDesc>
     <categoryCode>TSHIRTS</categoryCode>
     <categoryDesc>T-Shirts</categoryDesc>
-    <collectionCode>MAINLINE</collectionCode>
+    <collectionId>MAINLINE</collectionId>
     <collectionDesc>Mainline</collectionDesc>
     <minimalOrderQuantity>0</minimalOrderQuantity>
     <deliveryStartDate>20250115</deliveryStartDate>

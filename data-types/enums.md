@@ -44,9 +44,35 @@ Basic color categories for filtering.
 | `SILVER`     |
 | `UNKNOWN`    |
 
-### Media types
+### XMediumType
 
-The `type` field on `<medium>` is an open string — not a fixed enum. See [Media Types](products.md#media-types) in the Product Types reference for the 9 values with confirmed rendering support.
+The `type` field on `<medium>` is a fixed enum defined in the XSD.
+
+| Value                  | Description                                   |
+| ---------------------- | --------------------------------------------- |
+| `IMAGE_PRIMARY`        | Primary product image                         |
+| `IMAGE_SWATCH`         | Color swatch                                  |
+| `IMAGE_MODEL`          | Model shot (front)                            |
+| `IMAGE_MODEL_BACK`     | Model shot (back)                             |
+| `IMAGE_LEFT`           | Left side view                                |
+| `IMAGE_RIGHT`          | Right side view                               |
+| `IMAGE_BACK`           | Back view                                     |
+| `IMAGE_PACK`           | Packaging shot                                |
+| `IMAGE_TOP`            | Top view                                      |
+| `IMAGE_BOTTOM`         | Bottom view                                   |
+| `IMAGE_FIT`            | Fit/detail shot                               |
+| `IMAGE_STAMP_LEFT`     | Stamp overlay (left)                          |
+| `IMAGE_STAMP_RIGHT`    | Stamp overlay (right)                         |
+| `IMAGE_ADDITIONAL_1`   | Additional image slot 1                       |
+| `IMAGE_ADDITIONAL_2`   | Additional image slot 2                       |
+| `IMAGE_ADDITIONAL_3`   | Additional image slot 3                       |
+| `IMAGE_ADDITIONAL_4`   | Additional image slot 4                       |
+| `IMAGE_ADDITIONAL_5`   | Additional image slot 5                       |
+| `VIDEO`                | Product video                                 |
+| `VIDEO_MODEL`          | Model video                                   |
+| `VIDEO_MODEL_LEAD_IN`  | Model video lead-in clip                      |
+| `VIDEO_MODEL_LEAD_OUT` | Model video lead-out clip                     |
+| `HTML`                 | Embedded HTML content                         |
 
 ### ProductRelationType
 
