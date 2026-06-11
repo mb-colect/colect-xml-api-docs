@@ -43,9 +43,9 @@ There's no "cross-collection" document — products in Brand A's collection are 
 
 The XML documents themselves don't carry an explicit `collectionId` (except on the [Orders output document](../documents/orders.md), which echoes it back so your ERP knows where the order came from). Routing is implicit:
 
-<table><thead><tr><th width="168.953125">Channel</th><th>How the collection is identified</th></tr></thead><tbody><tr><td><strong>SFTP</strong></td><td>The collection is determined by which SFTP user uploaded the file.</td></tr><tr><td><strong>HTTP POST</strong></td><td>The collection is determined by the credentials presented (Basic Auth, API key, or signed URL).</td></tr></tbody></table>
+<table><thead><tr><th width="168.953125">Channel</th><th>How the collection is identified</th></tr></thead><tbody><tr><td><strong>SFTP</strong></td><td>The collection is determined by the file path configured in your connector settings. A single SFTP account can serve multiple collections, each with its own configured file paths.</td></tr></tbody></table>
 
-When you're configuring the integration, your Colect contact issues credentials. The credentials are the routing key.
+Your Colect contact configures the file paths for each collection during onboarding. See [Document Transfer](document-transfer.md) for details.
 
 ***
 
