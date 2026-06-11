@@ -6,16 +6,12 @@ This walkthrough takes you from empty SFTP folder to a live product in your Cole
 
 ## Before you start
 
-You need three things before you can push anything:
+You need two things before you can push anything:
 
-| What | Where to get it |
-| ---- | --------------- |
-| SFTP credentials (host, username, password or key) | Your Colect Support contact |
-| Your collection's currency code | Your Colect Support contact (e.g. `EUR`, `USD`, `GBP`) |
-| An SFTP client | [FileZilla](https://filezilla-project.org/), the `sftp` CLI, or your ERP's file-transfer tooling |
+<table><thead><tr><th width="299.92578125">What</th><th>Where to get it</th></tr></thead><tbody><tr><td>SFTP credentials (host, username, password)</td><td>Your Colect contact</td></tr><tr><td>An SFTP client</td><td><a href="https://filezilla-project.org/">FileZilla</a>, the <code>sftp</code> CLI, or your ERP's file-transfer tooling</td></tr></tbody></table>
 
 {% hint style="warning" %}
-If you do not have SFTP credentials yet, stop here and contact Colect Support — there is nothing to configure on the API side until the credentials are issued.
+If you do not have SFTP credentials yet, stop here and talk with your Colect contact for these credentials — there is nothing to configure on the API side until the credentials are issued.
 {% endhint %}
 
 ***
@@ -76,16 +72,16 @@ Create a file called `products_first.xml`. Replace the placeholder values with r
 
 ### Why each section is needed
 
-| Section | Why |
-| ------- | --- |
+| Section                      | Why                                                                                                      |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------- |
 | `<uniqueId>` + `<colorCode>` | Mandatory — the combination uniquely identifies the product and must appear exactly once in the document |
-| `<name>` | Without a name the product card shows only the `uniqueId` |
-| `<prices>` | A product with no price cannot be added to a cart |
-| `<sizes>` | A product with no sizes has nothing to order |
-| `<stockLevels>` | A size with no stock level defaults to 0 — the product shows as sold out unless `noos` is set |
+| `<name>`                     | Without a name the product card shows only the `uniqueId`                                                |
+| `<prices>`                   | A product with no price cannot be added to a cart                                                        |
+| `<sizes>`                    | A product with no sizes has nothing to order                                                             |
+| `<stockLevels>`              | A size with no stock level defaults to 0 — the product shows as sold out unless `noos` is set            |
 
 {% hint style="info" %}
-**Full-set behaviour:** Each Products upload becomes the complete catalog. Sending one product removes any previously imported products that are not in this file. This is expected for an initial push; your production export will include the full catalog.
+**Full-set behavior:** Each Products upload becomes the complete catalog. Sending one product removes any previously imported products that are not in this file. This is expected for an initial push; your production export will include the full catalog.
 {% endhint %}
 
 ***
@@ -125,11 +121,11 @@ Once the product appears in your collection, your SFTP credentials, file routing
 
 ## Next steps
 
-| Task | Where to go |
-| ---- | ----------- |
-| Add more fields (images, delivery windows, categories) | [Products document](../documents/products.md) |
-| Push your full product catalog | [Products document](../documents/products.md) — the `products*.xml` file pattern, field reference, and sub-feed docs |
-| Add customers so the sales team can log in | [Customers document](../documents/customers.md) |
-| Control which products each customer can see | [Product Access](../documents/product-access.md) |
-| Poll for orders once customers start ordering | [Orders output document](../documents/orders.md) |
-| Troubleshoot a rejected file | [Error Handling](error-handling.md) |
+| Task                                                   | Where to go                                                                                                          |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Add more fields (images, delivery windows, categories) | [Products document](../documents/products.md)                                                                        |
+| Push your full product catalog                         | [Products document](../documents/products.md) — the `products*.xml` file pattern, field reference, and sub-feed docs |
+| Add customers so the sales team can log in             | [Customers document](../documents/customers.md)                                                                      |
+| Control which products each customer can see           | [Product Access](../documents/product-access.md)                                                                     |
+| Poll for orders once customers start ordering          | [Orders output document](../documents/orders.md)                                                                     |
+| Troubleshoot a rejected file                           | [Error Handling](error-handling.md)                                                                                  |
