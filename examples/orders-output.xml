@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Orders output document — example.
-  This is what your ERP receives in outbox/. Two orders shown:
+  This is what your ERP receives in orderfiles/. Two orders shown:
     1. New order with multiple lines, line-level discount picked from Multi Promotions
     2. Cancellation of an earlier order (note canceledOrderNumber + same trackingNumber)
 
@@ -24,8 +24,8 @@
     <customerNo>C-00001</customerNo>
     <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
     <comment>Rush delivery for store opening</comment>
-    <earliestDeliveryDate>20260601</earliestDeliveryDate>
-    <latestDeliveryDate>20260615</latestDeliveryDate>
+    <requestedDeliveryDate>20260601</requestedDeliveryDate>
+    <requestedDeliveryEndDate>20260615</requestedDeliveryEndDate>
     <shipToCode>WAREHOUSE</shipToCode>
 
     <contact>
@@ -60,57 +60,57 @@
 
     <orderLines>
       <orderLine>
-        <type>STANDARD</type>
+        <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <productSize>M</productSize>
+        <sizeName>M</sizeName>
         <productSeason>SS25</productSeason>
         <eanCode>8712345678902</eanCode>
-        <quantity>25</quantity>
-        <price>22.50</price>
+        <numberOfPieces>25</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>15</discountPercentage>
         <discountGroupCode>VOL</discountGroupCode>
-        <discountFromDiscountGroup>true</discountFromDiscountGroup>
+        <discountFromDiscountGroup>3.38</discountFromDiscountGroup>
         <discountGroupIdentifier>vol.25</discountGroupIdentifier>
         <netWholesalePrice>19.13</netWholesalePrice>
         <grossWholesalePrice>23.15</grossWholesalePrice>
-        <totalAmount>478.13</totalAmount>
+        <lineAmount>478.13</lineAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
 
       <orderLine>
-        <type>STANDARD</type>
+        <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <productSize>L</productSize>
+        <sizeName>L</sizeName>
         <productSeason>SS25</productSeason>
         <eanCode>8712345678903</eanCode>
-        <quantity>15</quantity>
-        <price>22.50</price>
+        <numberOfPieces>15</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>10</discountPercentage>
         <discountGroupCode>VOL</discountGroupCode>
-        <discountFromDiscountGroup>true</discountFromDiscountGroup>
+        <discountFromDiscountGroup>2.25</discountFromDiscountGroup>
         <discountGroupIdentifier>vol.10</discountGroupIdentifier>
         <netWholesalePrice>20.25</netWholesalePrice>
-        <totalAmount>303.75</totalAmount>
+        <lineAmount>303.75</lineAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
 
       <orderLine>
-        <type>STANDARD</type>
+        <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>WHT</productColorCode>
-        <productSize>M</productSize>
+        <sizeName>M</sizeName>
         <productSeason>SS25</productSeason>
         <eanCode>8712345678912</eanCode>
-        <quantity>10</quantity>
-        <price>22.50</price>
+        <numberOfPieces>10</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>5</discountPercentage>
         <discountGroupCode>*</discountGroupCode>
-        <discountFromDiscountGroup>true</discountFromDiscountGroup>
+        <discountFromDiscountGroup>1.13</discountFromDiscountGroup>
         <discountGroupIdentifier>all</discountGroupIdentifier>
         <netWholesalePrice>21.38</netWholesalePrice>
-        <totalAmount>213.75</totalAmount>
+        <lineAmount>213.75</lineAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
     </orderLines>
@@ -135,13 +135,13 @@
     <!-- Order lines repeat the original lines verbatim — your ERP knows it's a cancel from canceledOrderNumber -->
     <orderLines>
       <orderLine>
-        <type>STANDARD</type>
+        <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <productSize>M</productSize>
+        <sizeName>M</sizeName>
         <eanCode>8712345678902</eanCode>
-        <quantity>25</quantity>
-        <price>22.50</price>
+        <numberOfPieces>25</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
       </orderLine>
     </orderLines>
   </order>

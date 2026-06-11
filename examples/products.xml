@@ -310,23 +310,17 @@
           <prepackContentElement>
             <count>1</count>
             <sizeName>M</sizeName>
-            <sortCode>2</sortCode>
-            <eanCode>8712345678902</eanCode>
-            <prePackUnitCount>3</prePackUnitCount>
+            <sizeSortCode>2</sizeSortCode>
           </prepackContentElement>
           <prepackContentElement>
             <count>1</count>
             <sizeName>L</sizeName>
-            <sortCode>3</sortCode>
-            <eanCode>8712345678903</eanCode>
-            <prePackUnitCount>3</prePackUnitCount>
+            <sizeSortCode>3</sizeSortCode>
           </prepackContentElement>
           <prepackContentElement>
             <count>1</count>
             <sizeName>XL</sizeName>
-            <sortCode>4</sortCode>
-            <eanCode>8712345678904</eanCode>
-            <prePackUnitCount>3</prePackUnitCount>
+            <sizeSortCode>4</sizeSortCode>
           </prepackContentElement>
         </prepackDefinition>
       </size>
