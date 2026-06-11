@@ -32,8 +32,8 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
 | `invoiceNumber`       | `string`   | **YES**   | Unique invoice number from the ERP. Acts as the identifier across re-pushes.                                           |
 | `customerNo`          | `string`   | **YES**   | Customer number — must match an existing customer in the [Customers](customers.md) document.                           |
 | `status`              | `string`   | NO        | Invoice status (e.g. `OPEN`, `PAID`, `OVERDUE`, `VOIDED`, `CREDITED`). Free text — your collection's enums apply.      |
-| `date`                | `dateTime` | **YES**   | Invoice date. Format `yyyyMMdd`.                                                                                       |
-| `dueDate`             | `dateTime` | NO        | Due date for payment. Format `yyyyMMdd`.                                                                               |
+| `date`                | `dateTime` | **YES**   | Invoice date. Format `YYYY-MM-DD`.                                                                                     |
+| `dueDate`             | `dateTime` | NO        | Due date for payment. Format `YYYY-MM-DD`.                                                                             |
 | `currency`            | `string`   | **YES**   | Currency code (e.g. `EUR`, `USD`).                                                                                     |
 | `amountExcludingTax`  | `float`    | NO        | Amount excluding tax.                                                                                                  |
 | `taxAmount`           | `float`    | NO        | Tax amount.                                                                                                            |
@@ -51,8 +51,8 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
     <invoiceNumber>INV-2026-00425</invoiceNumber>
     <status>OPEN</status>
     <customerNo>C-00042</customerNo>
-    <date>20260420</date>
-    <dueDate>20260520</dueDate>
+    <date>2026-04-20</date>
+    <dueDate>2026-05-20</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>1250.00</amountExcludingTax>
     <taxAmount>262.50</taxAmount>
@@ -64,8 +64,8 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
     <invoiceNumber>INV-2026-00318</invoiceNumber>
     <status>PAID</status>
     <customerNo>C-00042</customerNo>
-    <date>20260315</date>
-    <dueDate>20260415</dueDate>
+    <date>2026-03-15</date>
+    <dueDate>2026-04-15</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>800.00</amountExcludingTax>
     <taxAmount>168.00</taxAmount>

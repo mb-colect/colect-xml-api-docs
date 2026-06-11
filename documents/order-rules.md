@@ -42,8 +42,8 @@ The same field set applies to both `<orderDiscountRule>` and `<orderDeliveryCost
 | `exclusive`          | `boolean`  | NO          | If `true`, this rule cannot be combined with any other rule, even outside its group.                                       |
 | `minimumQuantity`    | `int`      | NO          | Minimum number of pieces in the order for the rule to fire.                                                                |
 | `minimumOrderAmount` | `float`    | NO          | Minimum order amount for the rule to fire.                                                                                 |
-| `startDate`          | `dateTime` | NO          | First date the rule is valid. Format `yyyyMMdd`.                                                                           |
-| `endDate`            | `dateTime` | NO          | Last date the rule is valid. Format `yyyyMMdd`.                                                                            |
+| `startDate`          | `dateTime` | NO          | First date the rule is valid. Format `YYYY-MM-DD`.                                                                         |
+| `endDate`            | `dateTime` | NO          | Last date the rule is valid. Format `YYYY-MM-DD`.                                                                          |
 | `evaluationMethod`   | enum       | **YES**     | `EVALUATE_BASED_ON_TODAY` or `EVALUATE_BASED_ON_DELIVERY_DATE` — controls which date is checked against `startDate`/`endDate`. |
 | `amount`             | `float`    | conditional | Amount added to (or subtracted from) the order. Used by **delivery cost** rules. Use `0` to indicate free shipping.        |
 | `discountPercentage` | `float`    | conditional | Discount percentage applied to the order. Used by **discount** rules.                                                      |
@@ -103,8 +103,8 @@ The same field set applies to both `<orderDiscountRule>` and `<orderDeliveryCost
     <orderDiscountRule>
       <identification>spring2026</identification>
       <description>Spring 2026 promo — 8% off all orders</description>
-      <startDate>20260301</startDate>
-      <endDate>20260331</endDate>
+      <startDate>2026-03-01</startDate>
+      <endDate>2026-03-31</endDate>
       <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
       <discountPercentage>8</discountPercentage>
     </orderDiscountRule>

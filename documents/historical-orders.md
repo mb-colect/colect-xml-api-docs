@@ -92,7 +92,7 @@ A `<shippingLocation>` block on the order captures the address goods were shippe
 | `netLineAmount`               | `float`    | NO        | Net total for the line.                                                                                                |
 | `grossLineAmount`             | `float`    | NO        | Gross total for the line.                                                                                              |
 | `remark`                      | `string`   | NO        | Free-text remark captured at order entry.                                                                              |
-| `shipmentDate`                | `dateTime` | NO        | Date the line shipped. Format `yyyyMMdd`.                                                                              |
+| `shipmentDate`                | `dateTime` | NO        | Date the line shipped. Format `YYYY-MM-DD`.                                                                            |
 | `packingSlipNumber`           | `string`   | NO        | Packing slip / shipment reference.                                                                                     |
 | `quantityDelivered`           | `int`      | NO        | Pieces actually delivered (may differ from `quantity` for partial shipments).                                          |
 | `trackTraceUrl`               | `string`   | NO        | URL to a track-and-trace page for the shipment.                                                                        |
@@ -128,7 +128,7 @@ Lines may carry attachments (e.g. shipping labels, return forms):
     <internalOrderType>STANDARD</internalOrderType>
     <collection>SS25</collection>
     <season>SS25</season>
-    <timestamp>20260415 14:32</timestamp>
+    <timestamp>2026-04-15 14:32</timestamp>
     <salesPerson>jane.rep@example.com</salesPerson>
     <customerNo>C-00042</customerNo>
     <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
@@ -160,7 +160,7 @@ Lines may carry attachments (e.g. shipping labels, return forms):
         <grossWholesalePrice>27.23</grossWholesalePrice>
         <netLineAmount>1125.00</netLineAmount>
         <grossLineAmount>1361.25</grossLineAmount>
-        <shipmentDate>20260420</shipmentDate>
+        <shipmentDate>2026-04-20</shipmentDate>
         <packingSlipNumber>PS-77123</packingSlipNumber>
         <quantityDelivered>50</quantityDelivered>
         <trackTraceUrl>https://tracking.example.com/77123</trackTraceUrl>
