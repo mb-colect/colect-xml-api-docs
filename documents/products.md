@@ -82,6 +82,9 @@ The standalone documents are useful when you only want to refresh a single dimen
 | `userDefinedField2`      | `string`   | NO        | Free-form text field 2 for filtering.                                                                                                                                                                                |
 | `startDate`              | `dateTime` | NO        | First date the product is visible. Empty = no lower bound. Format `YYYY-MM-DD`.                                                                                                                                      |
 | `endDate`                | `dateTime` | NO        | Last date the product is visible. Empty = no upper bound. Format `YYYY-MM-DD`.                                                                                                                                       |
+| `approvalGroupCode`      | `string`   | NO        | Links the product to an approval workflow. Orders containing this product are held for manager sign-off. See [Approvals](../business-logic/approvals.md).                                                             |
+| `approvalGroupDesc`      | `string`   | NO        | Human-readable description of the approval group, displayed to the approving manager.                                                                                                                                |
+| `labels`                 | object     | NO        | One or more visual badges rendered on the product card. Each `<label>` has `<text>` and `<backgroundColor>` (hex without `#`). See [Labels](../business-logic/labels.md).                                            |
 
 ***
 

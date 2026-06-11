@@ -56,7 +56,7 @@ There is no separate XSD or document to enable Multi Promotions. The behavior is
 | --------------------- | -------------------- | ------------------------------------------------------------------------ |
 | **Filters**           | `discountGroupFilter` | Adds a filter on the discount group description, allowing users to filter the shop or app on what is given as customer `discountGroupDescription`. |
 
-To enable, ask your Colect Support contact to set `discountGroupFilter = true` on the collection.
+To enable, ask your Colect contact to set `discountGroupFilter = true` on the collection.
 
 ***
 
@@ -102,7 +102,7 @@ The discount the user picks is reported on the **Orders output document** at the
 
   <discountPercentage>15</discountPercentage>
   <discountGroupCode>VOL</discountGroupCode>
-  <discountFromDiscountGroup>true</discountFromDiscountGroup>
+  <discountFromDiscountGroup>3.38</discountFromDiscountGroup>
   <discountGroupIdentifier>vol.25</discountGroupIdentifier>
   <!-- ... -->
 </orderLine>

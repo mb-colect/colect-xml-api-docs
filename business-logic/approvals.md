@@ -3,7 +3,7 @@
 The **Approval Groups** feature lets you tag products as belonging to a named approval group. When a customer whose account is configured for approvals places an order containing tagged products, the order is held for manager sign-off before it is finalised.
 
 {% hint style="info" %}
-Approval Groups is a **business logic feature**, not an API document. The approval workflow itself — who must approve, notification routing, time limits — is configured in the Colect backend by your Colect Support contact. The XML feed only assigns products to groups.
+Approval Groups is a **business logic feature**, not an API document. The approval workflow itself — who must approve, notification routing, time limits — is configured in the Colect backend by your Colect contact. The XML feed only assigns products to groups.
 {% endhint %}
 
 ***
@@ -62,9 +62,9 @@ Both fields are optional — products without an `approvalGroupCode` pass throug
 
 The approval workflow is configured on the Colect backend side. Your integration only needs to populate the fields:
 
-1. Agree on approval group codes with your Colect Support contact (e.g., `HIGH-VALUE`, `RESTRICTED`, `SEASONAL`).
+1. Agree on approval group codes with your Colect contact (e.g., `HIGH-VALUE`, `RESTRICTED`, `SEASONAL`).
 2. Include `<approvalGroupCode>` and optionally `<approvalGroupDesc>` on all products that belong to each group.
-3. Colect Support configures the workflow rules (approvers, notification channels, expiry windows) per group code.
+3. Your Colect contact configures the workflow rules (approvers, notification channels, expiry windows) per group code.
 
 {% hint style="warning" %}
 Group codes are matched exactly and are case-sensitive. A product with `approvalGroupCode` set to `High-Value` will **not** match a workflow configured for `HIGH-VALUE`.
