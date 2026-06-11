@@ -28,7 +28,7 @@
     <activePriceGroup>WHOLESALE_EU</activePriceGroup>
     <status>ACTIVE</status>
     <orderFooter>Thank you for your order. Payment terms: 30 days net.</orderFooter>
-    <shippingTime>3-5 business days</shippingTime>
+    <shippingTime>3</shippingTime>
 
     <contacts>
       <contact>

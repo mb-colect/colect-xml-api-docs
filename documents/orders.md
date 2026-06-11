@@ -45,8 +45,8 @@ This is the only **output** document in the API. The XML structure mirrors the i
 | `customerNo`                  | `string`   | The selected customer's number.                                                                                        |
 | `customerPriceGroup`          | `string`   | Active price group at order time.                                                                                      |
 | `comment`                     | `string`   | Comment captured at order entry.                                                                                       |
-| `earliestDeliveryDate`        | `dateTime` | Selected requested delivery start date. Format `yyyyMMdd`.                                                             |
-| `latestDeliveryDate`          | `dateTime` | Selected requested delivery end date. Format `yyyyMMdd`.                                                               |
+| `requestedDeliveryDate`       | `dateTime` | Selected requested delivery start date. Format `yyyyMMdd`.                                                             |
+| `requestedDeliveryEndDate`    | `dateTime` | Selected requested delivery end date. Format `yyyyMMdd`.                                                               |
 | `numberOfBoxes`               | `int`      | Total number of boxes (only relevant for the returns shop).                                                            |
 | `shipToCode`                  | `string`   | Code of the selected shipping location.                                                                                |
 
@@ -126,29 +126,29 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
 
 | Element                       | Type       | Description                                                                                                            |
 | ----------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `type`                        | `string`   | Line type — typically `STANDARD` or `RETURN`.                                                                          |
+| `type`                        | `string`   | Line type — `STOCK_ORDER`, `PRE_ORDER`, or `RETURN_ORDER`. See [XOrderLineType](../data-types/enums.md#xorderlinetype). |
 | `productUniqueId`             | `string`   | Product `uniqueId`.                                                                                                    |
 | `productColorCode`            | `string`   | Product `colorCode`.                                                                                                   |
-| `productSize`                 | `string`   | Size name.                                                                                                             |
-| `productSubSize`              | `string`   | Sub-size name.                                                                                                         |
+| `sizeName`                    | `string`   | Size name.                                                                                                             |
+| `subSize`                     | `string`   | Sub-size name.                                                                                                         |
 | `sizeCustomField`             | `string`   | Custom field defined on the size (passed through from products).                                                       |
 | `productSeason`               | `string`   | Season at order time.                                                                                                  |
 | `productUserDefinedField1`    | `string`   | `userDefinedField1` snapshot.                                                                                          |
 | `productUserDefinedField2`    | `string`   | `userDefinedField2` snapshot.                                                                                          |
 | `deliverySubBlock`            | `string`   | (Legacy) Delivery sub-block code. Use `deliveryDate` going forward.                                                    |
 | `eanCode`                     | `string`   | EAN at order time.                                                                                                     |
-| `quantity`                    | `int`      | Pieces ordered.                                                                                                        |
-| `price`                       | `float`    | Per-piece price applied.                                                                                               |
+| `numberOfPieces`              | `int`      | Pieces ordered.                                                                                                        |
+| `wholesalePrice`              | `float`    | Per-piece wholesale price applied.                                                                                     |
 | `margin`                      | `float`    | Effective margin applied to the line.                                                                                  |
 | `marginGroupCode`             | `string`   | Margin group whose margin applied.                                                                                     |
-| `marginFromMarginGroup`       | `boolean`  | `true` if margin came from a margin group rather than a manual override.                                               |
+| `marginFromMarginGroup`       | `float`    | Margin value from a margin group (when margin was sourced from a group rather than a manual override).                 |
 | `discountPercentage`          | `float`    | Discount percentage applied.                                                                                           |
 | `discountGroupCode`           | `string`   | Discount group code applied.                                                                                           |
-| `discountFromDiscountGroup`   | `boolean`  | `true` if the discount came from a discount group rather than a manual override.                                       |
+| `discountFromDiscountGroup`   | `float`    | Discount value from a discount group (when discount was sourced from a group rather than a manual override).           |
 | `discountGroupIdentifier`     | `string`   | The `identifier` of the discount group entry the user picked (Multi Promotions audit trail).                          |
 | `netWholesalePrice`           | `float`    | Net wholesale price per piece.                                                                                         |
 | `grossWholesalePrice`         | `float`    | Gross wholesale price per piece.                                                                                       |
-| `totalAmount`                 | `float`    | Total line amount.                                                                                                     |
+| `lineAmount`                  | `float`    | Total line amount.                                                                                                     |
 | `remark`                      | `string`   | Free-text remark captured at order entry.                                                                              |
 | `deliveryDate`                | `dateTime` | Requested delivery date for the line. Format `yyyyMMdd`.                                                              |
 | `returnReason`                | `string`   | Reason for return (when `type` is `RETURN`).                                                                           |
@@ -172,8 +172,8 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
     <customerNo>C-00042</customerNo>
     <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
     <comment>Rush delivery for store opening</comment>
-    <earliestDeliveryDate>20260601</earliestDeliveryDate>
-    <latestDeliveryDate>20260615</latestDeliveryDate>
+    <requestedDeliveryDate>20260601</requestedDeliveryDate>
+    <requestedDeliveryEndDate>20260615</requestedDeliveryEndDate>
     <shipToCode>WAREHOUSE</shipToCode>
 
     <contact>
@@ -197,19 +197,19 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
 
     <orderLines>
       <orderLine>
-        <type>STANDARD</type>
+        <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <productSize>M</productSize>
+        <sizeName>M</sizeName>
         <eanCode>8712345678902</eanCode>
-        <quantity>25</quantity>
-        <price>22.50</price>
+        <numberOfPieces>25</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>15</discountPercentage>
         <discountGroupCode>VOL</discountGroupCode>
-        <discountFromDiscountGroup>true</discountFromDiscountGroup>
+        <discountFromDiscountGroup>3.38</discountFromDiscountGroup>
         <discountGroupIdentifier>vol.25</discountGroupIdentifier>
         <netWholesalePrice>19.13</netWholesalePrice>
-        <totalAmount>478.13</totalAmount>
+        <lineAmount>478.13</lineAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
     </orderLines>

@@ -45,7 +45,7 @@ A `<customer>` element is composed of one top-level set of fields plus several o
 | ----------------------------- | -------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
 | `customerNo`                  | `string` | **YES**   | Unique customer number. Must match the `customerNo` referenced from price elements and orders.                       |
 | `name`                        | `string` | **YES**   | Display name of the customer.                                                                                        |
-| `email`                       | `string` | NO        | Primary email address of the customer.                                                                               |
+| `email`                       | `string` | **YES**   | Primary email address of the customer.                                                                               |
 | `password`                    | `string` | NO        | Initial password (only when the integration auto-provisions B2B logins).                                             |
 | `searchName`                  | `string` | NO        | Alternative name used for search.                                                                                    |
 | `address`                     | `string` | NO        | Full address — use only when the address can't be split into parts.                                                  |
@@ -69,7 +69,7 @@ A `<customer>` element is composed of one top-level set of fields plus several o
 | `status`                      | `string` | NO        | Customer status (e.g. `ACTIVE`, `BLOCKED`).                                                                          |
 | `statusMessage`               | `string` | NO        | Optional message shown alongside the status.                                                                         |
 | `orderFooter`                 | `string` | NO        | Free text appended to every order confirmation for this customer.                                                    |
-| `shippingTime`                | `string` | NO        | Default shipping time text shown in the app.                                                                         |
+| `shippingTime`                | `int`    | NO        | Default shipping time (number of days) shown in the app.                                                             |
 
 ***
 

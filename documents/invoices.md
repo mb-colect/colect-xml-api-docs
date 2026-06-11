@@ -32,12 +32,12 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
 | `invoiceNumber`       | `string`   | **YES**   | Unique invoice number from the ERP. Acts as the identifier across re-pushes.                                           |
 | `customerNo`          | `string`   | **YES**   | Customer number — must match an existing customer in the [Customers](customers.md) document.                           |
 | `status`              | `string`   | NO        | Invoice status (e.g. `OPEN`, `PAID`, `OVERDUE`, `VOIDED`, `CREDITED`). Free text — your collection's enums apply.      |
-| `date`                | `dateTime` | NO        | Invoice date. Format `yyyyMMdd`.                                                                                       |
+| `date`                | `dateTime` | **YES**   | Invoice date. Format `yyyyMMdd`.                                                                                       |
 | `dueDate`             | `dateTime` | NO        | Due date for payment. Format `yyyyMMdd`.                                                                               |
-| `currency`            | `string`   | NO        | Currency code (e.g. `EUR`, `USD`).                                                                                     |
+| `currency`            | `string`   | **YES**   | Currency code (e.g. `EUR`, `USD`).                                                                                     |
 | `amountExcludingTax`  | `float`    | NO        | Amount excluding tax.                                                                                                  |
 | `taxAmount`           | `float`    | NO        | Tax amount.                                                                                                            |
-| `outstandingAmount`   | `float`    | NO        | Amount still owed. Set to `0` when an invoice is paid.                                                                 |
+| `outstandingAmount`   | `float`    | **YES**   | Amount still owed. Set to `0` when an invoice is paid.                                                                 |
 | `externalUrl`         | `string`   | NO        | URL to a hosted PDF or invoice page. When set, the app surfaces a "View invoice" link.                                 |
 
 ***
