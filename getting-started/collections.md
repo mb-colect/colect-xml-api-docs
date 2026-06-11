@@ -10,15 +10,7 @@ The word "collection" in Colect doesn't necessarily mean a "fashion collection".
 
 ## What lives at the collection level
 
-| Domain                     | Scope                                                                                                              |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| **Products**               | Each Colect collection has its own product catalog. The same SKU can exist in multiple collections independently.   |
-| **Customers**              | Customers are scoped to a collection. A customer's price groups, discount groups, and access rules live here.       |
-| **Pricing & currencies**   | Default currencies and price-group definitions are configured per collection.                                       |
-| **Orders**                 | Orders are placed against a specific collection — `<collectionId>` on the [Orders output document](../documents/orders.md) records which one. |
-| **Access rules**           | Customer Access and Product Access are evaluated within the collection.                                              |
-| **Business-logic toggles** | Settings like `discountGroupFilter` (see [Multi Promotions](../business-logic/multi-promotions.md)) live here.       |
-| **Integration credentials**| SFTP users, HTTP credentials, and webhook endpoints are issued per collection.                                       |
+<table><thead><tr><th width="235.0546875">Domain</th><th>Scope</th></tr></thead><tbody><tr><td><strong>Products</strong></td><td>Each Colect collection has its own product catalog. The same SKU can exist in multiple collections independently.</td></tr><tr><td><strong>Customers</strong></td><td>Customers are scoped to a collection. A customer's price groups, discount groups, and access rules live here.</td></tr><tr><td><strong>Pricing &#x26; currencies</strong></td><td>Default currencies and price-group definitions are configured per collection.</td></tr><tr><td><strong>Orders</strong></td><td>Orders are placed against a specific collection — <code>&#x3C;collectionId></code> on the <a href="../documents/orders.md">Orders output document</a> records which one.</td></tr><tr><td><strong>Access rules</strong></td><td>Customer Access and Product Access are evaluated within the collection.</td></tr><tr><td><strong>Business-logic toggles</strong></td><td>Settings like <code>discountGroupFilter</code> (see <a href="../business-logic/multi-promotions.md">Multi Promotions</a>) live here.</td></tr></tbody></table>
 
 ***
 
@@ -41,11 +33,7 @@ It's common for a single ERP to drive several Colect collections — for example
        └─────────────┘    └─────────────┘    └─────────────┘
 ```
 
-Each collection has:
-
-* Its own SFTP user and inbox/outbox.
-* Its own document set (one Products doc per collection, one Customers doc per collection, etc.).
-* Its own settings configured by your Colect Support contact.
+Each collection has its own document set (one Products doc per collection, one Customers doc per collection, etc.).
 
 There's no "cross-collection" document — products in Brand A's collection are completely independent of products in Brand B's collection, even if they share a SKU number.
 
@@ -55,24 +43,21 @@ There's no "cross-collection" document — products in Brand A's collection are 
 
 The XML documents themselves don't carry an explicit `collectionId` (except on the [Orders output document](../documents/orders.md), which echoes it back so your ERP knows where the order came from). Routing is implicit:
 
-| Channel        | How the collection is identified                                                                  |
-| -------------- | ------------------------------------------------------------------------------------------------- |
-| **SFTP**       | The collection is determined by which SFTP user uploaded the file.                                |
-| **HTTP POST**  | The collection is determined by the credentials presented (Basic Auth, API key, or signed URL).   |
+<table><thead><tr><th width="168.953125">Channel</th><th>How the collection is identified</th></tr></thead><tbody><tr><td><strong>SFTP</strong></td><td>The collection is determined by which SFTP user uploaded the file.</td></tr><tr><td><strong>HTTP POST</strong></td><td>The collection is determined by the credentials presented (Basic Auth, API key, or signed URL).</td></tr></tbody></table>
 
-When you're configuring the integration, your Colect Support contact issues credentials per collection. The credentials are the routing key.
+When you're configuring the integration, your Colect contact issues credentials. The credentials are the routing key.
 
 ***
 
 ## When to use multiple collections vs. one larger collection
 
-| Situation                                                              | Recommended structure                              |
-| ---------------------------------------------------------------------- | -------------------------------------------------- |
-| Two distinct brands with separate sales teams and websites              | **Two collections**, one per brand                 |
-| Same brand, multiple markets with different currency mixes              | **One collection** (use price groups + currency)   |
-| Pre-order season vs. immediate stock                                    | Typically **one collection**, separated by `seasonCode` and `deliveryStartDate` |
-| Mainline vs. outlet                                                     | **Two collections** if pricing/customers differ significantly |
-| Different business units sharing the same ERP                          | **Two collections** — keeps customer lists clean   |
+| Situation                                                  | Recommended structure                                                           |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Two distinct brands with separate sales teams and websites | **Two collections**, one per brand                                              |
+| Same brand, multiple markets with different currency mixes | **One collection** (use price groups + currency)                                |
+| Pre-order season vs. immediate stock                       | Typically **one collection**, separated by `seasonCode` and `deliveryStartDate` |
+| Mainline vs. outlet                                        | **Two collections** if pricing/customers differ significantly                   |
+| Different business units sharing the same ERP              | **Two collections** — keeps customer lists clean                                |
 
 When in doubt, talk to your Colect Support contact. Splitting a collection later requires re-importing master data; merging two collections is harder still.
 
