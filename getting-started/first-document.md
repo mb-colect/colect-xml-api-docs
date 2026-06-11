@@ -98,7 +98,7 @@ sftp> bye
 The Connector picks up the file within seconds of it landing in `datafiles/`.
 
 {% hint style="info" %}
-**Filename tip:** Include a timestamp or sequence in the filename (e.g. `products_20260610.xml`). Colect identifies the document type from the root element `<products>` — the filename is for your own bookkeeping and log correlation.
+**Filename tip:** The filename must match the pattern configured in your connector settings (e.g. `products*.xml`). Including a timestamp or sequence (e.g. `products_20260610.xml`) is a common convention that helps with bookkeeping and log correlation.
 {% endhint %}
 
 ***
@@ -111,7 +111,7 @@ If the product does not appear:
 
 1. Confirm the file was picked up — the Connector removes the file from `datafiles/` after processing, so if the file is gone it was at least received.
 2. Check for a validation error. Common causes: wrong currency code, empty mandatory field, or wrong date format. See [Error Handling](error-handling.md) for the full error reference.
-3. Contact Colect Support with the filename and upload timestamp if you cannot identify the cause.
+3. Contact your Colect contact with the filename and upload timestamp if you cannot identify the cause.
 
 {% hint style="success" %}
 Once the product appears in your collection, your SFTP credentials, file routing, and schema validation are all confirmed working — you're ready to connect your ERP's real export.
