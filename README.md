@@ -17,7 +17,7 @@ The XML API is a **document-exchange interface**. Your ERP produces or consumes 
 | Domain                | Description                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------ |
 | **Products**          | Sync your complete product catalog — sizes, colors, prices, stock, media, delivery windows |
-| **Customers**         | Manage B2B customer accounts with pricing groups, discounts, agreements, and locations     |
+| **Customers**         | Manage customer accounts with pricing groups, discounts, agreements, and locations     |
 | **Orders**            | Pull orders placed through the Colect Sales App and B2B Webstore back into your ERP        |
 | **Access**            | Control which products are visible to which customers, and which agents can sell to whom   |
 | **Invoices**          | Push invoice data for customer visibility in the app                                       |
