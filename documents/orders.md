@@ -7,7 +7,7 @@ The **Orders** output document is the single document Colect produces *for* your
 {% endhint %}
 
 {% hint style="info" %}
-This is the only **output** document in the API. The XML structure mirrors the input documents, but the direction is **Colect → ERP** — files appear in your `outbox/` folder for your ERP to pick up.
+This is the only **output** document in the API. The XML structure mirrors the input documents, but the direction is **Colect → ERP** — files appear in your `orderfiles/` folder for your ERP to pick up.
 {% endhint %}
 
 ***
@@ -18,7 +18,7 @@ This is the only **output** document in the API. The XML structure mirrors the i
 | ----------------------- | -------------------------------------------------------------------------------------- |
 | **Direction**           | Colect → ERP                                                                          |
 | **Root element**        | `<orders>`                                                                            |
-| **File name pattern**   | `orders*.xml`                                                                         |
+| **File name pattern**   | `[orderNumber]-[random].xml` (e.g. `4XBQK7P2N1ZA-123.xml`)                           |
 | **Sync mode**           | Append — each file contains new orders ready for processing                            |
 | **XSD**                 | [OrderOutput\_Feed\_XSD.xsd](../schema/snapshots/2026-05-06/OrderOutput_Feed_XSD.xsd) |
 | **Identifier**          | `orderNumber`                                                                         |
@@ -39,12 +39,17 @@ This is the only **output** document in the API. The XML structure mirrors the i
 | `canceledOrderNumber`         | `string`   | If this is a cancellation, the original `orderNumber`. Empty otherwise.                                                |
 | `customerOrderReference`      | `string`   | Reference number/text manually entered in the app.                                                                     |
 | `orderTypeCode`               | `string`   | Order type selected from the app's dropdown (only when configured in backend).                                         |
+| `internalOrderType`           | `string`   | Internal order type code (e.g. `ORDER`).                                                                               |
 | `signed`                      | `boolean`  | `true` if the order is signed.                                                                                         |
+| `signee`                      | `string`   | Name or identifier of the person who signed the order. Empty if unsigned.                                              |
 | `timestamp`                   | `dateTime` | Creation date/time. Format `yyyyMMdd HH:mm`.                                                                           |
 | `salesPerson`                 | `string`   | Email of the salesperson who entered the order.                                                                        |
 | `customerNo`                  | `string`   | The selected customer's number.                                                                                        |
 | `customerPriceGroup`          | `string`   | Active price group at order time.                                                                                      |
+| `customerUserDefinedField`    | `string`   | The customer's `userDefinedField` value at order time.                                                                 |
 | `comment`                     | `string`   | Comment captured at order entry.                                                                                       |
+| `internalComment`             | `string`   | Internal comment (not visible to the customer).                                                                        |
+| `earliestDeliveryDate`        | `dateTime` | Earliest possible delivery date. Format `yyyyMMdd`.                                                                    |
 | `requestedDeliveryDate`       | `dateTime` | Selected requested delivery start date. Format `yyyyMMdd`.                                                             |
 | `requestedDeliveryEndDate`    | `dateTime` | Selected requested delivery end date. Format `yyyyMMdd`.                                                               |
 | `numberOfBoxes`               | `int`      | Total number of boxes (only relevant for the returns shop).                                                            |
@@ -126,19 +131,19 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
 
 | Element                       | Type       | Description                                                                                                            |
 | ----------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `type`                        | `string`   | Line type — `STOCK_ORDER`, `PRE_ORDER`, or `RETURN_ORDER`. See [XOrderLineType](../data-types/enums.md#xorderlinetype). |
+| `type`                        | `string`   | Order line type code.                                                                                                  |
 | `productUniqueId`             | `string`   | Product `uniqueId`.                                                                                                    |
 | `productColorCode`            | `string`   | Product `colorCode`.                                                                                                   |
-| `sizeName`                    | `string`   | Size name.                                                                                                             |
-| `subSize`                     | `string`   | Sub-size name.                                                                                                         |
+| `productSize`                 | `string`   | Size name.                                                                                                             |
+| `productSubSize`              | `string`   | Sub-size name.                                                                                                         |
 | `sizeCustomField`             | `string`   | Custom field defined on the size (passed through from products).                                                       |
-| `productSeason`               | `string`   | Season at order time.                                                                                                  |
+| `productSeasonCode`           | `string`   | Season code at order time.                                                                                             |
 | `productUserDefinedField1`    | `string`   | `userDefinedField1` snapshot.                                                                                          |
 | `productUserDefinedField2`    | `string`   | `userDefinedField2` snapshot.                                                                                          |
 | `deliverySubBlock`            | `string`   | (Legacy) Delivery sub-block code. Use `deliveryDate` going forward.                                                    |
 | `eanCode`                     | `string`   | EAN at order time.                                                                                                     |
-| `numberOfPieces`              | `int`      | Pieces ordered.                                                                                                        |
-| `wholesalePrice`              | `float`    | Per-piece wholesale price applied.                                                                                     |
+| `quantity`                    | `int`      | Pieces ordered.                                                                                                        |
+| `price`                       | `float`    | Per-piece wholesale price applied.                                                                                     |
 | `margin`                      | `float`    | Effective margin applied to the line.                                                                                  |
 | `marginGroupCode`             | `string`   | Margin group whose margin applied.                                                                                     |
 | `marginFromMarginGroup`       | `float`    | Margin value from a margin group (when margin was sourced from a group rather than a manual override).                 |
@@ -148,10 +153,32 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
 | `discountGroupIdentifier`     | `string`   | The `identifier` of the discount group entry the user picked (Multi Promotions audit trail).                          |
 | `netWholesalePrice`           | `float`    | Net wholesale price per piece.                                                                                         |
 | `grossWholesalePrice`         | `float`    | Gross wholesale price per piece.                                                                                       |
-| `lineAmount`                  | `float`    | Total line amount.                                                                                                     |
+| `totalAmount`                 | `float`    | Total line amount.                                                                                                     |
 | `remark`                      | `string`   | Free-text remark captured at order entry.                                                                              |
 | `deliveryDate`                | `dateTime` | Requested delivery date for the line. Format `yyyyMMdd`.                                                              |
-| `returnReason`                | `string`   | Reason for return (when `type` is `RETURN`).                                                                           |
+| `returnReason`                | `string`   | Reason for return (when `type` is a return type).                                                                      |
+
+***
+
+## Delivery cost rules
+
+When an order-level delivery cost rule fires, Colect echoes the full rule back on the order inside `<deliveryCostRules>`. This lets your ERP audit which rule applied without needing to look it up separately.
+
+| Element              | Type       | Description                                                                                    |
+| -------------------- | ---------- | ---------------------------------------------------------------------------------------------- |
+| `identification`     | `string`   | The rule's `identification` code (matches the rule defined on the customer or collection).     |
+| `description`        | `string`   | Display description of the rule.                                                               |
+| `warning`            | `string`   | Warning message, if the rule has one.                                                          |
+| `group`              | `string`   | Rule group.                                                                                    |
+| `exclusive`          | `boolean`  | Whether the rule is exclusive.                                                                 |
+| `minimumQuantity`    | `int`      | Minimum quantity threshold.                                                                    |
+| `minimumOrderAmount` | `float`    | Minimum order amount threshold.                                                                |
+| `startDate`          | `dateTime` | Rule validity start date. Format `yyyyMMdd`.                                                   |
+| `endDate`            | `dateTime` | Rule validity end date. Format `yyyyMMdd`.                                                     |
+| `evaluationMethod`   | `string`   | `EVALUATE_BASED_ON_TODAY` or `EVALUATE_BASED_ON_DELIVERY_DATE`.                               |
+| `amount`             | `float`    | Delivery cost amount applied (0 = free shipping).                                              |
+| `discountPercentage` | `float`    | Discount percentage (when the rule is a discount rule rather than a cost rule).                |
+| `calculatedAmount`   | `float`    | The actual calculated amount after applying the rule.                                          |
 
 ***
 
@@ -166,12 +193,17 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
     <trackingNumber>4XBQK7P2N1ZA</trackingNumber>
     <customerOrderReference>PO-12345</customerOrderReference>
     <orderTypeCode>STANDARD</orderTypeCode>
+    <internalOrderType>ORDER</internalOrderType>
     <signed>true</signed>
+    <signee></signee>
     <timestamp>20260506 14:32</timestamp>
     <salesPerson>jane.rep@example.com</salesPerson>
     <customerNo>C-00042</customerNo>
     <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
+    <customerUserDefinedField></customerUserDefinedField>
     <comment>Rush delivery for store opening</comment>
+    <internalComment></internalComment>
+    <earliestDeliveryDate>20260601</earliestDeliveryDate>
     <requestedDeliveryDate>20260601</requestedDeliveryDate>
     <requestedDeliveryEndDate>20260615</requestedDeliveryEndDate>
     <shipToCode>WAREHOUSE</shipToCode>
@@ -192,27 +224,46 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
       <postalCode>1043BB</postalCode>
       <city>Amsterdam</city>
       <country>NL</country>
-      <gln>8712345000025</gln>
     </shipToDetails>
 
     <orderLines>
       <orderLine>
-        <type>STOCK_ORDER</type>
+        <type>PS</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <sizeName>M</sizeName>
+        <productSize>M</productSize>
+        <productSeasonCode>SS25</productSeasonCode>
         <eanCode>8712345678902</eanCode>
-        <numberOfPieces>25</numberOfPieces>
-        <wholesalePrice>22.50</wholesalePrice>
+        <quantity>25</quantity>
+        <price>22.50</price>
         <discountPercentage>15</discountPercentage>
         <discountGroupCode>VOL</discountGroupCode>
         <discountFromDiscountGroup>3.38</discountFromDiscountGroup>
         <discountGroupIdentifier>vol.25</discountGroupIdentifier>
         <netWholesalePrice>19.13</netWholesalePrice>
-        <lineAmount>478.13</lineAmount>
+        <grossWholesalePrice>22.50</grossWholesalePrice>
+        <totalAmount>478.13</totalAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
     </orderLines>
+
+    <deliveryCostRules>
+      <deliveryCostRule>
+        <identification>freeshipping1000</identification>
+        <description>Free shipping on orders over EUR 1000</description>
+        <warning></warning>
+        <group>DEFAULT</group>
+        <exclusive>false</exclusive>
+        <minimumQuantity>0</minimumQuantity>
+        <minimumOrderAmount>1000.00</minimumOrderAmount>
+        <startDate>20260101</startDate>
+        <endDate>20261231</endDate>
+        <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+        <amount>0.00</amount>
+        <discountPercentage>0.00</discountPercentage>
+        <calculatedAmount>0.00</calculatedAmount>
+      </deliveryCostRule>
+    </deliveryCostRules>
   </order>
 </orders>
 ```
@@ -237,4 +288,4 @@ When an order is cancelled or edited, you receive a new Orders document with the
 
 ## After processing
 
-Once your ERP has ingested an Orders file, move it from `outbox/` to `outbox/archive/` (or delete it, depending on your setup). Colect doesn't manage the archive — that's your ERP's responsibility.
+Once your ERP has ingested an Orders file, move it out of `orderfiles/` (or delete it, depending on your setup). Colect doesn't manage the archive — that's your ERP's responsibility.
