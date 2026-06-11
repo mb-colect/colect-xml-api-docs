@@ -1,6 +1,6 @@
 # Error Handling
 
-When the Cloud Connector processes a file from `datafiles/`, it validates the XML against the schema before ingesting it. If validation fails, the data is not imported. How that failure is reported back to you depends on your integration setup — confirm the error notification mechanism with your Colect Support contact during onboarding.
+When the Cloud Connector processes a file from `datafiles/`, it validates the XML against the schema before ingesting it. If validation fails, the data is not imported. How that failure is reported back to you depends on your integration setup — confirm the error notification mechanism with your Colect contact during onboarding.
 
 {% hint style="info" %}
 Regardless of how errors are surfaced, the XSD validation messages follow a standard format. The sections below document the most common errors and how to fix them.
@@ -115,4 +115,4 @@ If you cannot resolve a validation error:
 
 1. Note the filename and upload timestamp.
 2. Copy the full validation error message.
-3. Contact Colect Support with both — and include the offending lines from the source XML if the error references specific line numbers.
+3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs&utm_medium=docs&utm_campaign=ask_support) with both — and include the offending lines from the source XML if the error references specific line numbers.
