@@ -6,10 +6,10 @@ The Colect XML API moves data between your ERP and the Colect platform as **XML 
 
 ## Supported transports
 
-| Transport                       | When to use                                                                       | Notes                                                       |
-| ------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| **Colect Secure FTP (SFTP)**    | Default for most ERP integrations. Good fit for batch exports, scheduled imports. | Credentials issued by Colect Support. Encrypted in transit. |
-| **Other file-transfer**         | Custom integrations (S3 drop, internal file share, etc.) handled per project.     | Discussed during integration kick-off.                      |
+| Transport                    | When to use                                                                       | Notes                                                       |
+| ---------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **Colect Secure FTP (SFTP)** | Default for most ERP integrations. Good fit for batch exports, scheduled imports. | Credentials issued by Colect Support. Encrypted in transit. |
+| **Other file-transfer**      | Custom integrations (S3 drop, internal file share, etc.) handled per project.     | Discussed during integration kick-off.                      |
 
 {% hint style="info" %}
 The XML document structure is **identical** regardless of transport channel. You write the document once and ship it however your environment supports.
@@ -33,19 +33,7 @@ The Cloud Connector identifies document type from the **root XML element** of ea
 
 The patterns below are recommended conventions to keep `datafiles/` readable. You are free to extend them with timestamps, batch IDs, or collection codes to suit your ERP's export naming.
 
-| Document                                  | Recommended pattern                | Root element          | Direction        |
-| ----------------------------------------- | ---------------------------------- | --------------------- | ---------------- |
-| Products                                  | `products*.xml`                    | `<products>`          | ERP → Colect     |
-| Customers                                 | `customers*.xml`                   | `<customers>`         | ERP → Colect     |
-| Customer Access                           | `customerAccess*.xml`              | `<customerAccesses>`  | ERP → Colect     |
-| Product Access                            | `productAccess*.xml`               | `<productAccesses>`   | ERP → Colect     |
-| Product Relations _(new in v1.5)_         | `productRelations*.xml`            | `<productRelations>`  | ERP → Colect     |
-| Prices (sub-feed)                         | `prices*.xml`                      | `<prices>`            | ERP → Colect     |
-| Sizes & Stock (sub-feed)                  | `sizes*.xml`                       | `<sizes>`             | ERP → Colect     |
-| Extra Fields (sub-feed)                   | `extraFields*.xml`                 | `<extraFields>`       | ERP → Colect     |
-| Invoices                                  | `invoices*.xml`                    | `<invoices>`          | ERP → Colect     |
-| Historical Orders                         | `historicalOrders*.xml`            | `<historicalOrders>`  | ERP → Colect     |
-| Orders                                    | `[orderNumber]-[random].xml`       | —                     | Colect → ERP     |
+<table><thead><tr><th>Document</th><th width="260.859375">Recommended pattern</th><th width="181.59375">Root element</th><th>Direction</th></tr></thead><tbody><tr><td>Products</td><td><code>products*.xml</code></td><td><code>&#x3C;products></code></td><td>ERP → Colect</td></tr><tr><td>Customers</td><td><code>customers*.xml</code></td><td><code>&#x3C;customers></code></td><td>ERP → Colect</td></tr><tr><td>Customer Access</td><td><code>customerAccess*.xml</code></td><td><code>&#x3C;customerAccesses></code></td><td>ERP → Colect</td></tr><tr><td>Product Access</td><td><code>productAccess*.xml</code></td><td><code>&#x3C;productAccesses></code></td><td>ERP → Colect</td></tr><tr><td>Product Relations <em>(new in v1.5)</em></td><td><code>productRelations*.xml</code></td><td><code>&#x3C;productRelations></code></td><td>ERP → Colect</td></tr><tr><td>Prices (sub-feed)</td><td><code>prices*.xml</code></td><td><code>&#x3C;prices></code></td><td>ERP → Colect</td></tr><tr><td>Sizes &#x26; Stock (sub-feed)</td><td><code>sizes*.xml</code></td><td><code>&#x3C;sizes></code></td><td>ERP → Colect</td></tr><tr><td>Extra Fields (sub-feed)</td><td><code>extraFields*.xml</code></td><td><code>&#x3C;extraFields></code></td><td>ERP → Colect</td></tr><tr><td>Invoices</td><td><code>invoices*.xml</code></td><td><code>&#x3C;invoices></code></td><td>ERP → Colect</td></tr><tr><td>Historical Orders</td><td><code>historicalOrders*.xml</code></td><td><code>&#x3C;historicalOrders></code></td><td>ERP → Colect</td></tr><tr><td>Orders</td><td><code>[orderNumber]-[random].xml</code></td><td>—</td><td>Colect → ERP</td></tr></tbody></table>
 
 {% hint style="info" %}
 **Colect → ERP files (Orders):** Each order is written as a separate file named `[orderNumber]-[random].xml` — for example `12345678-999.xml`. Your ERP should process any `.xml` file it finds in `orderfiles/` rather than matching a fixed pattern.
@@ -65,7 +53,7 @@ The default SFTP layout looks like this:
 ```
 
 {% hint style="info" %}
-Subfolders may be added during implementation for specific integration needs (e.g. staging vs. production paths). Confirm the exact layout with your Colect Support contact during onboarding.
+Subfolders may be added during implementation for specific integration needs (e.g. staging vs. production paths). Confirm the exact layout with your Colect contact during onboarding.
 {% endhint %}
 
 ***
