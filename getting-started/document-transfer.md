@@ -19,7 +19,7 @@ The XML document structure is **identical** regardless of transport channel. You
 
 ## Connection details (SFTP)
 
-<table><thead><tr><th width="220">Property</th><th>Value</th></tr></thead><tbody><tr><td><strong>Host</strong></td><td><code>sftp.colect.services</code></td></tr><tr><td><strong>Port</strong></td><td><code>22</code></td></tr><tr><td><strong>Protocol</strong></td><td>SFTP (SSH File Transfer Protocol)</td></tr><tr><td><strong>Authentication</strong></td><td>Username + password, or SSH key (recommended)</td></tr><tr><td><strong>Encryption</strong></td><td>SSH (TLS not applicable to SFTP)</td></tr></tbody></table>
+<table><thead><tr><th width="220">Property</th><th>Value</th></tr></thead><tbody><tr><td><strong>Host</strong></td><td><code>sftp.colect.services</code></td></tr><tr><td><strong>Port</strong></td><td><code>22</code></td></tr><tr><td><strong>Protocol</strong></td><td>SFTP (SSH File Transfer Protocol)</td></tr><tr><td><strong>Authentication</strong></td><td>Username + password</td></tr><tr><td><strong>Encryption</strong></td><td>SSH (TLS not applicable to SFTP)</td></tr></tbody></table>
 
 {% hint style="warning" %}
 **Credentials are collection-specific.** Each Colect collection has its own SFTP user. Treat the credentials as confidential and never expose them in client-side code or public repositories.
