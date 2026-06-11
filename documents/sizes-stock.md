@@ -38,7 +38,7 @@ The **Sizes & Stock** input document is a sub-feed of [Products](products.md) th
 | `customerSizeNaming`     | object     | NO        | Per-customer size labels. _Added in v1.5._ See [customerSizeNaming](#customer-size-naming).                              |
 | `prePackUnitCount`       | `int`      | **YES**   | Total pieces in this SKU. `1` for a single item; higher when the SKU is a prepack.                                       |
 | `eanCode`                | `string`   | NO        | EAN or SKU-level barcode for this item/size.                                                                             |
-| `replenishmentDate`      | `dateTime` | NO        | Date the size is expected back in stock. Format `yyyyMMdd`.                                                              |
+| `replenishmentDate`      | `dateTime` | NO        | Date the size is expected back in stock. Format `YYYY-MM-DD`.                                                            |
 | `customField`            | `string`   | NO        | Optional field surfaced on the order XML as `sizeCustomField`.                                                           |
 
 ### Stock levels
@@ -47,7 +47,7 @@ Each `<size>` carries one or more `<stockLevel>` entries inside `<stockLevels>`:
 
 | Element       | Type       | Mandatory | Description                                                                                                                                              |
 | ------------- | ---------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `startDate`   | `dateTime` | **YES**   | Date from which this stock level applies. If not using future stock, set a fixed past date like `19800101`. Format `yyyyMMdd`.                          |
+| `startDate`   | `dateTime` | **YES**   | Date from which this stock level applies. If not using future stock, set a fixed past date like `1980-01-01`. Format `YYYY-MM-DD`.                      |
 | `quantity`    | `int`      | **YES**   | Number of pieces available for this SKU at the given date.                                                                                               |
 
 ### Prepack definition
@@ -95,7 +95,7 @@ The combination of `code` + `sizeName` + `subSizeName` must be unique inside a s
         <eanCode>8712345678901</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>100</quantity>
           </stockLevel>
         </stockLevels>
@@ -107,12 +107,12 @@ The combination of `code` + `sizeName` + `subSizeName` must be unique inside a s
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>19800101</startDate>
+            <startDate>1980-01-01</startDate>
             <quantity>150</quantity>
           </stockLevel>
           <stockLevel>
             <!-- Future restock -->
-            <startDate>20260601</startDate>
+            <startDate>2026-06-01</startDate>
             <quantity>500</quantity>
           </stockLevel>
         </stockLevels>
