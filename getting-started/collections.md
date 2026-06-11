@@ -55,16 +55,16 @@ Your Colect contact configures the file paths for each collection during onboard
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | Two distinct brands with separate sales teams and websites | **Two collections**, one per brand                                              |
 | Same brand, multiple markets with different currency mixes | **One collection** (use price groups + currency)                                |
-| Pre-order season vs. immediate stock                       | Typically **one collection**, separated by `seasonCode` and `deliveryStartDate` |
+| Pre-order season vs. immediate stock                       | **Two collections** — pre-order and in-stock are separate buying contexts       |
 | Mainline vs. outlet                                        | **Two collections** if pricing/customers differ significantly                   |
 | Different business units sharing the same ERP              | **Two collections** — keeps customer lists clean                                |
 
-When in doubt, talk to your Colect Support contact. Splitting a collection later requires re-importing master data; merging two collections is harder still.
+When in doubt, talk to your Colect contact. Splitting a collection later requires re-importing master data; merging two collections is harder still.
 
 ***
 
 ## Where collections appear in this documentation
 
-* [Document Transfer](document-transfer.md) — how SFTP / HTTP credentials route to a collection.
+* [Document Transfer](document-transfer.md) — how file paths route documents to a collection.
 * [Orders output document](../documents/orders.md) — `<collectionId>` field that identifies the collection on every order.
 * [Customers](../documents/customers.md) — `currencyCode` and `activePriceGroup` are scoped to the collection's configured currencies and price groups.
