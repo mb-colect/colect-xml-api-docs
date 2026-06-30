@@ -93,18 +93,35 @@ Each `<contact>` represents a person at the customer who can log in to the B2B a
 
 The `<discountGroup>` elements are how Multi Promotions surfaces choosable discounts at the line level. See [Business Logic → Multi Promotions](../business-logic/multi-promotions.md) for the user-facing flow.
 
-| Attribute       | Type     | Mandatory | Description                                                                                            |
-| --------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------ |
-| `amount`        | `float`  | **YES**   | Discount percentage (e.g. `15.5`).                                                                     |
-| `code`          | `string` | NO        | Discount group code matching a product's `discountGroupCode`. Use `*` for a wildcard that applies to all products. |
-| `minQuantity`   | `int`    | NO        | Minimum quantity on the line for the discount to be eligible.                                          |
-| `identifier`    | `string` | NO        | Code echoed back on the order so the ERP can audit which discount was applied.                         |
+| Element            | Type       | Mandatory | Description                                                                                            |
+| ------------------ | ---------- | --------- | ------------------------------------------------------------------------------------------------------ |
+| `percentage`       | `float`    | **YES**   | Discount percentage (e.g. `15.5`).                                                                     |
+| `code`             | `string`   | NO        | Discount group code matching a product's `discountGroupCode`. Use `*` for a wildcard that applies to all products. |
+| `minimumQuantity`  | `int`      | NO        | Minimum quantity on the line for the discount to be eligible.                                          |
+| `identifier`       | `string`   | NO        | Code echoed back on the order so the ERP can audit which discount was applied.                         |
+| `startDate`        | `dateTime` | NO        | Date from which this discount group is active. Format `YYYY-MM-DD`.                                    |
+| `endDate`          | `dateTime` | NO        | Date after which this discount group is no longer active. Format `YYYY-MM-DD`.                         |
+| `description`      | `string`   | NO        | Human-readable label for this discount group.                                                          |
 
 ```xml
 <discountGroups>
-  <discountGroup amount="5"   code="*"   identifier="all"/>
-  <discountGroup amount="12.5" code="DG1" minQuantity="10" identifier="dg1.min10"/>
-  <discountGroup amount="15"   code="DG1" minQuantity="25" identifier="dg1.min25"/>
+  <discountGroup>
+    <percentage>5</percentage>
+    <code>*</code>
+    <identifier>all</identifier>
+  </discountGroup>
+  <discountGroup>
+    <percentage>12.5</percentage>
+    <code>DG1</code>
+    <minimumQuantity>10</minimumQuantity>
+    <identifier>dg1.min10</identifier>
+  </discountGroup>
+  <discountGroup>
+    <percentage>15</percentage>
+    <code>DG1</code>
+    <minimumQuantity>25</minimumQuantity>
+    <identifier>dg1.min25</identifier>
+  </discountGroup>
 </discountGroups>
 ```
 
@@ -114,15 +131,21 @@ The `<discountGroup>` elements are how Multi Promotions surfaces choosable disco
 
 Margin groups override the wholesale margin per customer for products with a matching `marginGroupCode`.
 
-| Attribute   | Type    | Mandatory | Description                                                                |
-| ----------- | ------- | --------- | -------------------------------------------------------------------------- |
-| `amount`    | `float` | **YES**   | Margin amount.                                                             |
-| `code`      | `string`| NO        | Code matching a product's `marginGroupCode`. Use `*` for a wildcard.       |
+| Element  | Type     | Mandatory | Description                                                                |
+| -------- | -------- | --------- | -------------------------------------------------------------------------- |
+| `amount` | `float`  | **YES**   | Margin amount.                                                             |
+| `code`   | `string` | NO        | Code matching a product's `marginGroupCode`. Use `*` for a wildcard.       |
 
 ```xml
 <marginGroups>
-  <marginGroup amount="2.1" code="*" />
-  <marginGroup amount="2.3" code="MG1" />
+  <marginGroup>
+    <amount>2.1</amount>
+    <code>*</code>
+  </marginGroup>
+  <marginGroup>
+    <amount>2.3</amount>
+    <code>MG1</code>
+  </marginGroup>
 </marginGroups>
 ```
 
@@ -263,12 +286,24 @@ A list of access codes restricting which sizes the customer can see. A size with
     </contacts>
 
     <discountGroups>
-      <discountGroup amount="5"    code="*"   identifier="all"/>
-      <discountGroup amount="12.5" code="DG1" minQuantity="10" identifier="dg1.min10"/>
+      <discountGroup>
+        <percentage>5</percentage>
+        <code>*</code>
+        <identifier>all</identifier>
+      </discountGroup>
+      <discountGroup>
+        <percentage>12.5</percentage>
+        <code>DG1</code>
+        <minimumQuantity>10</minimumQuantity>
+        <identifier>dg1.min10</identifier>
+      </discountGroup>
     </discountGroups>
 
     <marginGroups>
-      <marginGroup amount="2.1" code="*"/>
+      <marginGroup>
+        <amount>2.1</amount>
+        <code>*</code>
+      </marginGroup>
     </marginGroups>
 
     <shippingLocations>
