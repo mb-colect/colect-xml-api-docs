@@ -51,49 +51,17 @@
     </contacts>
 
     <discountGroups>
-      <discountGroup>
-        <percentage>5</percentage>
-        <code>*</code>
-        <identifier>all</identifier>
-      </discountGroup>
-      <discountGroup>
-        <percentage>10</percentage>
-        <code>VOL</code>
-        <minimumQuantity>10</minimumQuantity>
-        <identifier>vol.10</identifier>
-      </discountGroup>
-      <discountGroup>
-        <percentage>12.5</percentage>
-        <code>VOL</code>
-        <minimumQuantity>25</minimumQuantity>
-        <identifier>vol.25</identifier>
-      </discountGroup>
-      <discountGroup>
-        <percentage>15</percentage>
-        <code>VOL</code>
-        <minimumQuantity>50</minimumQuantity>
-        <identifier>vol.50</identifier>
-      </discountGroup>
-      <discountGroup>
-        <percentage>8</percentage>
-        <code>LOY</code>
-        <identifier>loyalty</identifier>
-      </discountGroup>
+      <discountGroup amount="5"    code="*"    identifier="all"/>
+      <discountGroup amount="10"   code="VOL"  minQuantity="10" identifier="vol.10"/>
+      <discountGroup amount="12.5" code="VOL"  minQuantity="25" identifier="vol.25"/>
+      <discountGroup amount="15"   code="VOL"  minQuantity="50" identifier="vol.50"/>
+      <discountGroup amount="8"    code="LOY"  identifier="loyalty"/>
     </discountGroups>
 
     <marginGroups>
-      <marginGroup>
-        <amount>2.1</amount>
-        <code>*</code>
-      </marginGroup>
-      <marginGroup>
-        <amount>2.3</amount>
-        <code>MG1</code>
-      </marginGroup>
-      <marginGroup>
-        <amount>2.5</amount>
-        <code>MG2</code>
-      </marginGroup>
+      <marginGroup amount="2.1" code="*"/>
+      <marginGroup amount="2.3" code="MG1"/>
+      <marginGroup amount="2.5" code="MG2"/>
     </marginGroups>
 
     <shippingLocations>
@@ -154,17 +122,8 @@
         <activePriceGroup>WHOLESALE_EU</activePriceGroup>
         <currencyCode>EUR</currencyCode>
         <discountGroups>
-          <discountGroup>
-            <percentage>5</percentage>
-            <code>*</code>
-            <identifier>all</identifier>
-          </discountGroup>
-          <discountGroup>
-            <percentage>12</percentage>
-            <code>VOL</code>
-            <minimumQuantity>25</minimumQuantity>
-            <identifier>vol.25</identifier>
-          </discountGroup>
+          <discountGroup amount="5"  code="*"   identifier="all"/>
+          <discountGroup amount="12" code="VOL" minQuantity="25" identifier="vol.25"/>
         </discountGroups>
       </agreement>
       <agreement>
@@ -243,11 +202,7 @@
     </contacts>
 
     <discountGroups>
-      <discountGroup>
-        <percentage>5</percentage>
-        <code>*</code>
-        <identifier>all</identifier>
-      </discountGroup>
+      <discountGroup amount="5" code="*" identifier="all"/>
     </discountGroups>
 
     <shippingLocations>
