@@ -51,8 +51,8 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
     <invoiceNumber>INV-2026-00425</invoiceNumber>
     <status>OPEN</status>
     <customerNo>C-00042</customerNo>
-    <date>2026-04-20</date>
-    <dueDate>2026-05-20</dueDate>
+    <date>20260420</date>
+    <dueDate>20260520</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>1250.00</amountExcludingTax>
     <taxAmount>262.50</taxAmount>
@@ -64,8 +64,8 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
     <invoiceNumber>INV-2026-00318</invoiceNumber>
     <status>PAID</status>
     <customerNo>C-00042</customerNo>
-    <date>2026-03-15</date>
-    <dueDate>2026-04-15</dueDate>
+    <date>20260315</date>
+    <dueDate>20260415</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>800.00</amountExcludingTax>
     <taxAmount>168.00</taxAmount>

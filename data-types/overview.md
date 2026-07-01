@@ -73,11 +73,11 @@ Fields are documented with their requirement status:
 
 ### Date/Time Format
 
-All dates use ISO 8601 format:
+Date-only fields use `yyyyMMdd` format (e.g. `20250115`). The `timestamp` field on historical orders uses `yyyyMMdd HH:mm` (e.g. `20250115 14:30`).
 
 ```xml
-<api:timestamp>2025-01-15T14:30:00</api:timestamp>
-<api:startDate>2025-02-01T00:00:00</api:startDate>
+<startDate>20250115</startDate>
+<timestamp>20250115 14:30</timestamp>
 ```
 
 ### Boolean Values

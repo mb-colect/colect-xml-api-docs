@@ -8,10 +8,10 @@ This walkthrough takes you from empty SFTP folder to a live product in your Cole
 
 You need two things before you can push anything:
 
-<table><thead><tr><th width="299.92578125">What</th><th>Where to get it</th></tr></thead><tbody><tr><td>SFTP credentials (host, username, password)</td><td>Your Colect contact or the <a href="https://support.apptitude.nl/">Colect Support Team</a></td></tr><tr><td>An SFTP client</td><td><a href="https://filezilla-project.org/">FileZilla</a>, the <code>sftp</code> CLI, or your ERP's file-transfer tooling</td></tr></tbody></table>
+<table><thead><tr><th width="299.92578125">What</th><th>Where to get it</th></tr></thead><tbody><tr><td>SFTP credentials (host, username, password)</td><td>Your Colect contact or the <a href="https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs&utm_medium=docs&utm_campaign=ask_support">Colect Support Team</a></td></tr><tr><td>An SFTP client</td><td><a href="https://filezilla-project.org/">FileZilla</a>, the <code>sftp</code> CLI, or your ERP's file-transfer tooling</td></tr></tbody></table>
 
 {% hint style="warning" %}
-If you do not have SFTP credentials yet, stop here and talk with your Colect contact or the [Colect Support Team](https://support.apptitude.nl/) for these credentials — there is nothing to configure on the API side until the credentials are issued.
+If you do not have SFTP credentials yet, stop here and talk with your Colect contact or the [Colect Support Team](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs&utm_medium=docs&utm_campaign=ask_support) for these credentials — there is nothing to configure on the API side until the credentials are issued.
 {% endhint %}
 
 ***
@@ -60,7 +60,7 @@ Create a file called `products_first.xml`. Replace the placeholder values with r
         <sortCode>1</sortCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>100</quantity>
           </stockLevel>
         </stockLevels>

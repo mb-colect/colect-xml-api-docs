@@ -103,8 +103,8 @@ The same field set applies to both `<orderDiscountRule>` and `<orderDeliveryCost
     <orderDiscountRule>
       <identification>spring2026</identification>
       <description>Spring 2026 promo — 8% off all orders</description>
-      <startDate>2026-03-01</startDate>
-      <endDate>2026-03-31</endDate>
+      <startDate>20260301</startDate>
+      <endDate>20260331</endDate>
       <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
       <discountPercentage>8</discountPercentage>
     </orderDiscountRule>
