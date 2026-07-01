@@ -49,7 +49,7 @@ The XML documents themselves don't carry an explicit `collectionId` (except on t
 
 <table><thead><tr><th width="168.953125">Channel</th><th>How the collection is identified</th></tr></thead><tbody><tr><td><strong>SFTP</strong></td><td>The collection is determined by the file path configured in your connector settings. A single SFTP account can serve multiple collections, each with its own configured file paths.</td></tr></tbody></table>
 
-Your Colect contact configures the file paths for each collection during onboarding. See [Document Transfer](document-transfer.md) for details.
+File paths are generally configured during implementation, but may be updated in the Backend by your Colect Administrator. See [Document Transfer](document-transfer.md) for details.
 
 ***
 
@@ -63,7 +63,7 @@ Your Colect contact configures the file paths for each collection during onboard
 | Mainline vs. outlet                                        | **Two collections** if pricing/customers differ significantly             |
 | Different business units sharing the same ERP              | **Two collections** — keeps customer lists clean                          |
 
-When in doubt, talk to your Colect contact. Splitting a collection later requires re-importing master data; merging two collections is harder still.
+When in doubt, talk to your Colect contact. Splitting a collection later requires re-importing master data.
 
 ***
 
