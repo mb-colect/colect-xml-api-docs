@@ -40,5 +40,4 @@
 
 ## Reference
 
-* [Schema Snapshots](schema/README.md)
 * [Changelog](changelog.md)
