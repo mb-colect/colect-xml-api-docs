@@ -6,7 +6,7 @@ Complete reference for all enumeration types used in the Colect XML API.
 
 ## Product Enums
 
-### XProductStatus
+### Product Status
 
 Product visibility and ordering status.
 
@@ -21,7 +21,7 @@ Product visibility and ordering status.
 | `BLOCKED_2` | Blocked variant 2                           |
 | `BLOCKED_3` | Blocked variant 3                           |
 
-### XColor
+### Color
 
 Basic color categories for filtering.
 
@@ -44,7 +44,7 @@ Basic color categories for filtering.
 | `SILVER`     |
 | `UNKNOWN`    |
 
-### XMediumType
+### Medium Type
 
 The `type` field on `<medium>` uses lowercase short names in the import XML. (Colect stores them internally as `IMAGE_PRIMARY` etc., but the import format requires the values below.)
 
@@ -87,7 +87,7 @@ Relationship types between products.
 
 ## Customer Enums
 
-### XCustomerStatus
+### Customer Status
 
 Customer account status.
 
@@ -98,7 +98,7 @@ Customer account status.
 | `BLOCKED`              | Cannot be selected                |
 | `BLOCKED_FOR_ORDERING` | Can view but cannot order         |
 
-### XPaymentStatus
+### Payment Status
 
 Payment requirement for customer.
 
@@ -108,7 +108,7 @@ Payment requirement for customer.
 | `PREPAYMENT`              | Prepayment required          |
 | `PREPAYMENT_REORDER_ONLY` | Prepayment for reorders only |
 
-### XAccessType
+### Access Type
 
 B2B webshop access level.
 
@@ -117,7 +117,7 @@ B2B webshop access level.
 | `FULL` | Full access |
 | `NONE` | No access   |
 
-### XUserType
+### User Type
 
 User role types.
 
@@ -137,7 +137,7 @@ User role types.
 
 ## Order Enums
 
-### XOrderStatus
+### Order Status
 
 Order processing status.
 
@@ -174,7 +174,7 @@ Order processing status.
 **\_MOVED suffix:** Indicates the order has been processed/moved but retained for reference.
 {% endhint %}
 
-### XOrderLineType
+### Order Line Type
 
 Type of order line.
 
@@ -184,7 +184,7 @@ Type of order line.
 | `PRE_ORDER`    | Pre-order (future availability) |
 | `RETURN_ORDER` | Return/credit                   |
 
-### XInternalOrderType
+### Internal Order Type
 
 Internal classification of order.
 
@@ -197,7 +197,7 @@ Internal classification of order.
 
 ## Access Rule Enums
 
-### XProductAccessRuleType
+### Product Access Rule Type
 
 Type of access rule.
 
@@ -206,7 +206,7 @@ Type of access rule.
 | `ADD`    | Grant access to matching products (default) |
 | `REMOVE` | Deny access to matching products            |
 
-### XProductAccessRuleMatchOperation
+### Product Access Rule Match Operation
 
 How to match products.
 
@@ -215,7 +215,7 @@ How to match products.
 | `EQUALS`   | Exact match (default) |
 | `CONTAINS` | Substring match       |
 
-### XEnvironment
+### Environment
 
 Target environment for rules.
 
@@ -232,7 +232,7 @@ Omit `environment` to apply rule to both APP and B2B.
 
 ## Pricing Enums
 
-### XPriceType
+### Price Type
 
 Price type identifier for price records.
 
@@ -243,7 +243,7 @@ Price type identifier for price records.
 | `ORIGINAL_WHOLESALE` | Original wholesale (before discount) |
 | `PURCHASE`           | Purchase/cost price                  |
 
-### XRuleEvaluationMethod
+### Rule Evaluation Method
 
 When to evaluate order rules.
 

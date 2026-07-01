@@ -76,4 +76,4 @@ Hex colours should be supplied without the leading `#`. Use `ff0000`, not `#ff00
 ## Related
 
 * [Products document](../documents/products.md) — where `<labels>` are pushed alongside all other product data.
-* [Product Types — XLabel](../data-types/products.md#xlabel) — field-level reference for `<text>` and `<backgroundColor>`.
+* [Product Types — Label](../data-types/products.md#label) — field-level reference for `<text>` and `<backgroundColor>`.

@@ -8,7 +8,7 @@ Complete reference for all product-related data types.
 
 ***
 
-## XProduct
+## Product
 
 The main product entity representing a style-color combination.
 
@@ -57,12 +57,12 @@ Products are uniquely identified by `uniqueId` + `colorCode`. Each color variant
 | Field                 | Type           | Description                                                                                                                                         |
 | --------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sortCode`            | Integer        | Sort order for products                                                                                                                             |
-| `status`              | XProductStatus | Product status (default: ACTIVE). See [Enumerations](enums.md#xproductstatus)                                                                       |
+| `status`              | Product Status | Product status (default: ACTIVE). See [Enumerations](enums.md#product-status)                                                                       |
 | `noos`                | Boolean        | Never Out Of Stock flag                                                                                                                             |
 | `sale`                | String         | Sale text displayed over product image. **Planned to be deprecated**, please use [label](products.md#nested-collections-xml-element-names) instead. |
 | `saleBackgroundColor` | String         | Hexadecimal RGB color for sale badge (e.g., "ff0000" for red)                                                                                       |
 | `styleAttributes`     | String         | Display-only attributes for product identification (e.g., season/drop prefix)                                                                       |
-| `simpleColor`         | XColor         | Basic color category for filtering. See [Enumerations](enums.md#xcolor)                                                                             |
+| `simpleColor`         | Color         | Basic color category for filtering. See [Enumerations](enums.md#color)                                                                             |
 
 ### Pricing and Ordering Fields
 
@@ -126,14 +126,14 @@ Products can be assigned to one or more discount groups using the `<discountGrou
 
 | Field Name                   | XML Element                   | Type                                                         | Description                                                               |
 | ---------------------------- | ----------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| `prices`                     | `<price>`                     | List<[XPrice](products.md#xprice)>                           | Product prices                                                            |
-| `sizes`                      | `<size>`                      | List<[XSize](products.md#xsize)>                             | Available sizes with stock                                                |
-| `media`                      | `<medium>`                    | List<[XMedium](products.md#xmedium)>                         | Product images/videos                                                     |
-| `labels`                     | `<label>`                     | List<[XLabel](products.md#xlabel)>                           | Product labels/badges. Relates to `sale` and `saleBackgroundColor`.       |
-| `extraFields`                | `<extraField>`                | List<[XExtraField](products.md#xextrafield)>                 | Custom display fields                                                     |
-| `deliveryWindows`            | `<deliveryWindow>`            | List<[XDeliveryWindow](products.md#xdeliverywindow)>         | Delivery windows/drops                                                    |
+| `prices`                     | `<price>`                     | List<[Price](products.md#price)>                           | Product prices                                                            |
+| `sizes`                      | `<size>`                      | List<[Size](products.md#size)>                             | Available sizes with stock                                                |
+| `media`                      | `<medium>`                    | List<[Medium](products.md#medium)>                         | Product images/videos                                                     |
+| `labels`                     | `<label>`                     | List<[Label](products.md#label)>                           | Product labels/badges. Relates to `sale` and `saleBackgroundColor`.       |
+| `extraFields`                | `<extraField>`                | List<[Extra Field](products.md#extra-field)>                 | Custom display fields                                                     |
+| `deliveryWindows`            | `<deliveryWindow>`            | List<[Delivery Window](products.md#delivery-window)>         | Delivery windows/drops                                                    |
 | `discountGroupCodes`         | `<discountGroupCode>`         | List\<String>                                                | Discount group codes. See [Discount Groups](products.md#discount-groups). |
-| `translations`               | `<translation>`               | List<[XProductTranslation](products.md#xproducttranslation)> | Translations                                                              |
+| `translations`               | `<translation>`               | List<[Product Translation](products.md#product-translation)> | Translations                                                              |
 
 ### Deprecated Fields
 
@@ -143,7 +143,7 @@ Products can be assigned to one or more discount groups using the `<discountGrou
 
 ***
 
-## XSize
+## Size
 
 Size information including stock and EAN codes.
 
@@ -171,10 +171,10 @@ Size information including stock and EAN codes.
 
 | Field Name               | XML Element               | Type                                                               | Description                  |
 | ------------------------ | ------------------------- | ------------------------------------------------------------------ | ---------------------------- |
-| `stockLevels`            | `<stockLevel>`            | List<[XStockLevel](products.md#xstocklevel)>                       | Stock quantities per date    |
-| `extraFields`            | `<extraField>`            | List<[XExtraField](products.md#xextrafield)>                       | Custom display fields        |
-| `prepackContentElements` | `<prepackContentElement>` | List<[XPrepackContentElement](products.md#xprepackcontentelement)> | Prepack contents definition  |
-| `customerSizeNamings`    | `<customerSizeNaming>`    | List<[XCustomerSizeNaming](products.md#xcustomersizeNaming)>       | Customer-specific size names |
+| `stockLevels`            | `<stockLevel>`            | List<[Stock Level](products.md#stock-level)>                       | Stock quantities per date    |
+| `extraFields`            | `<extraField>`            | List<[Extra Field](products.md#extra-field)>                       | Custom display fields        |
+| `prepackContentElements` | `<prepackContentElement>` | List<[Prepack Content Element](products.md#prepack-content-element)> | Prepack contents definition  |
+| `customerSizeNamings`    | `<customerSizeNaming>`    | List<[Customer Size Naming](products.md#customer-size-naming)>       | Customer-specific size names |
 
 {% hint style="info" %}
 **Size Access:** If `accessCode` is empty or matches one of the customer's `sizeAccessCodes`, the size is visible to that customer.
@@ -182,7 +182,7 @@ Size information including stock and EAN codes.
 
 ***
 
-## XPrice
+## Price
 
 Product pricing with currency and customer group support.
 
@@ -243,7 +243,7 @@ The system resolves prices in the following order:
 
 ***
 
-## XStockLevel
+## Stock Level
 
 Stock quantity with optional date-based availability.
 
@@ -283,7 +283,7 @@ Stock quantity with optional date-based availability.
 
 ***
 
-## XMedium
+## Medium
 
 Product images and videos.
 
@@ -310,7 +310,7 @@ Product images and videos.
 
 ### Media Types
 
-See [XMediumType](enums.md#xmediumtype) for the full list of 23 enum values. Most commonly used:
+See [Medium Type](enums.md#medium-type) for the full list of 23 enum values. Most commonly used:
 
 | Value | Description |
 | ----- | ----------- |
@@ -327,7 +327,7 @@ See [XMediumType](enums.md#xmediumtype) for the full list of 23 enum values. Mos
 
 ***
 
-## XDeliveryWindow
+## Delivery Window
 
 Delivery drops or capsule collections.
 
@@ -340,7 +340,7 @@ Delivery drops or capsule collections.
 | `startDate`   | DateTime                                                                   | No       | Window start date                |
 | `endDate`     | DateTime                                                                   | No       | Window end date                  |
 | `sortCode`    | Integer                                                                    | No       | Display order                    |
-| `translation` | List<[XDeliveryWindowTranslation](products.md#xdeliverywindowtranslation)> | No       | Translations for description     |
+| `translation` | List<[Delivery Window Translation](products.md#delivery-window-translation)> | No       | Translations for description     |
 
 {% hint style="warning" %}
 **Important:** A delivery window code must have the same `startDate` across all products. If product A has code "DROP1" starting 2025-02-01, product B cannot have "DROP1" with a different start date.
@@ -348,7 +348,7 @@ Delivery drops or capsule collections.
 
 ***
 
-## XDeliveryWindowTranslation
+## Delivery Window Translation
 
 Translation of delivery window content for multilingual support.
 
@@ -357,11 +357,11 @@ Translation of delivery window content for multilingual support.
 | Field      | Type                                                                           | Required | Description                                      |
 | ---------- | ------------------------------------------------------------------------------ | -------- | ------------------------------------------------ |
 | `language` | String                                                                         | No       | IETF language tag (e.g., "en", "nl", "de", "fr") |
-| `fields`   | [XTranslatedDeliveryWindowFields](products.md#xtranslateddeliverywindowfields) | No       | Translated field content                         |
+| `fields`   | [Translated Delivery Window Fields](products.md#translated-delivery-window-fields) | No       | Translated field content                         |
 
 ***
 
-## XTranslatedDeliveryWindowFields
+## Translated Delivery Window Fields
 
 Contains the translated values for a delivery window.
 
@@ -373,7 +373,7 @@ Contains the translated values for a delivery window.
 
 ***
 
-## XLabel
+## Label
 
 Product badges/labels for visual highlighting.
 
@@ -386,7 +386,7 @@ Product badges/labels for visual highlighting.
 
 ***
 
-## XExtraField
+## Extra Field
 
 Custom display fields for additional product information.
 
@@ -402,7 +402,7 @@ Custom display fields for additional product information.
 | `linkUrl`      | String                                                             | No       | Makes the field value a clickable link                                 |
 | `important`    | Boolean                                                            | **Yes**  | When `true`, field is prominently displayed                            |
 | `visible`      | Boolean                                                            | No       | When `false`, field is hidden (default: true)                          |
-| `translations` | List<[XExtraFieldTranslation](products.md#xextrafieldtranslation)> | No       | Translations for description and value (XML: `<translation>`)          |
+| `translations` | List<[Extra Field Translation](products.md#extra-field-translation)> | No       | Translations for description and value (XML: `<translation>`)          |
 
 {% hint style="warning" %}
 **Functional Requirement:** While `name` and `description` are technically optional in the schema, they are **functionally required** for the field to display properly. Always provide both for meaningful extra fields.
@@ -414,7 +414,7 @@ Custom display fields for additional product information.
 
 ***
 
-## XProductRelation
+## Product Relation
 
 Relationship between products.
 
@@ -432,14 +432,14 @@ Relationship between products.
 
 ## Translation Types
 
-### XProductTranslation
+### Product Translation
 
 | Field      | Type                                                             | Description                    |
 | ---------- | ---------------------------------------------------------------- | ------------------------------ |
 | `language` | String                                                           | Language code (en, nl, de, fr) |
-| `fields`   | [XTranslatedProductFields](products.md#xtranslatedproductfields) | Translated field values        |
+| `fields`   | [Translated Product Fields](products.md#translated-product-fields) | Translated field values        |
 
-### XTranslatedProductFields
+### Translated Product Fields
 
 All translatable product fields:
 
@@ -451,7 +451,7 @@ All translatable product fields:
 
 ***
 
-## XPrepackContentElement
+## Prepack Content Element
 
 Defines the contents of a prepack/box containing multiple sizes.
 
@@ -464,7 +464,7 @@ Defines the contents of a prepack/box containing multiple sizes.
 | `sizeSortCode`       | Integer                                                      | No       | Size sort order                  |
 | `subSizeName`        | String                                                       | No       | Sub-size name (e.g., length)     |
 | `subSizeSortCode`    | Integer                                                      | No       | Sub-size sort order              |
-| `customerSizeNaming` | List<[XCustomerSizeNaming](products.md#xcustomersizeNaming)> | No       | Customer-specific size names     |
+| `customerSizeNaming` | List<[Customer Size Naming](products.md#customer-size-naming)> | No       | Customer-specific size names     |
 
 ### Example
 
@@ -494,7 +494,7 @@ Defines the contents of a prepack/box containing multiple sizes.
 
 ***
 
-## XCustomerSizeNaming
+## Customer Size Naming
 
 Customer-specific size name override.
 
@@ -528,7 +528,7 @@ Customer-specific size name override.
 
 ***
 
-## XProductExtraFields
+## Product Extra Fields
 
 Used for bulk extra field updates via the `updateExtraFields` operation.
 
@@ -538,7 +538,7 @@ Used for bulk extra field updates via the `updateExtraFields` operation.
 | ------------ | -------------------------------------------- | -------- | --------------------------------------------------------- |
 | `uniqueId`   | String                                       | **Yes**  | Product style identifier                                  |
 | `colorCode`  | String                                       | **Yes**  | Product color code                                        |
-| `extraField` | List<[XExtraField](products.md#xextrafield)> | No       | Extra fields to set on this product (XML: `<extraField>`) |
+| `extraField` | List<[Extra Field](products.md#extra-field)> | No       | Extra fields to set on this product (XML: `<extraField>`) |
 
 {% hint style="info" %}
 **Usage:** This type is used specifically with the `updateExtraFields` operation for efficient bulk extra field updates without sending full product data.
@@ -546,7 +546,7 @@ Used for bulk extra field updates via the `updateExtraFields` operation.
 
 ***
 
-## XExtraFieldTranslation
+## Extra Field Translation
 
 Translation of extra field content for multilingual support.
 
@@ -555,11 +555,11 @@ Translation of extra field content for multilingual support.
 | Field      | Type                                                                   | Required | Description                                      |
 | ---------- | ---------------------------------------------------------------------- | -------- | ------------------------------------------------ |
 | `language` | String                                                                 | No       | IETF language tag (e.g., "en", "nl", "de", "fr") |
-| `fields`   | [XTranslatedExtraFieldFields](products.md#xtranslatedextrafieldfields) | No       | Translated field content                         |
+| `fields`   | [Translated Extra Field Fields](products.md#translated-extra-field-fields) | No       | Translated field content                         |
 
 ***
 
-## XTranslatedExtraFieldFields
+## Translated Extra Field Fields
 
 Contains the translated values for an extra field.
 

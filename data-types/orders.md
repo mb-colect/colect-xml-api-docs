@@ -8,7 +8,7 @@ Complete reference for order, historical order, and invoice data types.
 
 ---
 
-## XOrder
+## Order
 
 Order placed through Colect app or B2B webstore.
 
@@ -36,11 +36,11 @@ Order placed through Colect app or B2B webstore.
 | `customerNo` | String | Customer identifier |
 | `customerPriceGroup` | String | Customer's price group |
 | `currency` | String | Order currency |
-| `shippingLocation` | [XLocation](customers.md#xlocation) | Selected shipping address |
-| `consumerLocation` | [XLocation](customers.md#xlocation) | Consumer address (instore mode) |
-| `storeLocation` | [XLocation](customers.md#xlocation) | Store address (instore mode) |
-| `contact` | [XContact](customers.md#xcontact) | Order contact person |
-| `agreement` | [XAgreement](customers.md#xagreement) | Selected agreement |
+| `shippingLocation` | [Location](customers.md#location) | Selected shipping address |
+| `consumerLocation` | [Location](customers.md#location) | Consumer address (instore mode) |
+| `storeLocation` | [Location](customers.md#location) | Store address (instore mode) |
+| `contact` | [Contact](customers.md#contact) | Order contact person |
+| `agreement` | [Agreement](customers.md#agreement) | Selected agreement |
 
 ### Order Details
 
@@ -70,8 +70,8 @@ Order placed through Colect app or B2B webstore.
 |-------|------|-------------|
 | `totalCount` | Integer | Total quantity |
 | `totalAmount` | Float | Total value |
-| `status` | [XOrderStatus](enums.md#xorderstatus) | Order status |
-| `internalOrderType` | [XInternalOrderType](enums.md#xinternalordertype) | ORDER or RETURN |
+| `status` | [Order Status](enums.md#order-status) | Order status |
+| `internalOrderType` | [Internal Order Type](enums.md#internal-order-type) | ORDER or RETURN |
 | `orderTypeCode` | String | Order type dropdown value |
 | `approvalInfo` | String | Approval information |
 
@@ -86,14 +86,14 @@ Order placed through Colect app or B2B webstore.
 
 | Field | Type | XML Element | Description |
 |-------|------|-------------|-------------|
-| `orderLines` | List&lt;[XOrderLine](#xorderline)&gt; | `<orderLine>` | Line items |
-| `customChoices` | List&lt;[XCustomChoice](customers.md#xcustomchoice)&gt; | `<customChoice>` | Selected custom options |
-| `discountRules` | List&lt;[XOrderAmountModificationRule](customers.md#xorderamountmodificationrule)&gt; | `<discountRule>` | Applied discount rules |
-| `deliveryCostRules` | List&lt;[XOrderAmountModificationRule](customers.md#xorderamountmodificationrule)&gt; | `<deliveryCostRule>` | Applied shipping rules |
+| `orderLines` | List&lt;[Order Line](#order-line)&gt; | `<orderLine>` | Line items |
+| `customChoices` | List&lt;[Custom Choice](customers.md#custom-choice)&gt; | `<customChoice>` | Selected custom options |
+| `discountRules` | List&lt;[Order Amount Modification Rule](customers.md#order-amount-modification-rule)&gt; | `<discountRule>` | Applied discount rules |
+| `deliveryCostRules` | List&lt;[Order Amount Modification Rule](customers.md#order-amount-modification-rule)&gt; | `<deliveryCostRule>` | Applied shipping rules |
 
 ---
 
-## XOrderLine
+## Order Line
 
 Line item in an order.
 
@@ -115,7 +115,7 @@ Line item in an order.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `type` | [XOrderLineType](enums.md#xorderlinetype) | STOCK_ORDER, PRE_ORDER, RETURN_ORDER |
+| `type` | [Order Line Type](enums.md#order-line-type) | STOCK_ORDER, PRE_ORDER, RETURN_ORDER |
 | `quantity` | Integer | Quantity ordered |
 | `prePackUnitCount` | Integer | Units per prepack |
 | `retailPrice` | Float | Retail price |
@@ -156,11 +156,11 @@ Line item in an order.
 | `index` | Integer | Line index (for duplicates) |
 | `customerSizeName` | String | Customer-specific size |
 | `customerSubSizeName` | String | Customer-specific sub-size |
-| `files` | List&lt;[XRemoteFile](#xremotefile)&gt; | Attached files (XML: `<remoteFile>`) |
+| `files` | List&lt;[Remote File](#remote-file)&gt; | Attached files (XML: `<remoteFile>`) |
 
 ---
 
-## XHistoricalOrder
+## Historical Order
 
 Past order for display in order history.
 
@@ -185,20 +185,20 @@ Past order for display in order history.
 | `channel` | String | Order channel |
 | `comment` | String | Order comment |
 | `externalUrl` | String | Link to external order |
-| `internalOrderType` | [XInternalOrderType](enums.md#xinternalordertype) | ORDER or RETURN |
+| `internalOrderType` | [Internal Order Type](enums.md#internal-order-type) | ORDER or RETURN |
 | `orderTypeCode` | String | External order type |
 
 ### Related Objects
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `shippingLocation` | [XLocation](customers.md#xlocation) | Shipping address |
-| `agreement` | [XAgreement](customers.md#xagreement) | Agreement used |
-| `orderLines` | List&lt;[XHistoricalOrderLine](#xhistoricalorderline)&gt; | Order line items (XML: `<orderLine>`) |
+| `shippingLocation` | [Location](customers.md#location) | Shipping address |
+| `agreement` | [Agreement](customers.md#agreement) | Agreement used |
+| `orderLines` | List&lt;[Historical Order Line](#historical-order-line)&gt; | Order line items (XML: `<orderLine>`) |
 
 ---
 
-## XHistoricalOrderLine
+## Historical Order Line
 
 Line item in historical order.
 
@@ -271,12 +271,12 @@ Line item in historical order.
 
 | Field | Type | XML Element | Description |
 |-------|------|-------------|-------------|
-| `extraFields` | List&lt;[XHistoricalOrderLineExtraField](#xhistoricalorderlineextrafield)&gt; | `<extraField>` | Custom fields |
-| `files` | List&lt;[XRemoteFile](#xremotefile)&gt; | `<remoteFile>` | Attached files |
+| `extraFields` | List&lt;[Historical Order Line Extra Field](#historical-order-line-extra-field)&gt; | `<extraField>` | Custom fields |
+| `files` | List&lt;[Remote File](#remote-file)&gt; | `<remoteFile>` | Attached files |
 
 ---
 
-## XInvoice
+## Invoice
 
 Customer invoice.
 
@@ -306,7 +306,7 @@ Customer invoice.
 
 ---
 
-## XRemoteFile
+## Remote File
 
 Attached file reference.
 
@@ -319,7 +319,7 @@ Attached file reference.
 
 ---
 
-## XHistoricalOrderLineExtraField
+## Historical Order Line Extra Field
 
 Custom display field on historical order lines.
 
@@ -330,8 +330,8 @@ Custom display field on historical order lines.
 | `name` | String | No | Field identifier |
 | `description` | String | No | Display title/label (used as the title when displaying the field) |
 | `value` | String | No | Field value |
-| `translations` | List&lt;[XExtraFieldTranslation](products.md#xextrafieldtranslation)&gt; | No | Translations of this extra field (XML: `<translation>`) |
+| `translations` | List&lt;[Extra Field Translation](products.md#extra-field-translation)&gt; | No | Translations of this extra field (XML: `<translation>`) |
 
 {% hint style="info" %}
-This type is similar to [XExtraField](products.md#xextrafield) but simplified for historical order display. It does not include grouping or visibility options.
+This type is similar to [Extra Field](products.md#extra-field) but simplified for historical order display. It does not include grouping or visibility options.
 {% endhint %}
