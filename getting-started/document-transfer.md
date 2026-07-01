@@ -9,7 +9,7 @@ The Colect XML API moves data between your ERP and the Colect platform as **XML 
 | Transport                    | When to use                                                                       | Notes                                                       |
 | ---------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | **Colect Secure FTP (SFTP)** | Default for most ERP integrations. Good fit for batch exports, scheduled imports. | Credentials issued by your Colect contact. Encrypted in transit. |
-| **Other file-transfer**      | Custom integrations (S3 drop, internal file share, etc.) handled per project.     | Discussed during integration kick-off.                      |
+| **Other file-transfer**      | Custom integrations (S3 drop, internal file share, etc.) handled per project.     | May be discussed during implementation. Outside the scope of this document.                      |
 
 {% hint style="info" %}
 The XML document structure is **identical** regardless of transport channel. You write the document once and ship it however your environment supports.
