@@ -297,7 +297,7 @@ Product images and videos.
 | `sortCode` | Integer     | No       | Display order for sortable media types                                                       |
 
 {% hint style="warning" %}
-**Primary image required:** Each product must have a medium with `type` set to `IMAGE_PRIMARY` to display images in the app. Without it, the product shows without any image.
+**Primary image required:** Each product must have a medium with `type` set to `primary` to display images in the app. Without it, the product shows without any image.
 {% endhint %}
 
 {% hint style="info" %}
@@ -305,7 +305,7 @@ Product images and videos.
 {% endhint %}
 
 {% hint style="warning" %}
-**sortCode Behavior:** The `sortCode` field has no effect on these media types: `IMAGE_PRIMARY`, `IMAGE_SWATCH`, `IMAGE_STAMP_LEFT`, `IMAGE_STAMP_RIGHT`. These have fixed positions in the UI.
+**sortCode Behavior:** The `sortCode` field has no effect on these media types: `primary`, `swatch`, `stamp_left`, `stamp_right`. These have fixed positions in the UI.
 {% endhint %}
 
 ### Media Types
@@ -314,16 +314,16 @@ See [XMediumType](enums.md#xmediumtype) for the full list of 23 enum values. Mos
 
 | Value | Description |
 | ----- | ----------- |
-| `IMAGE_PRIMARY` | Main product image (**required**) |
-| `IMAGE_SWATCH` | Color swatch thumbnail (recommended) |
-| `IMAGE_BACK` | Back view |
-| `IMAGE_MODEL` | Model shot (front) |
-| `IMAGE_MODEL_BACK` | Model shot (back) |
-| `IMAGE_LEFT` | Left side view |
-| `IMAGE_RIGHT` | Right side view |
-| `IMAGE_STAMP_LEFT` | Stamp overlay (left) |
-| `IMAGE_STAMP_RIGHT` | Stamp overlay (right) |
-| `VIDEO` | Product video |
+| `primary`     | Main product image (**required**) |
+| `swatch`      | Color swatch thumbnail (recommended) |
+| `back`        | Back view |
+| `model`       | Model shot (front) |
+| `model_back`  | Model shot (back) |
+| `left`        | Left side view |
+| `right`       | Right side view |
+| `stamp_left`  | Stamp overlay (left) |
+| `stamp_right` | Stamp overlay (right) |
+| `video`       | Product video |
 
 ***
 

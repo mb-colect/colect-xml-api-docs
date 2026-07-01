@@ -131,22 +131,22 @@
 
     <media>
       <medium format="image">
-        <type>IMAGE_PRIMARY</type>
+        <type>primary</type>
         <url>https://images.example.com/style-001-blk.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk_thumb.jpg</thumbUrl>
       </medium>
       <medium format="image">
-        <type>IMAGE_BACK</type>
+        <type>back</type>
         <url>https://images.example.com/style-001-blk-back.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk-back_thumb.jpg</thumbUrl>
         <sortCode>1</sortCode>
       </medium>
       <medium format="image">
-        <type>IMAGE_SWATCH</type>
+        <type>swatch</type>
         <url>https://images.example.com/swatch-blk.jpg</url>
       </medium>
       <medium format="image">
-        <type>IMAGE_MODEL</type>
+        <type>model</type>
         <url>https://images.example.com/style-001-blk-model.jpg</url>
         <thumbUrl>https://images.example.com/style-001-blk-model_thumb.jpg</thumbUrl>
         <sortCode>2</sortCode>
@@ -261,12 +261,12 @@
 
     <media>
       <medium format="image">
-        <type>IMAGE_PRIMARY</type>
+        <type>primary</type>
         <url>https://images.example.com/style-001-wht.jpg</url>
         <thumbUrl>https://images.example.com/style-001-wht_thumb.jpg</thumbUrl>
       </medium>
       <medium format="image">
-        <type>IMAGE_SWATCH</type>
+        <type>swatch</type>
         <url>https://images.example.com/swatch-wht.jpg</url>
       </medium>
     </media>
