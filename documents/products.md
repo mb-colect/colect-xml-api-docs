@@ -261,7 +261,7 @@ Free-form, optionally grouped attributes that surface in the app for things the 
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>150</quantity>
           </stockLevel>
         </stockLevels>
@@ -280,8 +280,8 @@ Free-form, optionally grouped attributes that surface in the app for things the 
       <deliveryWindow>
         <code>SS25_DROP1</code>
         <description>Spring 2025 — Drop 1</description>
-        <startDate>2025-01-15</startDate>
-        <endDate>2025-02-15</endDate>
+        <startDate>20250115</startDate>
+        <endDate>20250215</endDate>
       </deliveryWindow>
     </deliveryWindows>
 

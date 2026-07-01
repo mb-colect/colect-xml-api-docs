@@ -189,8 +189,8 @@ Automatic discount configuration.
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `code` | String | No | Matches product's discountGroupCode (default: '*') |
-| `percentage` | Float | **Yes** | Discount percentage |
-| `minimumQuantity` | Integer | No | Minimum qty for discount |
+| `amount` | Float | **Yes** | Discount percentage |
+| `minQuantity` | Integer | No | Minimum qty for discount |
 | `startDate` | DateTime | No | Discount start date |
 | `endDate` | DateTime | No | Discount end date |
 | `description` | String | No | Display description |

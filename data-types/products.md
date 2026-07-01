@@ -270,13 +270,13 @@ Stock quantity with optional date-based availability.
 
 <!-- Expected stock from Feb 15 -->
 <stockLevel>
-    <startDate>2025-02-15T00:00:00</startDate>
+    <startDate>20250215</startDate>
     <quantity>200</quantity>
 </stockLevel>
 
 <!-- Expected stock from Mar 1 -->
 <stockLevel>
-    <startDate>2025-03-01T00:00:00</startDate>
+    <startDate>20250301</startDate>
     <quantity>350</quantity>
 </stockLevel>
 ```

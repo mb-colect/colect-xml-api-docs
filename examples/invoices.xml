@@ -10,8 +10,8 @@
     <invoiceNumber>INV-2026-00425</invoiceNumber>
     <status>OPEN</status>
     <customerNo>C-00001</customerNo>
-    <date>2026-04-20</date>
-    <dueDate>2026-05-20</dueDate>
+    <date>20260420</date>
+    <dueDate>20260520</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>1250.00</amountExcludingTax>
     <taxAmount>262.50</taxAmount>
@@ -23,8 +23,8 @@
     <invoiceNumber>INV-2026-00318</invoiceNumber>
     <status>PAID</status>
     <customerNo>C-00001</customerNo>
-    <date>2026-03-15</date>
-    <dueDate>2026-04-15</dueDate>
+    <date>20260315</date>
+    <dueDate>20260415</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>800.00</amountExcludingTax>
     <taxAmount>168.00</taxAmount>
@@ -36,8 +36,8 @@
     <invoiceNumber>INV-2026-00211</invoiceNumber>
     <status>OVERDUE</status>
     <customerNo>C-00001</customerNo>
-    <date>2026-02-01</date>
-    <dueDate>2026-03-01</dueDate>
+    <date>20260201</date>
+    <dueDate>20260301</dueDate>
     <currency>EUR</currency>
     <amountExcludingTax>2400.00</amountExcludingTax>
     <taxAmount>504.00</taxAmount>
@@ -50,8 +50,8 @@
     <invoiceNumber>INV-2026-00501</invoiceNumber>
     <status>OPEN</status>
     <customerNo>C-00042</customerNo>
-    <date>2026-04-25</date>
-    <dueDate>2026-05-25</dueDate>
+    <date>20260425</date>
+    <dueDate>20260525</dueDate>
     <currency>USD</currency>
     <amountExcludingTax>3200.00</amountExcludingTax>
     <taxAmount>0.00</taxAmount>

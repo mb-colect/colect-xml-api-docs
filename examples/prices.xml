@@ -39,8 +39,8 @@
         <currencyCode>EUR</currencyCode>
         <priceGroup>WHOLESALE_EU</priceGroup>
         <wholesalePrice>22.50</wholesalePrice>
-        <startDate>2026-06-01</startDate>
-        <endDate>2026-06-30</endDate>
+        <startDate>20260601</startDate>
+        <endDate>20260630</endDate>
       </price>
     </prices>
   </product>
