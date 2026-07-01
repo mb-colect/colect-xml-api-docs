@@ -1,6 +1,8 @@
 # Error Handling
 
-When the Cloud Connector processes a file from `datafiles/`, it validates the XML against the schema before ingesting it. If validation fails, the data is not imported. How that failure is reported back to you depends on your integration setup — confirm the error notification mechanism with your Colect contact during onboarding.
+When the Cloud Connector processes a file from `datafiles/`, it validates the XML against the schema before ingesting it. If validation fails, the data is not imported. Errors are shown in the Connector Status tab of the Collection in the Backend. If a `monitoringEmailAddresses` is configured, validation errors will trigger an email notification to that address.\
+\
+Confirm the error notification mechanism with your Colect contact during onboarding.
 
 {% hint style="info" %}
 Regardless of how errors are surfaced, the XSD validation messages follow a standard format. The sections below document the most common errors and how to fix them.
@@ -33,6 +35,7 @@ The line and column numbers point to the offending element in the rejected XML.
 ### Missing mandatory field
 
 **Error:**
+
 ```
 cvc-minLength-valid: Value '' with length = '0' is not facet-valid with respect to minLength '1' for type 'nonEmptyString'.
 ```
@@ -46,6 +49,7 @@ cvc-minLength-valid: Value '' with length = '0' is not facet-valid with respect 
 ### Wrong date format
 
 **Error:**
+
 ```
 cvc-datatype-valid.1.2.1: '06-05-2025' is not a valid value for 'dateTime'.
 ```
@@ -59,6 +63,7 @@ cvc-datatype-valid.1.2.1: '06-05-2025' is not a valid value for 'dateTime'.
 ### Duplicate uniqueId + colorCode
 
 **Error:**
+
 ```
 cvc-identity-constraint.4.2.2: Duplicate key-sequence ['STYLE-001', 'BLK'] in identity constraint ...
 ```
@@ -72,6 +77,7 @@ cvc-identity-constraint.4.2.2: Duplicate key-sequence ['STYLE-001', 'BLK'] in id
 ### Wrong element order
 
 **Error:**
+
 ```
 cvc-complex-type.2.4.a: Invalid content was found starting with element 'colorCode'. One of '{uniqueId}' is expected.
 ```
@@ -115,4 +121,4 @@ If you cannot resolve a validation error:
 
 1. Note the filename and upload timestamp.
 2. Copy the full validation error message.
-3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs&utm_medium=docs&utm_campaign=ask_support) with both — and include the offending lines from the source XML if the error references specific line numbers.
+3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs\&utm_medium=docs\&utm_campaign=ask_support) with both — and include the offending lines from the source XML if the error references specific line numbers.
