@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Customers input document — comprehensive example.
-  Shows two B2B customers with contacts, discount/margin groups, shipping locations,
+  Shows three B2B customers with contacts, discount/margin groups, shipping locations,
   budgets, custom choices, agreements, order rules, and size access codes.
   Validates against schema/snapshots/2026-05-06/Customer_Feed_XSD.xsd
 -->
@@ -215,6 +215,54 @@
         <postalCode>90405</postalCode>
         <city>Santa Monica</city>
         <country>US</country>
+      </shippingLocation>
+    </shippingLocations>
+  </customer>
+
+
+  <!-- ============================================================
+       Customer 3: Style Boutique (DE) — single-brand access
+       ============================================================ -->
+  <customer>
+    <customerNo>C-00100</customerNo>
+    <name>Style Boutique GmbH</name>
+    <email>orders@styleboutique.example</email>
+    <street>Kaufingerstraße</street>
+    <houseNumber>10</houseNumber>
+    <postalCode>80331</postalCode>
+    <city>Munich</city>
+    <country>DE</country>
+    <phone>+49 89 123 4567</phone>
+    <language>DE</language>
+    <channel>Wholesale</channel>
+    <currencyCode>EUR</currencyCode>
+    <activePriceGroup>WHOLESALE_EU</activePriceGroup>
+    <status>ACTIVE</status>
+
+    <contacts>
+      <contact>
+        <code>LM-001</code>
+        <firstName>Lisa</firstName>
+        <lastName>Müller</lastName>
+        <role>Buyer</role>
+        <accessType>FULL</accessType>
+        <email>lisa@styleboutique.example</email>
+      </contact>
+    </contacts>
+
+    <discountGroups>
+      <discountGroup amount="5" code="*" identifier="all"/>
+    </discountGroups>
+
+    <shippingLocations>
+      <shippingLocation>
+        <code>STORE</code>
+        <name>Style Boutique — Munich</name>
+        <street>Kaufingerstraße</street>
+        <houseNumber>10</houseNumber>
+        <postalCode>80331</postalCode>
+        <city>Munich</city>
+        <country>DE</country>
       </shippingLocation>
     </shippingLocations>
   </customer>
