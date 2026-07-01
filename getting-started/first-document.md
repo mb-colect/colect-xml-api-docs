@@ -8,10 +8,10 @@ This walkthrough takes you from empty SFTP folder to a live product in your Cole
 
 You need two things before you can push anything:
 
-<table><thead><tr><th width="299.92578125">What</th><th>Where to get it</th></tr></thead><tbody><tr><td>SFTP credentials (host, username, password)</td><td>Your Colect contact</td></tr><tr><td>An SFTP client</td><td><a href="https://filezilla-project.org/">FileZilla</a>, the <code>sftp</code> CLI, or your ERP's file-transfer tooling</td></tr></tbody></table>
+<table><thead><tr><th width="299.92578125">What</th><th>Where to get it</th></tr></thead><tbody><tr><td>SFTP credentials (host, username, password)</td><td>Your Colect contact or the <a href="https://support.apptitude.nl/">Colect Support Team</a></td></tr><tr><td>An SFTP client</td><td><a href="https://filezilla-project.org/">FileZilla</a>, the <code>sftp</code> CLI, or your ERP's file-transfer tooling</td></tr></tbody></table>
 
 {% hint style="warning" %}
-If you do not have SFTP credentials yet, stop here and talk with your Colect contact for these credentials — there is nothing to configure on the API side until the credentials are issued.
+If you do not have SFTP credentials yet, stop here and talk with your Colect contact or the [Colect Support Team](https://support.apptitude.nl/) for these credentials — there is nothing to configure on the API side until the credentials are issued.
 {% endhint %}
 
 ***
@@ -96,7 +96,7 @@ sftp> put products_first.xml
 sftp> bye
 ```
 
-The Connector picks up the file within seconds of it landing in `datafiles/`.
+The Connector picks up the file on the next run once it lands in `datafiles/`.
 
 {% hint style="info" %}
 **Filename tip:** The filename must match the pattern configured in your connector settings (e.g. `products*.xml`). Including a timestamp or sequence (e.g. `products_20260610.xml`) is a common convention that helps with bookkeeping and log correlation.
@@ -110,9 +110,8 @@ Open your Colect collection in the Sales App or admin UI and check that the prod
 
 If the product does not appear:
 
-1. Confirm the file was picked up — the Connector removes the file from `datafiles/` after processing, so if the file is gone it was at least received.
-2. Check for a validation error. Common causes: wrong currency code, empty mandatory field, or wrong date format. See [Error Handling](error-handling.md) for the full error reference.
-3. Contact your Colect contact with the filename and upload timestamp if you cannot identify the cause.
+1. Check for a validation error. Common causes: incorrect path in backend setting, filename mismatch, wrong currency code, empty mandatory field, or wrong date format. See [Error Handling](error-handling.md) for the full error reference.
+2. Contact your Colect contact or Colect Support with the filename and upload timestamp if you cannot identify the cause.
 
 {% hint style="success" %}
 Once the product appears in your collection, your SFTP credentials, file routing, and schema validation are all confirmed working — you're ready to connect your ERP's real export.
