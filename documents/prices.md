@@ -52,8 +52,8 @@ A `<price>` may have **either** `priceGroup` **or** `customerNo`, never both.
 | `originalWholesalePrice` | `float`    | NO        | Original wholesale price (when this is a discounted item).                                                 |
 | `purchasePrice`          | `float`    | NO        | Purchase price (used when the app supports buying).                                                        |
 | `net`                    | `boolean`  | NO        | `true` if this is a net price (customer discount is leading, not the discount group).                      |
-| `startDate`              | `dateTime` | NO        | Price start date. Empty = immediately active. Format `YYYY-MM-DD`.                                         |
-| `endDate`                | `dateTime` | NO        | Price end date. Empty = no expiry. Format `YYYY-MM-DD`.                                                    |
+| `startDate`              | `dateTime` | NO        | Price start date. Empty = immediately active. Format `yyyyMMdd`.                                         |
+| `endDate`                | `dateTime` | NO        | Price end date. Empty = no expiry. Format `yyyyMMdd`.                                                    |
 
 ***
 

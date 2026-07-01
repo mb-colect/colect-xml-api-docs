@@ -31,9 +31,9 @@
     <collectionId>MAINLINE</collectionId>
     <collectionDesc>Mainline</collectionDesc>
     <minimalOrderQuantity>0</minimalOrderQuantity>
-    <deliveryStartDate>2025-01-15</deliveryStartDate>
-    <deliveryEndDate>2025-02-15</deliveryEndDate>
-    <firstReceiptDate>2025-01-15</firstReceiptDate>
+    <deliveryStartDate>20250115</deliveryStartDate>
+    <deliveryEndDate>20250215</deliveryEndDate>
+    <firstReceiptDate>20250115</firstReceiptDate>
     <productGroupCode>TOPS</productGroupCode>
     <productGroupDesc>Tops</productGroupDesc>
     <marginGroupCode>MG1</marginGroupCode>
@@ -80,7 +80,7 @@
         <eanCode>8712345678901</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>120</quantity>
           </stockLevel>
         </stockLevels>
@@ -92,12 +92,12 @@
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>180</quantity>
           </stockLevel>
           <stockLevel>
             <!-- Future restock -->
-            <startDate>2026-06-01</startDate>
+            <startDate>20260601</startDate>
             <quantity>500</quantity>
           </stockLevel>
         </stockLevels>
@@ -109,7 +109,7 @@
         <eanCode>8712345678903</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>140</quantity>
           </stockLevel>
         </stockLevels>
@@ -122,7 +122,7 @@
         <accessCode>PRO</accessCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>60</quantity>
           </stockLevel>
         </stockLevels>
@@ -157,15 +157,15 @@
       <deliveryWindow>
         <code>SS25_DROP1</code>
         <description>Spring 2025 — Drop 1</description>
-        <startDate>2025-01-15</startDate>
-        <endDate>2025-02-15</endDate>
+        <startDate>20250115</startDate>
+        <endDate>20250215</endDate>
         <sortCode>1</sortCode>
       </deliveryWindow>
       <deliveryWindow>
         <code>SS25_DROP2</code>
         <description>Spring 2025 — Drop 2</description>
-        <startDate>2025-03-01</startDate>
-        <endDate>2025-04-01</endDate>
+        <startDate>20250301</startDate>
+        <endDate>20250401</endDate>
         <sortCode>2</sortCode>
       </deliveryWindow>
     </deliveryWindows>
@@ -240,7 +240,7 @@
         <eanCode>8712345678912</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>200</quantity>
           </stockLevel>
         </stockLevels>
@@ -252,7 +252,7 @@
         <eanCode>8712345678913</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>160</quantity>
           </stockLevel>
         </stockLevels>
@@ -302,7 +302,7 @@
         <eanCode>8712345678999</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>40</quantity>
           </stockLevel>
         </stockLevels>

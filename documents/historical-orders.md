@@ -92,7 +92,7 @@ A `<shippingLocation>` block on the order captures the address goods were shippe
 | `netLineAmount`               | `float`    | NO        | Net total for the line.                                                                                                |
 | `grossLineAmount`             | `float`    | NO        | Gross total for the line.                                                                                              |
 | `remark`                      | `string`   | NO        | Free-text remark captured at order entry.                                                                              |
-| `shipmentDate`                | `dateTime` | NO        | Date the line shipped. Format `YYYY-MM-DD`.                                                                            |
+| `shipmentDate`                | `dateTime` | NO        | Date the line shipped. Format `yyyyMMdd`.                                                                            |
 | `packingSlipNumber`           | `string`   | NO        | Packing slip / shipment reference.                                                                                     |
 | `quantityDelivered`           | `int`      | NO        | Pieces actually delivered (may differ from `quantity` for partial shipments).                                          |
 | `trackTraceUrl`               | `string`   | NO        | URL to a track-and-trace page for the shipment.                                                                        |

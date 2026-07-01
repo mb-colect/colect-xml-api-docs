@@ -65,9 +65,9 @@ The standalone documents are useful when you only want to refresh a single dimen
 | `collectionId`           | `string`   | NO        | Collection identifier.                                                                                                                                                                                               |
 | `collectionDesc`         | `string`   | NO        | Collection description, paired with `collectionId`.                                                                                                                                                                  |
 | `minimalOrderQuantity`   | `int`      | NO        | Minimum quantity required for this item or item/color combination. Default `0`.                                                                                                                                      |
-| `deliveryStartDate`      | `dateTime` | NO        | First date of the delivery block. Use `stock` to flag stock-only delivery; otherwise `YYYY-MM-DD`.                                                                                                                   |
-| `deliveryEndDate`        | `dateTime` | NO        | Last date of the delivery block. Format `YYYY-MM-DD`.                                                                                                                                                                |
-| `firstReceiptDate`       | `dateTime` | NO        | First date this product becomes available. May differ from `deliveryStartDate`. Format `YYYY-MM-DD`.                                                                                                                 |
+| `deliveryStartDate`      | `dateTime` | NO        | First date of the delivery block. Use `stock` to flag stock-only delivery; otherwise `yyyyMMdd`.                                                                                                                   |
+| `deliveryEndDate`        | `dateTime` | NO        | Last date of the delivery block. Format `yyyyMMdd`.                                                                                                                                                                |
+| `firstReceiptDate`       | `dateTime` | NO        | First date this product becomes available. May differ from `deliveryStartDate`. Format `yyyyMMdd`.                                                                                                                 |
 | `productGroupCode`       | `string`   | NO        | Product group code.                                                                                                                                                                                                  |
 | `productGroupDesc`       | `string`   | NO        | Product group description, paired with `productGroupCode`.                                                                                                                                                           |
 | `marginGroupCode`        | `string`   | NO        | Margin group identifier — links to margin groups defined per customer.                                                                                                                                               |
@@ -80,8 +80,8 @@ The standalone documents are useful when you only want to refresh a single dimen
 | `gender`                 | `string`   | NO        | Gender for categorizing and filtering.                                                                                                                                                                               |
 | `userDefinedField1`      | `string`   | NO        | Free-form text field 1 for filtering.                                                                                                                                                                                |
 | `userDefinedField2`      | `string`   | NO        | Free-form text field 2 for filtering.                                                                                                                                                                                |
-| `startDate`              | `dateTime` | NO        | First date the product is visible. Empty = no lower bound. Format `YYYY-MM-DD`.                                                                                                                                      |
-| `endDate`                | `dateTime` | NO        | Last date the product is visible. Empty = no upper bound. Format `YYYY-MM-DD`.                                                                                                                                       |
+| `startDate`              | `dateTime` | NO        | First date the product is visible. Empty = no lower bound. Format `yyyyMMdd`.                                                                                                                                      |
+| `endDate`                | `dateTime` | NO        | Last date the product is visible. Empty = no upper bound. Format `yyyyMMdd`.                                                                                                                                       |
 | `approvalGroupCode`      | `string`   | NO        | Links the product to an approval workflow. Orders containing this product are held for manager sign-off. See [Approvals](../business-logic/approvals.md).                                                             |
 | `approvalGroupDesc`      | `string`   | NO        | Human-readable description of the approval group, displayed to the approving manager.                                                                                                                                |
 | `labels`                 | object     | NO        | One or more visual badges rendered on the product card. Each `<label>` has `<text>` and `<backgroundColor>` (hex without `#`). See [Labels](../business-logic/labels.md).                                            |
@@ -111,8 +111,8 @@ A `<price>` element may have **either** `priceGroup` **or** `customerNo`, never 
 | `originalWholesalePrice` | `float`    | NO        | Original wholesale price (when this is a discounted item).                                                                                                                                                        |
 | `purchasePrice`          | `float`    | NO        | Purchase price (used when the app supports buying).                                                                                                                                                               |
 | `net`                    | `boolean`  | NO        | `true` if this is a net price (customer discount is leading, not the discount group).                                                                                                                             |
-| `startDate`              | `dateTime` | NO        | Price start date. Empty = immediately active. Format `YYYY-MM-DD`.                                                                                                                                                |
-| `endDate`                | `dateTime` | NO        | Price end date. Empty = no expiry. Format `YYYY-MM-DD`.                                                                                                                                                           |
+| `startDate`              | `dateTime` | NO        | Price start date. Empty = immediately active. Format `yyyyMMdd`.                                                                                                                                                |
+| `endDate`                | `dateTime` | NO        | Price end date. Empty = no expiry. Format `yyyyMMdd`.                                                                                                                                                           |
 
 ***
 
@@ -133,7 +133,7 @@ The `<sizes>` block contains one `<size>` per available size. Each size carries 
 | `subSizeSortCode`        | `int`      | NO        | Secondary sort code for sub-sizes.                                                                                       |
 | `prePackUnitCount`       | `int`      | **YES**   | Total pieces in this SKU. `1` for a single item; higher when the SKU is a prepack.                                       |
 | `eanCode`                | `string`   | NO        | EAN or SKU-level barcode for this item/size.                                                                             |
-| `replenishmentDate`      | `dateTime` | NO        | Date the size is expected back in stock. Format `YYYY-MM-DD`.                                                            |
+| `replenishmentDate`      | `dateTime` | NO        | Date the size is expected back in stock. Format `yyyyMMdd`.                                                            |
 
 ### Stock levels
 
@@ -141,7 +141,7 @@ Each `<size>` may carry one or more `<stockLevel>` entries inside `<stockLevels>
 
 | Element       | Type       | Mandatory | Description                                                                                                                                                  |
 | ------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `startDate`   | `dateTime` | **YES**   | Date from which this stock level applies. If not using future stock, set a fixed past date like `1980-01-01`. Format `YYYY-MM-DD`.                          |
+| `startDate`   | `dateTime` | **YES**   | Date from which this stock level applies. If not using future stock, set a fixed past date like `19800101`. Format `yyyyMMdd`.                          |
 | `quantity`    | `int`      | **YES**   | Number of pieces available for this SKU at the given date.                                                                                                   |
 
 ### Prepack definition
