@@ -1,71 +1,49 @@
 # Error Handling
 
-When the Cloud Connector processes a file from `datafiles/`, it validates the XML against the schema before ingesting it. If validation fails, the data is not imported. Errors are shown in the Connector Status tab of the Collection in the Backend. If a `monitoringEmailAddresses` is configured, validation errors will trigger an email notification to that address.\
-\
-Confirm the error notification mechanism with your Colect contact during onboarding.
-
-{% hint style="info" %}
-Regardless of how errors are surfaced, the XSD validation messages follow a standard format. The sections below document the most common errors and how to fix them.
-{% endhint %}
+When the Cloud Connector processes a file from `datafiles/`, it validates and ingests it. If something is wrong, the import is rejected and the row in the Connector Status screen turns red. If a `monitoringEmailAddresses` is configured on the collection, validation errors also trigger an email notification to that address.
 
 ***
 
-## Validation error format
+## Where to find errors
 
-XSD validation errors follow this pattern:
+Open the Colect admin and go to **Connector Status**. Each row represents the most recent import run for a document type. A red row means the last import failed — the message column shows the reason.
 
-```
-Validation error at line <L>, column <C>: <XSD error code>: <human-readable detail>
-```
-
-**Example messages:**
+The error message format is:
 
 ```
-Validation error at line 8, column 14: cvc-minLength-valid: Value '' with length = '0' is not facet-valid with respect to minLength '1' for type 'nonEmptyString'.
-Validation error at line 42, column 8: cvc-complex-type.2.4.a: Invalid content was found starting with element 'colorCode'. One of '{uniqueId}' is expected.
-Validation error at line 104, column 22: cvc-datatype-valid.1.2.1: '2025-13-45' is not a valid value for 'dateTime'.
+<timestamp>: <message>; state={lineNumber=X, columnNumber=Y}
 ```
 
-The line and column numbers point to the offending element in the rejected XML.
+**Example:**
+
+```
+Wed Jul 01 12:50:48 CEST 2026: Product occurs multiple times in source: uniqueId=DUPE-001, colorCode=BLK
+```
+
+The `lineNumber` and `columnNumber` point to the offending element in the uploaded file.
 
 ***
 
-## Common validation errors
+## Common errors
 
-### Missing mandatory field
+### Missing uniqueId
 
 **Error:**
-
 ```
-cvc-minLength-valid: Value '' with length = '0' is not facet-valid with respect to minLength '1' for type 'nonEmptyString'.
+Product has no uniqueId (at line 20); state={lineNumber=20, columnNumber=13}
 ```
 
-**Cause:** A required field is present in the XML but contains an empty string. Most often `uniqueId`, `colorCode`, or `currencyCode`.
+**Cause:** A `<product>` element has an empty `<uniqueId></uniqueId>` or the element is absent entirely. Both produce the same message.
 
-**Fix:** All mandatory fields must carry a non-empty value. See the field reference for each document type — mandatory fields are marked **Required**.
+**Fix:** Every `<product>` must have a non-empty `<uniqueId>`. Check for accidental blank values in your ERP export.
 
 ***
 
-### Wrong date format
+### Duplicate product
 
 **Error:**
-
 ```
-cvc-datatype-valid.1.2.1: '06-05-2025' is not a valid value for 'dateTime'.
-```
-
-**Cause:** Dates must be `yyyyMMdd` format (e.g. `20250506`). Dash-separated and day/month-first formats are not reliably parsed.
-
-**Fix:** Use `20250506`. A time component is accepted but optional — `20250506T00:00:00` is also valid.
-
-***
-
-### Duplicate uniqueId + colorCode
-
-**Error:**
-
-```
-cvc-identity-constraint.4.2.2: Duplicate key-sequence ['STYLE-001', 'BLK'] in identity constraint ...
+Product occurs multiple times in source: uniqueId=DUPE-001, colorCode=BLK
 ```
 
 **Cause:** Two `<product>` elements in the same file share the same `uniqueId` + `colorCode` combination.
@@ -74,23 +52,52 @@ cvc-identity-constraint.4.2.2: Duplicate key-sequence ['STYLE-001', 'BLK'] in id
 
 ***
 
-### Wrong element order
+### Unsupported media type
 
 **Error:**
-
 ```
-cvc-complex-type.2.4.a: Invalid content was found starting with element 'colorCode'. One of '{uniqueId}' is expected.
+Medium format 'image' or type 'IMAGE_PRIMARY' not supported; state={lineNumber=171, columnNumber=35}
 ```
 
-**Cause:** Elements appear out of sequence. The XSD enforces element order within each type.
+**Cause:** The `<type>` value inside a `<medium>` element is not recognised. The import format uses lowercase short names — not the internal `IMAGE_*` identifiers.
 
-**Fix:** Check the element order against the field documentation for that document type. For products, `uniqueId` must come before `colorCode`.
+**Fix:** Use the lowercase values: `primary`, `back`, `swatch`, `model`, etc. See [Media objects](../documents/products.md#media-objects) for the full list.
+
+***
+
+### Invalid field value
+
+**Error:**
+```
+Illegal value for discount group amount: null; state={lineNumber=43, columnNumber=70}
+```
+
+**Cause:** A field the connector expected to find has a null or unrecognised value. This typically means an attribute name is wrong — the connector can't find the field and reads it as null.
+
+**Fix:** Check the field name against the documentation. Attribute names must match exactly — for example `amount` not `percentage` on `<discountGroup>`.
+
+***
+
+### Wrong date format (silent)
+
+{% hint style="warning" %}
+**Date errors are silent.** Wrong date formats do not produce a red row — the file imports successfully but dates are stored incorrectly or dropped. Stock levels with bad dates may show no available stock.
+{% endhint %}
+
+**Cause:** A date field uses a format other than `yyyyMMdd` (e.g. `2026-01-01` or `01-01-2026`).
+
+**Observed behaviour:**
+- `yyyyMMdd` — parsed correctly ✓
+- `YYYY-MM-DD` — accepted but stock dates may be stored with an incorrect value
+- `DD-MM-YYYY` — accepted but stock dates are dropped entirely
+
+**Fix:** Always use `yyyyMMdd` (e.g. `20260115`). For stock levels that are always available, use `19800101` as the start date.
 
 ***
 
 ## Verifying connectivity
 
-Upload a minimal products document to confirm your credentials and pipeline are working:
+Upload a minimal products document to confirm your SFTP credentials and pipeline are working end to end:
 
 ```bash
 sftp colect-user@sftp.colect.services
@@ -107,18 +114,37 @@ sftp> bye
   <product>
     <uniqueId>SMOKE-001</uniqueId>
     <colorCode>TST</colorCode>
+    <prices>
+      <price>
+        <currencyCode>EUR</currencyCode>
+        <wholesalePrice>1.00</wholesalePrice>
+      </price>
+    </prices>
+    <sizes>
+      <size>
+        <name>ONE</name>
+        <sortCode>1</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>1</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+    </sizes>
   </product>
 </products>
 ```
 
-If the product appears in your Colect collection shortly after upload, the pipeline is working end to end.
+A green row in Connector Status confirms the pipeline is working. You can then delete `SMOKE-001` by omitting it from your next full products upload.
 
 ***
 
 ## Getting help
 
-If you cannot resolve a validation error:
+If you cannot resolve an error:
 
 1. Note the filename and upload timestamp.
-2. Copy the full validation error message.
-3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs\&utm_medium=docs\&utm_campaign=ask_support) with both — and include the offending lines from the source XML if the error references specific line numbers.
+2. Copy the full error message from the Connector Status screen.
+3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs&utm_medium=docs&utm_campaign=ask_support) with both — and include the offending lines from the XML if the error references specific line numbers.
