@@ -37,6 +37,10 @@ Each collection has its own document set (one Products doc per collection, one C
 
 There's no "cross-collection" document — products in Brand A's collection are completely independent of products in Brand B's collection, even if they share a SKU number.
 
+{% hint style="info" %}
+Same file, separate collections: If two collections point to the same file path, Colect processes that file independently for each one. The data is not merged or linked between collections — each collection receives its own isolated copy of what's in that file.
+{% endhint %}
+
 ***
 
 ## Identifying the collection on documents
@@ -51,13 +55,13 @@ Your Colect contact configures the file paths for each collection during onboard
 
 ## When to use multiple collections vs. one larger collection
 
-| Situation                                                  | Recommended structure                                                           |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Two distinct brands with separate sales teams and websites | **Two collections**, one per brand                                              |
-| Same brand, multiple markets with different currency mixes | **One collection** (use price groups + currency)                                |
-| Pre-order season vs. immediate stock                       | **Two collections** — pre-order and in-stock are separate buying contexts       |
-| Mainline vs. outlet                                        | **Two collections** if pricing/customers differ significantly                   |
-| Different business units sharing the same ERP              | **Two collections** — keeps customer lists clean                                |
+| Situation                                                  | Recommended structure                                                     |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Two distinct brands with separate sales teams and websites | **Two collections**, one per brand                                        |
+| Same brand, multiple markets with different currency mixes | **One collection** (use price groups + currency)                          |
+| Pre-order season vs. immediate stock                       | **Two collections** — pre-order and in-stock are separate buying contexts |
+| Mainline vs. outlet                                        | **Two collections** if pricing/customers differ significantly             |
+| Different business units sharing the same ERP              | **Two collections** — keeps customer lists clean                          |
 
 When in doubt, talk to your Colect contact. Splitting a collection later requires re-importing master data; merging two collections is harder still.
 
