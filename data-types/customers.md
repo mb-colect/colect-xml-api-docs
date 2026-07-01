@@ -8,7 +8,7 @@ Complete reference for all customer-related data types.
 
 ---
 
-## XCustomer
+## Customer
 
 The main customer entity representing a B2B account.
 
@@ -59,9 +59,9 @@ The main customer entity representing a B2B account.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `status` | [XCustomerStatus](enums.md#xcustomerstatus) | Customer status |
+| `status` | [Customer Status](enums.md#customer-status) | Customer status |
 | `statusMessage` | String | Message shown for WARNING status |
-| `paymentStatus` | [XPaymentStatus](enums.md#xpaymentstatus) | Payment requirement |
+| `paymentStatus` | [Payment Status](enums.md#payment-status) | Payment requirement |
 | `taxPercentage` | Float | Tax rate for prepayment |
 
 ### Order Settings
@@ -72,32 +72,32 @@ The main customer entity representing a B2B account.
 | `maxOrderValue` | Float | Maximum order value |
 | `shippingTime` | Integer | Days to add to delivery date |
 | `minimumQuantitiesKey` | String | Key for product minimum quantities |
-| `sizeNamingCode` | String | Code for customer-specific size naming. See [XCustomerSizeNaming](products.md#xcustomersizeNaming). |
+| `sizeNamingCode` | String | Code for customer-specific size naming. See [Customer Size Naming](products.md#customer-size-naming). |
 | `externalReference` | String | External system reference |
 
 ### Nested Collections
 
 | Field | Type | XML Element | Description |
 |-------|------|-------------|-------------|
-| `shippingLocations` | List&lt;[XLocation](#xlocation)&gt; | `<shippingLocation>` | Shipping addresses |
-| `contacts` | List&lt;[XContact](#xcontact)&gt; | `<contact>` | Customer contacts |
-| `agreements` | List&lt;[XAgreement](#xagreement)&gt; | `<agreement>` | Customer agreements |
-| `discountGroups` | List&lt;[XDiscountGroup](#xdiscountgroup)&gt; | `<discountGroup>` | Discount configurations |
-| `marginGroups` | List&lt;[XMarginGroup](#xmargingroup)&gt; | `<marginGroup>` | Margin configurations |
-| `approvalGroups` | List&lt;[XCustomerApprovalGroup](#xcustomerapprovalgroup)&gt; | `<approvalGroup>` | Approval workflows |
-| `budgetComponents` | List&lt;[XBudgetComponent](#xbudgetcomponent)&gt; | `<budgetComponent>` | Budget tracking |
-| `extraFields` | List&lt;[XExtraField](products.md#xextrafield)&gt; | `<extraField>` | Custom display fields |
-| `tags` | List&lt;[XTag](#xtag)&gt; | `<tag>` | Customer tags |
-| `customChoices` | List&lt;[XCustomChoice](#xcustomchoice)&gt; | `<customChoice>` | Custom options |
+| `shippingLocations` | List&lt;[Location](#location)&gt; | `<shippingLocation>` | Shipping addresses |
+| `contacts` | List&lt;[Contact](#contact)&gt; | `<contact>` | Customer contacts |
+| `agreements` | List&lt;[Agreement](#agreement)&gt; | `<agreement>` | Customer agreements |
+| `discountGroups` | List&lt;[Discount Group](#discount-group)&gt; | `<discountGroup>` | Discount configurations |
+| `marginGroups` | List&lt;[Margin Group](#margin-group)&gt; | `<marginGroup>` | Margin configurations |
+| `approvalGroups` | List&lt;[Customer Approval Group](#customer-approval-group)&gt; | `<approvalGroup>` | Approval workflows |
+| `budgetComponents` | List&lt;[Budget Component](#budget-component)&gt; | `<budgetComponent>` | Budget tracking |
+| `extraFields` | List&lt;[Extra Field](products.md#extra-field)&gt; | `<extraField>` | Custom display fields |
+| `tags` | List&lt;[Tag](#tag)&gt; | `<tag>` | Customer tags |
+| `customChoices` | List&lt;[Custom Choice](#custom-choice)&gt; | `<customChoice>` | Custom options |
 | `sizeAccessCodes` | List&lt;String&gt; | `<sizeAccessCode>` | Size visibility codes |
 | `accessibleDeliveryWindowCodes` | List&lt;String&gt; | `<accessibleDeliveryWindowCode>` | Delivery window access |
 | `primaryUserEmailAddresses` | List&lt;String&gt; | `<primaryUserEmailAddress>` | Primary user emails |
-| `orderDiscountRules` | List&lt;[XOrderAmountModificationRule](#xorderamountmodificationrule)&gt; | `<orderDiscountRule>` | Order-level discounts |
-| `orderDeliveryCostRules` | List&lt;[XOrderAmountModificationRule](#xorderamountmodificationrule)&gt; | `<orderDeliveryCostRule>` | Shipping charges |
+| `orderDiscountRules` | List&lt;[Order Amount Modification Rule](#order-amount-modification-rule)&gt; | `<orderDiscountRule>` | Order-level discounts |
+| `orderDeliveryCostRules` | List&lt;[Order Amount Modification Rule](#order-amount-modification-rule)&gt; | `<orderDeliveryCostRule>` | Shipping charges |
 
 ---
 
-## XLocation
+## Location
 
 Shipping location/address for a customer.
 
@@ -141,7 +141,7 @@ Shipping location/address for a customer.
 
 ---
 
-## XContact
+## Contact
 
 Contact person for a customer.
 
@@ -155,11 +155,11 @@ Contact person for a customer.
 | `role` | String | No | Role/title |
 | `phone` | String | No | Phone number |
 | `email` | String | No | Email address |
-| `accessType` | [XAccessType](enums.md#xaccesstype) | No | B2B webshop access (FULL/NONE) |
+| `accessType` | [Access Type](enums.md#access-type) | No | B2B webshop access (FULL/NONE) |
 
 ---
 
-## XAgreement
+## Agreement
 
 Customer-specific agreement with terms and pricing.
 
@@ -175,12 +175,12 @@ Customer-specific agreement with terms and pricing.
 | `nextPriceGroupDate` | DateTime | No | Activation date |
 | `currencyCode` | String | No | Agreement currency |
 | `orderFooter` | String | No | Text for confirmations |
-| `marginGroups` | List&lt;[XMarginGroup](#xmargingroup)&gt; | No | Margin configurations |
-| `discountGroups` | List&lt;[XDiscountGroup](#xdiscountgroup)&gt; | No | Discount configurations |
+| `marginGroups` | List&lt;[Margin Group](#margin-group)&gt; | No | Margin configurations |
+| `discountGroups` | List&lt;[Discount Group](#discount-group)&gt; | No | Discount configurations |
 
 ---
 
-## XDiscountGroup
+## Discount Group
 
 Automatic discount configuration.
 
@@ -198,7 +198,7 @@ Automatic discount configuration.
 
 ---
 
-## XMarginGroup
+## Margin Group
 
 Margin-based pricing (calculate wholesale from retail).
 
@@ -211,7 +211,7 @@ Margin-based pricing (calculate wholesale from retail).
 
 ---
 
-## XOrderAmountModificationRule
+## Order Amount Modification Rule
 
 Rules for order-level discounts or shipping charges.
 
@@ -228,13 +228,13 @@ Rules for order-level discounts or shipping charges.
 | `minimumOrderAmount` | Float | No | Minimum order value |
 | `startDate` | DateTime | No | Rule start date |
 | `endDate` | DateTime | No | Rule end date |
-| `evaluationMethod` | [XRuleEvaluationMethod](enums.md#xruleevaluationmethod) | **Yes** | When to evaluate |
+| `evaluationMethod` | [Rule Evaluation Method](enums.md#rule-evaluation-method) | **Yes** | When to evaluate |
 | `amount` | Float | No | Fixed amount |
 | `discountPercentage` | Float | No | Percentage discount |
 
 ---
 
-## XCustomerApprovalGroup
+## Customer Approval Group
 
 Links customer to approval workflows.
 
@@ -247,7 +247,7 @@ Links customer to approval workflows.
 
 ---
 
-## XBudgetComponent
+## Budget Component
 
 Budget tracking for customer.
 
@@ -268,7 +268,7 @@ Budget tracking for customer.
 
 ---
 
-## XCustomChoice
+## Custom Choice
 
 Custom option/dropdown for customer.
 
@@ -281,11 +281,11 @@ Custom option/dropdown for customer.
 | `group` | String | **Yes** | Choice group |
 | `sortCode` | Integer | No | Display order |
 | `defaultChoice` | Boolean | **Yes** | Is default selection |
-| `userTypes` | List&lt;[XUserType](enums.md#xusertype)&gt; | No | Applicable user types |
+| `userTypes` | List&lt;[User Type](enums.md#user-type)&gt; | No | Applicable user types |
 
 ---
 
-## XTag
+## Tag
 
 Simple tag for categorization.
 
@@ -299,16 +299,16 @@ Simple tag for categorization.
 
 ## Access Rule Types
 
-### XProductAccessRule
+### Product Access Rule
 
 Controls which products a customer can see.
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
 | `customerNo` | String | **Yes** | Customer identifier |
-| `type` | [XProductAccessRuleType](enums.md#xproductaccessruletype) | No | ADD or REMOVE (default: ADD) |
-| `operation` | [XProductAccessRuleMatchOperation](enums.md#xproductaccessrulematchoperation) | No | EQUALS or CONTAINS |
-| `environment` | [XEnvironment](enums.md#xenvironment) | No | APP, B2B, or both |
+| `type` | [Product Access Rule Type](enums.md#product-access-rule-type) | No | ADD or REMOVE (default: ADD) |
+| `operation` | [Product Access Rule Match Operation](enums.md#product-access-rule-match-operation) | No | EQUALS or CONTAINS |
+| `environment` | [Environment](enums.md#environment) | No | APP, B2B, or both |
 | `uniqueId` | String | No | Product filter |
 | `colorCode` | String | No | Color filter |
 | `categoryCode` | String | No | Category filter |
@@ -317,7 +317,7 @@ Controls which products a customer can see.
 | `seasonCode` | String | No | Season filter |
 | `sortCode` | Integer | No | Rule evaluation order |
 
-### XCustomerAccessRecord
+### Customer Access Record
 
 Agent's access to a customer.
 
@@ -326,7 +326,7 @@ Agent's access to a customer.
 | `customerNo` | String | **Yes** | Customer identifier |
 | `shippingLocationCode` | String | No | Restrict to specific location |
 
-### XAgentCustomerAccess
+### Agent Customer Access
 
 Agent's complete customer access configuration.
 
@@ -335,4 +335,4 @@ Agent's complete customer access configuration.
 | `agentEmail` | String | **Yes** | Agent email address |
 | `agentDefaultCurrency` | String | No | Default browsing currency |
 | `agentDefaultPriceGroup` | String | No | Default browsing price group |
-| `customerAccessRecords` | List&lt;[XCustomerAccessRecord](#xcustomeraccessrecord)&gt; | No | Accessible customers |
+| `customerAccessRecords` | List&lt;[Customer Access Record](#customer-access-record)&gt; | No | Accessible customers |

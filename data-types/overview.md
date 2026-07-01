@@ -16,15 +16,15 @@ This reference documents all data types used in the Colect XML API.
 <tbody>
 <tr>
 <td><strong>Product Types</strong></td>
-<td>XProduct, XSize, XPrice, XMedium, XDeliveryWindow, and related types</td>
+<td>Products, sizes, prices, media, delivery windows, and related elements</td>
 </tr>
 <tr>
 <td><strong>Customer Types</strong></td>
-<td>XCustomer, XLocation, XContact, XAgreement, and related types</td>
+<td>Customers, locations, contacts, agreements, and related elements</td>
 </tr>
 <tr>
 <td><strong>Order Types</strong></td>
-<td>XOrder, XOrderLine, XHistoricalOrder, XInvoice, and related types</td>
+<td>Orders, order lines, historical orders, invoices, and related elements</td>
 </tr>
 <tr>
 <td><strong>Enumerations</strong></td>
@@ -46,16 +46,6 @@ The API uses specific naming conventions for XML elements:
 | Single object | camelCase | `<product>`, `<customer>` |
 | List element | Singular name | `<size>`, `<price>`, `<medium>` |
 | Collection | Multiple elements | Multiple `<size>` elements |
-
-{% hint style="info" %}
-**WS: Prefix Note:** Fields prefixed with "WS:" indicate a different XML element name. For example, `prices (WS:price)` means the field is named `prices` but the XML element is `<price>`.
-{% endhint %}
-
-### Type Suffixes
-
-All types use the `_3_0` suffix indicating API version 3.0:
-- `XProduct30` (internal) → `XProduct_3_0` (documentation)
-- `XCustomer30` (internal) → `XCustomer_3_0` (documentation)
 
 ---
 
@@ -83,8 +73,8 @@ Date-only fields use `yyyyMMdd` format (e.g. `20250115`). The `timestamp` field 
 ### Boolean Values
 
 ```xml
-<api:net>true</api:net>
-<api:net>false</api:net>
+<net>true</net>
+<net>false</net>
 ```
 
 ### Decimal Values
@@ -92,8 +82,8 @@ Date-only fields use `yyyyMMdd` format (e.g. `20250115`). The `timestamp` field 
 Use period as decimal separator:
 
 ```xml
-<api:price>25.50</api:price>
-<api:percentage>10.5</api:percentage>
+<price>25.50</price>
+<percentage>10.5</percentage>
 ```
 
 ---
@@ -111,22 +101,6 @@ Use period as decimal separator:
 | Size | `name` (within product) |
 | Location | `code` (within customer) |
 | Contact | `code` (within customer) |
-
-### Commonly Used Types
-
-| Type | Purpose |
-|------|---------|
-| `XProduct30` | Product catalog item |
-| `XCustomer30` | B2B customer account |
-| `XOrder30` | Order from Colect |
-| `XOrderLine30` | Line item in order |
-| `XSize30` | Product size with stock |
-| `XPrice30` | Product pricing |
-| `XLocation30` | Shipping address |
-| `XHistoricalOrder30` | Past order for display |
-| `XInvoice30` | Customer invoice |
-| `XPriceInfoElement30` | Bulk price update element |
-| `XStockInfoElement30` | Bulk stock update element |
 
 ---
 
