@@ -6,7 +6,7 @@ When the Cloud Connector processes a file from `datafiles/`, it validates and in
 
 ## Where to find errors
 
-Open the Colect admin and go to **Connector Status**. Each row represents the most recent import run for a document type. A red row means the last import failed — the message column shows the reason.
+Open the Colect admin panel and go to **Connector Status**. Each row represents the most recent import run for a document type. A red row means the last import failed — the message column shows the reason.
 
 The error message format is:
 
@@ -22,6 +22,8 @@ Wed Jul 01 12:50:48 CEST 2026: Product occurs multiple times in source: uniqueId
 
 The `lineNumber` and `columnNumber` point to the offending element in the uploaded file.
 
+<figure><img src="../.gitbook/assets/ConnectorStatusError.png" alt=""><figcaption></figcaption></figure>
+
 ***
 
 ## Common errors
@@ -29,6 +31,7 @@ The `lineNumber` and `columnNumber` point to the offending element in the upload
 ### Missing uniqueId
 
 **Error:**
+
 ```
 Product has no uniqueId (at line 20); state={lineNumber=20, columnNumber=13}
 ```
@@ -42,6 +45,7 @@ Product has no uniqueId (at line 20); state={lineNumber=20, columnNumber=13}
 ### Duplicate product
 
 **Error:**
+
 ```
 Product occurs multiple times in source: uniqueId=DUPE-001, colorCode=BLK
 ```
@@ -55,6 +59,7 @@ Product occurs multiple times in source: uniqueId=DUPE-001, colorCode=BLK
 ### Unsupported media type
 
 **Error:**
+
 ```
 Medium format 'image' or type 'IMAGE_PRIMARY' not supported; state={lineNumber=171, columnNumber=35}
 ```
@@ -68,6 +73,7 @@ Medium format 'image' or type 'IMAGE_PRIMARY' not supported; state={lineNumber=1
 ### Invalid field value
 
 **Error:**
+
 ```
 Illegal value for discount group amount: null; state={lineNumber=43, columnNumber=70}
 ```
@@ -87,9 +93,10 @@ Illegal value for discount group amount: null; state={lineNumber=43, columnNumbe
 **Cause:** A date field uses a format other than `yyyyMMdd` (e.g. `2026-01-01` or `01-01-2026`).
 
 **Observed behaviour:**
-- `yyyyMMdd` — parsed correctly ✓
-- `YYYY-MM-DD` — accepted but stock dates may be stored with an incorrect value
-- `DD-MM-YYYY` — accepted but stock dates are dropped entirely
+
+* `yyyyMMdd` — parsed correctly ✓
+* `YYYY-MM-DD` — accepted but stock dates may be stored with an incorrect value
+* `DD-MM-YYYY` — accepted but stock dates are dropped entirely
 
 **Fix:** Always use `yyyyMMdd` (e.g. `20260115`). For stock levels that are always available, use `19800101` as the start date.
 
@@ -147,4 +154,4 @@ If you cannot resolve an error:
 
 1. Note the filename and upload timestamp.
 2. Copy the full error message from the Connector Status screen.
-3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs&utm_medium=docs&utm_campaign=ask_support) with both — and include the offending lines from the XML if the error references specific line numbers.
+3. [Contact Colect Support](https://support.apptitude.nl/support/home?utm_source=colect_xml_api_docs\&utm_medium=docs\&utm_campaign=ask_support) with both — and include the offending lines from the XML if the error references specific line numbers.
