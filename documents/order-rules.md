@@ -42,8 +42,8 @@ The same field set applies to both `<orderDiscountRule>` and `<orderDeliveryCost
 | `exclusive`          | `boolean`  | NO          | If `true`, this rule cannot be combined with any other rule, even outside its group.                                       |
 | `minimumQuantity`    | `int`      | NO          | Minimum number of pieces in the order for the rule to fire.                                                                |
 | `minimumOrderAmount` | `float`    | NO          | Minimum order amount for the rule to fire.                                                                                 |
-| `startDate`          | `dateTime` | NO          | First date the rule is valid. Format `YYYY-MM-DD`.                                                                         |
-| `endDate`            | `dateTime` | NO          | Last date the rule is valid. Format `YYYY-MM-DD`.                                                                          |
+| `startDate`          | `dateTime` | NO          | First date the rule is valid. Format `yyyyMMdd`.                                                                         |
+| `endDate`            | `dateTime` | NO          | Last date the rule is valid. Format `yyyyMMdd`.                                                                          |
 | `evaluationMethod`   | enum       | **YES**     | `EVALUATE_BASED_ON_TODAY` or `EVALUATE_BASED_ON_DELIVERY_DATE` — controls which date is checked against `startDate`/`endDate`. |
 | `amount`             | `float`    | conditional | Amount added to (or subtracted from) the order. Used by **delivery cost** rules. Use `0` to indicate free shipping.        |
 | `discountPercentage` | `float`    | conditional | Discount percentage applied to the order. Used by **discount** rules.                                                      |

@@ -64,7 +64,7 @@ A `<customer>` element is composed of one top-level set of fields plus several o
 | `primaryUserEmailAddresses`   | `string` | NO        | Comma-separated list of primary user emails.                                                                         |
 | `activePriceGroup`            | `string` | NO        | Currently active price group. Resolves which `<price>` block on a product applies to this customer.                  |
 | `nextPriceGroup`              | `string` | NO        | Price group that takes effect from `nextPriceGroupDate` onward.                                                      |
-| `nextPriceGroupDate`          | `dateTime` | NO      | Date the next price group becomes active. Format `YYYY-MM-DD`.                                                       |
+| `nextPriceGroupDate`          | `dateTime` | NO      | Date the next price group becomes active. Format `yyyyMMdd`.                                                       |
 | `currencyCode`                | `string` | **YES**   | Currency the customer transacts in. Must match a `currencyCode` defined in the products file or collection settings. |
 | `status`                      | `string` | NO        | Customer status (e.g. `ACTIVE`, `BLOCKED`).                                                                          |
 | `statusMessage`               | `string` | NO        | Optional message shown alongside the status.                                                                         |
@@ -184,7 +184,7 @@ Agreements model multi-channel pricing/discount setups — a single customer may
 | `channel`            | `string`   | NO        | Sales channel (e.g. `Wholesale`, `shop in shop`).                                                      |
 | `activePriceGroup`   | `string`   | NO        | Active price group for this agreement.                                                                 |
 | `nextPriceGroup`     | `string`   | NO        | Price group taking effect on/after `nextPriceGroupDate`.                                               |
-| `nextPriceGroupDate` | `dateTime` | NO        | Date the next price group becomes active. Format `YYYY-MM-DD`.                                         |
+| `nextPriceGroupDate` | `dateTime` | NO        | Date the next price group becomes active. Format `yyyyMMdd`.                                         |
 | `currencyCode`       | `string`   | **YES**   | Currency for this agreement.                                                                           |
 | `orderFooter`        | `string`   | NO        | Footer text added to order confirmations under this agreement.                                         |
 | `discountGroups`     | object     | NO        | Same shape as the customer-level [Discount Groups](#discount-groups).                                  |

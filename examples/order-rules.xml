@@ -10,8 +10,8 @@
     <orderDiscountRule>
       <identification>spring2026</identification>
       <description>Spring 2026 promo — 8% off all orders</description>
-      <startDate>2026-03-01</startDate>
-      <endDate>2026-03-31</endDate>
+      <startDate>20260301</startDate>
+      <endDate>20260331</endDate>
       <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
       <discountPercentage>8</discountPercentage>
     </orderDiscountRule>
@@ -19,8 +19,8 @@
     <orderDiscountRule>
       <identification>preorderss26</identification>
       <description>15% off pre-orders for SS26 (delivery-date based)</description>
-      <startDate>2026-01-01</startDate>
-      <endDate>2026-12-31</endDate>
+      <startDate>20260101</startDate>
+      <endDate>20261231</endDate>
       <evaluationMethod>EVALUATE_BASED_ON_DELIVERY_DATE</evaluationMethod>
       <discountPercentage>15</discountPercentage>
       <exclusive>true</exclusive>

@@ -32,8 +32,8 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
 | `invoiceNumber`       | `string`   | **YES**   | Unique invoice number from the ERP. Acts as the identifier across re-pushes.                                           |
 | `customerNo`          | `string`   | **YES**   | Customer number — must match an existing customer in the [Customers](customers.md) document.                           |
 | `status`              | `string`   | NO        | Invoice status (e.g. `OPEN`, `PAID`, `OVERDUE`, `VOIDED`, `CREDITED`). Free text — your collection's enums apply.      |
-| `date`                | `dateTime` | **YES**   | Invoice date. Format `YYYY-MM-DD`.                                                                                     |
-| `dueDate`             | `dateTime` | NO        | Due date for payment. Format `YYYY-MM-DD`.                                                                             |
+| `date`                | `dateTime` | **YES**   | Invoice date. Format `yyyyMMdd`.                                                                                     |
+| `dueDate`             | `dateTime` | NO        | Due date for payment. Format `yyyyMMdd`.                                                                             |
 | `currency`            | `string`   | **YES**   | Currency code (e.g. `EUR`, `USD`).                                                                                     |
 | `amountExcludingTax`  | `float`    | NO        | Amount excluding tax.                                                                                                  |
 | `taxAmount`           | `float`    | NO        | Tax amount.                                                                                                            |

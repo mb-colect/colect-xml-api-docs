@@ -23,7 +23,7 @@
         <prePackUnitCount>1</prePackUnitCount>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>1</quantity>
           </stockLevel>
         </stockLevels>
