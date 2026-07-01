@@ -10,6 +10,10 @@ The **Historical Orders** input document pushes past orders from your ERP into C
 Historical Orders is **read-only inside Colect**. Customers can view and use these records as templates for new orders, but they can't edit them. Lifecycle changes (status updates, shipment tracking) are reflected by re-sending the order with updated fields.
 {% endhint %}
 
+{% hint style="warning" %}
+**Work in progress.** Some fields on this page — particularly `timestamp` format and the `shippingLocation` structure — are not yet fully verified against the live connector. Details will be confirmed and updated.
+{% endhint %}
+
 ***
 
 ## Document at a glance
