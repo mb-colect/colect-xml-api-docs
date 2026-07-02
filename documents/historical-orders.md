@@ -58,11 +58,11 @@ A `<shippingLocation>` block on the order captures the address goods were shippe
 | `street`             | `string` | NO        | Street.                              |
 | `houseNumber`        | `string` | NO        | House number.                        |
 | `houseNumberSuffix`  | `string` | NO        | House number suffix.                 |
-| `state`              | `string` | NO        | State / province. _New in v1.5._     |
+| `state`              | `string` | NO        | State / province. _New in v1.4._     |
 | `postalCode`         | `string` | NO        | Postal code.                         |
 | `city`               | `string` | NO        | City.                                |
 | `country`            | `string` | NO        | Country.                             |
-| `gln`                | `string` | NO        | Global Location Number. _New in v1.5._ |
+| `gln`                | `string` | NO        | Global Location Number. _New in v1.4._ |
 | `contact`            | `string` | NO        | Contact name at the location.        |
 | `email`              | `string` | NO        | Location-specific email.             |
 

@@ -52,11 +52,11 @@ A `<customer>` element is composed of one top-level set of fields plus several o
 | `street`                      | `string` | NO        | Street part of the address.                                                                                          |
 | `houseNumber`                 | `string` | NO        | House number.                                                                                                        |
 | `houseNumberSuffix`           | `string` | NO        | House number suffix.                                                                                                 |
-| `state`                       | `string` | NO        | State / province. _New in v1.5._                                                                                     |
+| `state`                       | `string` | NO        | State / province. _New in v1.4._                                                                                     |
 | `postalCode`                  | `string` | NO        | Postal code.                                                                                                         |
 | `city`                        | `string` | NO        | City.                                                                                                                |
 | `country`                     | `string` | NO        | Country.                                                                                                             |
-| `gln`                         | `string` | NO        | Global Location Number for the customer. _New in v1.5._                                                              |
+| `gln`                         | `string` | NO        | Global Location Number for the customer. _New in v1.4._                                                              |
 | `phone`                       | `string` | NO        | Primary phone number.                                                                                                |
 | `language`                    | `string` | NO        | Preferred language code.                                                                                             |
 | `channel`                     | `string` | NO        | Sales channel (e.g. `wholesale`, `shop-in-shop`).                                                                    |
@@ -140,11 +140,11 @@ A list of addresses goods can be shipped to. Customers can have one default ship
 | `street`             | `string` | NO        | Street.                                                                                           |
 | `houseNumber`        | `string` | NO        | House number.                                                                                     |
 | `houseNumberSuffix`  | `string` | NO        | House number suffix.                                                                              |
-| `state`              | `string` | NO        | State / province. _New in v1.5._                                                                  |
+| `state`              | `string` | NO        | State / province. _New in v1.4._                                                                  |
 | `postalCode`         | `string` | NO        | Postal code.                                                                                      |
 | `city`               | `string` | NO        | City.                                                                                             |
 | `country`            | `string` | NO        | Country.                                                                                          |
-| `gln`                | `string` | NO        | Global Location Number for the shipping location. _New in v1.5._                                  |
+| `gln`                | `string` | NO        | Global Location Number for the shipping location. _New in v1.4._                                  |
 | `email`              | `string` | NO        | Location-specific email.                                                                          |
 
 ***

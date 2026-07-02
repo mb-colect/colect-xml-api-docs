@@ -1,7 +1,7 @@
 # Overview
 
-## Colect XML 1.4
-
+## Colect XML v1.4
+111
 Welcome to the Colect XML integration documentation. This document describes the structure of the XML-based interface offered by Colect — a document-exchange integration that lets your ERP system synchronize products, customers, orders, and related data with the Colect platform.
 
 {% hint style="info" %}
@@ -87,7 +87,7 @@ Documents move between your ERP and Colect over a file-transfer channel. The def
 | [Customers](documents/customers.md)                              | Full customer set                           | Contacts, Discount Groups, Margin Groups, Locations, Budgets, Custom Choices, Agreements |
 | [Customer Access](documents/customer-access.md)                  | Per-user customer visibility                | —                                                                                        |
 | [Product Access](documents/product-access.md)                    | Per-customer product visibility             | Add/Remove rules                                                                         |
-| [Product Relations](documents/product-relations.md)              | Product relations (Successor, Matching Set) | _new in v1.5_                                                                            |
+| [Product Relations](documents/product-relations.md)              | Product relations (Successor, Matching Set) | _new in v1.4_                                                                            |
 | [Prices](documents/prices.md)                                    | Prices only (sub-feed)                      | Replaces all prices in product feed                                                      |
 | [Sizes & Stock](documents/sizes-stock.md)                        | Sizes & stock levels (sub-feed)             | Stock levels, prepacks                                                                   |
 | [Extra Fields](documents/extra-fields.md)                        | Product extra fields (sub-feed)             | —                                                                                        |
@@ -149,6 +149,6 @@ After:  Product A has prices [P4, P5]
 
 See the [full changelog](changelog.md) for the complete schema and feature history. Highlights with v1.4 update:
 
-* **Product Relations input document** — new in v1.4 update, supports Successor and Matching Set relation types
+* **Product Relations input document** — new in v1.4, supports Successor and Matching Set relation types
 * **Customer Size Naming** — added per-customer size labels on the Sizes sub-feed
 * **GLN and State** — added on Customers and Locations for Global Location Number and state/province

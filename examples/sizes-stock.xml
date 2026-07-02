@@ -70,7 +70,7 @@
     </sizes>
   </product>
 
-  <!-- Example with customerSizeNaming (v1.5) — internal "M" labelled "MEDIUM" for one customer group -->
+  <!-- Example with customerSizeNaming (v1.4) — internal "M" labelled "MEDIUM" for one customer group -->
   <product>
     <uniqueId>STYLE-001</uniqueId>
     <colorCode>WHT</colorCode>

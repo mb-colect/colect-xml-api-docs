@@ -3,7 +3,7 @@
 The **Sizes & Stock** input document is a sub-feed of [Products](products.md) that contains only `uniqueId`, `colorCode`, and `<sizes>` (with stock levels and prepack definitions). Use it to refresh sizes and stock for products already in Colect — typically faster than re-sending the full catalog.
 
 {% hint style="success" %}
-**Example:** [`examples/sizes-stock.xml`](../examples/sizes-stock.xml) — current and future stock levels, an access-restricted size, and the v1.5 `customerSizeNaming` pattern.
+**Example:** [`examples/sizes-stock.xml`](../examples/sizes-stock.xml) — current and future stock levels, an access-restricted size, and the v1.4 `customerSizeNaming` pattern.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -35,7 +35,7 @@ The **Sizes & Stock** input document is a sub-feed of [Products](products.md) th
 | `subSizeName`           | `string`   | NO        | Sub-size name (e.g. `34` for jeans width 32 / length 34).                                                 |
 | `subSizeSortCode`       | `int`      | NO        | Secondary sort code for sub-sizes.                                                                        |
 | `accessCode`            | `string`   | NO        | If set, only customers whose `sizeAccessCodes` contain this value can see the size.                       |
-| `customerSizeNaming`    | object     | NO        | Per-customer size labels. _Added in v1.5._ See [customerSizeNaming](sizes-stock.md#customer-size-naming). |
+| `customerSizeNaming`    | object     | NO        | Per-customer size labels. _Added in v1.4._ See [customerSizeNaming](sizes-stock.md#customer-size-naming). |
 | `prePackUnitCount`      | `int`      | **YES**   | Total pieces in this SKU. `1` for a single item; higher when the SKU is a prepack.                        |
 | `eanCode`               | `string`   | NO        | EAN or SKU-level barcode for this item/size.                                                              |
 | `replenishmentDate`     | `dateTime` | NO        | Date the size is expected back in stock. Format `yyyyMMdd`.                                               |
@@ -67,7 +67,7 @@ If the size represents a prepack box, define its contents in `<prepackDefinition
 
 ### Customer size naming
 
-Added in v1.5: lets a single internal size carry per-customer labels for wholesale partners that use their own labelling.
+Added in v1.4: lets a single internal size carry per-customer labels for wholesale partners that use their own labelling.
 
 | Element       | Type     | Mandatory | Description                                              |
 | ------------- | -------- | --------- | -------------------------------------------------------- |
