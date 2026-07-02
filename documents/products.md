@@ -16,7 +16,7 @@ The **Products** input document is the master record of your catalog in Colect. 
 | **Root element**        | `<products>`                                                                          |
 | **File name pattern**   | `products*.xml`                                                                       |
 | **Sync mode**           | Full set — products not present in the document are removed                            |
-| **XSD**                 | [Product\_Feed\_XSD.xsd](../schema/snapshots/2026-05-06/Product_Feed_XSD.xsd)         |
+| **XSD**                 | [Product\_Feed\_XSD.xsd](https://connector.colect.services/services/api/3.0?xsd=1)         |
 | **Identifier**          | `uniqueId` + `colorCode` together identify a product uniquely                          |
 
 {% hint style="info" %}
