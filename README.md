@@ -1,6 +1,6 @@
 # Overview
 
-## Colect XML v1.5
+## Colect XML 1.4
 
 Welcome to the Colect XML integration documentation. This document describes the structure of the XML-based interface offered by Colect — a document-exchange integration that lets your ERP system synchronize products, customers, orders, and related data with the Colect platform.
 
@@ -17,7 +17,7 @@ The XML integration is a **document-exchange interface**. Your ERP produces or c
 | Domain                | Description                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------ |
 | **Products**          | Sync your complete product catalog — sizes, colors, prices, stock, media, delivery windows |
-| **Customers**         | Manage customer accounts with pricing groups, discounts, agreements, and locations     |
+| **Customers**         | Manage customer accounts with pricing groups, discounts, agreements, and locations         |
 | **Orders**            | Pull orders placed through the Colect Sales App and B2B Webstore back into your ERP        |
 | **Access**            | Control which products are visible to which customers, and which agents can sell to whom   |
 | **Invoices**          | Push invoice data for customer visibility in the app                                       |
@@ -70,10 +70,10 @@ Documents move between your ERP and Colect over a file-transfer channel. The def
                     └───────────────────────────────┘
 ```
 
-| Direction        | Documents                                                                                                                                  | Description                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| Direction        | Documents                                                                                                                                            | Description                                                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | **ERP → Colect** | Products, Customers, Customer Access, Product Access, Product Relations, Prices, Sizes/Stock, Extra Fields, Invoices, Historical Orders, Order Rules | You push master data, access rules, and reference data to Colect |
-| **Colect → ERP** | Orders                                                                                                                                     | You pull orders placed by customers and sales reps         |
+| **Colect → ERP** | Orders                                                                                                                                               | You pull orders placed by customers and sales reps               |
 
 ***
 
@@ -81,25 +81,25 @@ Documents move between your ERP and Colect over a file-transfer channel. The def
 
 ### Input documents (ERP → Colect)
 
-| Document                                                                | Replaces / Updates              | Sub-feeds                              |
-| ----------------------------------------------------------------------- | ------------------------------- | -------------------------------------- |
-| [Products](documents/products.md)                                       | Full product set                | Prices, Sizes, Media, Delivery Windows, Extra Fields |
-| [Customers](documents/customers.md)                                     | Full customer set               | Contacts, Discount Groups, Margin Groups, Locations, Budgets, Custom Choices, Agreements |
-| [Customer Access](documents/customer-access.md)                         | Per-user customer visibility    | —                                      |
-| [Product Access](documents/product-access.md)                           | Per-customer product visibility | Add/Remove rules                       |
-| [Product Relations](documents/product-relations.md)                     | Product relations (Successor, Matching Set) | _new in v1.5_           |
-| [Prices](documents/prices.md)                                           | Prices only (sub-feed)          | Replaces all prices in product feed    |
-| [Sizes & Stock](documents/sizes-stock.md)                               | Sizes & stock levels (sub-feed) | Stock levels, prepacks                 |
-| [Extra Fields](documents/extra-fields.md)                               | Product extra fields (sub-feed) | —                                      |
-| [Invoices](documents/invoices.md)                                       | Invoice list                    | —                                      |
-| [Historical Orders](documents/historical-orders.md)                     | Historical orders               | Order Lines, Shipping Locations        |
-| [Order Discount & Delivery Cost Rules](documents/order-rules.md)        | Order-level rules               | —                                      |
+| Document                                                         | Replaces / Updates                          | Sub-feeds                                                                                |
+| ---------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [Products](documents/products.md)                                | Full product set                            | Prices, Sizes, Media, Delivery Windows, Extra Fields                                     |
+| [Customers](documents/customers.md)                              | Full customer set                           | Contacts, Discount Groups, Margin Groups, Locations, Budgets, Custom Choices, Agreements |
+| [Customer Access](documents/customer-access.md)                  | Per-user customer visibility                | —                                                                                        |
+| [Product Access](documents/product-access.md)                    | Per-customer product visibility             | Add/Remove rules                                                                         |
+| [Product Relations](documents/product-relations.md)              | Product relations (Successor, Matching Set) | _new in v1.5_                                                                            |
+| [Prices](documents/prices.md)                                    | Prices only (sub-feed)                      | Replaces all prices in product feed                                                      |
+| [Sizes & Stock](documents/sizes-stock.md)                        | Sizes & stock levels (sub-feed)             | Stock levels, prepacks                                                                   |
+| [Extra Fields](documents/extra-fields.md)                        | Product extra fields (sub-feed)             | —                                                                                        |
+| [Invoices](documents/invoices.md)                                | Invoice list                                | —                                                                                        |
+| [Historical Orders](documents/historical-orders.md)              | Historical orders                           | Order Lines, Shipping Locations                                                          |
+| [Order Discount & Delivery Cost Rules](documents/order-rules.md) | Order-level rules                           | —                                                                                        |
 
 ### Output documents (Colect → ERP)
 
-| Document                            | Description                                                            |
-| ----------------------------------- | ---------------------------------------------------------------------- |
-| [Orders](documents/orders.md)       | Orders placed in the Sales App or B2B Webstore, ready for ERP processing |
+| Document                      | Description                                                              |
+| ----------------------------- | ------------------------------------------------------------------------ |
+| [Orders](documents/orders.md) | Orders placed in the Sales App or B2B Webstore, ready for ERP processing |
 
 ***
 
@@ -141,7 +141,7 @@ After:  Product A has prices [P4, P5]
 
 ## Next steps
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Document Transfer</strong></td><td>Set up SFTP / HTTP delivery and file naming</td><td><a href="getting-started/document-transfer.md">document-transfer.md</a></td></tr><tr><td><strong>Collections</strong></td><td>Understand how data is grouped at the collection level</td><td><a href="getting-started/collections.md">collections.md</a></td></tr><tr><td><strong>Your First Document</strong></td><td>Walk through a minimal Products push end-to-end</td><td><a href="getting-started/first-document.md">first-document.md</a></td></tr><tr><td><strong>Document Reference</strong></td><td>Field-by-field documentation for all 12 documents</td><td><a href="documents/products.md">documents/products.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Document Transfer</strong></td><td>Set up SFTP / HTTP delivery and file naming</td><td><a href="getting-started/document-transfer.md">document-transfer.md</a></td></tr><tr><td><strong>Collections</strong></td><td>Understand how data is grouped at the collection level</td><td><a href="getting-started/collections.md">collections.md</a></td></tr><tr><td><strong>Your First Document</strong></td><td>Walk through a minimal Products push end-to-end</td><td><a href="getting-started/first-document.md">first-document.md</a></td></tr><tr><td><strong>Document Reference</strong></td><td>Field-by-field documentation for all 12 documents</td><td><a href="documents/products.md">products.md</a></td></tr></tbody></table>
 
 ***
 
