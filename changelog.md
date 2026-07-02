@@ -4,7 +4,7 @@ Schema and feature history for the Colect XML integration.
 
 ***
 
-## v1.5 (current)
+## v1.4 (update)
 
 ### Added
 
