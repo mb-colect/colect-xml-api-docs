@@ -133,7 +133,7 @@ Products can be assigned to one or more discount groups using the `<discountGrou
 | `extraFields`                | `<extraField>`                | List<[Extra Field](products.md#extra-field)>                 | Custom display fields                                                     |
 | `deliveryWindows`            | `<deliveryWindow>`            | List<[Delivery Window](products.md#delivery-window)>         | Delivery windows/drops                                                    |
 | `discountGroupCodes`         | `<discountGroupCode>`         | List\<String>                                                | Discount group codes. See [Discount Groups](products.md#discount-groups). |
-| `translations`               | `<translation>`               | List<[Product Translation](products.md#product-translation)> | Translations                                                              |
+| `translations`               | `<translations>`              | List<[Product Translation](products.md#product-translation)> | Translations (XML: `<translations><translation language="xx">`)           |
 
 ### Deprecated Fields
 
@@ -340,7 +340,7 @@ Delivery drops or capsule collections.
 | `startDate`   | DateTime                                                                   | No       | Window start date                |
 | `endDate`     | DateTime                                                                   | No       | Window end date                  |
 | `sortCode`    | Integer                                                                    | No       | Display order                    |
-| `translation` | List<[Delivery Window Translation](products.md#delivery-window-translation)> | No       | Translations for description     |
+| `translations` | List<[Delivery Window Translation](products.md#delivery-window-translation)> | No       | Translations for description (XML: `<translations><translation language="xx">`) |
 
 {% hint style="warning" %}
 **Important:** A delivery window code must have the same `startDate` across all products. If product A has code "DROP1" starting 2025-02-01, product B cannot have "DROP1" with a different start date.
@@ -350,26 +350,35 @@ Delivery drops or capsule collections.
 
 ## Delivery Window Translation
 
-Translation of delivery window content for multilingual support.
+Translation of a delivery window's `description` for multilingual support.
 
-### Fields
+`language` is an XML **attribute** on `<translation>`, not a child element. Translated fields are direct children — there is no `<fields>` wrapper.
 
-| Field      | Type                                                                           | Required | Description                                      |
-| ---------- | ------------------------------------------------------------------------------ | -------- | ------------------------------------------------ |
-| `language` | String                                                                         | No       | IETF language tag (e.g., "en", "nl", "de", "fr") |
-| `fields`   | [Translated Delivery Window Fields](products.md#translated-delivery-window-fields) | No       | Translated field content                         |
+### Translatable fields
 
-***
+| Field         | Type   | Description                            |
+| ------------- | ------ | -------------------------------------- |
+| `description` | String | Translated delivery window description |
 
-## Translated Delivery Window Fields
+### Example
 
-Contains the translated values for a delivery window.
-
-### Fields
-
-| Field         | Type   | Required | Description                            |
-| ------------- | ------ | -------- | -------------------------------------- |
-| `description` | String | No       | Translated delivery window description |
+```xml
+<deliveryWindow>
+    <code>SS27-D1</code>
+    <description>Spring 2027 — Drop 1</description>
+    <startDate>20270201</startDate>
+    <endDate>20270331</endDate>
+    <sortCode>10</sortCode>
+    <translations>
+        <translation language="nl">
+            <description>Lente 2027 — Levering 1</description>
+        </translation>
+        <translation language="fr">
+            <description>Printemps 2027 — Livraison 1</description>
+        </translation>
+    </translations>
+</deliveryWindow>
+```
 
 ***
 
@@ -402,7 +411,7 @@ Custom display fields for additional product information.
 | `linkUrl`      | String                                                             | No       | Makes the field value a clickable link                                 |
 | `important`    | Boolean                                                            | **Yes**  | When `true`, field is prominently displayed                            |
 | `visible`      | Boolean                                                            | No       | When `false`, field is hidden (default: true)                          |
-| `translations` | List<[Extra Field Translation](products.md#extra-field-translation)> | No       | Translations for description and value (XML: `<translation>`)          |
+| `translations` | List<[Extra Field Translation](products.md#extra-field-translation)> | No       | Translations for description and value (XML: `<translations><translation language="xx">`) |
 
 {% hint style="warning" %}
 **Functional Requirement:** While `name` and `description` are technically optional in the schema, they are **functionally required** for the field to display properly. Always provide both for meaningful extra fields.
@@ -434,20 +443,32 @@ Relationship between products.
 
 ### Product Translation
 
-| Field      | Type                                                             | Description                    |
-| ---------- | ---------------------------------------------------------------- | ------------------------------ |
-| `language` | String                                                           | Language code (en, nl, de, fr) |
-| `fields`   | [Translated Product Fields](products.md#translated-product-fields) | Translated field values        |
+`language` is an XML **attribute** on `<translation>`, not a child element. Translated fields are direct children of `<translation>` — there is no `<fields>` wrapper.
 
-### Translated Product Fields
-
-All translatable product fields:
+### Translatable product fields
 
 * `name`, `description`, `brandName`, `colorDesc`
 * `categoryDesc`, `collectionDesc`, `productGroupDesc`
 * `approvalGroupDesc`, `seasonDesc`, `gender`
 * `material`, `fit`, `summary`, `sale`
 * `searchText`, `userDefinedField1`, `userDefinedField2`
+
+### Example
+
+```xml
+<translations>
+    <translation language="nl">
+        <name>Atoll Bikini Top</name>
+        <description>Zacht gerecycled polyamide met UPF 50+ bescherming.</description>
+        <categoryDesc>Dames</categoryDesc>
+    </translation>
+    <translation language="fr">
+        <name>Haut de bikini Atoll</name>
+        <description>Polyamide recyclé doux avec protection UPF 50+.</description>
+        <categoryDesc>Femmes</categoryDesc>
+    </translation>
+</translations>
+```
 
 ***
 
@@ -550,25 +571,14 @@ Used for bulk extra field updates via the `updateExtraFields` operation.
 
 Translation of extra field content for multilingual support.
 
-### Fields
+`language` is an XML **attribute** on `<translation>`, not a child element. Translated fields are direct children — there is no `<fields>` wrapper.
 
-| Field      | Type                                                                   | Required | Description                                      |
-| ---------- | ---------------------------------------------------------------------- | -------- | ------------------------------------------------ |
-| `language` | String                                                                 | No       | IETF language tag (e.g., "en", "nl", "de", "fr") |
-| `fields`   | [Translated Extra Field Fields](products.md#translated-extra-field-fields) | No       | Translated field content                         |
+### Translatable fields
 
-***
-
-## Translated Extra Field Fields
-
-Contains the translated values for an extra field.
-
-### Fields
-
-| Field         | Type   | Required | Description                    |
-| ------------- | ------ | -------- | ------------------------------ |
-| `description` | String | No       | Translated display title/label |
-| `value`       | String | No       | Translated field value         |
+| Field         | Type   | Description                    |
+| ------------- | ------ | ------------------------------ |
+| `description` | String | Translated display title/label |
+| `value`       | String | Translated field value         |
 
 ### Example
 
@@ -578,19 +588,15 @@ Contains the translated values for an extra field.
     <description>Care Instructions</description>
     <value>Machine wash cold</value>
     <important>true</important>
-    <translation>
-        <language>nl</language>
-        <fields>
+    <translations>
+        <translation language="nl">
             <description>Wasinstructies</description>
             <value>Machine wassen koud</value>
-        </fields>
-    </translation>
-    <translation>
-        <language>de</language>
-        <fields>
+        </translation>
+        <translation language="de">
             <description>Pflegehinweise</description>
             <value>Kalt waschen</value>
-        </fields>
-    </translation>
+        </translation>
+    </translations>
 </extraField>
 ```
