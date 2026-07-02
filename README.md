@@ -147,8 +147,8 @@ After:  Product A has prices [P4, P5]
 
 ## Changelog
 
-See the [full changelog](changelog.md) for the complete schema and feature history. Highlights since v1.4:
+See the [full changelog](changelog.md) for the complete schema and feature history. Highlights with v1.4 update:
 
-* **Product Relations input document** — new in v1.5, supports Successor and Matching Set relation types
+* **Product Relations input document** — new in v1.4 update, supports Successor and Matching Set relation types
 * **Customer Size Naming** — added per-customer size labels on the Sizes sub-feed
 * **GLN and State** — added on Customers and Locations for Global Location Number and state/province
