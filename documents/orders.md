@@ -84,11 +84,11 @@ If the customer picked an existing shipping location, `<shipToDetails>` captures
 | `street`             | `string` | Street.                                             |
 | `houseNumber`        | `string` | House number.                                       |
 | `houseNumberSuffix`  | `string` | House number suffix.                                |
-| `state`              | `string` | State / province. _New in v1.5._                    |
+| `state`              | `string` | State / province. _New in v1.4._                    |
 | `postalCode`         | `string` | Postal code.                                        |
 | `city`               | `string` | City.                                               |
 | `country`            | `string` | Country.                                            |
-| `gln`                | `string` | Global Location Number. _New in v1.5._              |
+| `gln`                | `string` | Global Location Number. _New in v1.4._              |
 | `email`              | `string` | Email.                                              |
 | `telephone`          | `string` | Phone.                                              |
 | `contactFirstName`   | `string` | Contact first name (on `<shipToDetails>` only).     |

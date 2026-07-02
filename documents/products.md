@@ -161,7 +161,7 @@ If the size is a prepack box, define its contents in `<prepackDefinition>`:
 
 ### Customer size naming
 
-The `customerSizeNaming` block (added in v1.5) lets a single internal size carry per-customer labels — useful when wholesale partners use their own labelling.
+The `customerSizeNaming` block (added in v1.4) lets a single internal size carry per-customer labels — useful when wholesale partners use their own labelling.
 
 | Element        | Type     | Mandatory | Description                                                                                                       |
 | -------------- | -------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
