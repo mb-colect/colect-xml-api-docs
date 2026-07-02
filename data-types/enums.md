@@ -1,6 +1,6 @@
 # Enumerations
 
-Complete reference for all enumeration types used in the Colect XML API.
+Complete reference for all enumeration types used in the Colect XML integration.
 
 ***
 

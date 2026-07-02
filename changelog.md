@@ -1,6 +1,6 @@
 # Changelog
 
-Schema and feature history for the Colect XML API.
+Schema and feature history for the Colect XML integration.
 
 ***
 
