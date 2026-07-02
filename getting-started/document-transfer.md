@@ -1,6 +1,6 @@
 # Document Transfer
 
-The Colect XML API moves data between your ERP and the Colect platform as **XML documents**. The documents themselves are the same regardless of how they are transferred — what changes between integrations is the transport channel.
+The Colect XML integration moves data between your ERP and the Colect platform as **XML documents**. The documents themselves are the same regardless of how they are transferred — what changes between integrations is the transport channel.
 
 ***
 

@@ -1,6 +1,6 @@
 # Data Types Overview
 
-This reference documents all data types used in the Colect XML API.
+This reference documents all data types used in the Colect XML integration.
 
 ---
 
