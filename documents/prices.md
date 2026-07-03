@@ -20,7 +20,7 @@ The **Prices** input document is a sub-feed of [Products](products.md) that cont
 | **Root element**        | `<products>`                                                                          |
 | **File name pattern**   | `prices*.xml`                                                                         |
 | **Sync mode**           | Sub-feed replace — products in document have prices replaced; others unchanged         |
-| **XSD**                 | [ProductPrices\_Feed\_XSD.xsd](../schema/snapshots/2026-05-06/ProductPrices_Feed_XSD.xsd) |
+| **XSD**                 | [ProductPrices\_Feed\_XSD.xsd](../.gitbook/assets/ProductPrices_Feed_XSD.xsd) |
 | **Identifier**          | `uniqueId` + `colorCode`                                                              |
 
 {% hint style="info" %}

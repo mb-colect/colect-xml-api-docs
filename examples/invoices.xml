@@ -2,7 +2,7 @@
 <!--
   Invoices input document — example.
   Three invoices for one customer in different statuses (open, paid, overdue).
-  Validates against schema/snapshots/2026-05-06/Invoices_Feed_XSD.xsd
+  Validates against .gitbook/assets/Invoices_Feed_XSD.xsd
 -->
 <invoices>
 

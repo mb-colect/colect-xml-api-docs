@@ -7,7 +7,7 @@
   Source: 0102810/STB (e.g. blazer)
   Targets: 0521510/STB (trousers), 0521513/STB (skirt), 0621630/STB (top)
 
-  Validates against schema/snapshots/2026-05-06/ProductRelations_Feed_XSD.xsd
+  Validates against .gitbook/assets/ProductRelations_Feed_XSD.xsd
 -->
 <productRelations>
 

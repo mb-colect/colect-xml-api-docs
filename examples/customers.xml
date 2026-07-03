@@ -3,7 +3,7 @@
   Customers input document — comprehensive example.
   Shows three B2B customers with contacts, discount/margin groups, shipping locations,
   budgets, custom choices, agreements, order rules, and size access codes.
-  Validates against schema/snapshots/2026-05-06/Customer_Feed_XSD.xsd
+  Validates against .gitbook/assets/Customer_Feed_XSD.xsd
 -->
 <customers>
 

@@ -302,10 +302,10 @@ Free-form, optionally grouped attributes that surface in the app for things the 
 ## Validation tips
 
 {% hint style="info" %}
-**Before pushing a large catalog,** validate your file against the [Product\_Feed\_XSD.xsd](../schema/snapshots/2026-05-06/Product_Feed_XSD.xsd) using `xmllint` or your editor's XSD support:
+**Before pushing a large catalog,** validate your file against the [Product\_Feed\_XSD.xsd](../.gitbook/assets/Product_Feed_XSD.xsd) using `xmllint` or your editor's XSD support:
 
 ```bash
-xmllint --noout --schema schema/snapshots/2026-05-06/Product_Feed_XSD.xsd products.xml
+xmllint --noout --schema Product_Feed_XSD.xsd products.xml
 ```
 
 Catching schema errors locally is far faster than reading them from the Connector status page in the Colect backend.

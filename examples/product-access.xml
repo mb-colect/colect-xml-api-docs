@@ -5,7 +5,7 @@
    1. Customer C-00001: full restrict-then-add (limited to specific groups)
    2. Customer C-00042: see everything except a specific season
    3. Customer C-00100: see only one brand
-  Validates against schema/snapshots/2026-05-06/ProductAccess_Feed_XSD.xsd
+  Validates against .gitbook/assets/ProductAccess_Feed_XSD.xsd
 -->
 <productAccess>
 
