@@ -1,7 +1,7 @@
 # Overview
 
 ## Colect XML v1.4
-111
+
 Welcome to the Colect XML integration documentation. This document describes the structure of the XML-based interface offered by Colect — a document-exchange integration that lets your ERP system synchronize products, customers, orders, and related data with the Colect platform.
 
 {% hint style="info" %}
