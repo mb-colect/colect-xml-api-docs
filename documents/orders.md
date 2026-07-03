@@ -20,7 +20,7 @@ This is the only **output** document in the API. The XML structure mirrors the i
 | **Root element**        | `<orders>`                                                                            |
 | **File name pattern**   | `[orderNumber]-[random].xml` (e.g. `4XBQK7P2N1ZA-123.xml`)                           |
 | **Sync mode**           | Append — each file contains new orders ready for processing                            |
-| **XSD**                 | [OrderOutput\_Feed\_XSD.xsd](../.gitbook/assets/OrderOutput_Feed_XSD.xsd) |
+| **XSD**                 | [OrderOutput\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/OrderOutput_Feed_XSD.xsd) |
 | **Identifier**          | `orderNumber`                                                                         |
 
 {% hint style="info" %}

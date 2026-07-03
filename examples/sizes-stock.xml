@@ -4,7 +4,7 @@
   Hourly stock refresh for one style/color, including current stock + future restock dates.
   This document REPLACES the entire <sizes> block for each included product.
 
-  Validates against .gitbook/assets/ProductSizes_Feed_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/ProductSizes_Feed_XSD.xsd
 -->
 <products>
 

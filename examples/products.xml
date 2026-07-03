@@ -3,7 +3,7 @@
   Products input document — comprehensive example.
   Shows two products, each with multiple sizes, prices (default + price-group + customer-specific),
   stock levels (current + future), media, delivery windows, and extra fields.
-  Validates against .gitbook/assets/Product_Feed_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd
 -->
 <products>
 

@@ -4,7 +4,7 @@
   Refreshes prices for two products without re-sending the full catalog.
   This document REPLACES all prices for each included product.
 
-  Validates against .gitbook/assets/ProductPrices_Feed_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/ProductPrices_Feed_XSD.xsd
 -->
 <products>
 

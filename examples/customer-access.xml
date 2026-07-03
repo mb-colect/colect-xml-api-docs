@@ -2,7 +2,7 @@
 <!--
   Customer Access input document — example.
   Maps three app users to the customers they can sell to.
-  Validates against .gitbook/assets/Customer_Access_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/Customer_Access_XSD.xsd
 -->
 <customerAccess>
 

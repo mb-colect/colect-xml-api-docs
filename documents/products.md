@@ -16,7 +16,7 @@ The **Products** input document is the master record of your catalog in Colect. 
 | **Root element**        | `<products>`                                                                          |
 | **File name pattern**   | `products*.xml`                                                                       |
 | **Sync mode**           | Full set — products not present in the document are removed                            |
-| **XSD**                 | [Product\_Feed\_XSD.xsd](https://connector.colect.services/services/api/3.0?xsd=1)         |
+| **XSD**                 | [Product\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd)         |
 | **Identifier**          | `uniqueId` + `colorCode` together identify a product uniquely                          |
 
 {% hint style="info" %}
@@ -302,9 +302,10 @@ Free-form, optionally grouped attributes that surface in the app for things the 
 ## Validation tips
 
 {% hint style="info" %}
-**Before pushing a large catalog,** validate your file against the [Product\_Feed\_XSD.xsd](../.gitbook/assets/Product_Feed_XSD.xsd) using `xmllint` or your editor's XSD support:
+**Before pushing a large catalog,** validate your file against the [Product\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd) using `xmllint` or your editor's XSD support:
 
 ```bash
+curl -O https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd
 xmllint --noout --schema Product_Feed_XSD.xsd products.xml
 ```
 

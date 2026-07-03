@@ -4,7 +4,7 @@
   Refreshes the <extraFields> block for one product with grouped attributes.
   This document REPLACES the entire <extraFields> block for each included product.
 
-  Validates against .gitbook/assets/ProductExtraField_Feed_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/ProductExtraField_Feed_XSD.xsd
 -->
 <products>
 

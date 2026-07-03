@@ -16,7 +16,7 @@ The **Customers** input document carries the master record of every B2B customer
 | **Root element**        | `<customers>`                                                                         |
 | **File name pattern**   | `customers*.xml`                                                                      |
 | **Sync mode**           | Full set — customers not present in the document are removed                          |
-| **XSD**                 | [Customer\_Feed\_XSD.xsd](../.gitbook/assets/Customer_Feed_XSD.xsd)       |
+| **XSD**                 | [Customer\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/Customer_Feed_XSD.xsd)       |
 | **Identifier**          | `customerNo`                                                                          |
 
 ***

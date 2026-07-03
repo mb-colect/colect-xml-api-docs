@@ -5,7 +5,7 @@
     1. New order with multiple lines, line-level discount picked from Multi Promotions
     2. Cancellation of an earlier order (note canceledOrderNumber + same trackingNumber)
 
-  Validates against .gitbook/assets/OrderOutput_Feed_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/OrderOutput_Feed_XSD.xsd
 -->
 <orders>
 

@@ -3,7 +3,7 @@
   Historical Orders input document — example.
   One past order with multiple lines, including a shipped line with track-and-trace,
   and one returned line.
-  Validates against .gitbook/assets/HistoricalOrders_Feed_XSD.xsd
+  Validates against https://assets.apptitude.nl/Documentation/HistoricalOrders_Feed_XSD.xsd
 -->
 <orders>
 
