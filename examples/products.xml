@@ -3,7 +3,7 @@
   Products input document — comprehensive example.
   Shows two products, each with multiple sizes, prices (default + price-group + customer-specific),
   stock levels (current + future), media, delivery windows, and extra fields.
-  Validates against schema/snapshots/2026-05-06/Product_Feed_XSD.xsd
+  Validates against .gitbook/assets/Product_Feed_XSD.xsd
 -->
 <products>
 

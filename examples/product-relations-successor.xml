@@ -3,7 +3,7 @@
   Product Relations input document — Successor example.
   Three FW24 styles being replaced by their SS25 equivalents.
 
-  Validates against schema/snapshots/2026-05-06/ProductRelations_Feed_XSD.xsd
+  Validates against .gitbook/assets/ProductRelations_Feed_XSD.xsd
 -->
 <productRelations>
 
