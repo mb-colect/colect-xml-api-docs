@@ -20,7 +20,7 @@ The **Extra Fields** input document is a sub-feed of [Products](products.md) tha
 | **Root element**        | `<products>`                                                                                  |
 | **File name pattern**   | `extraFields*.xml`                                                                            |
 | **Sync mode**           | Sub-feed replace — products in document have extra fields replaced; others unchanged           |
-| **XSD**                 | [ProductExtraField\_Feed\_XSD.xsd](../.gitbook/assets/ProductExtraField_Feed_XSD.xsd) |
+| **XSD**                 | [ProductExtraField\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/ProductExtraField_Feed_XSD.xsd) |
 | **Identifier**          | `uniqueId` + `colorCode`                                                                      |
 
 ***

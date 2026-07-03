@@ -24,7 +24,7 @@ Historical Orders is **read-only inside Colect**. Customers can view and use the
 | **Root element**        | `<orders>`                                                                            |
 | **File name pattern**   | `historicalOrders*.xml`                                                               |
 | **Sync mode**           | Full set — orders not in the document are removed from display                         |
-| **XSD**                 | [HistoricalOrders\_Feed\_XSD.xsd](../.gitbook/assets/HistoricalOrders_Feed_XSD.xsd) |
+| **XSD**                 | [HistoricalOrders\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/HistoricalOrders_Feed_XSD.xsd) |
 | **Identifier**          | `orderNumber`                                                                         |
 
 ***

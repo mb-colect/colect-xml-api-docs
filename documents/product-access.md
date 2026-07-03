@@ -16,7 +16,7 @@ The **Product Access** input document declares which products each customer can 
 | **Root element**        | `<productAccess>`                                                                     |
 | **File name pattern**   | `productAccess*.xml`                                                                  |
 | **Sync mode**           | Full set — access rules not in the document are removed                                |
-| **XSD**                 | [ProductAccess\_Feed\_XSD.xsd](../.gitbook/assets/ProductAccess_Feed_XSD.xsd) |
+| **XSD**                 | [ProductAccess\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/ProductAccess_Feed_XSD.xsd) |
 | **Identifier**          | `customer/customerNo` (attribute)                                                     |
 
 ***

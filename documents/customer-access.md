@@ -16,7 +16,7 @@ The **Customer Access** input document maps app users (sales reps, agents) to th
 | **Root element**        | `<customerAccess>`                                                                    |
 | **File name pattern**   | `customerAccess*.xml`                                                                 |
 | **Sync mode**           | Full set — access entries not in the document are revoked                              |
-| **XSD**                 | [Customer\_Access\_XSD.xsd](../.gitbook/assets/Customer_Access_XSD.xsd)   |
+| **XSD**                 | [Customer\_Access\_XSD.xsd](https://assets.apptitude.nl/Documentation/Customer_Access_XSD.xsd)   |
 | **Identifier**          | `email` of the user                                                                   |
 
 {% hint style="info" %}

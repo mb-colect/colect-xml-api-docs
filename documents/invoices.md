@@ -20,7 +20,7 @@ Colect does not generate invoices. It only displays the invoice data your ERP pu
 | **Root element**        | `<invoices>`                                                                          |
 | **File name pattern**   | `invoices*.xml`                                                                       |
 | **Sync mode**           | Full set — invoices not in the document are removed from display                       |
-| **XSD**                 | [Invoices\_Feed\_XSD.xsd](../.gitbook/assets/Invoices_Feed_XSD.xsd)       |
+| **XSD**                 | [Invoices\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/Invoices_Feed_XSD.xsd)       |
 | **Identifier**          | `invoiceNumber`                                                                       |
 
 ***
