@@ -18,7 +18,7 @@ The XML integration is a **document-exchange interface**. Your ERP produces or c
 | --------------------- | ------------------------------------------------------------------------------------------ |
 | **Products**          | Sync your complete product catalog — sizes, colors, prices, stock, media, delivery windows |
 | **Customers**         | Manage customer accounts with pricing groups, discounts, agreements, and locations         |
-| **Orders**            | Pull orders placed through the Colect Sales App and B2B Webstore back into your ERP        |
+| **Orders**            | Colect places orders from the Sales App and B2B Webstore in your outbox for your ERP to retrieve |
 | **Access**            | Control which products are visible to which customers, and which agents can sell to whom   |
 | **Invoices**          | Push invoice data for customer visibility in the app                                       |
 | **Historical Orders** | Make past orders visible inside the app for reordering and reference                       |
@@ -73,7 +73,7 @@ Documents move between your ERP and Colect over a file-transfer channel. The def
 | Direction        | Documents                                                                                                                                            | Description                                                      |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
 | **ERP → Colect** | Products, Customers, Customer Access, Product Access, Product Relations, Prices, Sizes/Stock, Extra Fields, Invoices, Historical Orders, Order Rules | You push master data, access rules, and reference data to Colect |
-| **Colect → ERP** | Orders                                                                                                                                               | You pull orders placed by customers and sales reps               |
+| **Colect → ERP** | Orders                                                                                                                                               | Colect places orders from customers and sales reps in your outbox; your ERP retrieves them |
 
 ***
 
