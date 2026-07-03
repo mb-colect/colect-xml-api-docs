@@ -20,7 +20,7 @@ The **Product Relations** input document declares relationships between products
 | **Root element**        | `<productRelations>`                                                                                        |
 | **File name pattern**   | `productRelations*.xml`                                                                                     |
 | **Sync mode**           | Full set — relations not in the document are removed                                                        |
-| **XSD**                 | [ProductRelations\_Feed\_XSD.xsd](../schema/snapshots/2026-05-06/ProductRelations_Feed_XSD.xsd)             |
+| **XSD**                 | [ProductRelations\_Feed\_XSD.xsd](../.gitbook/assets/ProductRelations_Feed_XSD.xsd)             |
 | **Identifier**          | Tuple: `groupCode` + `sourceProductUniqueId` + `sourceProductColorCode` + `targetProductUniqueId` + `targetProductColorCode` + `type` |
 
 ***

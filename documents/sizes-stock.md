@@ -20,7 +20,7 @@ The **Sizes & Stock** input document is a sub-feed of [Products](products.md) th
 | **Root element**      | `<products>`                                                                            |
 | **File name pattern** | `sizes*.xml`                                                                            |
 | **Sync mode**         | Sub-feed replace — products in document have sizes/stock replaced; others unchanged     |
-| **XSD**               | [ProductSizes\_Feed\_XSD.xsd](../schema/snapshots/2026-05-06/ProductSizes_Feed_XSD.xsd) |
+| **XSD**               | [ProductSizes\_Feed\_XSD.xsd](../.gitbook/assets/ProductSizes_Feed_XSD.xsd) |
 | **Identifier**        | `uniqueId` + `colorCode`                                                                |
 
 ***
