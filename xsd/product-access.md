@@ -1,0 +1,35 @@
+# Product Access XSD
+
+Schema for the [Product Access](../documents/product-access.md) input document.
+
+**Live schema:** [https://assets.apptitude.nl/Documentation/ProductAccess\_Feed\_XSD.xsd](https://assets.apptitude.nl/Documentation/ProductAccess_Feed_XSD.xsd)
+
+### Fragment
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="productAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="productAccessRule">
+                <xs:complexType>
+                  <xs:attribute name="type" type="xs:string" use="required" />
+                  <xs:attribute name="productGroupCode" type="xs:string" use="optional" />
+                  <xs:attribute name="categoryCode" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="customerNo" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+```
+
+This document's schema is short enough to show in full — no truncation above.
