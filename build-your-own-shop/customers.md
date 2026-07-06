@@ -21,6 +21,10 @@ Last piece: the people who can actually log in and place orders. This step pushe
 
 Create `atoll_customers.xml` — 6 boutique retailers across 5 countries, each with a buyer + shop manager contact and a shipping location. Côte Bleue Nice has two shipping locations (its Nice store and a Saint-Tropez location).
 
+{% hint style="success" %}
+Every Atoll product carries `discountGroupCode>SWIM` and `marginGroupCode>STD` (see [The Catalog](catalog.md)), but those codes were never defined until now. `ATL-C001` (Surf & Sun Amsterdam) gets a two-tier volume discount on `SWIM` — 10% at 6+ units, 15% at 12+ — plus a `STD` margin override, matching the [Discount Groups](../documents/customers.md#discount-groups) and [Margin Groups](../documents/customers.md#margin-groups) reference. This is also a live test of `minQuantity`, which [issue #42](https://github.com/mb-colect/colect-xml-api-docs/issues/42) flags as unconfirmed — check the discount actually kicks in at 6 units, not before.
+{% endhint %}
+
 <details>
 
 <summary>Show full atoll_customers.xml (6 customers)</summary>
@@ -72,6 +76,13 @@ Create `atoll_customers.xml` — 6 boutique retailers across 5 countries, each w
     <currencyCode>EUR</currencyCode>
     <status>ACTIVE</status>
     <sizeNamingCode>EU</sizeNamingCode>
+    <discountGroups>
+      <discountGroup amount="10" code="SWIM" minQuantity="6" identifier="swim.6"/>
+      <discountGroup amount="15" code="SWIM" minQuantity="12" identifier="swim.12"/>
+    </discountGroups>
+    <marginGroups>
+      <marginGroup amount="2.3" code="STD"/>
+    </marginGroups>
     <shippingLocations>
       <shippingLocation>
         <code>ATL-C001-SHP</code>
@@ -420,6 +431,10 @@ sftp> bye
 Log into the Sales App or B2B Webstore as `sophie.martin@atoll-brand.com` — you should see the four EU customers (Amsterdam, Knokke, Nice, Hamburg) and be able to place an order in EUR. Logging in as `james.walker@atoll-brand.com` should show London (GBP) and Miami (USD) instead.
 
 <!-- screenshot: customer picker filtered to a rep's assigned territory -->
+
+Add Amsterdam (`ATL-C001`) to an order and put any `SWIM` product's quantity at 6 or more — the 10% discount should apply automatically. Below 6, no discount. At 12+, it should step up to 15%.
+
+<!-- screenshot: order line showing the SWIM discount applied at 6+ units -->
 
 ***
 
