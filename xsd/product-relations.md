@@ -6,8 +6,6 @@ Schema for the [Product Relations](../documents/product-relations.md) input docu
 Not yet published at `assets.apptitude.nl` — this is the local snapshot copy. See [#12](https://github.com/mb-colect/colect-xml-api-docs/issues/12).
 {% endhint %}
 
-**Snapshot:** [ProductRelations\_Feed\_XSD.xsd](../.gitbook/assets/ProductRelations_Feed_XSD.xsd)
-
 ### Fragment
 
 ```xml

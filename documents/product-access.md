@@ -3,8 +3,44 @@
 The **Product Access** input document declares which products each customer can see. It's the inverse of [Customer Access](customer-access.md): where Customer Access controls which customers a sales rep can sell to, Product Access controls which products a given customer is allowed to view and order.
 
 {% hint style="success" %}
-**Example:** [`examples/product-access.xml`](../.gitbook/assets/product-access.xml) — three patterns: restrict-then-add, exclude one season, and a single-brand boutique.
+**Example:** `examples/product-access.xml` — three patterns: restrict-then-add, exclude one season, and a single-brand boutique.
 {% endhint %}
+
+{% code title="product-access.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Product Access input document — example.
+  Shows three patterns:
+   1. Customer C-00001: full restrict-then-add (limited to specific groups)
+   2. Customer C-00042: see everything except a specific season
+   3. Customer C-00100: see only one brand
+  Validates against https://assets.apptitude.nl/Documentation/ProductAccess_Feed_XSD.xsd
+-->
+<productAccess>
+
+  <!-- Acme: wipe all, then add back two product groups -->
+  <customer customerNo="C-00001">
+    <productAccessRule type="REMOVE"/>
+    <productAccessRule type="ADD" productGroupCode="TOPS"      categoryCode="TSHIRTS"/>
+    <productAccessRule type="ADD" productGroupCode="BOTTOMS"   categoryCode="JEANS"/>
+    <productAccessRule type="ADD" productGroupCode="OUTERWEAR" categoryCode="JACKETS"/>
+  </customer>
+
+  <!-- Beachside: see everything except SS24 leftovers -->
+  <customer customerNo="C-00042">
+    <productAccessRule type="REMOVE" seasonCode="SS24"/>
+  </customer>
+
+  <!-- Single-brand boutique: only one brand visible -->
+  <customer customerNo="C-00100">
+    <productAccessRule type="REMOVE"/>
+    <productAccessRule type="ADD" brandId="EB"/>
+  </customer>
+
+</productAccess>
+```
+{% endcode %}
 
 ***
 

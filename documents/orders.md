@@ -3,8 +3,162 @@
 The **Orders** output document is the single document Colect produces *for* your ERP. Every order placed through the Sales App, B2B Webstore, or any other Colect surface is delivered as an Orders document for your ERP to ingest.
 
 {% hint style="success" %}
-**Example:** [`examples/orders-output.xml`](../.gitbook/assets/orders-output.xml) — a new order with multiple lines including a Multi-Promotions discount selection, plus a cancellation showing the `trackingNumber` convention.
+**Example:** `examples/orders-output.xml` — a new order with multiple lines including a Multi-Promotions discount selection, plus a cancellation showing the `trackingNumber` convention.
 {% endhint %}
+
+{% code title="orders-output.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Orders output document — example.
+  This is what your ERP receives in orderfiles/. Two orders shown:
+    1. New order with multiple lines, line-level discount picked from Multi Promotions
+    2. Cancellation of an earlier order (note canceledOrderNumber + same trackingNumber)
+
+  Validates against https://assets.apptitude.nl/Documentation/OrderOutput_Feed_XSD.xsd
+-->
+<orders>
+
+  <!-- ============================================================
+       Order 1: New order
+       ============================================================ -->
+  <order>
+    <collectionId>SS25</collectionId>
+    <orderNumber>4XBQK7P2N1ZA</orderNumber>
+    <trackingNumber>4XBQK7P2N1ZA</trackingNumber>
+    <customerOrderReference>PO-12345</customerOrderReference>
+    <orderTypeCode>STANDARD</orderTypeCode>
+    <signed>true</signed>
+    <timestamp>20260506 14:32</timestamp>
+    <salesPerson>jane.rep@example.com</salesPerson>
+    <customerNo>C-00001</customerNo>
+    <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
+    <comment>Rush delivery for store opening</comment>
+    <requestedDeliveryDate>20260601</requestedDeliveryDate>
+    <requestedDeliveryEndDate>20260615</requestedDeliveryEndDate>
+    <shipToCode>WAREHOUSE</shipToCode>
+
+    <contact>
+      <code>JD-001</code>
+      <firstName>Jane</firstName>
+      <lastName>Doe</lastName>
+      <role>Buyer</role>
+      <phone>+31 20 123 4568</phone>
+      <email>jane@acme.example</email>
+    </contact>
+
+    <shipToDetails>
+      <code>WAREHOUSE</code>
+      <name>Acme Distribution Centre</name>
+      <street>Industrieweg</street>
+      <houseNumber>40</houseNumber>
+      <postalCode>1043BB</postalCode>
+      <city>Amsterdam</city>
+      <country>NL</country>
+      <gln>8712345000025</gln>
+      <email>warehouse@acme.example</email>
+      <contactFirstName>Jane</contactFirstName>
+      <contactLastName>Doe</contactLastName>
+    </shipToDetails>
+
+    <customChoices>
+      <customChoice>
+        <group>delivery</group>
+        <code>EXPRESS</code>
+      </customChoice>
+    </customChoices>
+
+    <orderLines>
+      <orderLine>
+        <type>STOCK_ORDER</type>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>BLK</productColorCode>
+        <sizeName>M</sizeName>
+        <productSeason>SS25</productSeason>
+        <eanCode>8712345678902</eanCode>
+        <numberOfPieces>25</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
+        <discountPercentage>15</discountPercentage>
+        <discountGroupCode>VOL</discountGroupCode>
+        <discountFromDiscountGroup>3.38</discountFromDiscountGroup>
+        <discountGroupIdentifier>vol.25</discountGroupIdentifier>
+        <netWholesalePrice>19.13</netWholesalePrice>
+        <grossWholesalePrice>23.15</grossWholesalePrice>
+        <lineAmount>478.13</lineAmount>
+        <deliveryDate>20260601</deliveryDate>
+      </orderLine>
+
+      <orderLine>
+        <type>STOCK_ORDER</type>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>BLK</productColorCode>
+        <sizeName>L</sizeName>
+        <productSeason>SS25</productSeason>
+        <eanCode>8712345678903</eanCode>
+        <numberOfPieces>15</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
+        <discountPercentage>10</discountPercentage>
+        <discountGroupCode>VOL</discountGroupCode>
+        <discountFromDiscountGroup>2.25</discountFromDiscountGroup>
+        <discountGroupIdentifier>vol.10</discountGroupIdentifier>
+        <netWholesalePrice>20.25</netWholesalePrice>
+        <lineAmount>303.75</lineAmount>
+        <deliveryDate>20260601</deliveryDate>
+      </orderLine>
+
+      <orderLine>
+        <type>STOCK_ORDER</type>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>WHT</productColorCode>
+        <sizeName>M</sizeName>
+        <productSeason>SS25</productSeason>
+        <eanCode>8712345678912</eanCode>
+        <numberOfPieces>10</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
+        <discountPercentage>5</discountPercentage>
+        <discountGroupCode>*</discountGroupCode>
+        <discountFromDiscountGroup>1.13</discountFromDiscountGroup>
+        <discountGroupIdentifier>all</discountGroupIdentifier>
+        <netWholesalePrice>21.38</netWholesalePrice>
+        <lineAmount>213.75</lineAmount>
+        <deliveryDate>20260601</deliveryDate>
+      </orderLine>
+    </orderLines>
+  </order>
+
+  <!-- ============================================================
+       Order 2: Cancellation of an earlier order
+       ============================================================ -->
+  <order>
+    <collectionId>SS25</collectionId>
+    <orderNumber>9JK3M5Q8R2YB</orderNumber>
+    <trackingNumber>4XBQK7P2N1ZA</trackingNumber>
+    <canceledOrderNumber>4XBQK7P2N1ZA</canceledOrderNumber>
+    <orderTypeCode>STANDARD</orderTypeCode>
+    <signed>true</signed>
+    <timestamp>20260506 16:45</timestamp>
+    <salesPerson>jane.rep@example.com</salesPerson>
+    <customerNo>C-00001</customerNo>
+    <customerPriceGroup>WHOLESALE_EU</customerPriceGroup>
+    <comment>Cancelled — customer requested re-quote on volumes</comment>
+    <shipToCode>WAREHOUSE</shipToCode>
+    <!-- Order lines repeat the original lines verbatim — your ERP knows it's a cancel from canceledOrderNumber -->
+    <orderLines>
+      <orderLine>
+        <type>STOCK_ORDER</type>
+        <productUniqueId>STYLE-001</productUniqueId>
+        <productColorCode>BLK</productColorCode>
+        <sizeName>M</sizeName>
+        <eanCode>8712345678902</eanCode>
+        <numberOfPieces>25</numberOfPieces>
+        <wholesalePrice>22.50</wholesalePrice>
+      </orderLine>
+    </orderLines>
+  </order>
+
+</orders>
+```
+{% endcode %}
 
 {% hint style="info" %}
 This is the only **output** document in the API. The XML structure mirrors the input documents, but the direction is **Colect → ERP** — files appear in your `orderfiles/` folder for your ERP to pick up.

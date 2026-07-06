@@ -3,8 +3,82 @@
 The **Extra Fields** input document is a sub-feed of [Products](products.md) that contains only `uniqueId`, `colorCode`, and `<extraFields>`. Use it to refresh free-form attributes (fabric composition, care instructions, certifications, etc.) without re-sending the full catalog.
 
 {% hint style="success" %}
-**Example:** [`examples/extra-fields.xml`](../.gitbook/assets/extra-fields.xml) — extra fields grouped into materials, provenance, and certifications categories, with icons and an `important` flag.
+**Example:** `examples/extra-fields.xml` — extra fields grouped into materials, provenance, and certifications categories, with icons and an `important` flag.
 {% endhint %}
+
+{% code title="extra-fields.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Extra Fields sub-feed input document — example.
+  Refreshes the <extraFields> block for one product with grouped attributes.
+  This document REPLACES the entire <extraFields> block for each included product.
+
+  Validates against https://assets.apptitude.nl/Documentation/ProductExtraField_Feed_XSD.xsd
+-->
+<products>
+
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>BLK</colorCode>
+    <extraFields>
+      <!-- Group: materials -->
+      <extraField>
+        <name>fabric</name>
+        <description>Fabric composition</description>
+        <value>100% organic cotton</value>
+        <group>materials</group>
+      </extraField>
+      <extraField>
+        <name>weight</name>
+        <description>Weight</description>
+        <value>180 gsm</value>
+        <group>materials</group>
+      </extraField>
+      <extraField>
+        <name>care</name>
+        <description>Care instructions</description>
+        <value>Machine wash 30°C, do not tumble dry, iron on low</value>
+        <group>materials</group>
+      </extraField>
+
+      <!-- Group: provenance -->
+      <extraField>
+        <name>made-in</name>
+        <description>Made in</description>
+        <value>Portugal</value>
+        <group>provenance</group>
+      </extraField>
+      <extraField>
+        <name>factory</name>
+        <description>Factory</description>
+        <value>Têxtil Aveiro, certified Sedex SMETA 4-pillar</value>
+        <group>provenance</group>
+      </extraField>
+
+      <!-- Group: certifications, with icon and important flag -->
+      <extraField>
+        <name>gots</name>
+        <description>GOTS certified</description>
+        <value>Certified organic by GOTS</value>
+        <group>certifications</group>
+        <important>true</important>
+        <imageUrl>https://images.example.com/icons/gots.svg</imageUrl>
+        <linkUrl>https://global-standard.org/</linkUrl>
+      </extraField>
+      <extraField>
+        <name>oekotex</name>
+        <description>OEKO-TEX Standard 100</description>
+        <value>OEKO-TEX Standard 100 — Class I (suitable for babies)</value>
+        <group>certifications</group>
+        <imageUrl>https://images.example.com/icons/oekotex.svg</imageUrl>
+      </extraField>
+    </extraFields>
+  </product>
+
+</products>
+```
+{% endcode %}
 
 {% hint style="warning" %}
 **This document REPLACES the entire `<extraFields>` block** for each included product. To add a single new extra field, send the document with all of the product's existing extra fields plus the new one.

@@ -3,8 +3,60 @@
 The **Order Rules** documents push order-level discount and delivery cost rules — modifications applied to an order *as a whole* based on its total amount, total quantity, or other criteria. They live alongside line-level discount groups (see [Multi Promotions](../business-logic/multi-promotions.md)) and apply on top of them.
 
 {% hint style="success" %}
-**Example:** [`examples/order-rules.xml`](../.gitbook/assets/order-rules.xml) — a standalone collection-wide order-rules document covering time-bound, exclusive, and delivery-date-based rules. For per-customer rules, see the same blocks inside [`examples/customers.xml`](../.gitbook/assets/customers.xml).
+**Example:** `examples/order-rules.xml` — a standalone collection-wide order-rules document covering time-bound, exclusive, and delivery-date-based rules. For per-customer rules, see the same blocks inside the [Customers document](customers.md)'s example.
 {% endhint %}
+
+{% code title="order-rules.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Order Rules standalone input document — example.
+  Collection-wide rules that apply to all customers (vs. per-customer rules
+  embedded in the Customers document).
+-->
+<orderRules>
+
+  <orderDiscountRules>
+    <orderDiscountRule>
+      <identification>spring2026</identification>
+      <description>Spring 2026 promo — 8% off all orders</description>
+      <startDate>20260301</startDate>
+      <endDate>20260331</endDate>
+      <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+      <discountPercentage>8</discountPercentage>
+    </orderDiscountRule>
+
+    <orderDiscountRule>
+      <identification>preorderss26</identification>
+      <description>15% off pre-orders for SS26 (delivery-date based)</description>
+      <startDate>20260101</startDate>
+      <endDate>20261231</endDate>
+      <evaluationMethod>EVALUATE_BASED_ON_DELIVERY_DATE</evaluationMethod>
+      <discountPercentage>15</discountPercentage>
+      <exclusive>true</exclusive>
+    </orderDiscountRule>
+  </orderDiscountRules>
+
+  <orderDeliveryCostRules>
+    <orderDeliveryCostRule>
+      <identification>freeshipping1500</identification>
+      <description>Free shipping on orders over EUR 1500 (collection-wide)</description>
+      <minimumOrderAmount>1500</minimumOrderAmount>
+      <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+      <amount>0</amount>
+    </orderDeliveryCostRule>
+
+    <orderDeliveryCostRule>
+      <identification>flatrate</identification>
+      <description>EUR 25 flat-rate shipping under EUR 1500</description>
+      <evaluationMethod>EVALUATE_BASED_ON_TODAY</evaluationMethod>
+      <amount>25</amount>
+    </orderDeliveryCostRule>
+  </orderDeliveryCostRules>
+
+</orderRules>
+```
+{% endcode %}
 
 {% hint style="info" %}
 Order rules can be carried two ways:

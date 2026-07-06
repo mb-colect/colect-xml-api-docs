@@ -3,8 +3,114 @@
 The **Sizes & Stock** input document is a sub-feed of [Products](products.md) that contains only `uniqueId`, `colorCode`, and `<sizes>` (with stock levels and prepack definitions). Use it to refresh sizes and stock for products already in Colect — typically faster than re-sending the full catalog.
 
 {% hint style="success" %}
-**Example:** [`examples/sizes-stock.xml`](../.gitbook/assets/sizes-stock.xml) — current and future stock levels, an access-restricted size, and the v1.4 `customerSizeNaming` pattern.
+**Example:** `examples/sizes-stock.xml` — current and future stock levels, an access-restricted size, and the v1.4 `customerSizeNaming` pattern.
 {% endhint %}
+
+{% code title="sizes-stock.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Sizes & Stock sub-feed input document — example.
+  Hourly stock refresh for one style/color, including current stock + future restock dates.
+  This document REPLACES the entire <sizes> block for each included product.
+
+  Validates against https://assets.apptitude.nl/Documentation/ProductSizes_Feed_XSD.xsd
+-->
+<products>
+
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>BLK</colorCode>
+    <sizes>
+      <size>
+        <name>S</name>
+        <sortCode>1</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678901</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>110</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>M</name>
+        <sortCode>2</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678902</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>165</quantity>
+          </stockLevel>
+          <!-- Future restock arriving June 1 -->
+          <stockLevel>
+            <startDate>20260601</startDate>
+            <quantity>500</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>L</name>
+        <sortCode>3</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678903</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>132</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+      <size>
+        <name>XL</name>
+        <sortCode>4</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678904</eanCode>
+        <accessCode>PRO</accessCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>0</quantity>
+          </stockLevel>
+        </stockLevels>
+        <replenishmentDate>20260615</replenishmentDate>
+      </size>
+    </sizes>
+  </product>
+
+  <!-- Example with customerSizeNaming (v1.4) — internal "M" labelled "MEDIUM" for one customer group -->
+  <product>
+    <uniqueId>STYLE-001</uniqueId>
+    <colorCode>WHT</colorCode>
+    <sizes>
+      <size>
+        <name>M</name>
+        <sortCode>2</sortCode>
+        <prePackUnitCount>1</prePackUnitCount>
+        <eanCode>8712345678912</eanCode>
+        <customerSizeNaming>
+          <code>WHOLESALE_EU</code>
+          <sizeName>MEDIUM</sizeName>
+        </customerSizeNaming>
+        <customerSizeNaming>
+          <code>RETAIL</code>
+          <sizeName>M</sizeName>
+        </customerSizeNaming>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>200</quantity>
+          </stockLevel>
+        </stockLevels>
+      </size>
+    </sizes>
+  </product>
+
+</products>
+```
+{% endcode %}
 
 {% hint style="warning" %}
 **This document REPLACES the entire `<sizes>` block** for each included product. If a product previously had sizes S/M/L and your Sizes & Stock document only declares M/L, S is removed.
