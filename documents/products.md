@@ -3,7 +3,7 @@
 The **Products** input document is the master record of your catalog in Colect. A single Products document can carry every product the customer-facing app and B2B webstore need to display — including pricing, sizes, stock levels, media, delivery windows, and extra fields.
 
 {% hint style="success" %}
-**Example:** [`examples/products.xml`](../examples/products.xml) — comprehensive example with three products, multiple price types, sizes with future stock, a prepack box, media, delivery windows, and extra fields. See also [`examples/products-minimal.xml`](../examples/products-minimal.xml) for the smallest valid Products document.
+**Example:** [`examples/products.xml`](../.gitbook/assets/products.xml) — comprehensive example with three products, multiple price types, sizes with future stock, a prepack box, media, delivery windows, and extra fields. See also [`examples/products-minimal.xml`](../.gitbook/assets/products-minimal.xml) for the smallest valid Products document.
 {% endhint %}
 
 ***

@@ -3,7 +3,7 @@
 The **Extra Fields** input document is a sub-feed of [Products](products.md) that contains only `uniqueId`, `colorCode`, and `<extraFields>`. Use it to refresh free-form attributes (fabric composition, care instructions, certifications, etc.) without re-sending the full catalog.
 
 {% hint style="success" %}
-**Example:** [`examples/extra-fields.xml`](../examples/extra-fields.xml) — extra fields grouped into materials, provenance, and certifications categories, with icons and an `important` flag.
+**Example:** [`examples/extra-fields.xml`](../.gitbook/assets/extra-fields.xml) — extra fields grouped into materials, provenance, and certifications categories, with icons and an `important` flag.
 {% endhint %}
 
 {% hint style="warning" %}
