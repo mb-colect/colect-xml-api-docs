@@ -25,6 +25,10 @@ First up: get the Atoll catalog into the collection — 8 products across 5 styl
 Keep an eye on **`ATL-BKT` / `CRL`** and **`ATL-BKB` / `CRL`** — the Coral bikini top and bottom are a matching pair, and they come back in [Matching Sets](relations.md).
 {% endhint %}
 
+{% hint style="info" %}
+Each product carries a **default price in EUR, GBP, and USD**, plus a `WHOLESALE-EU` price-group price in EUR. That's not incidental — the customers in [Customers & Access](customers.md) span all three currencies (4 EU customers in EUR, London in GBP, Miami in USD), and a customer with no matching-currency price on a product can't see or order it.
+{% endhint %}
+
 ***
 
 ## Step — Write the document
@@ -137,6 +141,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <priceGroup>WHOLESALE-EU</priceGroup>
         <retailPrice>89.95</retailPrice>
         <wholesalePrice>40.50</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>79.95</retailPrice>
+        <wholesalePrice>40.00</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>99.95</retailPrice>
+        <wholesalePrice>50.00</wholesalePrice>
         <net>false</net>
       </price>
     </prices>
@@ -456,6 +472,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <wholesalePrice>40.50</wholesalePrice>
         <net>false</net>
       </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>79.95</retailPrice>
+        <wholesalePrice>40.00</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>99.95</retailPrice>
+        <wholesalePrice>50.00</wholesalePrice>
+        <net>false</net>
+      </price>
     </prices>
 
     <sizes>
@@ -738,6 +766,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <wholesalePrice>31.50</wholesalePrice>
         <net>false</net>
       </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>62.95</retailPrice>
+        <wholesalePrice>31.50</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>79.95</retailPrice>
+        <wholesalePrice>40.00</wholesalePrice>
+        <net>false</net>
+      </price>
     </prices>
 
     <sizes>
@@ -885,6 +925,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <wholesalePrice>31.50</wholesalePrice>
         <net>false</net>
       </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>62.95</retailPrice>
+        <wholesalePrice>31.50</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>79.95</retailPrice>
+        <wholesalePrice>40.00</wholesalePrice>
+        <net>false</net>
+      </price>
     </prices>
 
     <sizes>
@@ -1022,6 +1074,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <priceGroup>WHOLESALE-EU</priceGroup>
         <retailPrice>129.95</retailPrice>
         <wholesalePrice>58.50</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>114.95</retailPrice>
+        <wholesalePrice>57.50</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>149.95</retailPrice>
+        <wholesalePrice>75.00</wholesalePrice>
         <net>false</net>
       </price>
     </prices>
@@ -1162,6 +1226,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <wholesalePrice>36.00</wholesalePrice>
         <net>false</net>
       </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>69.95</retailPrice>
+        <wholesalePrice>35.00</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>89.95</retailPrice>
+        <wholesalePrice>45.00</wholesalePrice>
+        <net>false</net>
+      </price>
     </prices>
 
     <sizes>
@@ -1299,6 +1375,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <wholesalePrice>36.00</wholesalePrice>
         <net>false</net>
       </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>69.95</retailPrice>
+        <wholesalePrice>35.00</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>89.95</retailPrice>
+        <wholesalePrice>45.00</wholesalePrice>
+        <net>false</net>
+      </price>
     </prices>
 
     <sizes>
@@ -1426,6 +1514,18 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         <priceGroup>WHOLESALE-EU</priceGroup>
         <retailPrice>89.95</retailPrice>
         <wholesalePrice>40.50</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>GBP</currencyCode>
+        <retailPrice>79.95</retailPrice>
+        <wholesalePrice>40.00</wholesalePrice>
+        <net>false</net>
+      </price>
+      <price>
+        <currencyCode>USD</currencyCode>
+        <retailPrice>99.95</retailPrice>
+        <wholesalePrice>50.00</wholesalePrice>
         <net>false</net>
       </price>
     </prices>
