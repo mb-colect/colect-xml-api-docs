@@ -3,7 +3,7 @@
 The **Products** input document is the master record of your catalog in Colect. A single Products document can carry every product the customer-facing app and B2B webstore need to display — including pricing, sizes, stock levels, media, delivery windows, and extra fields.
 
 {% hint style="success" %}
-**Example:** `examples/products.xml` — comprehensive example with three products, multiple price types, sizes with future stock, a prepack box, media, delivery windows, and extra fields. See also `examples/products-minimal.xml` for the smallest valid Products document.
+**Example:** `examples/products.xml` — comprehensive example with three products, multiple price types, sizes with future stock, a prepack box, delivery windows, and extra fields. See also `examples/products-minimal.xml` for the smallest valid Products document.
 {% endhint %}
 
 {% code title="products.xml" %}
@@ -12,7 +12,7 @@ The **Products** input document is the master record of your catalog in Colect. 
 <!--
   Products input document — comprehensive example.
   Shows two products, each with multiple sizes, prices (default + price-group + customer-specific),
-  stock levels (current + future), media, delivery windows, and extra fields.
+  stock levels (current + future), delivery windows, and extra fields.
   Validates against https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd
 -->
 <products>
@@ -139,30 +139,6 @@ The **Products** input document is the master record of your catalog in Colect. 
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.example.com/style-001-blk.jpg</url>
-        <thumbUrl>https://images.example.com/style-001-blk_thumb.jpg</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>back</type>
-        <url>https://images.example.com/style-001-blk-back.jpg</url>
-        <thumbUrl>https://images.example.com/style-001-blk-back_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://images.example.com/swatch-blk.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://images.example.com/style-001-blk-model.jpg</url>
-        <thumbUrl>https://images.example.com/style-001-blk-model_thumb.jpg</thumbUrl>
-        <sortCode>2</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS25_DROP1</code>
@@ -269,17 +245,6 @@ The **Products** input document is the master record of your catalog in Colect. 
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.example.com/style-001-wht.jpg</url>
-        <thumbUrl>https://images.example.com/style-001-wht_thumb.jpg</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://images.example.com/swatch-wht.jpg</url>
-      </medium>
-    </media>
   </product>
 
   <!-- ============================================================
@@ -548,6 +513,10 @@ The combination of `code` + `sizeName` + `subSizeName` must be unique inside a s
 
 ## Media objects
 
+{% hint style="info" %}
+Most customers manage product images through backend settings rather than this block — images are dropped into the `images/` folder (see [Document Transfer](../getting-started/document-transfer.md)) and matched up automatically. The `<media>` block below is an alternative for customers who want to control image URLs directly from the XML; ask your Colect contact which setup applies to your collection.
+{% endhint %}
+
 The `<media>` block contains one or more `<medium>` entries. Each item requires a `primary` medium; other types add complementary visuals.
 
 | Attribute / Element | Type     | Mandatory | Description                                                                                                                  |
@@ -640,14 +609,6 @@ Free-form, optionally grouped attributes that surface in the app for things the 
         </stockLevels>
       </size>
     </sizes>
-
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.example.com/style-001-blk.jpg</url>
-        <thumbUrl>https://images.example.com/style-001-blk_thumb.jpg</thumbUrl>
-      </medium>
-    </media>
 
     <deliveryWindows>
       <deliveryWindow>
