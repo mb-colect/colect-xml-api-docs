@@ -1542,6 +1542,10 @@ Open your collection and look for the 8 Atoll products. All of them should appea
 No product images in this walkthrough's XML. Most customers manage images through backend settings instead of the `<media>` block — see [Media objects](../documents/products.md#media-objects) if you want the XML-driven alternative.
 {% endhint %}
 
+Backend-managed images pick up automatically once uploaded — no XML change needed. Products without an uploaded image just show the placeholder icon until one is added:
+
+![](<../.gitbook/assets/atoll-backend-images.png>)
+
 ***
 
 Once all 8 products show up, move on to [Stock](stock.md).
