@@ -6,6 +6,10 @@ The **Customers** input document carries the master record of every B2B customer
 **Example:** `examples/customers.xml` — two B2B customers with the full feature surface: contacts, discount/margin groups, shipping locations, budgets, custom choices, agreements, order rules, and size access codes.
 {% endhint %}
 
+<details>
+
+<summary>Show full customers.xml</summary>
+
 {% code title="customers.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -280,6 +284,8 @@ The **Customers** input document carries the master record of every B2B customer
 </customers>
 ```
 {% endcode %}
+
+</details>
 
 ***
 

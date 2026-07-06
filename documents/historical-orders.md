@@ -6,6 +6,10 @@ The **Historical Orders** input document pushes past orders from your ERP into C
 **Example:** `examples/historical-orders.xml` — a past order with shipped lines, track-and-trace URL, an attached shipping label, and a returned line with `returnReason`.
 {% endhint %}
 
+<details>
+
+<summary>Show full historical-orders.xml</summary>
+
 {% code title="historical-orders.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -117,6 +121,8 @@ The **Historical Orders** input document pushes past orders from your ERP into C
 </orders>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="info" %}
 Historical Orders is **read-only inside Colect**. Customers can view and use these records as templates for new orders, but they can't edit them. Lifecycle changes (status updates, shipment tracking) are reflected by re-sending the order with updated fields.

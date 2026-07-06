@@ -6,6 +6,10 @@ The **Extra Fields** input document is a sub-feed of [Products](products.md) tha
 **Example:** `examples/extra-fields.xml` — extra fields grouped into materials, provenance, and certifications categories, with icons and an `important` flag.
 {% endhint %}
 
+<details>
+
+<summary>Show full extra-fields.xml</summary>
+
 {% code title="extra-fields.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -79,6 +83,8 @@ The **Extra Fields** input document is a sub-feed of [Products](products.md) tha
 </products>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="warning" %}
 **This document REPLACES the entire `<extraFields>` block** for each included product. To add a single new extra field, send the document with all of the product's existing extra fields plus the new one.

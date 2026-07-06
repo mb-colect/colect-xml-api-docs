@@ -6,6 +6,10 @@ The **Order Rules** documents push order-level discount and delivery cost rules 
 **Example:** `examples/order-rules.xml` — a standalone collection-wide order-rules document covering time-bound, exclusive, and delivery-date-based rules. For per-customer rules, see the same blocks inside the [Customers document](customers.md)'s example.
 {% endhint %}
 
+<details>
+
+<summary>Show full order-rules.xml</summary>
+
 {% code title="order-rules.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -57,6 +61,8 @@ The **Order Rules** documents push order-level discount and delivery cost rules 
 </orderRules>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="info" %}
 Order rules can be carried two ways:

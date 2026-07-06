@@ -6,6 +6,10 @@ The **Orders** output document is the single document Colect produces *for* your
 **Example:** `examples/orders-output.xml` — a new order with multiple lines including a Multi-Promotions discount selection, plus a cancellation showing the `trackingNumber` convention.
 {% endhint %}
 
+<details>
+
+<summary>Show full orders-output.xml</summary>
+
 {% code title="orders-output.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -159,6 +163,8 @@ The **Orders** output document is the single document Colect produces *for* your
 </orders>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="info" %}
 This is the only **output** document in the API. The XML structure mirrors the input documents, but the direction is **Colect → ERP** — files appear in your `orderfiles/` folder for your ERP to pick up.

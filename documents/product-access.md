@@ -6,6 +6,10 @@ The **Product Access** input document declares which products each customer can 
 **Example:** `examples/product-access.xml` — three patterns: restrict-then-add, exclude one season, and a single-brand boutique.
 {% endhint %}
 
+<details>
+
+<summary>Show full product-access.xml</summary>
+
 {% code title="product-access.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,6 +45,8 @@ The **Product Access** input document declares which products each customer can 
 </productAccess>
 ```
 {% endcode %}
+
+</details>
 
 ***
 

@@ -6,6 +6,10 @@ The **Sizes & Stock** input document is a sub-feed of [Products](products.md) th
 **Example:** `examples/sizes-stock.xml` — current and future stock levels, an access-restricted size, and the v1.4 `customerSizeNaming` pattern.
 {% endhint %}
 
+<details>
+
+<summary>Show full sizes-stock.xml</summary>
+
 {% code title="sizes-stock.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -111,6 +115,8 @@ The **Sizes & Stock** input document is a sub-feed of [Products](products.md) th
 </products>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="warning" %}
 **This document REPLACES the entire `<sizes>` block** for each included product. If a product previously had sizes S/M/L and your Sizes & Stock document only declares M/L, S is removed.

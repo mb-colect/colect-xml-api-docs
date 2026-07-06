@@ -6,6 +6,10 @@ The **Products** input document is the master record of your catalog in Colect. 
 **Example:** `examples/products.xml` — comprehensive example with three products, multiple price types, sizes with future stock, a prepack box, delivery windows, and extra fields. See also `examples/products-minimal.xml` for the smallest valid Products document.
 {% endhint %}
 
+<details>
+
+<summary>Show full products.xml</summary>
+
 {% code title="products.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -306,6 +310,12 @@ The **Products** input document is the master record of your catalog in Colect. 
 ```
 {% endcode %}
 
+</details>
+
+<details>
+
+<summary>Show full products-minimal.xml</summary>
+
 {% code title="products-minimal.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -343,6 +353,8 @@ The **Products** input document is the master record of your catalog in Colect. 
 </products>
 ```
 {% endcode %}
+
+</details>
 
 ***
 

@@ -6,6 +6,10 @@ The **Product Relations** input document declares relationships between products
 **Examples:** `examples/product-relations-matching-set.xml` — outfit grouping with bidirectional relations. `examples/product-relations-successor.xml` — FW24 styles being replaced by SS25 equivalents.
 {% endhint %}
 
+<details>
+
+<summary>Show full product-relations-matching-set.xml</summary>
+
 {% code title="product-relations-matching-set.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -86,6 +90,12 @@ The **Product Relations** input document declares relationships between products
 ```
 {% endcode %}
 
+</details>
+
+<details>
+
+<summary>Show full product-relations-successor.xml</summary>
+
 {% code title="product-relations-successor.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -124,6 +134,8 @@ The **Product Relations** input document declares relationships between products
 </productRelations>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="info" %}
 **New in v1.4:** Product Relations is the first new input document since v1.4. It supports two relation types: `SUCCESSOR` and `MATCHING_SET`. See [Use cases](#use-cases) below for what each one drives in the user interface.
