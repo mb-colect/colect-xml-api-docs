@@ -6,24 +6,20 @@
 
 ## The brand: Atoll
 
-**Atoll** is a fictional swimwear brand used throughout this section. It's a small catalog on purpose — enough to show how documents connect to each other (a matching top and bottom, customers who can log in with different currencies) without the noise of a full production catalog.
-
-{% hint style="info" %}
-Everything here is trimmed down for readability. A real Atoll catalog has 8 products across 5 styles and 6 customers across 5 countries — this walkthrough uses 2 products and 2 customers so each step stays short enough to copy-paste in full.
-{% endhint %}
+**Atoll** is a fictional swimwear brand used throughout this section — a real (if small) catalog rather than a single placeholder product, so you can see how documents connect to each other: stock tied to a catalog, relations tied to two products, access tied to customers who must already exist.
 
 ***
 
 ## What you'll build
 
-| Step                                          | Document pushed                        | What appears in the app                                          |
-| ---------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------ |
-| [The Catalog](catalog.md)                      | Products                                | A bikini top and matching bottom, each with sizes, prices, media   |
-| [Stock](stock.md)                              | Sizes & Stock (sub-feed)                | Preorder stock quantities on the order grid                        |
-| [Matching Sets](relations.md)                  | Product Relations                       | The top and bottom surfaced as a matching set                      |
-| [Customers & Access](customers.md)             | Customers, Customer Access              | Two boutique customers, each visible to their assigned sales rep   |
+| Step                                          | Document pushed                        | What appears in the app                                                     |
+| ---------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------ |
+| [The Catalog](catalog.md)                      | Products                                | 8 Atoll products across 5 styles, sold out (no stock yet)                      |
+| [Stock](stock.md)                              | Sizes & Stock (sub-feed)                | Every size flips to Available, with a Feb 2028 restock on some                 |
+| [Matching Sets](relations.md)                  | Product Relations                       | The Coral (and Black) bikini top and bottom surfaced as a matching set         |
+| [Customers & Access](customers.md)             | Customers, Customer Access              | 6 boutique customers across 5 countries, each visible only to their sales rep  |
 
-By the end you'll have a working shop: a rep can log in, see the customers they're allowed to sell to, browse a catalog with a styled matching set, and check stock — all from documents you wrote yourself.
+By the end you'll have a working shop: two sales reps who can log in and each see only their own territory, a catalog with real stock and a styled matching set — all from documents you wrote yourself. See [What's Next](next-steps.md) once you're done.
 
 ***
 
