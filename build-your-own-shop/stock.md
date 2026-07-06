@@ -162,9 +162,13 @@ sftp> bye
 
 ## Step — Verify
 
-Refresh your collection and open one of the Atoll products — the Coral Bikini Top, for example. Its sizes should now show real stock quantities instead of sold out, and the band/cup sizes with two `<stockLevel>` entries (like `80`/`D`) should show a preorder quantity now and a larger restock quantity from Feb 2028.
+Refresh your collection and open one of the Atoll products — the Coral Bikini Top, for example. The order grid's band/cup boxes should now be marked **Available** (green) instead of sold out, and you should be able to type a quantity into any of them.
 
-<!-- screenshot: order grid / size grid showing stock quantities, ideally the 80/D preorder + restock split -->
+![](<../.gitbook/assets/atoll-stock-order-grid.png>)
+
+{% hint style="info" %}
+The grid shows availability status per size, not the raw quantity — that's why every box here reads `0` (the order quantity you'd type in) with a green border (in stock). Sizes with two `<stockLevel>` entries, like `80`/`D`, carry both the Spring 2027 preorder quantity and the larger Feb 2028 restock — switch the **Delivery Window** dropdown on the row to see the second one.
+{% endhint %}
 
 ***
 
