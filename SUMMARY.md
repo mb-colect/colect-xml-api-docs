@@ -23,6 +23,21 @@
 * [Order Discount & Delivery Cost Rules](documents/order-rules.md)
 * [Orders (output)](documents/orders.md)
 
+## XSD Reference
+
+* [Overview](xsd/overview.md)
+* [Products](xsd/products.md)
+* [Customers](xsd/customers.md)
+* [Customer Access](xsd/customer-access.md)
+* [Product Access](xsd/product-access.md)
+* [Product Relations](xsd/product-relations.md)
+* [Prices](xsd/prices.md)
+* [Sizes & Stock](xsd/sizes-stock.md)
+* [Extra Fields](xsd/extra-fields.md)
+* [Invoices](xsd/invoices.md)
+* [Historical Orders](xsd/historical-orders.md)
+* [Orders (output)](xsd/orders.md)
+
 ## Data Types
 
 * [Overview & Field Limits](data-types/overview.md)

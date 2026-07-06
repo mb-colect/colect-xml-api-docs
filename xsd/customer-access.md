@@ -1,0 +1,44 @@
+# Customer Access XSD
+
+Schema for the [Customer Access](../documents/customer-access.md) input document.
+
+**Live schema:** [https://assets.apptitude.nl/Documentation/Customer\_Access\_XSD.xsd](https://assets.apptitude.nl/Documentation/Customer_Access_XSD.xsd)
+
+### Fragment
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="customerAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="access">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="email" />
+              <xs:element name="defaultPriceGroup" />
+              <xs:element name="defaultCurrency" />
+              <xs:element name="customers">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="customer">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="customerNo" />
+                          <xs:element maxOccurs="unbounded" name="shippingLocationCode" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+```
+
+This document's schema is short enough to show in full — no truncation above.
