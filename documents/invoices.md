@@ -3,7 +3,7 @@
 The **Invoices** input document pushes invoice data from your ERP into Colect for customer visibility. Customers can see their invoices and outstanding balances inside the Colect Sales App and B2B Webstore — but the ledger of record stays in your ERP.
 
 {% hint style="success" %}
-**Example:** [`examples/invoices.xml`](../examples/invoices.xml) — open, paid, and overdue invoices in EUR plus a USD invoice for a different customer.
+**Example:** [`examples/invoices.xml`](../.gitbook/assets/invoices.xml) — open, paid, and overdue invoices in EUR plus a USD invoice for a different customer.
 {% endhint %}
 
 {% hint style="info" %}

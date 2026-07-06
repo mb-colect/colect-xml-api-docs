@@ -3,7 +3,7 @@
 The **Orders** output document is the single document Colect produces *for* your ERP. Every order placed through the Sales App, B2B Webstore, or any other Colect surface is delivered as an Orders document for your ERP to ingest.
 
 {% hint style="success" %}
-**Example:** [`examples/orders-output.xml`](../examples/orders-output.xml) — a new order with multiple lines including a Multi-Promotions discount selection, plus a cancellation showing the `trackingNumber` convention.
+**Example:** [`examples/orders-output.xml`](../.gitbook/assets/orders-output.xml) — a new order with multiple lines including a Multi-Promotions discount selection, plus a cancellation showing the `trackingNumber` convention.
 {% endhint %}
 
 {% hint style="info" %}

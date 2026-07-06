@@ -3,7 +3,7 @@
 The **Product Relations** input document declares relationships between products — used by the app to surface successor styles and matching sets. New in **XML 1.4**.
 
 {% hint style="success" %}
-**Examples:** [`examples/product-relations-matching-set.xml`](../examples/product-relations-matching-set.xml) — outfit grouping with bidirectional relations. [`examples/product-relations-successor.xml`](../examples/product-relations-successor.xml) — FW24 styles being replaced by SS25 equivalents.
+**Examples:** [`examples/product-relations-matching-set.xml`](../.gitbook/assets/product-relations-matching-set.xml) — outfit grouping with bidirectional relations. [`examples/product-relations-successor.xml`](../.gitbook/assets/product-relations-successor.xml) — FW24 styles being replaced by SS25 equivalents.
 {% endhint %}
 
 {% hint style="info" %}
