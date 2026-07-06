@@ -3,8 +3,127 @@
 The **Product Relations** input document declares relationships between products — used by the app to surface successor styles and matching sets. New in **XML 1.4**.
 
 {% hint style="success" %}
-**Examples:** [`examples/product-relations-matching-set.xml`](../.gitbook/assets/product-relations-matching-set.xml) — outfit grouping with bidirectional relations. [`examples/product-relations-successor.xml`](../.gitbook/assets/product-relations-successor.xml) — FW24 styles being replaced by SS25 equivalents.
+**Examples:** `examples/product-relations-matching-set.xml` — outfit grouping with bidirectional relations. `examples/product-relations-successor.xml` — FW24 styles being replaced by SS25 equivalents.
 {% endhint %}
+
+{% code title="product-relations-matching-set.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Product Relations input document — Matching Set example.
+  One outfit grouping (GROUP-002) with one source product and three matching items.
+  All in matching color STB.
+
+  Source: 0102810/STB (e.g. blazer)
+  Targets: 0521510/STB (trousers), 0521513/STB (skirt), 0621630/STB (top)
+
+  Validates against .gitbook/assets/ProductRelations_Feed_XSD.xsd
+-->
+<productRelations>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0102810</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0521510</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0102810</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0521513</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0102810</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0621630</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <!-- Bidirectional: also surface the set when looking at any of the targets -->
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0521510</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0102810</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0521513</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0102810</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>MATCHING_SET</type>
+    <groupCode>GROUP-002</groupCode>
+    <groupDescription>SS25 Outfit Set 2</groupDescription>
+    <sourceProductUniqueId>0621630</sourceProductUniqueId>
+    <sourceProductColorCode>STB</sourceProductColorCode>
+    <targetProductUniqueId>0102810</targetProductUniqueId>
+    <targetProductColorCode>STB</targetProductColorCode>
+  </productRelation>
+
+</productRelations>
+```
+{% endcode %}
+
+{% code title="product-relations-successor.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Product Relations input document — Successor example.
+  Three FW24 styles being replaced by their SS25 equivalents.
+
+  Validates against .gitbook/assets/ProductRelations_Feed_XSD.xsd
+-->
+<productRelations>
+
+  <productRelation>
+    <type>SUCCESSOR</type>
+    <sourceProductUniqueId>STYLE-FW24-001</sourceProductUniqueId>
+    <sourceProductColorCode>BLK</sourceProductColorCode>
+    <targetProductUniqueId>STYLE-SS25-001</targetProductUniqueId>
+    <targetProductColorCode>BLK</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>SUCCESSOR</type>
+    <sourceProductUniqueId>STYLE-FW24-001</sourceProductUniqueId>
+    <sourceProductColorCode>WHT</sourceProductColorCode>
+    <targetProductUniqueId>STYLE-SS25-001</targetProductUniqueId>
+    <targetProductColorCode>WHT</targetProductColorCode>
+  </productRelation>
+
+  <productRelation>
+    <type>SUCCESSOR</type>
+    <sourceProductUniqueId>STYLE-FW24-002</sourceProductUniqueId>
+    <sourceProductColorCode>NVY</sourceProductColorCode>
+    <targetProductUniqueId>STYLE-SS25-002</targetProductUniqueId>
+    <targetProductColorCode>NVY</targetProductColorCode>
+  </productRelation>
+
+</productRelations>
+```
+{% endcode %}
 
 {% hint style="info" %}
 **New in v1.4:** Product Relations is the first new input document since v1.4. It supports two relation types: `SUCCESSOR` and `MATCHING_SET`. See [Use cases](#use-cases) below for what each one drives in the user interface.
@@ -20,7 +139,7 @@ The **Product Relations** input document declares relationships between products
 | **Root element**        | `<productRelations>`                                                                                        |
 | **File name pattern**   | `productRelations*.xml`                                                                                     |
 | **Sync mode**           | Full set — relations not in the document are removed                                                        |
-| **XSD**                 | [ProductRelations\_Feed\_XSD.xsd](../.gitbook/assets/ProductRelations_Feed_XSD.xsd) — not yet published at `assets.apptitude.nl`, see [#12](https://github.com/mb-colect/colect-xml-api-docs/issues/12) |
+| **XSD**                 | [Product Relations XSD](../xsd/product-relations.md) — not yet published at `assets.apptitude.nl`, see [#12](https://github.com/mb-colect/colect-xml-api-docs/issues/12) |
 | **Identifier**          | Tuple: `groupCode` + `sourceProductUniqueId` + `sourceProductColorCode` + `targetProductUniqueId` + `targetProductColorCode` + `type` |
 
 ***

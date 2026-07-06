@@ -3,8 +3,74 @@
 The **Invoices** input document pushes invoice data from your ERP into Colect for customer visibility. Customers can see their invoices and outstanding balances inside the Colect Sales App and B2B Webstore — but the ledger of record stays in your ERP.
 
 {% hint style="success" %}
-**Example:** [`examples/invoices.xml`](../.gitbook/assets/invoices.xml) — open, paid, and overdue invoices in EUR plus a USD invoice for a different customer.
+**Example:** `examples/invoices.xml` — open, paid, and overdue invoices in EUR plus a USD invoice for a different customer.
 {% endhint %}
+
+{% code title="invoices.xml" %}
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Invoices input document — example.
+  Three invoices for one customer in different statuses (open, paid, overdue).
+  Validates against https://assets.apptitude.nl/Documentation/Invoices_Feed_XSD.xsd
+-->
+<invoices>
+
+  <invoice>
+    <invoiceNumber>INV-2026-00425</invoiceNumber>
+    <status>OPEN</status>
+    <customerNo>C-00001</customerNo>
+    <date>20260420</date>
+    <dueDate>20260520</dueDate>
+    <currency>EUR</currency>
+    <amountExcludingTax>1250.00</amountExcludingTax>
+    <taxAmount>262.50</taxAmount>
+    <outstandingAmount>1512.50</outstandingAmount>
+    <externalUrl>https://invoices.example.com/INV-2026-00425.pdf</externalUrl>
+  </invoice>
+
+  <invoice>
+    <invoiceNumber>INV-2026-00318</invoiceNumber>
+    <status>PAID</status>
+    <customerNo>C-00001</customerNo>
+    <date>20260315</date>
+    <dueDate>20260415</dueDate>
+    <currency>EUR</currency>
+    <amountExcludingTax>800.00</amountExcludingTax>
+    <taxAmount>168.00</taxAmount>
+    <outstandingAmount>0</outstandingAmount>
+    <externalUrl>https://invoices.example.com/INV-2026-00318.pdf</externalUrl>
+  </invoice>
+
+  <invoice>
+    <invoiceNumber>INV-2026-00211</invoiceNumber>
+    <status>OVERDUE</status>
+    <customerNo>C-00001</customerNo>
+    <date>20260201</date>
+    <dueDate>20260301</dueDate>
+    <currency>EUR</currency>
+    <amountExcludingTax>2400.00</amountExcludingTax>
+    <taxAmount>504.00</taxAmount>
+    <outstandingAmount>2904.00</outstandingAmount>
+    <externalUrl>https://invoices.example.com/INV-2026-00211.pdf</externalUrl>
+  </invoice>
+
+  <!-- Different customer, USD -->
+  <invoice>
+    <invoiceNumber>INV-2026-00501</invoiceNumber>
+    <status>OPEN</status>
+    <customerNo>C-00042</customerNo>
+    <date>20260425</date>
+    <dueDate>20260525</dueDate>
+    <currency>USD</currency>
+    <amountExcludingTax>3200.00</amountExcludingTax>
+    <taxAmount>0.00</taxAmount>
+    <outstandingAmount>3200.00</outstandingAmount>
+  </invoice>
+
+</invoices>
+```
+{% endcode %}
 
 {% hint style="info" %}
 Colect does not generate invoices. It only displays the invoice data your ERP pushes here. Lifecycle changes (paid, voided, credited) are reflected by re-sending the relevant invoice with an updated `status` and `outstandingAmount`.
