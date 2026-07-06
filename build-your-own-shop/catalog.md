@@ -326,30 +326,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-BKT-CRL.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-BKT-CRL.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-BKT-CRL_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-BKT-CRL_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-BKT-CRL_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-      <medium format="image">
-        <type>back</type>
-        <url>https://assets.atoll-brand.com/ATL-BKT-CRL_back.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-BKT-CRL_back_thumb.jpg</thumbUrl>
-        <sortCode>2</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS27-D1</code>
@@ -667,24 +643,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-BKT-BLK.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-BKT-BLK.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-BKT-BLK_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-BKT-BLK_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-BKT-BLK_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS27-D1</code>
@@ -831,24 +789,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         </stockLevels>
       </size>
     </sizes>
-
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-BKB-CRL.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-BKB-CRL.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-BKB-CRL_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-BKB-CRL_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-BKB-CRL_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-    </media>
 
     <deliveryWindows>
       <deliveryWindow>
@@ -997,24 +937,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-BKB-BLK.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-BKB-BLK.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-BKB-BLK_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-BKB-BLK_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-BKB-BLK_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS27-D1</code>
@@ -1153,30 +1075,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-OPS-SND.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-OPS-SND.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-OPS-SND_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-OPS-SND_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-OPS-SND_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-      <medium format="image">
-        <type>back</type>
-        <url>https://assets.atoll-brand.com/ATL-OPS-SND_back.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-OPS-SND_back_thumb.jpg</thumbUrl>
-        <sortCode>2</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS27-D1</code>
@@ -1306,24 +1204,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
         </stockLevels>
       </size>
     </sizes>
-
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-SHS-NVY.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-SHS-NVY.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-SHS-NVY_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-SHS-NVY_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-SHS-NVY_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-    </media>
 
     <deliveryWindows>
       <deliveryWindow>
@@ -1461,24 +1341,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-SHS-OLV.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-SHS-OLV.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-SHS-OLV_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-SHS-OLV_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-SHS-OLV_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS27-D1</code>
@@ -1609,24 +1471,6 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
       </size>
     </sizes>
 
-    <media>
-      <medium format="image">
-        <type>primary</type>
-        <url>https://images.colect.services/colectdemo_images/ATL-RSG-WHT.png</url>
-        <thumbUrl>https://images.colect.services/colectdemo_images/ATL-RSG-WHT.png</thumbUrl>
-      </medium>
-      <medium format="image">
-        <type>swatch</type>
-        <url>https://assets.atoll-brand.com/ATL-RSG-WHT_swatch.jpg</url>
-      </medium>
-      <medium format="image">
-        <type>model</type>
-        <url>https://assets.atoll-brand.com/ATL-RSG-WHT_model.jpg</url>
-        <thumbUrl>https://assets.atoll-brand.com/ATL-RSG-WHT_model_thumb.jpg</thumbUrl>
-        <sortCode>1</sortCode>
-      </medium>
-    </media>
-
     <deliveryWindows>
       <deliveryWindow>
         <code>SS27-D1</code>
@@ -1695,7 +1539,7 @@ Open your collection and look for the 8 Atoll products. All of them should appea
 ![](<../.gitbook/assets/atoll-catalog-8-products.png>)
 
 {% hint style="info" %}
-The primary image on each product now resolves to a real hosted image (`images.colect.services`). The `swatch`, `model`, and `back` media entries still point at a placeholder domain (`assets.atoll-brand.com`) and will show broken icons — that's expected, only the primary shot exists for this demo.
+No product images in this walkthrough's XML. Most customers manage images through backend settings instead of the `<media>` block — see [Media objects](../documents/products.md#media-objects) if you want the XML-driven alternative.
 {% endhint %}
 
 ***
