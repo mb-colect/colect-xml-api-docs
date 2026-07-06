@@ -8,6 +8,15 @@
 * [Your First Document](getting-started/first-document.md)
 * [Error Handling](getting-started/error-handling.md)
 
+## Build Your Own Shop
+
+* [Overview](build-your-own-shop/overview.md)
+* [The Catalog](build-your-own-shop/catalog.md)
+* [Stock](build-your-own-shop/stock.md)
+* [Matching Sets](build-your-own-shop/relations.md)
+* [Customers & Access](build-your-own-shop/customers.md)
+* [What's Next](build-your-own-shop/next-steps.md)
+
 ## Documents
 
 * [Products](documents/products.md)
