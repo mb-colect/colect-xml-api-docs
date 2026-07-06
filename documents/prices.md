@@ -6,6 +6,10 @@ The **Prices** input document is a sub-feed of [Products](products.md) that cont
 **Example:** `examples/prices.xml` — multi-currency prices with default, price-group, customer-specific, and time-bound promotional entries.
 {% endhint %}
 
+<details>
+
+<summary>Show full prices.xml</summary>
+
 {% code title="prices.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -71,6 +75,8 @@ The **Prices** input document is a sub-feed of [Products](products.md) that cont
 </products>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="warning" %}
 **This document REPLACES all prices** for each included product. Sending a Prices document with two `<price>` elements for product `STYLE-001/BLK` removes any other price entries that product previously had.

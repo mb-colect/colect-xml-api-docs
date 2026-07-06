@@ -6,6 +6,10 @@ The **Invoices** input document pushes invoice data from your ERP into Colect fo
 **Example:** `examples/invoices.xml` — open, paid, and overdue invoices in EUR plus a USD invoice for a different customer.
 {% endhint %}
 
+<details>
+
+<summary>Show full invoices.xml</summary>
+
 {% code title="invoices.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -71,6 +75,8 @@ The **Invoices** input document pushes invoice data from your ERP into Colect fo
 </invoices>
 ```
 {% endcode %}
+
+</details>
 
 {% hint style="info" %}
 Colect does not generate invoices. It only displays the invoice data your ERP pushes here. Lifecycle changes (paid, voided, credited) are reflected by re-sending the relevant invoice with an updated `status` and `outstandingAmount`.

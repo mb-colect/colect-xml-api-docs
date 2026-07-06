@@ -6,6 +6,10 @@ The **Customer Access** input document maps app users (sales reps, agents) to th
 **Example:** `examples/customer-access.xml` — three users with different access patterns: full access on multiple customers, restricted to specific shipping locations, and account-manager spanning all customers.
 {% endhint %}
 
+<details>
+
+<summary>Show full customer-access.xml</summary>
+
 {% code title="customer-access.xml" %}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -66,6 +70,8 @@ The **Customer Access** input document maps app users (sales reps, agents) to th
 </customerAccess>
 ```
 {% endcode %}
+
+</details>
 
 ***
 
