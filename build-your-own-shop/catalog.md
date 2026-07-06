@@ -1692,7 +1692,11 @@ sftp> bye
 
 Open your collection and look for the 8 Atoll products. All of them should appear within a minute — sold out, since there's no stock yet. That's expected; the [next step](stock.md) fixes it.
 
-<!-- screenshot: catalog view showing the 8 products, sold-out state -->
+![](<../.gitbook/assets/atoll-catalog-8-products.png>)
+
+{% hint style="info" %}
+Broken image icons are expected here — the `<media>` URLs in the walkthrough file are placeholders (`assets.atoll-brand.com`), not real hosted images.
+{% endhint %}
 
 ***
 
