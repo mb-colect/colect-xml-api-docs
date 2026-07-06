@@ -377,7 +377,7 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
     <labels>
       <label>
         <text>New</text>
-        <backgroundColor>1a1a2e</backgroundColor>
+        <backgroundColor>FF7F50</backgroundColor>
       </label>
     </labels>
 
@@ -663,7 +663,7 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
     <labels>
       <label>
         <text>New</text>
-        <backgroundColor>1a1a2e</backgroundColor>
+        <backgroundColor>FF7F50</backgroundColor>
       </label>
     </labels>
   </product>
@@ -810,7 +810,7 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
     <labels>
       <label>
         <text>New</text>
-        <backgroundColor>1a1a2e</backgroundColor>
+        <backgroundColor>FF7F50</backgroundColor>
       </label>
     </labels>
   </product>
@@ -1088,7 +1088,7 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
     <labels>
       <label>
         <text>New</text>
-        <backgroundColor>1a1a2e</backgroundColor>
+        <backgroundColor>FF7F50</backgroundColor>
       </label>
     </labels>
   </product>
@@ -1225,7 +1225,7 @@ Create `atoll_products.xml`. This is the full file — sub-sizes on the bikini t
     <labels>
       <label>
         <text>New</text>
-        <backgroundColor>1a1a2e</backgroundColor>
+        <backgroundColor>FF7F50</backgroundColor>
       </label>
     </labels>
   </product>
