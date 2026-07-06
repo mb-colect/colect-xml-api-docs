@@ -22,7 +22,7 @@ Last piece: the people who can actually log in and place orders. This step pushe
 Create `atoll_customers.xml` — 6 boutique retailers across 5 countries, each with a buyer + shop manager contact and a shipping location. Côte Bleue Nice has two shipping locations (its Nice store and a Saint-Tropez location).
 
 {% hint style="success" %}
-Every Atoll product carries `discountGroupCode>SWIM` and `marginGroupCode>STD` (see [The Catalog](catalog.md)), but those codes were never defined until now. `ATL-C001` (Surf & Sun Amsterdam) gets a two-tier volume discount on `SWIM` — 10% at 6+ units, 15% at 12+ — plus a `STD` margin override, matching the [Discount Groups](../documents/customers.md#discount-groups) and [Margin Groups](../documents/customers.md#margin-groups) reference. This is also a live test of `minQuantity`, which [issue #42](https://github.com/mb-colect/colect-xml-api-docs/issues/42) flags as unconfirmed — check the discount actually kicks in at 6 units, not before.
+Every Atoll product carries `discountGroupCode>SWIM` and `marginGroupCode>STD` (see [The Catalog](catalog.md)), but those codes were never defined until now. `ATL-C001` (Surf & Sun Amsterdam) gets a two-tier volume discount on `SWIM` — 10% at 6+ units, 15% at 12+ — plus a `STD` margin override, matching the [Discount Groups](../documents/customers.md#discount-groups) and [Margin Groups](../documents/customers.md#margin-groups) reference. This also live-tested `minQuantity` — see the confirmed results in the verify step below.
 {% endhint %}
 
 <details>
@@ -434,7 +434,21 @@ Log into the Sales App or B2B Webstore as `sophie.martin@atoll-brand.com` — yo
 
 Add Amsterdam (`ATL-C001`) to an order and put any `SWIM` product's quantity at 6 or more — the 10% discount should apply automatically. Below 6, no discount. At 12+, it should step up to 15%.
 
-<!-- screenshot: order line showing the SWIM discount applied at 6+ units -->
+{% hint style="success" %}
+**Confirmed live 2026-07-06** — this resolved [issue #42](https://github.com/mb-colect/colect-xml-api-docs/issues/42): `minQuantity` is the correct attribute name and applies exactly at the threshold.
+{% endhint %}
+
+| Quantity | Promotion | Unit price (WSP) |
+| -------- | --------- | ------------------ |
+| 5        | none      | EUR 39.11           |
+| 6        | 10%       | EUR 35.20           |
+| 12       | 15%       | EUR 33.24           |
+
+![](<../.gitbook/assets/atoll-discount-5-units.png>)
+
+![](<../.gitbook/assets/atoll-discount-6-units.png>)
+
+![](<../.gitbook/assets/atoll-discount-12-units.png>)
 
 ***
 
