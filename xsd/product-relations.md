@@ -2,46 +2,10 @@
 
 Schema for the [Product Relations](../documents/product-relations.md) input document.
 
-{% hint style="warning" %}
-Not yet published at `assets.apptitude.nl` — this is the local snapshot copy. See [#12](https://github.com/mb-colect/colect-xml-api-docs/issues/12).
+{% hint style="danger" %}
+**Not published.** This schema isn't live at `assets.apptitude.nl` yet — see [#12](https://github.com/mb-colect/colect-xml-api-docs/issues/12). The only copy we had was a 2026-05-06 local snapshot declaring `<productRelation>`'s fields with `<xs:all>` (any order allowed); it's been removed from this repo since nothing linked to it directly anymore (#58).
+
+That snapshot's `<xs:all>` claim is unverified: the SOAP API's equivalent type, `xProductRelation30`, has the same field set but declares them with `<xs:sequence>`, implying order-sensitivity. Don't rely on either schema for the XML import format — see the [XSD Reference](overview.md) for why neither host is authoritative without live testing.
 {% endhint %}
 
-### Fragment
-
-```xml
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-
-    <!-- Root element -->
-    <xs:element name="productRelations">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="productRelation" type="productRelationType" minOccurs="0" maxOccurs="unbounded"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
-
-    <!-- productRelation complex type -->
-    <xs:complexType name="productRelationType">
-        <xs:all>
-            <xs:element name="groupCode" type="xs:string" minOccurs="0"/>
-            <xs:element name="sourceProductUniqueId" type="xs:string" minOccurs="0"/>
-            <xs:element name="sourceProductColorCode" type="xs:string" minOccurs="0"/>
-            <xs:element name="targetProductUniqueId" type="xs:string" minOccurs="0"/>
-            <xs:element name="targetProductColorCode" type="xs:string" minOccurs="0"/>
-            <xs:element name="type" type="relationTypeEnum" minOccurs="0"/>
-            <xs:element name="groupDescription" type="xs:string" minOccurs="0"/>
-        </xs:all>
-    </xs:complexType>
-
-    <!-- Enumeration of relation types -->
-    <xs:simpleType name="relationTypeEnum">
-        <xs:restriction base="xs:string">
-            <xs:enumeration value="SUCCESSOR"/>
-            <xs:enumeration value="MATCHING_SET"/>
-        </xs:restriction>
-    </xs:simpleType>
-
-</xs:schema>
-```
-
-This document's schema is short enough to show in full — no truncation above. `SUCCESSOR` / `MATCHING_SET` match the `type` values used in the document's live-tested examples.
+Until this schema is published and field order is live-tested, follow the order shown in the [Product Relations](../documents/product-relations.md) examples.
