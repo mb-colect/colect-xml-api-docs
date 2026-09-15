@@ -609,6 +609,7 @@ Free-form, optionally grouped attributes that surface in the app for things the 
 
     <sizes>
       <size>
+        <!-- Regular, single-unit size -->
         <name>M</name>
         <sortCode>2</sortCode>
         <prePackUnitCount>1</prePackUnitCount>
@@ -619,6 +620,39 @@ Free-form, optionally grouped attributes that surface in the app for things the 
             <quantity>150</quantity>
           </stockLevel>
         </stockLevels>
+      </size>
+      <size>
+        <!-- Prepack SKU: one sealed box containing an assortment of sizes -->
+        <name>PPK-ASSORT</name>
+        <sortCode>9</sortCode>
+        <prePackUnitCount>8</prePackUnitCount>
+        <eanCode>8712345678933</eanCode>
+        <stockLevels>
+          <stockLevel>
+            <startDate>19800101</startDate>
+            <quantity>20</quantity>
+          </stockLevel>
+        </stockLevels>
+        <prepackDefinition>
+          <prepackContentElement>
+            <count>2</count>
+            <sizeName>S</sizeName>
+            <sizeSortCode>1</sizeSortCode>
+            <eanCode>8712345678896</eanCode>
+          </prepackContentElement>
+          <prepackContentElement>
+            <count>4</count>
+            <sizeName>M</sizeName>
+            <sizeSortCode>2</sizeSortCode>
+            <eanCode>8712345678902</eanCode>
+          </prepackContentElement>
+          <prepackContentElement>
+            <count>2</count>
+            <sizeName>L</sizeName>
+            <sizeSortCode>3</sizeSortCode>
+            <eanCode>8712345678919</eanCode>
+          </prepackContentElement>
+        </prepackDefinition>
       </size>
     </sizes>
 
@@ -642,6 +676,20 @@ Free-form, optionally grouped attributes that surface in the app for things the 
   </product>
 </products>
 ```
+
+`prePackUnitCount` is the total number of pieces in that SKU. Set it to `1` for a regular, single-unit size, as in `M` above. Set it to the box total for a prepack, `8` in the `PPK-ASSORT` example, where the box holds 2 pieces of S, 4 of M, and 2 of L.
+
+Add a `prepackDefinition` element to a prepack size to describe what's inside the box. It holds one `prepackContentElement` for each size the box contains.
+
+| Element name | Description | Mandatory |
+|---|---|---|
+| `count` | The number of pieces of this size that are in the prepack | YES |
+| `sizeName` | The name of the size | YES |
+| `sizeSortCode` | Sort code for this size within the prepack contents | YES |
+| `subSizeName` | The sub-size name, for products with two-part sizing (for example, waist/length) | NO |
+| `subSizeSortCode` | Sort code for the sub-size | NO |
+| `eanCode` | The EAN or SKU-level barcode for this size | NO |
+| `customField` | Optional value, included in the order XML as `sizeCustomField` | NO |
 
 ***
 
