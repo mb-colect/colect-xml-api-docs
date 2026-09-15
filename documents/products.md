@@ -15,8 +15,9 @@ The **Products** input document is the master record of your catalog in Colect. 
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Products input document — comprehensive example.
-  Shows two products, each with multiple sizes, prices (default + price-group + customer-specific),
-  stock levels (current + future), delivery windows, and extra fields.
+  Shows three products: two color variants of a t-shirt with multiple sizes, prices
+  (default + price-group + customer-specific), stock levels (current + future), delivery
+  windows, and extra fields — plus a third product demonstrating a prepack box.
   Validates against https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd
 -->
 <products>
