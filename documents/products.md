@@ -503,11 +503,10 @@ If the size is a prepack box, define its contents in `<prepackDefinition>`:
 | -------------------- | ---------- | --------- | -------------------------------------------------------------------------- |
 | `count`              | `int`      | **YES**   | Number of pieces of this size/sub-size in the prepack.                     |
 | `sizeName`           | `string`   | **YES**   | The size name.                                                              |
-| `sortCode`           | `int`      | **YES**   | Numeric sort code.                                                          |
+| `sizeSortCode`       | `int`      | **YES**   | Sort code for this size within the prepack contents.                       |
 | `subSizeName`        | `string`   | NO        | Sub-size name.                                                              |
 | `subSizeSortCode`    | `int`      | NO        | Sub-size sort code.                                                         |
 | `eanCode`            | `string`   | NO        | EAN code at sub-element level.                                              |
-| `prePackUnitCount`   | `int`      | **YES**   | Total pieces in this SKU.                                                   |
 | `customField`        | `string`   | NO        | Optional field surfaced on the order XML as `sizeCustomField`.             |
 
 ### Customer size naming
