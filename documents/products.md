@@ -15,8 +15,9 @@ The **Products** input document is the master record of your catalog in Colect. 
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   Products input document — comprehensive example.
-  Shows two products, each with multiple sizes, prices (default + price-group + customer-specific),
-  stock levels (current + future), delivery windows, and extra fields.
+  Shows three products: two color variants of a t-shirt with multiple sizes, prices
+  (default + price-group + customer-specific), stock levels (current + future), delivery
+  windows, and extra fields — plus a third product demonstrating a prepack box.
   Validates against https://assets.apptitude.nl/Documentation/Product_Feed_XSD.xsd
 -->
 <products>
@@ -502,11 +503,10 @@ If the size is a prepack box, define its contents in `<prepackDefinition>`:
 | -------------------- | ---------- | --------- | -------------------------------------------------------------------------- |
 | `count`              | `int`      | **YES**   | Number of pieces of this size/sub-size in the prepack.                     |
 | `sizeName`           | `string`   | **YES**   | The size name.                                                              |
-| `sortCode`           | `int`      | **YES**   | Numeric sort code.                                                          |
+| `sizeSortCode`       | `int`      | **YES**   | Sort code for this size within the prepack contents.                       |
 | `subSizeName`        | `string`   | NO        | Sub-size name.                                                              |
 | `subSizeSortCode`    | `int`      | NO        | Sub-size sort code.                                                         |
 | `eanCode`            | `string`   | NO        | EAN code at sub-element level.                                              |
-| `prePackUnitCount`   | `int`      | **YES**   | Total pieces in this SKU.                                                   |
 | `customField`        | `string`   | NO        | Optional field surfaced on the order XML as `sizeCustomField`.             |
 
 ### Customer size naming
