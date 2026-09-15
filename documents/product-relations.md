@@ -21,7 +21,7 @@ The **Product Relations** input document declares relationships between products
   Source: 0102810/STB (e.g. blazer)
   Targets: 0521510/STB (trousers), 0521513/STB (skirt), 0621630/STB (top)
 
-  Validates against .gitbook/assets/ProductRelations_Feed_XSD.xsd
+  No published XSD to validate against yet (#12).
 -->
 <productRelations>
 
@@ -103,7 +103,7 @@ The **Product Relations** input document declares relationships between products
   Product Relations input document — Successor example.
   Three FW24 styles being replaced by their SS25 equivalents.
 
-  Validates against .gitbook/assets/ProductRelations_Feed_XSD.xsd
+  No published XSD to validate against yet (#12).
 -->
 <productRelations>
 
@@ -289,6 +289,6 @@ For a matching set of N items, build the cross-product if every member should re
 **Removing a relation:** Send a Product Relations document that omits it. The full-set sync model removes any relation not present in the latest document.
 {% endhint %}
 
-{% hint style="info" %}
-**`<xs:all>` ordering:** The XSD allows the inner elements of `<productRelation>` to appear in any order. Pick a stable order in your ERP exports for predictable diffs between snapshots.
+{% hint style="warning" %}
+**Element order:** This document's XSD isn't published yet (see [#12](https://github.com/mb-colect/colect-xml-api-docs/issues/12)), so field ordering hasn't been confirmed. Follow the field order shown in the examples above until this is live-tested.
 {% endhint %}
