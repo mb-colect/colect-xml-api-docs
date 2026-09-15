@@ -152,6 +152,7 @@ Size information including stock and EAN codes.
 | Field  | Type   | Description                   |
 | ------ | ------ | ----------------------------- |
 | `name` | String | Size name (S, M, L, 38, etc.) |
+| `prePackUnitCount` | Integer | Total number of pieces in this SKU (box). `1` for a single item; the total piece count for a prepack box (multiple items of the same price, different size configurations allowed). |
 
 ### Optional Fields
 
@@ -161,7 +162,6 @@ Size information including stock and EAN codes.
 | `subSizeName`           | String   | Sub-size name (e.g., length for jeans: 32/34 where 32 is size and 34 is sub-size)                                |
 | `subSizeSortCode`       | Integer  | Secondary sort order for sub-sizes                                                                               |
 | `eanCode`               | String   | EAN or SKU level barcode                                                                                         |
-| `prePackUnitCount`      | Integer  | Total pieces in SKU/box. Value is 1 for single sizes (default if empty).                                         |
 | `replenishmentDate`     | DateTime | Date when size will be back in stock                                                                             |
 | `orderRoundingQuantity` | Integer  | Ordering is only allowed for multiples of this quantity                                                          |
 | `customField`           | String   | Custom information field                                                                                         |
