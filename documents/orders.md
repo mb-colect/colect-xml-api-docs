@@ -77,10 +77,10 @@ The **Orders** output document is the single document Colect produces *for* your
         <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <sizeName>M</sizeName>
+        <productSize>M</productSize>
         <productSeason>SS25</productSeason>
         <eanCode>8712345678902</eanCode>
-        <numberOfPieces>25</numberOfPieces>
+        <quantity>25</quantity>
         <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>15</discountPercentage>
         <discountGroupCode>VOL</discountGroupCode>
@@ -88,7 +88,7 @@ The **Orders** output document is the single document Colect produces *for* your
         <discountGroupIdentifier>vol.25</discountGroupIdentifier>
         <netWholesalePrice>19.13</netWholesalePrice>
         <grossWholesalePrice>23.15</grossWholesalePrice>
-        <lineAmount>478.13</lineAmount>
+        <totalAmount>478.13</totalAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
 
@@ -96,17 +96,17 @@ The **Orders** output document is the single document Colect produces *for* your
         <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <sizeName>L</sizeName>
+        <productSize>L</productSize>
         <productSeason>SS25</productSeason>
         <eanCode>8712345678903</eanCode>
-        <numberOfPieces>15</numberOfPieces>
+        <quantity>15</quantity>
         <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>10</discountPercentage>
         <discountGroupCode>VOL</discountGroupCode>
         <discountFromDiscountGroup>2.25</discountFromDiscountGroup>
         <discountGroupIdentifier>vol.10</discountGroupIdentifier>
         <netWholesalePrice>20.25</netWholesalePrice>
-        <lineAmount>303.75</lineAmount>
+        <totalAmount>303.75</totalAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
 
@@ -114,17 +114,17 @@ The **Orders** output document is the single document Colect produces *for* your
         <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>WHT</productColorCode>
-        <sizeName>M</sizeName>
+        <productSize>M</productSize>
         <productSeason>SS25</productSeason>
         <eanCode>8712345678912</eanCode>
-        <numberOfPieces>10</numberOfPieces>
+        <quantity>10</quantity>
         <wholesalePrice>22.50</wholesalePrice>
         <discountPercentage>5</discountPercentage>
         <discountGroupCode>*</discountGroupCode>
         <discountFromDiscountGroup>1.13</discountFromDiscountGroup>
         <discountGroupIdentifier>all</discountGroupIdentifier>
         <netWholesalePrice>21.38</netWholesalePrice>
-        <lineAmount>213.75</lineAmount>
+        <totalAmount>213.75</totalAmount>
         <deliveryDate>20260601</deliveryDate>
       </orderLine>
     </orderLines>
@@ -152,9 +152,9 @@ The **Orders** output document is the single document Colect produces *for* your
         <type>STOCK_ORDER</type>
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
-        <sizeName>M</sizeName>
+        <productSize>M</productSize>
         <eanCode>8712345678902</eanCode>
-        <numberOfPieces>25</numberOfPieces>
+        <quantity>25</quantity>
         <wholesalePrice>22.50</wholesalePrice>
       </orderLine>
     </orderLines>
@@ -297,7 +297,7 @@ Any custom choices the user picked at order entry. The `code` echoes back what w
 | `productSize`                 | `string`   | Size name.                                                                                                             |
 | `productSubSize`              | `string`   | Sub-size name.                                                                                                         |
 | `sizeCustomField`             | `string`   | Custom field defined on the size (passed through from products).                                                       |
-| `productSeasonCode`           | `string`   | Season code at order time.                                                                                             |
+| `productSeason`               | `string`   | Season code at order time.                                                                                             |
 | `productUserDefinedField1`    | `string`   | `userDefinedField1` snapshot.                                                                                          |
 | `productUserDefinedField2`    | `string`   | `userDefinedField2` snapshot.                                                                                          |
 | `deliverySubBlock`            | `string`   | (Legacy) Delivery sub-block code. Use `deliveryDate` going forward.                                                    |
@@ -392,7 +392,7 @@ When an order-level delivery cost rule fires, Colect echoes the full rule back o
         <productUniqueId>STYLE-001</productUniqueId>
         <productColorCode>BLK</productColorCode>
         <productSize>M</productSize>
-        <productSeasonCode>SS25</productSeasonCode>
+        <productSeason>SS25</productSeason>
         <eanCode>8712345678902</eanCode>
         <quantity>25</quantity>
         <price>22.50</price>
