@@ -223,7 +223,7 @@ Rules for order-level discounts or shipping charges.
 | `description` | String | **Yes** | Display description |
 | `warning` | String | No | Warning message |
 | `group` | String | No | Rule group |
-| `exclusive` | Boolean | **Yes** | Only one rule in group applies |
+| `exclusive` | Boolean | No | Only one rule in group applies |
 | `minimumQuantity` | Integer | No | Minimum order quantity |
 | `minimumOrderAmount` | Float | No | Minimum order value |
 | `startDate` | DateTime | No | Rule start date |
