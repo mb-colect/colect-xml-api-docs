@@ -206,7 +206,7 @@ The combination of `code` + `sizeName` + `subSizeName` must be unique inside a s
         <eanCode>8712345678901</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>100</quantity>
           </stockLevel>
         </stockLevels>
@@ -218,12 +218,12 @@ The combination of `code` + `sizeName` + `subSizeName` must be unique inside a s
         <eanCode>8712345678902</eanCode>
         <stockLevels>
           <stockLevel>
-            <startDate>1980-01-01</startDate>
+            <startDate>19800101</startDate>
             <quantity>150</quantity>
           </stockLevel>
           <stockLevel>
             <!-- Future restock -->
-            <startDate>2026-06-01</startDate>
+            <startDate>20260601</startDate>
             <quantity>500</quantity>
           </stockLevel>
         </stockLevels>
