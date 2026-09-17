@@ -219,7 +219,7 @@ Product pricing with currency and customer group support.
 | `originalWholesalePrice` | Float   | No       | Original wholesale price (shown when discounted)                             |
 | `originalRetailPrice`    | Float   | No       | Original retail price (shown when discounted)                                |
 | `purchasePrice`          | Float   | No       | Purchase/cost price per unit                                                 |
-| `net`                    | Boolean | **Yes**  | Net price flag. When `true`, customer discounts and margins are NOT applied. |
+| `net`                    | Boolean | No       | Net price flag. When `true`, customer discounts and margins are NOT applied. |
 
 ### Validity Period
 
@@ -409,7 +409,7 @@ Custom display fields for additional product information.
 | `group`        | String                                                             | No       | Group name for collapsible organization (products only, not customers) |
 | `imageUrl`     | String                                                             | No       | Icon URL displayed next to group header                                |
 | `linkUrl`      | String                                                             | No       | Makes the field value a clickable link                                 |
-| `important`    | Boolean                                                            | **Yes**  | When `true`, field is prominently displayed                            |
+| `important`    | Boolean                                                            | No       | When `true`, field is prominently displayed                            |
 | `visible`      | Boolean                                                            | No       | When `false`, field is hidden (default: true)                          |
 | `translations` | List<[Extra Field Translation](products.md#extra-field-translation)> | No       | Translations for description and value (XML: `<translations><translation language="xx">`) |
 
