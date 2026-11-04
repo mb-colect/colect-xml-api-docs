@@ -1,4 +1,4 @@
-# Approval Groups
+# Approvals
 
 The **Approval Groups** feature lets you tag products as belonging to a named approval group. When a customer whose account is configured for approvals places an order containing tagged products, the order is held for manager sign-off before it is finalised.
 
@@ -12,6 +12,7 @@ Approval Groups is a **business logic feature**, not an API document. The approv
 
 Products tagged with an `approvalGroupCode` are routed through a configurable approval step before their order is confirmed. The group code links a product to a backend workflow — Colect matches incoming orders against the configured rules and holds any order line that contains a product from an approval-required group.
 
+{% code collapsedlinecount="10" %}
 ```
    Order submitted
         │
@@ -25,6 +26,7 @@ Products tagged with an `approvalGroupCode` are routed through a configurable ap
    immediately                         → manager notified
                                        → confirmed or rejected
 ```
+{% endcode %}
 
 ***
 
@@ -32,15 +34,16 @@ Products tagged with an `approvalGroupCode` are routed through a configurable ap
 
 The two approval fields are optional attributes on `<product>` in the Products document:
 
-| Field | XML element | Description |
-| ----- | ----------- | ----------- |
+| Field               | XML element           | Description                                                                                 |
+| ------------------- | --------------------- | ------------------------------------------------------------------------------------------- |
 | `approvalGroupCode` | `<approvalGroupCode>` | Code identifying the approval group. Must match the group configured in the Colect backend. |
-| `approvalGroupDesc` | `<approvalGroupDesc>` | Human-readable description of the group — displayed to the manager reviewing the order. |
+| `approvalGroupDesc` | `<approvalGroupDesc>` | Human-readable description of the group — displayed to the manager reviewing the order.     |
 
 ***
 
 ## Example
 
+{% code collapsedlinecount="10" %}
 ```xml
 <product>
   <uniqueId>STYLE-002</uniqueId>
@@ -51,6 +54,7 @@ The two approval fields are optional attributes on `<product>` in the Products d
   <approvalGroupDesc>High-value items requiring manager approval</approvalGroupDesc>
 </product>
 ```
+{% endcode %}
 
 {% hint style="info" %}
 Both fields are optional — products without an `approvalGroupCode` pass through the normal order flow without any approval step.
@@ -75,4 +79,4 @@ Group codes are matched exactly and are case-sensitive. A product with `approval
 ## Related
 
 * [Products document](../documents/products.md) — where `<approvalGroupCode>` is pushed alongside all other product data.
-* [Product Types](../data-types/products.md#xproduct) — field-level reference showing `approvalGroupCode` and `approvalGroupDesc` in context.
+* [Product Types](../data-types/products.md#product) — field-level reference showing `approvalGroupCode` and `approvalGroupDesc` in context.
