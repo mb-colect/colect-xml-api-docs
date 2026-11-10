@@ -93,7 +93,7 @@ Documents move between your ERP and Colect over a file-transfer channel. The def
 | [Extra Fields](documents/extra-fields.md)                        | Product extra fields (sub-feed)             | —                                                                                        |
 | [Invoices](documents/invoices.md)                                | Invoice list                                | —                                                                                        |
 | [Historical Orders](documents/historical-orders.md)              | Historical orders                           | Order Lines, Shipping Locations                                                          |
-| [Order Discount & Delivery Cost Rules](documents/order-rules.md) | Order-level rules                           | —                                                                                        |
+| [Order Discount & Delivery Cost Rules](documents/order-rules.md) | Order-level rules (sent inside Customers)   | —                                                                                        |
 
 ### Output documents (Colect → ERP)
 

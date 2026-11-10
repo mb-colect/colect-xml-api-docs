@@ -14,7 +14,7 @@ The Atoll dataset intentionally left some things out to keep each step short. Th
 | Extra fields (materials, care, etc.) | [Extra Fields](../documents/extra-fields.md)                   |
 | Invoices                  | [Invoices](../documents/invoices.md)                                      |
 | Historical orders         | [Historical Orders](../documents/historical-orders.md)                    |
-| Collection-wide discount/delivery rules | [Order Discount & Delivery Cost Rules](../documents/order-rules.md) |
+| Order-level discount/delivery rules (per customer) | [Order Discount & Delivery Cost Rules](../documents/order-rules.md) |
 | Product access restrictions | [Product Access](../documents/product-access.md)                        |
 
 ***
