@@ -326,7 +326,7 @@ When an order-level delivery cost rule fires, Colect echoes the full rule back o
 
 | Element              | Type       | Description                                                                                    |
 | -------------------- | ---------- | ---------------------------------------------------------------------------------------------- |
-| `identification`     | `string`   | The rule's `identification` code (matches the rule defined on the customer or collection).     |
+| `identification`     | `string`   | The rule's `identification` code (matches the rule defined on the customer).                   |
 | `description`        | `string`   | Display description of the rule.                                                               |
 | `warning`            | `string`   | Warning message, if the rule has one.                                                          |
 | `group`              | `string`   | Rule group.                                                                                    |
